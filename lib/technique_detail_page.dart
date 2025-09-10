@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:junbi/strings.dart';
 
 class TechniqueDetailPage extends StatefulWidget {
@@ -15,22 +16,54 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   late Timer _timer;
   bool _showStartImage = false;
 
+  late AudioPlayer _audioPlayer;
+  bool _isPlaying = false;
+
   @override
   void initState() {
     super.initState();
 
-    // Start a timer that flips the image every second
+    // Timer for switching images every second
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _showStartImage = !_showStartImage;
+      });
+    });
+
+    // Audio player setup
+    _audioPlayer = AudioPlayer();
+    _audioPlayer.onPlayerComplete.listen((event) {
+      setState(() {
+        _isPlaying = false;
       });
     });
   }
 
   @override
   void dispose() {
-    _timer.cancel(); // stop the timer when page is closed
+    _timer.cancel();
+    _audioPlayer.dispose();
     super.dispose();
+  }
+
+  void _toggleAudio() async {
+    if (!_isPlaying) {
+      try {
+        await _audioPlayer.play(AssetSource('assets/audio/${widget.techniqueKey}.mp3'));
+        setState(() {
+          _isPlaying = true;
+        });
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Audio not available:')),
+        );
+      }
+    } else {
+      await _audioPlayer.stop();
+      setState(() {
+        _isPlaying = false;
+      });
+    }
   }
 
   @override
@@ -42,7 +75,6 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     final germanName = info?[2] ?? "";
     final explanation = info?[4] ?? "No explanation available.";
 
-    // Select which image to show
     final imagePath = _showStartImage
         ? 'assets/images/${widget.techniqueKey}_start.png'
         : 'assets/images/${widget.techniqueKey}.png';
@@ -64,9 +96,9 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-        
+
                 const SizedBox(height: 8),
-        
+
                 // Hangul name
                 if (hangulName.isNotEmpty)
                   Text(
@@ -76,10 +108,10 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-        
+
                 const SizedBox(height: 12),
-        
-                // Explanation
+
+                // German name
                 SizedBox(
                   width: 315,
                   child: Text(
@@ -88,10 +120,19 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-        
+
+                const SizedBox(height: 16),
+
+                // Audio play/pause button
+                ElevatedButton.icon(
+                  onPressed: _toggleAudio,
+                  icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                  label: Text(_isPlaying ? 'Anhören' : 'Anhören'),
+                ),
+
                 const SizedBox(height: 50),
-        
-                // Technique image (switching every second)
+
+                // Technique image (switching)
                 SizedBox(
                   width: 200,
                   height: 200,
@@ -103,8 +144,9 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                     },
                   ),
                 ),
-                                const SizedBox(height: 12),
-        
+
+                const SizedBox(height: 12),
+
                 // Explanation
                 SizedBox(
                   width: 315,
