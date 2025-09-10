@@ -5,6 +5,8 @@ class TechniquesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    var theme = Theme.of(context);
     // Example technique categories
     final List<String> techniqueCategories = [
       'Punches',
@@ -52,7 +54,7 @@ class TechniquesPage extends StatelessWidget {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(66, 109, 70, 70),
+                        
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
@@ -62,7 +64,7 @@ class TechniquesPage extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            
                           ),
                         ),
                       ),

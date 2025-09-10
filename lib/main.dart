@@ -10,20 +10,33 @@ import 'hangul_page.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(const JunbiApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class JunbiApp extends StatelessWidget {
+  const JunbiApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Junbi App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(66, 0, 0, 0)),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 53, 53, 53),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.grey[800],
+          onPrimary: const Color.fromARGB(255, 0, 0, 0), // text/icon color on AppBar, buttons, etc.
+          onSurface: const Color.fromARGB(255, 0, 0, 0), // default text color on background
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.white,
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Color.fromARGB(255, 235, 235, 235)),
+          bodyMedium: TextStyle(color: Color.fromARGB(255, 235, 235, 235)),
+          bodySmall: TextStyle(color: Color.fromARGB(255, 235, 235, 235)),
+        ),
       ),
       home: const JunbiHomePage(),
     );
@@ -48,6 +61,7 @@ class JunbiHomePage extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Title
               Text(
@@ -79,59 +93,62 @@ class JunbiHomePage extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Buttons
-              SizedBox(
-                width: 266,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () => navigateTo(HyeongPage()),
-                      child: const Text(
-                        'Hyeong (형)',
-                        style: TextStyle(fontSize: 24),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SizedBox(
+                  width: 266,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => navigateTo(HyeongPage()),
+                        child: const Text(
+                          'Hyeong (형)',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () => navigateTo(TechniquesPage()),
-                      child: const Text(
-                        'Begriffe',
-                        style: TextStyle(fontSize: 24),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => navigateTo(TechniquesPage()),
+                        child: const Text(
+                          'Begriffe',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () => navigateTo(StatisticsPage()),
-                      child: const Text(
-                        'Statistik',
-                        style: TextStyle(fontSize: 24),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => navigateTo(StatisticsPage()),
+                        child: const Text(
+                          'Statistik',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () => navigateTo(MotschgerBoxPage()),
-                      child: const Text(
-                        'Motschger Box',
-                        style: TextStyle(fontSize: 24),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => navigateTo(MotschgerBoxPage()),
+                        child: const Text(
+                          'Motschger Box',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () => navigateTo(QuizPage()),
-                      child: const Text(
-                        'Quiz',
-                        style: TextStyle(fontSize: 24),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => navigateTo(QuizPage()),
+                        child: const Text(
+                          'Quiz',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () => navigateTo(HangulPage()),
-                      child: const Text(
-                        '한글',
-                        style: TextStyle(fontSize: 24),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => navigateTo(HangulPage()),
+                        child: const Text(
+                          '한글',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
