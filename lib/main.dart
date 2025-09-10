@@ -24,7 +24,7 @@ class JunbiApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 53, 53, 53),
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: Colors.grey[800],
+          primary: const Color.fromARGB(255, 35, 35, 35),
           onPrimary: const Color.fromARGB(255, 0, 0, 0), // text/icon color on AppBar, buttons, etc.
           onSurface: const Color.fromARGB(255, 0, 0, 0), // default text color on background
         ),

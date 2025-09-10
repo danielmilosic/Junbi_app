@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/strings.dart';
+import 'package:junbi/technique_detail_page.dart'; // <-- import your detail page
 
 class HyeongDetailPage extends StatelessWidget {
   final String title;
@@ -21,8 +22,6 @@ class HyeongDetailPage extends StatelessWidget {
     required this.techniques,
   });
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,28 +33,43 @@ class HyeongDetailPage extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Column(
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 8),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      hangulTitle,
-                      style: const TextStyle(fontSize: 12),
+                    // Left (Hangul)
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          hangulTitle,
+                          style: const TextStyle(fontSize: 24),
+                        ),
+                      ),
                     ),
+
+                    // Center (Title)
                     Text(
-                      hanjaTitle,
-                      style: const TextStyle(fontSize: 12),
+                      title,
+                      style: const TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+
+                    // Right (Hanja)
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          hanjaTitle,
+                          style: const TextStyle(fontSize: 24),
+                        ),
+                      ),
                     ),
                   ],
                 ),
+
+
                 const SizedBox(height: 12),
                 Text(
                   "Bewegungen: $movements",
@@ -97,7 +111,7 @@ class HyeongDetailPage extends StatelessWidget {
 
                     // Techniques list
                     const Text(
-                      "Techniques:",
+                      "Techniken:",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -112,64 +126,81 @@ class HyeongDetailPage extends StatelessWidget {
                       itemCount: techniques.length,
                       itemBuilder: (context, index) {
                         final techniqueKey = techniques[index];
-                        final info = AppStrings.techniqueInformation[techniqueKey];
+                        final info =
+                            AppStrings.techniqueInformation[techniqueKey];
 
                         final displayName = info?[0] ?? techniqueKey; // Romanized
                         final hangulName = info?[1] ?? ""; // Hangul
-                        final techniqueImagePath = 'assets/images/$techniqueKey.png';
+                        final techniqueImagePath =
+                            'assets/images/$techniqueKey.png';
 
-                        return Card(
-                          color: Colors.black,
-                          margin: const EdgeInsets.symmetric(vertical: 6),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                // Names (left side)
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        displayName,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      if (hangulName.isNotEmpty)
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    TechniqueDetailPage(techniqueKey: techniqueKey),
+                              ),
+                            );
+                          },
+                          child: Card(
+                            color: Colors.black,
+                            margin: const EdgeInsets.symmetric(vertical: 6),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  // Names (left side)
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
                                         Text(
-                                          hangulName,
+                                          displayName,
                                           style: const TextStyle(
-                                            fontSize: 14,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
                                             color: Colors.white,
                                           ),
                                         ),
-                                    ],
+                                        if (hangulName.isNotEmpty)
+                                          Text(
+                                            hangulName,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                      ],
+                                    ),
                                   ),
-                                ),
 
-                                // Image (right side)
-                                SizedBox(
-                                  height: 50,
-                                  width: 50,
-                                  child: Image.asset(
-                                    techniqueImagePath,
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return const Icon(Icons.image_not_supported, size: 40);
-                                    },
+                                  // Image (right side)
+                                  SizedBox(
+                                    height: 80,
+                                    width: 80,
+                                    child: Image.asset(
+                                      techniqueImagePath,
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                        return const Icon(
+                                          Icons.image_not_supported,
+                                          size: 40,
+                                          color: Colors.white,
+                                        );
+                                      },
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         );
                       },
                     )
-
-
                   ],
                 ),
               ),
