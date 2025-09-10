@@ -26,7 +26,7 @@ class HyeongPage extends StatelessWidget {
             const SizedBox(
               width: 289,
               child: Text(
-                'Hier kommt die Erklärung für Hyeong (z.B. aus strings.dart)',
+                AppStrings.hyeong_explanation,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -45,7 +45,7 @@ class HyeongPage extends StatelessWidget {
                   final movements = int.parse(parts[4].trim());
                   final hyeongNumber = index+1;
                   final imagePath = "assets/images/hyeong" + hyeongNumber.toString() +  "_diagram.png";
-                  final techniques = AppStrings.techniqueNames["techniqueNames_$hyeongNumber"] ?? [];
+                  final techniques = AppStrings.HyeongTechniqueLists["techniqueNames_$hyeongNumber"] ?? [];
 
                   return Card(
                     color: Colors.black,          // card background

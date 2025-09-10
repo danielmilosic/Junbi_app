@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:junbi/strings.dart';
 
 class HyeongDetailPage extends StatelessWidget {
   final String title;
@@ -25,10 +26,6 @@ class HyeongDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        centerTitle: true,
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -61,7 +58,7 @@ class HyeongDetailPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  "Movements: $movements",
+                  "Bewegungen: $movements",
                   style: const TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
@@ -88,10 +85,12 @@ class HyeongDetailPage extends StatelessWidget {
                     const SizedBox(height: 12),
 
                     // Diagram image
-                    Image.asset(
-                      imagePath,
-                      height: 160,
-                      fit: BoxFit.cover,
+                    Center(
+                      child: Image.asset(
+                        imagePath,
+                        height: 160,
+                        fit: BoxFit.cover,
+                      ),
                     ),
 
                     const SizedBox(height: 12),
@@ -112,12 +111,65 @@ class HyeongDetailPage extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: techniques.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: const Icon(Icons.fitness_center),
-                          title: Text(techniques[index]),
+                        final techniqueKey = techniques[index];
+                        final info = AppStrings.techniqueInformation[techniqueKey];
+
+                        final displayName = info?[0] ?? techniqueKey; // Romanized
+                        final hangulName = info?[1] ?? ""; // Hangul
+                        final techniqueImagePath = 'assets/images/$techniqueKey.png';
+
+                        return Card(
+                          color: Colors.black,
+                          margin: const EdgeInsets.symmetric(vertical: 6),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                // Names (left side)
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        displayName,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      if (hangulName.isNotEmpty)
+                                        Text(
+                                          hangulName,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+
+                                // Image (right side)
+                                SizedBox(
+                                  height: 50,
+                                  width: 50,
+                                  child: Image.asset(
+                                    techniqueImagePath,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return const Icon(Icons.image_not_supported, size: 40);
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
-                    ),
+                    )
+
+
                   ],
                 ),
               ),
