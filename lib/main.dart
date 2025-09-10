@@ -6,7 +6,7 @@ import 'statistics_page.dart';
 import 'motschger_box_page.dart';
 import 'quiz_page.dart';
 import 'hangul_page.dart';
-
+import 'strings.dart';
 
 
 void main() {
@@ -28,14 +28,18 @@ class JunbiApp extends StatelessWidget {
           onPrimary: const Color.fromARGB(255, 0, 0, 0), // text/icon color on AppBar, buttons, etc.
           onSurface: const Color.fromARGB(255, 0, 0, 0), // default text color on background
         ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.white,
-        ),
+
+
         textTheme: const TextTheme(
           bodyLarge: TextStyle(color: Color.fromARGB(255, 235, 235, 235)),
           bodyMedium: TextStyle(color: Color.fromARGB(255, 235, 235, 235)),
           bodySmall: TextStyle(color: Color.fromARGB(255, 235, 235, 235)),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.white, // text/icon color
+          ),
         ),
       ),
       home: const JunbiHomePage(),
@@ -84,8 +88,7 @@ class JunbiHomePage extends StatelessWidget {
 
               // Intro text
               const SizedBox(height: 16),
-              const Text(
-                'Willkommen bei Junbi, die App für traditionelles Taekwondo.',
+              const Text(AppStrings.junbi_introduction_german,
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),

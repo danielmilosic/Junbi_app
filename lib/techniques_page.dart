@@ -6,7 +6,6 @@ class TechniquesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    var theme = Theme.of(context);
     // Example technique categories
     final List<String> techniqueCategories = [
       'Punches',
