@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+//other pages here
+import 'hyeong_page.dart';
+import 'techniques_page.dart';
+import 'statistics_page.dart';
+import 'motschger_box_page.dart';
+import 'quiz_page.dart';
+import 'hangul_page.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +35,13 @@ class JunbiHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void navigateTo(Widget page) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => page),
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -64,12 +80,12 @@ class JunbiHomePage extends StatelessWidget {
 
               // Buttons
               SizedBox(
-                width: 266, // matches your LinearLayout width
+                width: 266,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => navigateTo(HyeongPage()),
                       child: const Text(
                         'Hyeong (형)',
                         style: TextStyle(fontSize: 24),
@@ -77,7 +93,7 @@ class JunbiHomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => navigateTo(TechniquesPage()),
                       child: const Text(
                         'Begriffe',
                         style: TextStyle(fontSize: 24),
@@ -85,7 +101,7 @@ class JunbiHomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => navigateTo(StatisticsPage()),
                       child: const Text(
                         'Statistik',
                         style: TextStyle(fontSize: 24),
@@ -93,7 +109,7 @@ class JunbiHomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => navigateTo(MotschgerBoxPage()),
                       child: const Text(
                         'Motschger Box',
                         style: TextStyle(fontSize: 24),
@@ -101,7 +117,7 @@ class JunbiHomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => navigateTo(QuizPage()),
                       child: const Text(
                         'Quiz',
                         style: TextStyle(fontSize: 24),
@@ -109,7 +125,7 @@ class JunbiHomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => navigateTo(HangulPage()),
                       child: const Text(
                         '한글',
                         style: TextStyle(fontSize: 24),
@@ -125,4 +141,3 @@ class JunbiHomePage extends StatelessWidget {
     );
   }
 }
-
