@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/strings.dart';
 import 'package:junbi/technique_detail_page.dart'; // <-- import your detail page
+import 'package:audioplayers/audioplayers.dart';
 
 class HyeongDetailPage extends StatelessWidget {
   final String title;
@@ -24,6 +25,7 @@ class HyeongDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AudioPlayer _audioPlayer = AudioPlayer(); // create a player
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,7 +47,7 @@ class HyeongDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-
+                    
                     // Center (Title)
                     Text(
                       title,
@@ -54,6 +56,23 @@ class HyeongDetailPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(width: 8), // space between text and button
+                    Align(
+                        alignment: Alignment.centerRight,
+                        child: IconButton(
+                          icon: const Icon(Icons.play_arrow, size: 20, color: Colors.white,),
+                          onPressed: () async {
+                            try {
+                              final audioPath = 'audio/${title.toLowerCase().replaceAll(' ', '_')}.mp3';
+                              await _audioPlayer.play(AssetSource(audioPath));
+                            } catch (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Audio not available')),
+                              );
+                            }
+                          },
+                        ),
                     ),
 
                     // Right (Hanja)

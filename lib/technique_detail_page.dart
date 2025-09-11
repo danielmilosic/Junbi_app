@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:junbi/strings.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TechniqueDetailPage extends StatefulWidget {
   final String techniqueKey;
@@ -19,6 +21,9 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   late AudioPlayer _audioPlayer;
   bool _isPlaying = false;
 
+  // New field for resolved image path
+  String? _currentImagePath;
+
   @override
   void initState() {
     super.initState();
@@ -27,6 +32,7 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _showStartImage = !_showStartImage;
+        _updateImagePath(); // update image path when toggling
       });
     });
 
@@ -37,6 +43,9 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
         _isPlaying = false;
       });
     });
+
+    // Initial image path
+    _updateImagePath();
   }
 
   @override
@@ -49,13 +58,14 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   void _toggleAudio() async {
     if (!_isPlaying) {
       try {
-        await _audioPlayer.play(AssetSource('assets/audio/${widget.techniqueKey}.mp3'));
+        final audioPath = 'audio/${widget.techniqueKey}.mp3';
+        await _audioPlayer.play(AssetSource(audioPath));
         setState(() {
           _isPlaying = true;
         });
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Audio not available:')),
+          SnackBar(content: Text('Audio not available: $e')),
         );
       }
     } else {
@@ -66,6 +76,25 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     }
   }
 
+  // New method: tries start image first, fallback if missing
+  Future<void> _updateImagePath() async {
+    final startImage = 'assets/images/${widget.techniqueKey}_start.png';
+    final fallbackImage = 'assets/images/${widget.techniqueKey}.png';
+
+    if (_showStartImage) {
+      try {
+        await rootBundle.load(startImage);
+        _currentImagePath = startImage;
+      } catch (_) {
+        _currentImagePath = fallbackImage;
+      }
+    } else {
+      _currentImagePath = fallbackImage;
+    }
+
+    if (mounted) setState(() {}); // trigger rebuild
+  }
+
   @override
   Widget build(BuildContext context) {
     final info = AppStrings.techniqueInformation[widget.techniqueKey];
@@ -74,10 +103,6 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     final hangulName = info?[1] ?? "";
     final germanName = info?[2] ?? "";
     final explanation = info?[4] ?? "No explanation available.";
-
-    final imagePath = _showStartImage
-        ? 'assets/images/${widget.techniqueKey}_start.png'
-        : 'assets/images/${widget.techniqueKey}.png';
 
     return Scaffold(
       body: Center(
@@ -103,9 +128,7 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                 if (hangulName.isNotEmpty)
                   Text(
                     hangulName,
-                    style: const TextStyle(
-                      fontSize: 24,
-                    ),
+                    style: const TextStyle(fontSize: 24),
                     textAlign: TextAlign.center,
                   ),
 
@@ -123,39 +146,50 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
 
                 const SizedBox(height: 16),
 
-                // Audio play/pause button
-                ElevatedButton.icon(
-                  onPressed: _toggleAudio,
-                  icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
-                  label: Text(_isPlaying ? 'Anhören' : 'Anhören'),
-                ),
-
-                const SizedBox(height: 50),
-
                 // Technique image (switching)
-                SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: Image.asset(
-                    imagePath,
-                    fit: BoxFit.contain,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Icon(Icons.image_not_supported, size: 100);
-                    },
+                Padding(
+                  padding: const EdgeInsets.only(top:50.0),
+                  child: SizedBox(
+                    width: 200,
+                    height: 200,
+                    child: _currentImagePath == null
+                        ? const SizedBox() // placeholder while loading
+                        : Image.asset(
+                            _currentImagePath!,
+                            fit: BoxFit.contain,
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Icon(Icons.image_not_supported,
+                                  size: 100);
+                            },
+                          ),
                   ),
                 ),
 
                 const SizedBox(height: 12),
 
                 // Explanation
-                SizedBox(
-                  width: 315,
-                  child: Text(
-                    explanation,
-                    style: const TextStyle(fontSize: 16),
-                    textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.only(top:50.0),
+                  child: SizedBox(
+                    width: 315,
+                    child: Text(
+                      explanation,
+                      style: const TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
+
+                // Audio play/pause button
+                Padding(
+                  padding: const EdgeInsets.only(top: 50.0),
+                  child: ElevatedButton.icon(
+                    onPressed: _toggleAudio,
+                    icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                    label: Text(_isPlaying ? 'Anhören' : 'Anhören'),
+                  ),
+                ),
+                const SizedBox(height: 50),
               ],
             ),
           ),

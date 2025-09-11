@@ -44,7 +44,7 @@ class HyeongPage extends StatelessWidget {
                   final description = parts[3].trim();
                   final movements = int.parse(parts[4].trim());
                   final hyeongNumber = index+1;
-                  final imagePath = "assets/images/hyeong" + hyeongNumber.toString() +  "_diagram.png";
+                  final imagePath = "assets/images/hyeong${hyeongNumber}_diagram.png";
                   final techniques = AppStrings.HyeongTechniqueLists["techniqueNames_$hyeongNumber"] ?? [];
 
                   return Card(

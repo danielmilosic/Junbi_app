@@ -37,16 +37,20 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  # Integration tests for audioplayers_platform_interface are handled 
+  # in this package to avoid maintaining multiple example apps:
+  audioplayers_platform_interface: ^7.1.1
+  flame_lint: ^1.4.1
   flutter_test:
     sdk: flutter
-
+  integration_test:
+    sdk: flutter
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
-
+  flutter_lints: ^6.0.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -90,3 +94,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  
