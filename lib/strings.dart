@@ -61,8 +61,6 @@ static const techniqueInformation= {
 "kima_seogi": ["Kima Seogi", "기마서기", "Reiterstellung", "Fußstellungen", "Symmetrische Fußstellung, Fußsptizen schauen nach vorne, Beine sind gebeugt"],
 "jeonggeul_seogi": ["Jeonggeul Seogi", "정글서기", "Vorwärtsfußstellung", "Fußstellungen", "Nach vorne orientierte Fußstellung mit größerer Belastung auf dem vorderen Bein"],
 "sudo_aneuro_daerigi": ["Sudo Aneuro Daerigi", "수도안으로대리기", "Handkantenschlag", "Schläge", "Schlag von außen nach innen mit der Handkante"],
-
-//TO BE RECORDED
 "yeop_chagi": ["Yeop Chagi", "옆차기", "Seitwärtskick", "Kicks", "Seitlicher Kick mit der Ferse"],
 "dollimyeo_makgi": ["Dollimyeo Makgi", "돌리며막기", "Drehblock", "Blöcke", "Block mit der Innenkante des Unterarms von außen nach innen und Drehung"],
 "palmok_daebi_makgi": ["Palmok Daebi Makgi", "팔목대비막기", "Freikampfstellung", "Blöcke", "Block mit der Außenkante des Arms mit Unterstützung"],
@@ -85,6 +83,8 @@ static const techniqueInformation= {
 "dwit_bal_seogi": ["Dwit Bal Seogi", "뒷발서기", "Kurze Rückwärtsfußstellung", "Fußstellungen", "Kurze Rückwärtsfußstellung, der vordere Fuß berührt den Boden nur mit dem Fußballen"],
 "moa_seogi": ["Moa Seogi", "모아서기", "Geschlossene fußstellung", "Fußstellungen", "Stehende Fußstellung, die Füße sind geschlossen"],
 "arae_pyeong_gwansu_deulgi": ["Arae Pyeong Gwansu Deulgi", "아래평관수들기", "Fingerstich Unten", "Stiche", "Horizontaler Fingerstich zum Unterleib"],
+
+//TO BE RECORDED
 "arae_gyocha_makgi": ["Arae Gyocha Makgi", "아래교차막기", "Kreuzblock Unten", "Blöcke", "Block mit den überkreuzten Außenkanten der Unterarme auf unterer Höhe"],
 "bandal_chagi": ["Bandal Chagi", "반달차기", "Halbmondkick", "Kicks", "Kick mit gestrecktem Bein von außen nach innen in einer großen Kreisbewegung"],
 "san_makgi": ["San Makgi", "산막기", "Doppelblock Oben", "Blöcke", "Block mit beiden Armen auf Kopfhöhe vorne und hinten. Das Chinesische Schriftzeichenfür Berg (Koreanisch: San) sieht aus wie dieser Block (山)"],
