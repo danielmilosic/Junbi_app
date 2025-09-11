@@ -99,6 +99,13 @@ class CategoriesPage extends StatelessWidget {
                 },
               ),
             ),
+                                                          Align(
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
           ],
         ),
       ),

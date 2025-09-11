@@ -74,8 +74,7 @@ class TechniquesPage extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            height: 80,
+                          Flexible(
                             child: Image.asset(
                               imagePath,
                               fit: BoxFit.contain,
@@ -98,6 +97,13 @@ class TechniquesPage extends StatelessWidget {
                     ),
                   );
                 },
+              ),
+            ),
+                        Align(
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                onPressed: () => Navigator.pop(context),
               ),
             ),
           ],

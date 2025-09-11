@@ -112,6 +112,8 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+
+            const SizedBox(height: 12),
                 // Latin name
                 Text(
                   latinName,
@@ -190,6 +192,15 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                   ),
                 ),
                 const SizedBox(height: 50),
+
+                                            // Custom back button
+            Align(
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
               ],
             ),
           ),
