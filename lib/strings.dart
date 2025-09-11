@@ -134,9 +134,9 @@ static const techniqueInformation= {
 "sam_bo_daeryeon": ["Sam Bo Daeryeon", "삼보대련", "Dreischrittkampf", "Disziplinen", "Abgesprochener Kampf mit drei Angriffssequenzen"],
 "gyeokpa": ["Gyeokpa", "격파", "Bruchtest", "Disziplinen", "Brechen von Brettern, Ziegeln oder Steinen mit einer Taekwondo-Technik"],
 
-
-//QUESTIONS
-"questions": ["Wie heißt diese Technik?", "Wie schreibt man diese Technik auf Koreanisch?", "Wie heißt diese Technik auf Deutsch", "Zu welcher Kategorie gehört diese Technik?", "Beschreibe diese Technik!", "Welches Bild gehört zu dieser Technik?"],
 };
+
+
+static const questions = ["Wie heißt diese Technik?", "Wie schreibt man diese Technik auf Koreanisch?", "Wie heißt diese Technik auf Deutsch", "Zu welcher Kategorie gehört diese Technik?", "Beschreibe diese Technik!", "Welches Bild gehört zu dieser Technik?"];
 
 }

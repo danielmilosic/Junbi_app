@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:junbi/categories_page.dart';
 import 'strings.dart'; // import your constants
 import 'package:junbi/technique_detail_page.dart';
 
-class TechniquesPage extends StatelessWidget {
-  const TechniquesPage({super.key});
+class CategoriesPage extends StatelessWidget {
+  final String categoryKey;
+
+  const CategoriesPage({super.key, required this.categoryKey});
+
 
   @override
   Widget build(BuildContext context) {
     // Collect all technique arrays and avoid duplicates
-    final Map<String, String> categoryMap = {}; // category -> imageName
 
-    final usedCategories = <String>{};
+    final listOfKeys = <String>[];
+    final listOfTechniques = <String>[];
 
     // Loop through all technique lists in strings.dart
-    AppStrings.techniqueInformation.forEach((arrayName, techniques) {
-      final info = AppStrings.techniqueInformation[arrayName];
-      final category = info?[3] ?? ""; // or map differently if needed
+    AppStrings.techniqueInformation.forEach((arrayName, info) {
+      final category = info?[3] ?? ""; // category
+      final techniqueName = info?[0] ?? ""; // Romanized name
 
-      if (!usedCategories.contains(category)) {
-        categoryMap[category] = arrayName; // imageName same as key
-        usedCategories.add(category);
-      };
-    },
-    );
-
-    final categoryList = categoryMap.entries.toList();
+      if (category == categoryKey) {
+        listOfTechniques.add(techniqueName);
+        listOfKeys.add(arrayName);
+      }
+    });
 
     return Scaffold(
       body: Padding(
@@ -33,8 +32,8 @@ class TechniquesPage extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 12),
-            const Text(
-              'Begriffe',
+            Text(
+              categoryKey,
               style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -49,10 +48,10 @@ class TechniquesPage extends StatelessWidget {
                   crossAxisSpacing: 12,
                   childAspectRatio: 1,
                 ),
-                itemCount: categoryList.length,
+                itemCount: listOfTechniques.length,
                 itemBuilder: (context, index) {
-                  final categoryName = categoryList[index].key;
-                  final imageName = categoryList[index].value;
+                  final techniqueName = listOfTechniques[index];
+                  final imageName = listOfKeys[index];
                   final imagePath = 'assets/images/$imageName.png';
 
                   return Material(
@@ -62,12 +61,12 @@ class TechniquesPage extends StatelessWidget {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
                       onTap: () {
-                        // Navigate to TechniqueDetailPage
+                        // Navigate to CategoriesParge
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) =>
-                                CategoriesPage(categoryKey: categoryName),
+                                TechniqueDetailPage(techniqueKey: imageName),
                           ),
                         );
                       },
@@ -85,7 +84,7 @@ class TechniquesPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            categoryName,
+                            techniqueName,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               fontSize: 16,

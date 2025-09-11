@@ -63,7 +63,7 @@ class JunbiHomePage extends StatelessWidget {
       body: Center(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(50.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +100,7 @@ class JunbiHomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: SizedBox(
-                    width: 266,
+                    
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [

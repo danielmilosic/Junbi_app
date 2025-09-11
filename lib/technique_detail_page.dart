@@ -108,7 +108,7 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(50.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

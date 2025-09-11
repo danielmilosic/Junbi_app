@@ -32,7 +32,7 @@ class HyeongDetailPage extends StatelessWidget {
         children: [
           // Fixed header
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(50.0),
             child: Column(
               children: [
                 Row(
@@ -105,7 +105,7 @@ class HyeongDetailPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(50.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
