@@ -47,9 +47,9 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
 
     // 1️⃣ Randomize question type for next round
     if (widget.hardCoreMode) {
-      randomNumberQuestionTypeList = [0, 1, 2, 3, 4, 5, 6, 7, 8]..shuffle();
+      randomNumberQuestionTypeList = [0, 1, 2, 3, 5, 6, 7, 8]..shuffle();
     } else {
-      randomNumberQuestionTypeList = [0, 2, 3, 4, 5, 6, 7, 8]..shuffle();
+      randomNumberQuestionTypeList = [0, 2, 3, 5, 6, 7, 8]..shuffle();
     }
     randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;
 
@@ -73,6 +73,8 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
 
       listOfKeys.add("hyeong_$i"); // optional key, can be index or something else
 
+      print(widget.randomNumberQuestionType);
+      print(randomNumberQuestionTypeNext);
       if (widget.randomNumberQuestionType == 6) {
         // Number of movements
         if (parts.length > 5) {
@@ -101,7 +103,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
     // 7️⃣ Set question text
 
     correctHyeongInfo = listOfInfos[correctIndex];
-    question = listOfQuestions[widget.randomNumberQuestionType] + ": " + correctHyeongInfo;
+    question = listOfQuestions[widget.randomNumberQuestionType]  + correctHyeongInfo;
   }
 
 

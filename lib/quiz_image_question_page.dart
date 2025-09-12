@@ -59,9 +59,9 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
 
     // Random type of question (replicating your Kotlin logic)
     if (widget.hardCoreMode) {
-      randomNumberQuestionTypeList = [0, 1, 2, 3, 4, 5, 6, 7, 8]..shuffle();
+      randomNumberQuestionTypeList = [0, 1, 2, 3, 5, 6, 7, 8]..shuffle();
     } else {
-      randomNumberQuestionTypeList = [0, 2, 3, 4, 5, 6, 7, 8]..shuffle();
+      randomNumberQuestionTypeList = [0, 2, 3, 5, 6, 7, 8]..shuffle();
     }
     randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;
     listOfQuestions = AppStrings.questions;
