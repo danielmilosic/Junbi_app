@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:junbi/strings.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TechniqueDetailPage extends StatefulWidget {

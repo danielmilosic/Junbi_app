@@ -1,0 +1,237 @@
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:junbi/strings.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'quiz_detail_page.dart';
+import 'quiz_image_question_page.dart';
+
+class QuizHyeongQuestionPage extends StatefulWidget {
+  final int roundCount;
+  final int totalRoundCount;
+  final int correctCount;
+  final int randomNumberQuestionType;
+  final bool hardCoreMode;
+
+  const QuizHyeongQuestionPage({
+    super.key,
+    this.roundCount = 0,
+    required this.totalRoundCount,
+    this.correctCount = 0,
+    required this.hardCoreMode,
+    required this.randomNumberQuestionType,
+  });
+
+  @override
+  State<QuizHyeongQuestionPage> createState() => _QuizHyeongQuestionPageState();
+}
+
+class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
+  bool answerLockedIn = false;
+  late List<int> randomNumberQuestionTypeList;
+  late int randomNumberQuestionTypeNext;
+  late List<String> listOfQuestions;
+  late List<MapEntry<String, String>> listOfAllAnswers;
+  late List<String> listOfAnswers;
+  late List<String> listOfKeys;
+  late List<String> listOfInfos;
+
+  late int correctIndex;
+  String correctAnswer = "";
+  String correctKey = "";
+  String correctHyeongInfo = "";
+  String question = "";
+
+    @override
+  void initState() {
+    super.initState();
+
+    // 1️⃣ Randomize question type for next round
+    if (widget.hardCoreMode) {
+      randomNumberQuestionTypeList = [0, 1, 2, 3, 4, 5, 6, 7, 8]..shuffle();
+    } else {
+      randomNumberQuestionTypeList = [0, 2, 3, 4, 5, 6, 7, 8]..shuffle();
+    }
+    randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;
+
+    // 2️⃣ Load questions
+    listOfQuestions = AppStrings.questions;
+
+    // 3️⃣ Select 4 random hyeong items
+    final List<String> hyeongItems = List<String>.from(AppStrings.hyeong_data);
+    hyeongItems.shuffle();
+    final List<String> selectedEntries = hyeongItems.take(4).toList();
+
+    // 4️⃣ Initialize lists
+    listOfAnswers = [];
+    listOfInfos = [];
+    listOfKeys = [];
+
+    // 5️⃣ Parse selected entries and populate answers/keys
+    for (int i = 0; i < selectedEntries.length; i++) {
+      final entry = selectedEntries[i];
+      final parts = entry.split('|');
+
+      listOfKeys.add("hyeong_$i"); // optional key, can be index or something else
+
+      if (widget.randomNumberQuestionType == 6) {
+        // Number of movements
+        if (parts.length > 5) {
+          listOfAnswers.add(parts[4]);
+          listOfInfos.add(parts[0]);
+        }
+      } else if (widget.randomNumberQuestionType == 7) {
+        // Hyeong Name (German)
+        if (parts.length > 5) {
+          listOfAnswers.add(parts[0]);
+          listOfInfos.add(parts[5]);
+        }
+      } else {
+        // Explanation
+        if (parts.length > 3) {
+          listOfAnswers.add(parts[3]);
+          listOfInfos.add(parts[5]);
+        }
+      }
+    }
+
+    // 6️⃣ Pick random correct answer
+    correctIndex = (List<int>.generate(listOfAnswers.length, (i) => i)..shuffle()).first;
+    correctAnswer = listOfAnswers[correctIndex];
+
+    // 7️⃣ Set question text
+
+    correctHyeongInfo = listOfInfos[correctIndex];
+    question = listOfQuestions[widget.randomNumberQuestionType] + ": " + correctHyeongInfo;
+  }
+
+
+  void onChoiceTap(int index) {
+    if (answerLockedIn) return;
+
+    setState(() {
+      answerLockedIn = true;
+    });
+
+    bool isCorrect = index == correctIndex;
+
+    // Go to next round or results
+    Future.delayed(const Duration(seconds: 2), () {
+      if (widget.roundCount >= widget.totalRoundCount) {
+        Navigator.pushReplacementNamed(context, "/results", arguments: {
+          "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
+          "TOTAL_ROUND_COUNT": widget.totalRoundCount,
+          "HARD_CORE_MODE": widget.hardCoreMode,
+        });
+      } else {
+        if (randomNumberQuestionTypeNext == 5) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (_) => QuizImageQuestionPage(
+                roundCount: widget.roundCount + 1,
+                totalRoundCount: widget.totalRoundCount,
+                correctCount:
+                    widget.correctCount + (isCorrect ? 1 : 0),
+                hardCoreMode: widget.hardCoreMode,
+                randomNumberQuestionType: randomNumberQuestionTypeNext,
+              ),
+            ),
+          );
+        } else if (randomNumberQuestionTypeNext > 5) {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => QuizHyeongQuestionPage(
+              roundCount: widget.roundCount + 1,
+              totalRoundCount: widget.totalRoundCount,
+              correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+              hardCoreMode: widget.hardCoreMode,
+              randomNumberQuestionType: randomNumberQuestionTypeNext,
+            ),
+          ),
+        );
+        } else {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (_) => QuizDetailPage(
+                roundCount: widget.roundCount + 1,
+                totalRoundCount: widget.totalRoundCount,
+                correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+                hardCoreMode: widget.hardCoreMode,
+                randomNumberQuestionType: randomNumberQuestionTypeNext,
+              ),
+            ),
+          );
+        }
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final choices = List.generate(4, (index) {
+      final isCorrect = index == correctIndex;
+      final bgColor = !answerLockedIn
+          ? Colors.grey[200]
+          : isCorrect
+              ? Colors.green
+              : Colors.red[200];
+
+      return GestureDetector(
+        onTap: () => onChoiceTap(index),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Center(
+            child: Text(
+              listOfAnswers[index],
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      );
+    });
+
+    return Scaffold(
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 50.0, left: 20, right: 20, bottom: 20),
+        child: Center(
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Column(
+                children: [
+                  const SizedBox(height: 24),
+                  Text(
+                    question,
+                    style: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 20),
+                  ...choices,
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back,
+                          size: 28, color: Colors.black),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -21,7 +21,7 @@ class TechniquesPage extends StatelessWidget {
       if (!usedCategories.contains(category)) {
         categoryMap[category] = arrayName; // imageName same as key
         usedCategories.add(category);
-      };
+      }
     },
     );
 
@@ -29,7 +29,7 @@ class TechniquesPage extends StatelessWidget {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
         child: Column(
           children: [
             const SizedBox(height: 12),
@@ -75,11 +75,14 @@ class TechniquesPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
-                            child: Image.asset(
-                              imagePath,
-                              fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) =>
-                                  const Icon(Icons.image_not_supported, size: 40),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Image.asset(
+                                imagePath,
+                                fit: BoxFit.contain,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    const Icon(Icons.image_not_supported, size: 40),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 8),

@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'quiz_detail_page.dart';
+import 'quiz_image_question_page.dart';
+import 'quiz_hyeong_question_page.dart';
 
 
 class QuizPage extends StatefulWidget {
@@ -70,20 +72,32 @@ void _startQuiz(int totalRounds) {
   // Determine random question type
   List<int> questionTypes;
   if (hardCoreMode) {
-    questionTypes = [0, 1, 2, 3, 5]; // exclude 4
+    questionTypes = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // exclude 4
   } else {
-    questionTypes = [0, 2, 3, 5]; // exclude 1 and 4
+    questionTypes = [0, 2, 3, 4, 5, 6, 7, 8]; // exclude 1 and 4
   }
   questionTypes.shuffle();
   int randomNumberQuestionType = questionTypes.first;
 
   // Navigate to the appropriate quiz page
-  if (randomNumberQuestionType == 5) {
+  if (randomNumberQuestionType == 4) {
     // Image-based quiz page
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => QuizDetailPage(
+        builder: (_) => QuizImageQuestionPage(
+          totalRoundCount: totalRounds,
+          hardCoreMode: hardCoreMode,
+          randomNumberQuestionType: randomNumberQuestionType,
+        ),
+      ),
+    );
+  } if (randomNumberQuestionType >= 5) {
+    // Image-based quiz page
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => QuizHyeongQuestionPage(
           totalRoundCount: totalRounds,
           hardCoreMode: hardCoreMode,
           randomNumberQuestionType: randomNumberQuestionType,
@@ -110,7 +124,7 @@ void _startQuiz(int totalRounds) {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
         child: Column(
           children: [
             // Hardcore Button

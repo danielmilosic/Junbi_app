@@ -25,14 +25,14 @@ class HyeongDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AudioPlayer _audioPlayer = AudioPlayer(); // create a player
+    final AudioPlayer audioPlayer = AudioPlayer(); // create a player
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Fixed header
           Padding(
-            padding: const EdgeInsets.all(50.0),
+            padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
             child: Column(
               children: [
                 Row(
@@ -40,48 +40,49 @@ class HyeongDetailPage extends StatelessWidget {
                     // Left (Hangul)
                     Expanded(
                       child: Align(
-                        alignment: Alignment.centerLeft,
+                        alignment: Alignment.topLeft,
                         child: Text(
                           hangulTitle,
-                          style: const TextStyle(fontSize: 24),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
+                      
                     ),
                     
                     // Center (Title)
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(width: 8), // space between text and button
                     Align(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                          icon: const Icon(Icons.play_arrow, size: 20, color: Colors.white,),
-                          onPressed: () async {
-                            try {
-                              final audioPath = 'audio/${title.toLowerCase().replaceAll(' ', '_')}.mp3';
-                              await _audioPlayer.play(AssetSource(audioPath));
-                            } catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Audio not available')),
-                              );
-                            }
-                          },
+                      alignment: Alignment.center,
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 34,
+                          fontWeight: FontWeight.bold,
                         ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+
+                    IconButton(
+                      icon: const Icon(Icons.volume_up, size: 20, color: Colors.white,),
+                      onPressed: () async {
+                        try {
+                          final audioPath = 'audio/${title.toLowerCase().replaceAll(' ', '_')}.mp3';
+                          await audioPlayer.play(AssetSource(audioPath));
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Audio not available')),
+                          );
+                        }
+                      },
                     ),
 
                     // Right (Hanja)
                     Expanded(
                       child: Align(
-                        alignment: Alignment.centerRight,
+                        alignment: Alignment.topRight,
                         child: Text(
                           hanjaTitle,
-                          style: const TextStyle(fontSize: 24),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
                     ),
@@ -92,7 +93,7 @@ class HyeongDetailPage extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   "Bewegungen: $movements",
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 12),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -105,7 +106,7 @@ class HyeongDetailPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(50.0),
+                padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

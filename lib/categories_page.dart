@@ -17,8 +17,8 @@ class CategoriesPage extends StatelessWidget {
 
     // Loop through all technique lists in strings.dart
     AppStrings.techniqueInformation.forEach((arrayName, info) {
-      final category = info?[3] ?? ""; // category
-      final techniqueName = info?[0] ?? ""; // Romanized name
+      final category = info[3] ?? ""; // category
+      final techniqueName = info[0] ?? ""; // Romanized name
 
       if (category == categoryKey) {
         listOfTechniques.add(techniqueName);
@@ -28,7 +28,7 @@ class CategoriesPage extends StatelessWidget {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
         child: Column(
           children: [
             const SizedBox(height: 12),
@@ -73,13 +73,15 @@ class CategoriesPage extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            height: 80,
-                            child: Image.asset(
-                              imagePath,
-                              fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) =>
-                                  const Icon(Icons.image_not_supported, size: 40),
+                          Flexible(
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Image.asset(
+                                imagePath,
+                                fit: BoxFit.contain,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    const Icon(Icons.image_not_supported, size: 40),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 8),

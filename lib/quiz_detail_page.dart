@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:junbi/strings.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'quiz_image_question_page.dart';
+import 'quiz_hyeong_question_page.dart';
 
 
 class QuizDetailPage extends StatefulWidget {
@@ -61,10 +63,10 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     // Random type of question (replicating your Kotlin logic)
     if (widget.hardCoreMode) {
       randomNumberQuestionTypeList =
-          [0, 1, 2, 3]..shuffle(); // exclude "4"
+          [0, 1, 2, 3, 4, 5, 6, 7, 8]..shuffle(); // exclude "4"
     } else {
       randomNumberQuestionTypeList =
-          [0, 2, 3]..shuffle(); // exclude "1" and "4"
+          [0, 2, 3, 4, 5, 6, 7, 8]..shuffle(); // exclude "1" and "4"
     }
     randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;
     listOfQuestions = AppStrings.questions;
@@ -141,30 +143,57 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     });
 
     bool isCorrect = index == correctIndex;
-
-    // After 2 seconds go to next round or results
-    Future.delayed(const Duration(seconds: 2), () {
-      if (widget.roundCount >= widget.totalRoundCount) {
-        Navigator.pushReplacementNamed(context, "/results", arguments: {
-          "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
-          "TOTAL_ROUND_COUNT": widget.totalRoundCount,
-          "HARD_CORE_MODE": widget.hardCoreMode,
-        });
-      } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (_) => QuizDetailPage(
-              roundCount: widget.roundCount + 1,
-              totalRoundCount: widget.totalRoundCount,
-              correctCount: widget.correctCount + (isCorrect ? 1 : 0),
-              hardCoreMode: widget.hardCoreMode,
-              randomNumberQuestionType: randomNumberQuestionTypeNext,
-            ),
-          ),
-        );
-      }
+Future.delayed(const Duration(seconds: 2), () {
+  if (widget.roundCount >= widget.totalRoundCount) {
+    Navigator.pushReplacementNamed(context, "/results", arguments: {
+      "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
+      "TOTAL_ROUND_COUNT": widget.totalRoundCount,
+      "HARD_CORE_MODE": widget.hardCoreMode,
     });
+  } else {
+    if (randomNumberQuestionTypeNext == 5) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => QuizImageQuestionPage(
+            roundCount: widget.roundCount + 1,
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionTypeNext,
+          ),
+        ),
+      );
+    } else if (randomNumberQuestionTypeNext > 5) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => QuizHyeongQuestionPage(
+            roundCount: widget.roundCount + 1,
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionTypeNext,
+          ),
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => QuizDetailPage(
+            roundCount: widget.roundCount + 1,
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionTypeNext,
+          ),
+        ),
+      );
+    }
+  }
+});
+
   }
 
   @override
@@ -175,7 +204,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
           ? Colors.grey[300]
           : isCorrect
               ? Colors.green
-              : Colors.red;
+              : Colors.grey[300];
 
       return GestureDetector(
         onTap: () => onChoiceTap(index),
@@ -187,7 +216,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Center(
-            child: Text(listOfAnswers[index], style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),),
+            child: Text(listOfAnswers[index], style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),),
           ),
         ),
       );
@@ -196,7 +225,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     return Scaffold(
       body: 
         Padding(
-          padding: const EdgeInsets.all(50.0),
+          padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
           child: Center(
             child: SingleChildScrollView(
               child: SafeArea(

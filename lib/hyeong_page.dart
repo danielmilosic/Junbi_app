@@ -11,7 +11,7 @@ class HyeongPage extends StatelessWidget {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
         child: Column(
           children: [
             const Text(
