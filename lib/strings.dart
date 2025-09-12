@@ -17,7 +17,7 @@ class AppStrings {
   "Won Hyo|원효|元曉|Won Hyo was a buddhist monk responsible for spreading buddhism in Korea.|28|4", 
   "Yul Gok|율곡|栗谷|Yul Gok is the artist name of the philosopher Yi I (이이).|38|5", 
   "Jung Geun|중근|重根|An Jung Geun (안중근) was a Korean freedom fighter.|32|6", 
-  "Toi Gye|퇴계|退溪|Toi Gye is the artist name of the philosopher Yi Hwang (이황).|7", 
+  "Toi Gye|퇴계|退溪|Toi Gye is the artist name of the philosopher Yi Hwang (이황).|37|7", 
   "Hwa Rang|화랑|花郞|Hwa Rang was the name of a group of aristocratic youth.|29|8", 
   "Chung Mu|충무|忠武|Yi Sun Shin (이순신) was a Korean admiral.|30|9",
   "Gwang Gye|광개|廣開|Gwang Gae To Tae Wang (Hanja: 廣開土大王) was a king who re-conquered large part of Mandjuria.|39|10"];

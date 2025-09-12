@@ -248,6 +248,18 @@ Widget build(BuildContext context) {
                 children: choices,
               ),
             ),
+
+                      // Progress bar at the very bottom
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: LinearProgressIndicator(
+                value: widget.roundCount / widget.totalRoundCount,
+                backgroundColor: Colors.grey[300],
+                color: Colors.green,
+                minHeight: 4,
+              ),
+            ),
+
             Align(
               alignment: Alignment.bottomRight,
               child: IconButton(

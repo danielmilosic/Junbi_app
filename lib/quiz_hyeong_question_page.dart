@@ -70,6 +70,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
     for (int i = 0; i < selectedEntries.length; i++) {
       final entry = selectedEntries[i];
       final parts = entry.split('|');
+      print(parts);
 
       listOfKeys.add("hyeong_$i"); // optional key, can be index or something else
 
@@ -220,11 +221,23 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
                   ),
                   const SizedBox(height: 20),
                   ...choices,
+
+                            // Progress bar at the very bottom
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    child: LinearProgressIndicator(
+                      value: widget.roundCount / widget.totalRoundCount,
+                      backgroundColor: Colors.grey[300],
+                      color: Colors.green,
+                      minHeight: 4,
+                    ),
+                  ),
+
                   Align(
                     alignment: Alignment.bottomRight,
                     child: IconButton(
                       icon: const Icon(Icons.arrow_back,
-                          size: 28, color: Colors.black),
+                          size: 28, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),

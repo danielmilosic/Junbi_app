@@ -246,6 +246,17 @@ Future.delayed(const Duration(seconds: 2), () {
                     const SizedBox(height: 20),
                     ...choices,
                           
+                            // Progress bar at the very bottom
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    child: LinearProgressIndicator(
+                      value: widget.roundCount / widget.totalRoundCount,
+                      backgroundColor: Colors.grey[300],
+                      color: Colors.green,
+                      minHeight: 4,
+                    ),
+                  ),
+
                                                                 // Custom back button
                   Align(
                     alignment: Alignment.bottomRight,
