@@ -70,12 +70,9 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
     for (int i = 0; i < selectedEntries.length; i++) {
       final entry = selectedEntries[i];
       final parts = entry.split('|');
-      print(parts);
 
       listOfKeys.add("hyeong_$i"); // optional key, can be index or something else
 
-      print(widget.randomNumberQuestionType);
-      print(randomNumberQuestionTypeNext);
       if (widget.randomNumberQuestionType == 6) {
         // Number of movements
         if (parts.length > 5) {
