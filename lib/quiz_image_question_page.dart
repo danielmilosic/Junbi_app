@@ -39,6 +39,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
   String correctKey = "";
   Timer? toggleTimer;
   bool toggle = false;
+  String question = "";
 
   late List<String> imagePaths;
   late List<String> startImagePaths;
@@ -65,6 +66,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
     }
     randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;
     listOfQuestions = AppStrings.questions;
+    question = listOfQuestions[widget.randomNumberQuestionType];
 
     // Map of key -> value for the selected question type
     final allEntries = AppStrings.techniqueInformation.entries
@@ -128,57 +130,56 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
     bool isCorrect = index == correctIndex;
 
     // Go to next round or results
-    Future.delayed(const Duration(seconds: 2), () {
-      if (widget.roundCount >= widget.totalRoundCount) {
-        Navigator.pushReplacementNamed(context, "/results", arguments: {
-          "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
-          "TOTAL_ROUND_COUNT": widget.totalRoundCount,
-          "HARD_CORE_MODE": widget.hardCoreMode,
-        });
-      } else {
-        if (randomNumberQuestionTypeNext == 5) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (_) => QuizImageQuestionPage(
-                roundCount: widget.roundCount + 1,
-                totalRoundCount: widget.totalRoundCount,
-                correctCount:
-                    widget.correctCount + (isCorrect ? 1 : 0),
-                hardCoreMode: widget.hardCoreMode,
-                randomNumberQuestionType: randomNumberQuestionTypeNext,
-              ),
-            ),
-          );
-        } else if (randomNumberQuestionTypeNext > 5) {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (_) => QuizHyeongQuestionPage(
-              roundCount: widget.roundCount + 1,
-              totalRoundCount: widget.totalRoundCount,
-              correctCount: widget.correctCount + (isCorrect ? 1 : 0),
-              hardCoreMode: widget.hardCoreMode,
-              randomNumberQuestionType: randomNumberQuestionTypeNext,
-            ),
-          ),
-        );
-        } else {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (_) => QuizDetailPage(
-                roundCount: widget.roundCount + 1,
-                totalRoundCount: widget.totalRoundCount,
-                correctCount: widget.correctCount + (isCorrect ? 1 : 0),
-                hardCoreMode: widget.hardCoreMode,
-                randomNumberQuestionType: randomNumberQuestionTypeNext,
-              ),
-            ),
-          );
-        }
-      }
+   Future.delayed(const Duration(seconds: 2), () {
+  if (widget.roundCount >= widget.totalRoundCount) {
+    Navigator.pushReplacementNamed(context, "/results", arguments: {
+      "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
+      "TOTAL_ROUND_COUNT": widget.totalRoundCount,
+      "HARD_CORE_MODE": widget.hardCoreMode,
     });
+  } else {
+    if (randomNumberQuestionTypeNext == 5) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => QuizImageQuestionPage(
+            roundCount: widget.roundCount + 1,
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionTypeNext,
+          ),
+        ),
+      );
+    } else if (randomNumberQuestionTypeNext > 5) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => QuizHyeongQuestionPage(
+            roundCount: widget.roundCount + 1,
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionTypeNext,
+          ),
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => QuizDetailPage(
+            roundCount: widget.roundCount + 1,
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionTypeNext,
+          ),
+        ),
+      );
+    }
+  }
+});
   }
 
   @override
@@ -234,7 +235,7 @@ Widget build(BuildContext context) {
                     children: [
                       const SizedBox(height: 24),
                       Text(
-                        listOfQuestions[widget.randomNumberQuestionType],
+                        question,
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,

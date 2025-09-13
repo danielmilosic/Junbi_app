@@ -143,8 +143,8 @@ static const questions = ["Wie heißt diese Technik?",
    "Zu welcher Kategorie gehört diese Technik?",
     "Beschreibe diese Technik!",
      "Welches Bild gehört zu dieser Technik?", 
-      "Wie viele Bewegungen hat dieser Hyeong? \n",
-      "Wie heißt Hyeong Nummer ",
-        "Was ist die Bedeutung von Hyeong Nummer "];
+      "Wie viele Bewegungen hat ",
+      "Wie heißt der ",
+        "Was bedeutet der "];
 
 }

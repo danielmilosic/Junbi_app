@@ -72,25 +72,24 @@ void _startQuiz(int totalRounds) {
   // Determine random question type
   List<int> questionTypes;
   if (hardCoreMode) {
-    questionTypes = [0, 1, 2, 3, 5, 6, 7, 8]; // exclude 4
+    questionTypes = [0, 1, 2, 3, 6, 7, 8]; // exclude 4 and 5(crashes)
   } else {
-    questionTypes = [0, 2, 3, 5, 6, 7, 8]; // exclude 1 and 4
+    questionTypes = [0, 2, 3, 6, 7, 8]; // exclude 1 and 4 and 5(crashes)
   }
   questionTypes.shuffle();
   int randomNumberQuestionType = questionTypes.first;
 
   // Navigate to the appropriate quiz page
-  if (randomNumberQuestionType == 5) {
-    // Image-based quiz page
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => QuizImageQuestionPage(
-          totalRoundCount: totalRounds,
-          hardCoreMode: hardCoreMode,
-          randomNumberQuestionType: randomNumberQuestionType,
-        ),
-      ),
+      if (randomNumberQuestionType == 5) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => QuizImageQuestionPage(
+              totalRoundCount: totalRounds,
+              hardCoreMode: hardCoreMode,
+              randomNumberQuestionType: randomNumberQuestionType,
+            ),
+          ),
     );
   } if (randomNumberQuestionType > 5) {
     // Image-based quiz page

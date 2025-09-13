@@ -101,7 +101,11 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
     // 7️⃣ Set question text
 
     correctHyeongInfo = listOfInfos[correctIndex];
-    question = listOfQuestions[widget.randomNumberQuestionType]  + correctHyeongInfo;
+    if (widget.randomNumberQuestionType == 6) {
+      question = listOfQuestions[widget.randomNumberQuestionType]  + correctHyeongInfo + "?";
+    } else {
+      question = listOfQuestions[widget.randomNumberQuestionType]  + correctHyeongInfo + ". Hyeong?";
+    }
   }
 
 
