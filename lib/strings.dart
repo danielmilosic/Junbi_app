@@ -44,6 +44,8 @@ static const HyeongTechniqueLists = {
 static const techniqueInformation= {
 
 //HYEONG TECHNIQUES
+
+//YELLOW
 "arae_makgi": ["Arae Makgi", "아래막기", "Block Unten", "Blöcke", "Block auf niedriger Höhe mit der Außenkante des Unterarms"],
 "momtong_jireugi": ["Momtong Jireugi", "몸통지르기", "Fauststoß Mitte", "Stöße", "Fauststoß auf mittlerer Höhe"],
 "momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms"],
@@ -53,18 +55,24 @@ static const techniqueInformation= {
 "ssang_palmok_makgi": ["Ssang Palmok Makgi", "쌍팔목막기", "Doppelblock", "Blöcke", "Block oben und vorne mit den Außenkanten des Unterarms"],
 "sudo_daebi_makgi": ["Sudo Daebi Makgi", "수도대비막기", "Handkantenblock mit Unterstützung", "Blöcke", "Block auf mittlerer Höhe mit der Außenkante der Hand und Unterstützung"],
 "sudo_yeop_daerigi": ["Sudo Yeop Daerigi", "수도옆대리기", "Handkantenschlag", "Schläge", "Schlag auf oberer Höhe mit der Außenkante des Hand"],
+"jeonggeul_seogi": ["Jeonggeul Seogi", "정글서기", "Vorwärtsfußstellung", "Fußstellungen", "Nach vorne orientierte Fußstellung mit größerer Belastung auf dem vorderen Bein"],
+
+//GREEN
+
 "palmok_makgi": ["Palmok Makgi", "팔목막기", "Unterarmblock", "Blöcke", "Block mit der Außenkante des Unterarms"],
 "jeong_gwansu_deulgi": ["Jeong Gwansu Deulgi", "정관수들기", "Fingerstich", "Stiche", "Vertikaler Fingerstich mit Unterstützung"],
 "rigwon_daerigi": ["Rigwon Daerigi", "리권대리기", "Faustrückenschlag", "Schläge", "Seitlicher Schlag mit dem Faustrücken"],
 "hechyeo_makgi": ["Hechyeo Makgi", "헤쳐막기", "Durchdrängeblock", "Blöcke", "Doppelter Block nach außen mit den Außenkanten der Unterarme um sich Platz zu schaffen"],
 "ap_chagi": ["Ap Chagi", "앞차기", "Vorwärtskick", "Kicks", "Kick nach vorne mit dem Fußballen"],
 "kima_seogi": ["Kima Seogi", "기마서기", "Reiterstellung", "Fußstellungen", "Symmetrische Fußstellung, Fußsptizen schauen nach vorne, Beine sind gebeugt"],
-"jeonggeul_seogi": ["Jeonggeul Seogi", "정글서기", "Vorwärtsfußstellung", "Fußstellungen", "Nach vorne orientierte Fußstellung mit größerer Belastung auf dem vorderen Bein"],
 "sudo_aneuro_daerigi": ["Sudo Aneuro Daerigi", "수도안으로대리기", "Handkantenschlag", "Schläge", "Schlag von außen nach innen mit der Handkante"],
 "yeop_chagi": ["Yeop Chagi", "옆차기", "Seitwärtskick", "Kicks", "Seitlicher Kick mit der Ferse"],
 "dollimyeo_makgi": ["Dollimyeo Makgi", "돌리며막기", "Drehblock", "Blöcke", "Block mit der Innenkante des Unterarms von außen nach innen und Drehung"],
 "palmok_daebi_makgi": ["Palmok Daebi Makgi", "팔목대비막기", "Freikampfstellung", "Blöcke", "Block mit der Außenkante des Arms mit Unterstützung"],
 "gojeong_seogi": ["Gojeong Seogi", "고정서기", "Lange Rückwärtsfußstellung", "Fußstellungen", "'Fixierte Stellung', wie Rückwärtsfußstellung, nur länger"],
+
+//BLUE
+
 "sudo_makgi": ["Sudo Makgi", "수도막기", "Handkantenblock", "Blöcke", "Block nach außen mit der Handkante"],
 "palkkeup_deulgi": ["Palkkeup Deulgi", "팔끕들기", "Ellenbogenstoß", "Stöße", "Horizontaler Stoß mit dem Ellenbogen"],
 "ssang_sudo_makgi": ["Ssang Sudo Makgi", "쌍수도막기", "Doppelter Handkantenblock", "Blöcke", "Block nach außen und oben mit der Handkante"],
@@ -82,9 +90,10 @@ static const techniqueInformation= {
 "mongdungi_makgi": ["Mongdungi Makgi", "몽둥이막기", "Stockblock", "Blöcke", "Block mit beiden offenen Händen gegen einen vertikalen Stock"],
 "dwit_bal_seogi": ["Dwit Bal Seogi", "뒷발서기", "Kurze Rückwärtsfußstellung", "Fußstellungen", "Kurze Rückwärtsfußstellung, der vordere Fuß berührt den Boden nur mit dem Fußballen"],
 "moa_seogi": ["Moa Seogi", "모아서기", "Geschlossene fußstellung", "Fußstellungen", "Stehende Fußstellung, die Füße sind geschlossen"],
-"arae_pyeong_gwansu_deulgi": ["Arae Pyeong Gwansu Deulgi", "아래평관수들기", "Fingerstich Unten", "Stiche", "Horizontaler Fingerstich zum Unterleib"],
 
-//TO BE RECORDED
+//RED
+
+"arae_pyeong_gwansu_deulgi": ["Arae Pyeong Gwansu Deulgi", "아래평관수들기", "Fingerstich Unten", "Stiche", "Horizontaler Fingerstich zum Unterleib"],
 "arae_gyocha_makgi": ["Arae Gyocha Makgi", "아래교차막기", "Kreuzblock Unten", "Blöcke", "Block mit den überkreuzten Außenkanten der Unterarme auf unterer Höhe"],
 "bandal_chagi": ["Bandal Chagi", "반달차기", "Halbmondkick", "Kicks", "Kick mit gestrecktem Bein von außen nach innen in einer großen Kreisbewegung"],
 "san_makgi": ["San Makgi", "산막기", "Doppelblock Oben", "Blöcke", "Block mit beiden Armen auf Kopfhöhe vorne und hinten. Das Chinesische Schriftzeichenfür Berg (Koreanisch: San) sieht aus wie dieser Block (山)"],
@@ -98,6 +107,10 @@ static const techniqueInformation= {
 "sudo_naeryeo_daerigi": ["Sudo Naeryeo Daerigi", "수도내려대리기", "Handkantenschlag nach unten", "Schläge", "Handkantenschlag nach unten"],
 "dollyeo_chagi": ["Dollyeo Chagi", "돌려차기", "Drehkick", "Kicks", "Kick mit dem Fußballen von der Seite"],
 "dwit_palkkeup_deulgi": ["Dwit Palkkeup Deulgi", "뒷팔끕들기", "Ellenbogenstich nach hinten", "Stiche", "Ellenbogenstich nach hinten"],
+
+
+//BLACK
+
 "sudo_eolgul_makgi": ["Sudo Eolgul Makgi", "수도얼굴막기", "Handkantenblock Oben", "Blöcke", "Block mit der Außenhandkante nach oben"],
 "dwit_chagi": ["Dwit Chagi", "뒷차기", "Kick nach hinten", "Kicks", "Seitlicher Kick nach hinten"],
 "ttwimyeo_yeop_chagi": ["Ttwimyeo Yeop Chagi", "뛰며옆차기", "Gesprunger Seitlicher Kick", "Kicks", "Seitlicher Kick mit der Ferse, gesprungen"],
