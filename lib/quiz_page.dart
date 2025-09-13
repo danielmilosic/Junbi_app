@@ -80,7 +80,7 @@ void _startQuiz(int totalRounds) {
   int randomNumberQuestionType = questionTypes.first;
 
   // Navigate to the appropriate quiz page
-  if (randomNumberQuestionType == 4) {
+  if (randomNumberQuestionType == 5) {
     // Image-based quiz page
     Navigator.push(
       context,
@@ -92,7 +92,7 @@ void _startQuiz(int totalRounds) {
         ),
       ),
     );
-  } if (randomNumberQuestionType >= 5) {
+  } if (randomNumberQuestionType > 5) {
     // Image-based quiz page
     Navigator.push(
       context,

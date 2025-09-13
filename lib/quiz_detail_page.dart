@@ -221,56 +221,62 @@ Future.delayed(const Duration(seconds: 2), () {
         ),
       );
     });
-
     return Scaffold(
-      body: 
-        Padding(
-          padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
-          child: Center(
-            child: SingleChildScrollView(
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    const SizedBox(height: 24),
-                    Text(
-                      listOfQuestions[widget.randomNumberQuestionType],
-                      style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 20),
-                          
-                    Image.asset(
-                      toggle ? "assets/images/$correctKey.png" : imagePath,
-                      height: 200,
-                    ),
-                          
-                    const SizedBox(height: 20),
-                    ...choices,
-                          
-                            // Progress bar at the very bottom
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: LinearProgressIndicator(
-                      value: widget.roundCount / widget.totalRoundCount,
-                      backgroundColor: Colors.grey[300],
-                      color: Colors.green,
-                      minHeight: 4,
-                    ),
-                  ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Progress bar at the absolute top
+            LinearProgressIndicator(
+              value: widget.roundCount / widget.totalRoundCount,
+              backgroundColor: Colors.grey[300],
+              color: Colors.green,
+              minHeight: 4,
+            ),
 
-                                                                // Custom back button
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
-                    ),
+            // Remaining content centered
+            Expanded(
+              child: Center(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 24),
+                      Text(
+                        listOfQuestions[widget.randomNumberQuestionType],
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20),
+
+                      Image.asset(
+                        toggle ? "assets/images/$correctKey.png" : imagePath,
+                        height: 200,
+                      ),
+
+                      const SizedBox(height: 20),
+                      ...choices,
+
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                          icon: const Icon(Icons.arrow_back,
+                              size: 28, color: Colors.white),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ),
+                    ],
                   ),
-                  ],
                 ),
               ),
             ),
-          ),
+          ],
         ),
-      );
+      ),
+    );
+
   }
 }

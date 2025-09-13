@@ -212,65 +212,73 @@ Widget build(BuildContext context) {
     );
   });
 
-  return Scaffold(
-    body: Padding(
-      padding: const EdgeInsets.only(top: 50.0, left: 20, right: 20, bottom: 20),
-      child: SafeArea(
+    return Scaffold(
+      body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 24),
-            Text(
-              listOfQuestions[widget.randomNumberQuestionType],
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+            // Progress bar at the absolute top
+            LinearProgressIndicator(
+              value: widget.roundCount / widget.totalRoundCount,
+              backgroundColor: Colors.grey[300],
+              color: Colors.green,
+              minHeight: 4,
             ),
-            const SizedBox(height: 24),
-            Text(
-              correctAnswer,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
 
-            // 🔑 The 2x2 grid
+            // Remaining content centered in available space
             Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                padding: const EdgeInsets.all(8),
-                children: choices,
-              ),
-            ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 24),
+                      Text(
+                        listOfQuestions[widget.randomNumberQuestionType],
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 24),
+                      Text(
+                        correctAnswer,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20),
 
-                      // Progress bar at the very bottom
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: LinearProgressIndicator(
-                value: widget.roundCount / widget.totalRoundCount,
-                backgroundColor: Colors.grey[300],
-                color: Colors.green,
-                minHeight: 4,
-              ),
-            ),
+                      // 🔑 The 2x2 grid
+                      Expanded(
+                        child: GridView.count(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                          padding: const EdgeInsets.all(8),
+                          children: choices,
+                        ),
+                      ),
 
-            Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                onPressed: () => Navigator.pop(context),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                          icon: const Icon(Icons.arrow_back,
+                              size: 28, color: Colors.white),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
         ),
       ),
-    ),
-  );
+    );
 }
 }

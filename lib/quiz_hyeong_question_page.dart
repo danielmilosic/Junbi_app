@@ -201,49 +201,56 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
       );
     });
 
-    return Scaffold(
-      body: Padding(
-        padding:
-            const EdgeInsets.only(top: 50.0, left: 20, right: 20, bottom: 20),
-        child: Center(
-          child: SingleChildScrollView(
-            child: SafeArea(
-              child: Column(
-                children: [
-                  const SizedBox(height: 24),
-                  Text(
-                    question,
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 20),
-                  ...choices,
+return Scaffold(
+  body: SafeArea(
+    child: Column(
+      children: [
+        // Progress bar at the absolute top
+        LinearProgressIndicator(
+          value: widget.roundCount / widget.totalRoundCount,
+          backgroundColor: Colors.grey[300],
+          color: Colors.green,
+          minHeight: 4,
+        ),
 
-                            // Progress bar at the very bottom
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: LinearProgressIndicator(
-                      value: widget.roundCount / widget.totalRoundCount,
-                      backgroundColor: Colors.grey[300],
-                      color: Colors.green,
-                      minHeight: 4,
+        // The rest of the content centered in the remaining space
+        Expanded(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 24),
+                    Text(
+                      question,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 20),
+                    ...choices,
 
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back,
-                          size: 28, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(
+                        icon: const Icon(Icons.arrow_back,
+                            size: 28, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
-    );
+      ],
+    ),
+  ),
+);
   }
 }
