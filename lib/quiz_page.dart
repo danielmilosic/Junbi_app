@@ -373,7 +373,7 @@ void _startQuiz(int totalRounds) {
                           ],
                         ),
 
-                        if (red)
+                        if (redHC)
                         Stack(
                           alignment: Alignment.topRight,
                           children: [
