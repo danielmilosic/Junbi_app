@@ -318,7 +318,12 @@ void _startQuiz(int totalRounds) {
                               ),
                           ],
                         ),
+                    ],
+                  ),
 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                         if (yellowHC)
                         Stack(
                           alignment: Alignment.topRight,
@@ -412,8 +417,13 @@ void _startQuiz(int totalRounds) {
                     ],
                   ),
 
-                  if (grandmaster)
-                    Image.asset("assets/images/sabeomnim.png", width: 120, height: 120)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (grandmaster)
+                        Image.asset("assets/images/sabeomnim.png", width: 120, height: 120)
+                    ],
+                  )
 
                 ],
               ),
