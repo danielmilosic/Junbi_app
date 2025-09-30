@@ -75,7 +75,6 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     // Map of key -> value for the selected question type
     final allEntries = AppStrings.techniqueInformation.entries
         .map((entry) => MapEntry(entry.key, entry.value[widget.randomNumberQuestionType]))
-        //.take(20) // ✅ Only the first 20 entries for yellow belt
         .toList();
 
     // Take a limited number of entries depending on level (totalRoundCount)
@@ -117,7 +116,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     } else {
       // Just pick first 4
       levelDependentEntries.shuffle();
-      selectedEntries = allEntries.take(4).toList();
+      selectedEntries = levelDependentEntries.take(4).toList();
     }
 
     // Separate keys and answers
@@ -232,7 +231,7 @@ Future.delayed(const Duration(seconds: 2), () {
           ? Colors.grey[300]
           : isCorrect
               ? Colors.green
-              : Colors.grey[300];
+              : Colors.red[200];
 
       return GestureDetector(
         onTap: () => onChoiceTap(index),
