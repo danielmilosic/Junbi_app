@@ -100,7 +100,10 @@ Widget build(BuildContext context) {
                       style: const TextStyle(fontSize: 16),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: const SizedBox(height: 20),
+                    ),
                     _buildPieChart(),
                     const SizedBox(height: 40),
                     _buildBarChart(),
