@@ -99,22 +99,11 @@ int yellowHCCount = 0, greenHCCount = 0, blueHCCount = 0, redHCCount = 0, blackH
         blackHC = true;
         blackHCCount++;
       }
-    
-
-  // check grandmaster condition
-  if (yellow && green && blue && red && black &&
-      yellowHC && greenHC && blueHC && redHC && blackHC) {
-    yellow = green = blue = red = black = false;
-    yellowHC = greenHC = blueHC = redHC = blackHC = false;
-    grandmaster = true;
-  }
 }
 
     // check grandmaster condition
     if (yellow && green && blue && red && black &&
         yellowHC && greenHC && blueHC && redHC && blackHC) {
-      yellow = green = blue = red = black = false;
-      yellowHC = greenHC = blueHC = redHC = blackHC = false;
       grandmaster = true;
     }
   }
@@ -223,210 +212,64 @@ void _startQuiz(int totalRounds) {
               ),
             ),
 
-            // Belts / Grandmaster Images
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (yellow)
-                        Stack(
-                          alignment: Alignment.topRight,
+           // Belts / Grandmaster Images
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // ────────────── Row 1: Regular Belts ──────────────
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("assets/images/yellow_belt.png", width: 48),
-                            if (yellowCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$yellowCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
+                            if (yellow)
+                              _beltImage("assets/images/yellow_belt.png", yellowCount),
+                            if (green)
+                              _beltImage("assets/images/green_belt.png", greenCount),
+                            if (blue)
+                              _beltImage("assets/images/blue_belt.png", blueCount),
+                            if (red)
+                              _beltImage("assets/images/red_belt.png", redCount),
+                            if (black)
+                              _beltImage("assets/images/black_belt.png", blackCount),
                           ],
                         ),
 
-                      if (green)
-                        Stack(
-                          alignment: Alignment.topRight,
+                        const SizedBox(height: 8), // spacing between rows
+
+                        // ────────────── Row 2: Hardcore Belts ──────────────
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("assets/images/green_belt.png", width: 48),
-                            if (greenCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$greenCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
+                            if (yellowHC)
+                              _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount),
+                            if (greenHC)
+                              _beltImage("assets/images/green_belt_hardcore.png", greenHCCount),
+                            if (blueHC)
+                              _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount),
+                            if (redHC)
+                              _beltImage("assets/images/red_belt_hardcore.png", redHCCount),
+                            if (blackHC)
+                              _beltImage("assets/images/black_belt_hardcore.png", blackHCCount),
                           ],
                         ),
 
-                      if (blue)
-                        Stack(
-                          alignment: Alignment.topRight,
+                        const SizedBox(height: 12), // spacing before grandmaster image
+
+                        // ────────────── Row 3: Grandmaster ──────────────
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("assets/images/blue_belt.png", width: 48),
-                            if (blueCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$blueCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
+                            if (grandmaster)
+                              Image.asset(
+                                "assets/images/sabeomnim.png",
+                                width: 120,
+                                height: 120,
                               ),
                           ],
                         ),
+                      ],
+                    ),
 
-                        if (red)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/red_belt.png", width: 48),
-                            if (redCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$redCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-
-                        if (black)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/black_belt.png", width: 48),
-                            if (blackCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$blackCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-                    ],
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                        if (yellowHC)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/yellow_belt_hardcore.png", width: 48),
-                            if (yellowHCCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$yellowHCCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-
-                        if (greenHC)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/green_belt_hardcore.png", width: 48),
-                            if (greenHCCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$greenHCCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-
-                        if (blueHC)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/blue_belt_hardcore.png", width: 48),
-                            if (blueHCCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$blueHCCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-
-                        if (redHC)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/red_belt_hardcore.png", width: 48),
-                            if (redHCCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$redHCCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-
-                        if (blackHC)
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/black_belt_hardcore.png", width: 48),
-                            if (blackHCCount > 1)
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  color: Colors.black,
-                                  child: Text('x$blackHCCount', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                                ),
-                              ),
-                          ],
-                        ),
-
-                    ],
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (grandmaster)
-                        Image.asset("assets/images/sabeomnim.png", width: 120, height: 120)
-                    ],
-                  )
-
-                ],
-              ),
                                                           // Custom back button
             Align(
               alignment: Alignment.bottomRight,
@@ -444,6 +287,31 @@ void _startQuiz(int totalRounds) {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _beltImage(String assetPath, int count) {
+    return Stack(
+      alignment: Alignment.topRight,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4.0), // small gap between belts
+          child: Image.asset(assetPath, width: 48),
+        ),
+        if (count > 1)
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              padding: const EdgeInsets.all(2),
+              color: Colors.black,
+              child: Text(
+                'x$count',
+                style: const TextStyle(color: Colors.white, fontSize: 10),
+              ),
+            ),
+          ),
+      ],
     );
   }
 

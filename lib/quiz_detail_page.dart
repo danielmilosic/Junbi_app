@@ -95,9 +95,6 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
       }
     }();
 
-    // Shuffle entries for randomness
-    levelDependentEntries.shuffle();
-   
     List<MapEntry<String, String>> selectedEntries;
 
     if (widget.randomNumberQuestionType == 3) {
