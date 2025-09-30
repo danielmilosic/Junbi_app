@@ -75,10 +75,28 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
             MapEntry(entry.key, entry.value[0]))
         .toList();
 
-    List<MapEntry<String, String>> selectedEntries;
+    // Take a limited number of entries depending on level (totalRoundCount)
+    final levelDependentEntries = () {
+      switch (widget.totalRoundCount) {
+        case 10:
+          return allEntries.take(19).toList();
+        case 15:
+          return allEntries.take(36).toList();
+        case 20:
+          return allEntries.take(52).toList();
+        case 25:
+          return allEntries.take(65).toList();
+        case 30:
+          return allEntries.toList();
+        default:
+          return allEntries;
+      }
+    }();
 
-    allEntries.shuffle();
-    selectedEntries = allEntries.take(4).toList();
+    // Shuffle entries for randomness
+    levelDependentEntries.shuffle();
+
+    final selectedEntries = levelDependentEntries.take(4).toList();
    
     listOfKeys = selectedEntries.map((e) => e.key).toList();
     listOfAnswers = selectedEntries.map((e) => e.value).toList();

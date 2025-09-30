@@ -59,8 +59,26 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
 
     // 3️⃣ Select 4 random hyeong items
     final List<String> hyeongItems = List<String>.from(AppStrings.hyeong_data);
-    hyeongItems.shuffle();
-    final List<String> selectedEntries = hyeongItems.take(4).toList();
+
+        // Take a limited number of entries depending on level (totalRoundCount)
+    final levelDependentEntries = () {
+      switch (widget.totalRoundCount) {
+        case 10:
+          return hyeongItems.take(4).toList();
+        case 15:
+          return hyeongItems.take(4).toList();
+        case 20:
+          return hyeongItems.take(6).toList();
+        case 25:
+          return hyeongItems.take(8).toList();
+        case 30:
+          return hyeongItems.toList();
+        default:
+          return hyeongItems;
+      }
+    }();
+    levelDependentEntries.shuffle();
+    final List<String> selectedEntries = levelDependentEntries.take(4).toList();
 
     // 4️⃣ Initialize lists
     listOfAnswers = [];
@@ -72,33 +90,45 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
       final entry = selectedEntries[i];
       final parts = entry.split('|');
 
-      listOfKeys.add("hyeong_$i"); // optional key, can be index or something else
-
       if (widget.randomNumberQuestionType == 6) {
         // Number of movements
         if (parts.length > 5) {
           listOfAnswers.add(parts[4]);
           listOfInfos.add(parts[0]);
+          listOfKeys.add(parts[0]);
         }
       } else if (widget.randomNumberQuestionType == 7) {
         // Hyeong Name (German)
         if (parts.length > 5) {
           listOfAnswers.add(parts[0]);
           listOfInfos.add(parts[5]);
+          listOfKeys.add(parts[0]);
         }
       } else {
         // Explanation
         if (parts.length > 3) {
           listOfAnswers.add(parts[3]);
           listOfInfos.add(parts[5]);
+          listOfKeys.add(parts[0]);
         }
       }
     }
 
-    // 6️⃣ Pick random correct answer
-    correctIndex = (List<int>.generate(listOfAnswers.length, (i) => i)..shuffle()).first;
-    correctAnswer = listOfAnswers[correctIndex];
+    // 6️⃣ Pick correct answer depending on totalRoundCount
+    if (widget.totalRoundCount == 10) {
+      // force correct answer to be hyeong_1 or hyeong_2
+      int index1 = listOfKeys.indexOf("Cheon Ji");
+      int index2 = listOfKeys.indexOf("Dan Gun");
+      List<int> options = [index1, index2];
+      options.shuffle();
+      correctIndex = options.first;
 
+    } else {
+      // other totalRoundCount: pick completely random
+      correctIndex = (List<int>.generate(listOfAnswers.length, (i) => i)..shuffle()).first;
+    }
+
+    correctAnswer = listOfAnswers[correctIndex];
     // 7️⃣ Set question text
 
     correctHyeongInfo = listOfInfos[correctIndex];

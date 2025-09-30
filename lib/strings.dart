@@ -57,6 +57,18 @@ static const techniqueInformation= {
 "sudo_yeop_daerigi": ["Sudo Yeop Daerigi", "수도옆대리기", "Handkantenschlag", "Schläge", "Schlag auf oberer Höhe mit der Außenkante des Hand"],
 "jeonggeul_seogi": ["Jeonggeul Seogi", "정글서기", "Vorwärtsfußstellung", "Fußstellungen", "Nach vorne orientierte Fußstellung mit größerer Belastung auf dem vorderen Bein"],
 
+//IM TRAINING
+"baro": ["Baro", "바로", "Gerade", "Im Training", "Kommando am Ende einer Übung"],
+"junbi": ["Junbi", "준비", "Vorbereitung", "Im Training", "Kommando fürs Vorebereiten vor einer Übung"],
+"charyeot": ["Charyeot", "차렷", "Achtung", "Im Training", "Kommando für die Aufmerksamkeit"],
+"gyeongnye": ["Gyeongnye", "경례", "Verbeugung", "Im Training", "Kommando für die Verbeugung"],
+"shijak": ["Shijak", "시작", "Start", "Im Training", "Kommando für den Start einer Übung"],
+"geuman": ["Geuman", "그만", "Stop", "Im Training", "Kommando für den Stop einer Übung"],
+"gyosanim": ["Gyosanim", "교사님", "Anfängermeister*in", "Im Training", "Träger*in eines ersten bis vierten Dans"],
+"sabeomnim": ["Sabeomnim", "사범님", "Großmeister*in", "Im Training", "Träger*in eines fünften Dans oder höher"],
+"il_bo_daeryeon": ["Il Bo Daeryeon", "일보대련", "Einschrittkampf", "Disziplinen", "Abgesprochener Kampf mit einer Angriffssequenz"],
+
+
 //GREEN
 
 "palmok_makgi": ["Palmok Makgi", "팔목막기", "Unterarmblock", "Blöcke", "Block mit der Außenkante des Unterarms"],
@@ -70,6 +82,16 @@ static const techniqueInformation= {
 "dollimyeo_makgi": ["Dollimyeo Makgi", "돌리며막기", "Drehblock", "Blöcke", "Block mit der Innenkante des Unterarms von außen nach innen und Drehung"],
 "palmok_daebi_makgi": ["Palmok Daebi Makgi", "팔목대비막기", "Freikampfstellung", "Blöcke", "Block mit der Außenkante des Arms mit Unterstützung"],
 "gojeong_seogi": ["Gojeong Seogi", "고정서기", "Lange Rückwärtsfußstellung", "Fußstellungen", "'Fixierte Stellung', wie Rückwärtsfußstellung, nur länger"],
+
+//NON HYEONG TECHNIQUES
+"bakkeuro_bandal_chagi": ["Bakkeuro Bandal Chagi", "밖으로반달차기", "Halbmondkick nach Außen", "Kicks", "Halbmondkick nach Außen mit der Außenkante des Fußes"],
+"bandae_dollyeo_chagi": ["Bandae Dollyeo Chagi", "반대돌려차기", "Umgekehrter Drehkick", "Kicks", "Drehkick mit der Ferse"],
+"bitturo_chagi": ["Bitturo Chagi", "비뚜로차기", "Schiefkick", "Kicks", "Schiefer Kick mit dem Fußballen"],
+"naeryeo_chagi": ["Naeryeo Chagi", "내려차기", "Axtkick", "Kicks", "Kick von oben mit der Ferse"],
+"ap_olligi": ["Ap Olligi", "앞올리기", "Gerader Beinschwung", "Kicks", "Wie Ap Chagi, mit gestrecktem Bein"],
+"dollyeo_olligi": ["Dollyeo Olligi", "돌려올리기", "Gedrehter Beinschwung", "Kicks", "Wie Dollyeo Chagi, mit gestrecktem Bein"],
+"yeop_olligi": ["Yeop Olligi", "옆올리기", "Seitlicher Beinschwung", "Kicks", "Wie Yeop Chagi, mit gestrecktem Bein"],
+
 
 //BLUE
 
@@ -120,42 +142,22 @@ static const techniqueInformation= {
 "naeryeo_daerigi": ["Naeryeo Daerigi", "내려대리기", "Faustrückenschlag nach unten", "Schläge", "Faustrückenschlag nach unten"],
 
 
-//NON HYEONG TECHNIQUES
-"bakkeuro_bandal_chagi": ["Bakkeuro Bandal Chagi", "밖으로반달차기", "Halbmondkick nach Außen", "Kicks", "Halbmondkick nach Außen mit der Außenkante des Fußes"],
-"bandae_dollyeo_chagi": ["Bandae Dollyeo Chagi", "반대돌려차기", "Umgekehrter Drehkick", "Kicks", "Drehkick mit der Ferse"],
-"bitturo_chagi": ["Bitturo Chagi", "비뚜로차기", "Schiefkick", "Kicks", "Schiefer Kick mit dem Fußballen"],
-"naeryeo_chagi": ["Naeryeo Chagi", "내려차기", "Axtkick", "Kicks", "Kick von oben mit der Ferse"],
-"ap_olligi": ["Ap Olligi", "앞올리기", "Gerader Beinschwung", "Kicks", "Wie Ap Chagi, mit gestrecktem Bein"],
-"dollyeo_olligi": ["Dollyeo Olligi", "돌려올리기", "Gedrehter Beinschwung", "Kicks", "Wie Dollyeo Chagi, mit gestrecktem Bein"],
-"yeop_olligi": ["Yeop Olligi", "옆올리기", "Seitlicher Beinschwung", "Kicks", "Wie Yeop Chagi, mit gestrecktem Bein"],
-
-
-//IM TRAINING
-"baro": ["Baro", "바로", "Gerade", "Im Training", "Kommando am Ende einer Übung"],
-"junbi": ["Junbi", "준비", "Vorbereitung", "Im Training", "Kommando fürs Vorebereiten vor einer Übung"],
-"charyeot": ["Charyeot", "차렷", "Achtung", "Im Training", "Kommando für die Aufmerksamkeit"],
-"gyeongnye": ["Gyeongnye", "경례", "Verbeugung", "Im Training", "Kommando für die Verbeugung"],
-"shijak": ["Shijak", "시작", "Start", "Im Training", "Kommando für den Start einer Übung"],
-"gallyeo": ["Gallyeo", "갈려", "Unterbrechung", "Im Training", "Kommando für die Unterbrechung einer Übung"],
-"gyesok": ["Gyesok", "계속", "Weiter", "Im Training", "Kommando für die Fortsetzung einer Übung"],
-"geuman": ["Geuman", "그만", "Stop", "Im Training", "Kommando für den Stop einer Übung"],
-"gyosanim": ["Gyosanim", "교사님", "Anfängermeister*in", "Im Training", "Träger*in eines ersten bis vierten Dans"],
-"sabeomnim": ["Sabeomnim", "사범님", "Großmeister*in", "Im Training", "Träger*in eines fünften Dans oder höher"],
-"jayu_daeryeon": ["Jayu Daeryeon", "자유대련", "Freikampf", "Disziplinen", "Freier Kampf ohne Kontakt"],
-"il_bo_daeryeon": ["Il Bo Daeryeon", "일보대련", "Einschrittkampf", "Disziplinen", "Abgesprochener Kampf mit einer Angriffssequenz"],
 "i_bo_daeryeon": ["I Bo Daeryeon", "이보대련", "Zweischrittkampf", "Disziplinen", "Abgesprochener Kampf mit zwei Angriffssequenzen"],
 "sam_bo_daeryeon": ["Sam Bo Daeryeon", "삼보대련", "Dreischrittkampf", "Disziplinen", "Abgesprochener Kampf mit drei Angriffssequenzen"],
+"jayu_daeryeon": ["Jayu Daeryeon", "자유대련", "Freikampf", "Disziplinen", "Freier Kampf ohne Kontakt"],
 "gyeokpa": ["Gyeokpa", "격파", "Bruchtest", "Disziplinen", "Brechen von Brettern, Ziegeln oder Steinen mit einer Taekwondo-Technik"],
+"gallyeo": ["Gallyeo", "갈려", "Unterbrechung", "Im Training", "Kommando für die Unterbrechung einer Übung"],
+"gyesok": ["Gyesok", "계속", "Weiter", "Im Training", "Kommando für die Fortsetzung einer Übung"],
 
 };
 
 
 static const questions = ["Wie heißt diese Technik?",
- "Wie schreibt man diese Technik auf Koreanisch?",
-  "Wie heißt diese Technik auf Deutsch",
-   "Zu welcher Kategorie gehört diese Technik?",
-    "Beschreibe diese Technik!",
-     "Welches Bild gehört zu dieser Technik?", 
+ "Wie schreibt man diesen Begriff auf Koreanisch?",
+  "Wie heißt dieser Begriff auf Deutsch",
+   "Zu welcher Kategorie gehört dieses Bild?",
+    "Beschreibe diesen Begriff!",
+     "Welches Bild gehört zu diesem Begriff?", 
       "Wie viele Bewegungen hat ",
       "Wie heißt der ",
         "Was bedeutet der "];

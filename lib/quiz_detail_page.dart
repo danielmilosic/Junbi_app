@@ -78,6 +78,27 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
         //.take(20) // ✅ Only the first 20 entries for yellow belt
         .toList();
 
+    // Take a limited number of entries depending on level (totalRoundCount)
+    final levelDependentEntries = () {
+      switch (widget.totalRoundCount) {
+        case 10:
+          return allEntries.take(19).toList();
+        case 15:
+          return allEntries.take(36).toList();
+        case 20:
+          return allEntries.take(52).toList();
+        case 25:
+          return allEntries.take(65).toList();
+        case 30:
+          return allEntries.toList();
+        default:
+          return allEntries;
+      }
+    }();
+
+    // Shuffle entries for randomness
+    levelDependentEntries.shuffle();
+   
     List<MapEntry<String, String>> selectedEntries;
 
     if (widget.randomNumberQuestionType == 3) {
@@ -85,8 +106,8 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
       final seenValues = <String>{};
       selectedEntries = [];
 
-      allEntries.shuffle(); // randomize order
-      for (var entry in allEntries) {
+      levelDependentEntries.shuffle(); // randomize order
+      for (var entry in levelDependentEntries) {
         if (!seenValues.contains(entry.value)) {
           seenValues.add(entry.value);
           selectedEntries.add(entry);
@@ -95,7 +116,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
       }
     } else {
       // Just pick first 4
-      allEntries.shuffle();
+      levelDependentEntries.shuffle();
       selectedEntries = allEntries.take(4).toList();
     }
 

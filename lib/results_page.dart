@@ -86,7 +86,7 @@ class _ResultsPageState extends State<ResultsPage> {
           break;
       }
 
-      if (widget.hardCoreMode == 1) {
+      if (widget.hardCoreMode) {
         beltName = '${beltName}_hardcore';
       }
 

@@ -83,45 +83,47 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 20),
-                    Center(
-                      child: Text(
-                        'Gesamt: $totalAnswers  |  Richtig: $correctAnswers  |  Falsch: $incorrectAnswers',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const SizedBox(height: 20),
-                    ),
-                    _buildPieChart(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const SizedBox(height: 40),
-                    ),
-                    _buildBarChart(),
-                    
-                    Align(
-                        alignment: Alignment.bottomRight,
-                        child: IconButton(
-                          icon: const Icon(Icons.arrow_back,
-                              size: 28, color: Colors.white),
-                          onPressed: () => Navigator.pop(context),
+    return Center(
+      child: Scaffold(
+        body: isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const SizedBox(height: 20),
+                      Center(
+                        child: Text(
+                          'Gesamt: $totalAnswers  |  Richtig: $correctAnswers  |  Falsch: $incorrectAnswers',
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: const SizedBox(height: 20),
+                      ),
+                      _buildPieChart(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: const SizedBox(height: 40),
+                      ),
+                      _buildBarChart(),
+                      
+                      Align(
+                          alignment: Alignment.bottomRight,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_back,
+                                size: 28, color: Colors.white),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 
