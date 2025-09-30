@@ -262,8 +262,8 @@ void _startQuiz(int totalRounds) {
                             if (grandmaster)
                               Image.asset(
                                 "assets/images/sabeomnim.png",
-                                width: 120,
-                                height: 120,
+                                width: 70,
+                                height: 70,
                               ),
                           ],
                         ),
