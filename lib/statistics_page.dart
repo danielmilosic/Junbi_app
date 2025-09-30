@@ -81,51 +81,44 @@ class _StatisticsPageState extends State<StatisticsPage> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Scaffold(
-        body: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const SizedBox(height: 20),
-                      Center(
-                        child: Text(
-                          'Gesamt: $totalAnswers  |  Richtig: $correctAnswers  |  Falsch: $incorrectAnswers',
-                          style: const TextStyle(fontSize: 16),
-                        ),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: isLoading
+        ? const Center(child: CircularProgressIndicator())
+        : Center(  // ✅ Move Center here
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center, // ✅ centers vertically
+                  crossAxisAlignment: CrossAxisAlignment.center, // ✅ centers horizontally
+                  children: [
+                    const SizedBox(height: 20),
+                    Text(
+                      'Gesamt: $totalAnswers  |  Richtig: $correctAnswers  |  Falsch: $incorrectAnswers',
+                      style: const TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    _buildPieChart(),
+                    const SizedBox(height: 40),
+                    _buildBarChart(),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(
+                        icon: const Icon(Icons.arrow_back,
+                            size: 28, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const SizedBox(height: 20),
-                      ),
-                      _buildPieChart(),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const SizedBox(height: 40),
-                      ),
-                      _buildBarChart(),
-                      
-                      Align(
-                          alignment: Alignment.bottomRight,
-                          child: IconButton(
-                            icon: const Icon(Icons.arrow_back,
-                                size: 28, color: Colors.white),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                        ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-      ),
-    );
-  }
+            ),
+          ),
+  );
+}
 
   Widget _buildPieChart() {
     if (totalAnswers == 0) {
