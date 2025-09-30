@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:junbi/results_page.dart';
 import 'package:junbi/strings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'quiz_image_question_page.dart';
@@ -15,7 +16,7 @@ class QuizDetailPage extends StatefulWidget {
 
   const QuizDetailPage({
     super.key,
-    this.roundCount=0,
+    this.roundCount=1,
     required this.totalRoundCount,
     this.correctCount = 0,
     required this.hardCoreMode,
@@ -74,6 +75,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     // Map of key -> value for the selected question type
     final allEntries = AppStrings.techniqueInformation.entries
         .map((entry) => MapEntry(entry.key, entry.value[widget.randomNumberQuestionType]))
+        //.take(20) // ✅ Only the first 20 entries for yellow belt
         .toList();
 
     List<MapEntry<String, String>> selectedEntries;
@@ -145,11 +147,16 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     bool isCorrect = index == correctIndex;
 Future.delayed(const Duration(seconds: 2), () {
   if (widget.roundCount >= widget.totalRoundCount) {
-    Navigator.pushReplacementNamed(context, "/results", arguments: {
-      "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
-      "TOTAL_ROUND_COUNT": widget.totalRoundCount,
-      "HARD_CORE_MODE": widget.hardCoreMode,
-    });
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => ResultsPage(
+            totalRoundCount: widget.totalRoundCount,
+            correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+            hardCoreMode: widget.hardCoreMode,
+          ),
+        ),
+      );
   } else {
     if (randomNumberQuestionTypeNext == 5) {
       Navigator.pushReplacement(

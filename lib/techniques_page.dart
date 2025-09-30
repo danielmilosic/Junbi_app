@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/categories_page.dart';
 import 'strings.dart'; // import your constants
-import 'package:junbi/technique_detail_page.dart';
 
 class TechniquesPage extends StatelessWidget {
   const TechniquesPage({super.key});

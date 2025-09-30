@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:junbi/results_page.dart';
 import 'package:junbi/strings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'quiz_detail_page.dart';
@@ -14,7 +15,7 @@ class QuizHyeongQuestionPage extends StatefulWidget {
 
   const QuizHyeongQuestionPage({
     super.key,
-    this.roundCount = 0,
+    this.roundCount = 1,
     required this.totalRoundCount,
     this.correctCount = 0,
     required this.hardCoreMode,
@@ -102,9 +103,9 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
 
     correctHyeongInfo = listOfInfos[correctIndex];
     if (widget.randomNumberQuestionType == 6) {
-      question = listOfQuestions[widget.randomNumberQuestionType]  + correctHyeongInfo + "?";
+      question = "${listOfQuestions[widget.randomNumberQuestionType]}$correctHyeongInfo?";
     } else {
-      question = listOfQuestions[widget.randomNumberQuestionType]  + correctHyeongInfo + ". Hyeong?";
+      question = "${listOfQuestions[widget.randomNumberQuestionType]}$correctHyeongInfo. Hyeong?";
     }
   }
 
@@ -121,11 +122,16 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
     // Go to next round or results
     Future.delayed(const Duration(seconds: 2), () {
       if (widget.roundCount >= widget.totalRoundCount) {
-        Navigator.pushReplacementNamed(context, "/results", arguments: {
-          "CORRECT_COUNT": widget.correctCount + (isCorrect ? 1 : 0),
-          "TOTAL_ROUND_COUNT": widget.totalRoundCount,
-          "HARD_CORE_MODE": widget.hardCoreMode,
-        });
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => ResultsPage(
+              totalRoundCount: widget.totalRoundCount,
+              correctCount: widget.correctCount + (isCorrect ? 1 : 0),
+              hardCoreMode: widget.hardCoreMode,
+          ),
+        ),
+      );
       } else {
         if (randomNumberQuestionTypeNext == 5) {
           Navigator.pushReplacement(

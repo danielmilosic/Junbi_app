@@ -4,6 +4,9 @@ import 'package:path_provider/path_provider.dart';
 import 'quiz_detail_page.dart';
 import 'quiz_image_question_page.dart';
 import 'quiz_hyeong_question_page.dart';
+import 'package:path_provider/path_provider.dart'; // needed
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 
 class QuizPage extends StatefulWidget {
@@ -30,17 +33,15 @@ class _QuizPageState extends State<QuizPage> {
 
   Future<void> _loadResults() async {
     try {
-      final dir = await getApplicationDocumentsDirectory();
-      final file = File('${dir.path}/results.txt');
-      if (await file.exists()) {
-        final lines = await file.readAsLines();
-        setState(() {
-          results = lines;
-          _updateBelts();
-        });
-      }
+      final prefs = await SharedPreferences.getInstance();
+      final storedResults = prefs.getStringList('results') ?? [];
+      setState(() {
+        results = storedResults;
+        print(results);
+        _updateBelts();
+      });
     } catch (e) {
-      debugPrint("Error reading results: $e");
+      debugPrint("Error reading results from prefs: $e");
     }
   }
 
@@ -174,29 +175,29 @@ void _startQuiz(int totalRounds) {
 
             // Belts / Grandmaster Images
             if (grandmaster)
-              Image.asset("assets/sabeomnim.png", width: 120, height: 120)
+              Image.asset("assets/images/sabeomnim.png", width: 120, height: 120)
             else
               Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      if (yellow) Image.asset("assets/yellow_belt.png", width: 48),
-                      if (green) Image.asset("assets/green_belt.png", width: 48),
-                      if (blue) Image.asset("assets/blue_belt.png", width: 48),
-                      if (red) Image.asset("assets/red_belt.png", width: 48),
-                      if (black) Image.asset("assets/black_belt.png", width: 48),
+                      if (yellow) Image.asset("assets/images/yellow_belt.png", width: 48),
+                      if (green) Image.asset("assets/images/green_belt.png", width: 48),
+                      if (blue) Image.asset("assets/images/blue_belt.png", width: 48),
+                      if (red) Image.asset("assets/images/red_belt.png", width: 48),
+                      if (black) Image.asset("assets/images/black_belt.png", width: 48),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      if (yellowHC) Image.asset("assets/yellow_belt_hardcore.png", width: 48),
-                      if (greenHC) Image.asset("assets/green_belt_hardcore.png", width: 48),
-                      if (blueHC) Image.asset("assets/blue_belt_hardcore.png", width: 48),
-                      if (redHC) Image.asset("assets/red_belt_hardcore.png", width: 48),
-                      if (blackHC) Image.asset("assets/black_belt_hardcore.png", width: 48),
+                      if (yellowHC) Image.asset("assets/images/yellow_belt_hardcore.png", width: 48),
+                      if (greenHC) Image.asset("assets/images/green_belt_hardcore.png", width: 48),
+                      if (blueHC) Image.asset("assets/images/blue_belt_hardcore.png", width: 48),
+                      if (redHC) Image.asset("assets/images/red_belt_hardcore.png", width: 48),
+                      if (blackHC) Image.asset("assets/images/black_belt_hardcore.png", width: 48),
                     ],
                   ),
                 ],

@@ -7,6 +7,7 @@ import 'motschger_box_page.dart';
 import 'quiz_page.dart';
 import 'hangul_page.dart';
 import 'strings.dart';
+import 'package:path_provider/path_provider.dart'; // needed
 
 
 void main() {
