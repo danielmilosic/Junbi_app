@@ -90,7 +90,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
         case 25:
           return allEntries.take(65).toList();
         case 30:
-          return allEntries.toList();
+          return allEntries.take(79).toList();
         default:
           return allEntries;
       }

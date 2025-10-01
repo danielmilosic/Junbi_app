@@ -145,10 +145,13 @@ static const techniqueInformation= {
 "i_bo_daeryeon": ["I Bo Daeryeon", "이보대련", "Zweischrittkampf", "Disziplinen", "Abgesprochener Kampf mit zwei Angriffssequenzen"],
 "sam_bo_daeryeon": ["Sam Bo Daeryeon", "삼보대련", "Dreischrittkampf", "Disziplinen", "Abgesprochener Kampf mit drei Angriffssequenzen"],
 "jayu_daeryeon": ["Jayu Daeryeon", "자유대련", "Freikampf", "Disziplinen", "Freier Kampf ohne Kontakt"],
+"hoshinsul": ["Hoshinsul", "호신술", "Selbstverteidigung", "Disziplinen", "Verteidigung mit Hebeln und Würfen gegen einen Angriff"],
 "gyeokpa": ["Gyeokpa", "격파", "Bruchtest", "Disziplinen", "Brechen von Brettern, Ziegeln oder Steinen mit einer Taekwondo-Technik"],
 "gallyeo": ["Gallyeo", "갈려", "Unterbrechung", "Im Training", "Kommando für die Unterbrechung einer Übung"],
 "gyesok": ["Gyesok", "계속", "Weiter", "Im Training", "Kommando für die Fortsetzung einer Übung"],
 
+"zahlen_1_bis_10": ["Zahlen 1 bis 10", "", "", "Zahlen", "Hana 하나 \n Dul 둘 \n Set 셋 \n Net 넷 \n Daseot 다섯 \n Yeoseot 여섯 \n Ilgop 일곱 \n Yeodeol 여덟 \n Ahop  아홉 \n Yeol 열"],
+"zahlen_11_bis_20": ["Zahlen 11 bis 20", "", "", "Zahlen", "Yeolhana 열하나 \n Yeoldul 열둘 \n Yeolset 열셋 \n Yeolnet 열넷 \n Yeoldaseot 열다섯 \n Yeolyeoseot 열여섯 \n Yeolilgop 열일곱 \n Yeolyeodeol 열여덟 \n Yeolahop  열아홉 \n Seumul 스물"],
 };
 
 

@@ -9,7 +9,6 @@ class TechniquesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Collect all technique arrays and avoid duplicates
     final Map<String, String> categoryMap = {}; // category -> imageName
-
     final usedCategories = <String>{};
 
     // Loop through all technique lists in strings.dart
@@ -101,6 +100,7 @@ class TechniquesPage extends StatelessWidget {
                 },
               ),
             ),
+            
                         Align(
               alignment: Alignment.bottomRight,
               child: IconButton(
