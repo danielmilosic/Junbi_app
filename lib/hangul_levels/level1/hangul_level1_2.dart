@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
+import 'hangul_level1_0.dart';
 import 'hangul_level1_1.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel10 extends StatelessWidget {
-  const HangulLevel10({Key? key}) : super(key: key);
+class HangulLevel12 extends StatelessWidget {
+  const HangulLevel12({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +48,8 @@ class _HangulContentState extends State<_HangulContent> {
   ];
 
 
-  final List<int> _uiInitialIndexes = [0, 2, 3];
-  final List<int> _uiVowelIndexes = [0, 4, 20];
+  final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7];
+  final List<int> _uiVowelIndexes = [0, 4, 8, 13, 18, 20];
 
   List<String> get initialConsonants =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
@@ -170,6 +172,39 @@ void _updateController() {
     );
   }
 
+  Widget _buildAudioCard(BuildContext context, String text, String audioFile) {
+    final AudioPlayer audioPlayer = AudioPlayer();
+    return Card(
+      color: Colors.black,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(fontSize: 20, color: Colors.white),
+            ),
+            IconButton(
+              icon: const Icon(Icons.volume_up, size: 20, color: Colors.white),
+              onPressed: () async {
+                try {
+                  final audioPath = audioFile;
+                  await audioPlayer.play(AssetSource(audioPath));
+                } catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Audio not available')),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +214,7 @@ void _updateController() {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 3 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -189,12 +224,12 @@ void _updateController() {
 
           // Aufbau
           const Text(
-            'Aufbau eines Silbenblocks',
+            'Mehr Vokale!',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Ein Silbenblock besteht typischerweise aus drei Bestandteilen: \n• Anfangskonsonant \n• Vokal \n• optionaler Endkonsonant \n\nBeispiele: \n- 가 = ㄱ + ㅏ (ga) \n- 간 = ㄱ + ㅏ + ㄴ (gan)',
+            'Neben den vertikalen Vokalen, gibt es auch Horizontale. Sie funktionieren genau gleich, nur werden sie unter dem ersten Konsonanten geschrieben, statt daneben. \n Beispiele: \n- 고 = ㄱ + ㅗ (go) \n- 구 = ㄱ + ㅜ (gu) ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -202,37 +237,23 @@ void _updateController() {
 
           // Konsonanten
           const Text(
-            'Erste Konsonanten',
+            'Neue Vokale',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           _JamoGrid(
             items: [
-              _Jamo('ㄱ', 'g', 'wie in "Gang"'),
-              _Jamo('ㄴ', 'n', 'wie in "nein"'),
-              _Jamo('ㄷ', 'd', 'wie in "Durchfall"'),
+              _Jamo('ㅗ', 'o', 'wie in "oben'),
+              _Jamo('ㅜ', 'u', 'wie in "unten"'),
+              _Jamo('ㅡ', 'eu', 'Zunge entspannt im Mund, neutraler Laut, nicht wie in "Eule"!'),
             ],
           ),
 
           const Divider(height: 28),
 
-          // Vokale
-          const Text(
-            'Erste Vokale',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          Center(
-            child: _JamoGrid(
-              items: [
-                _Jamo('ㅏ', 'a', 'wie in "Arm"'),
-                _Jamo('ㅓ', 'eo', 'genau zwischen a und o'),
-                _Jamo('ㅣ', 'I', 'wie in "Island"'),
-              ],
-            ),
-          ),
 
-           const Divider(height: 28),
+          const Divider(height: 28),
+
           const SizedBox(height: 8),
           const Text(
             'Übung',
@@ -240,9 +261,27 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Schreibe das Wort: 가나다',
+            'Du kannst schon folgende Wörter auf Koreanisch schreiben:',
             style: TextStyle(fontSize: 16),
           ),
+
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+      _buildAudioCard(context, '바로 - gerade', 'audio/baro.mp3'),
+      _buildAudioCard(context, '모드 - Modus', 'audio//hangul/modeu.mp3'),
+      _buildAudioCard(context, '고구마 - Süßkartoffel', 'audio/hangul/goguma.mp3'),
+      _buildAudioCard(context, '두부 - Tofu', 'audio/hangul/dubu.mp3'),
+    ],
+  ),
+),
+
+          const Text(
+            'Probiere es aus!',
+            style: TextStyle(fontSize: 16),
+          ),
+
           const SizedBox(height: 8),
           TextField(
             controller: _controller,
@@ -264,7 +303,14 @@ void _updateController() {
                 // Back button
                 IconButton(
                   icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    // Navigate forward
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (_) => HangulLevel11()), // or MainPage()
+                      (route) => false, // remove all previous routes
+                    );
+                  },
                 ),
 
                 // Home button
@@ -287,7 +333,7 @@ void _updateController() {
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel11()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel12()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -302,6 +348,7 @@ void _updateController() {
   }
 }
 
+
 class _JamoGrid extends StatelessWidget {
   final List<_Jamo> items;
   const _JamoGrid({Key? key, required this.items}) : super(key: key);
@@ -314,7 +361,7 @@ class _JamoGrid extends StatelessWidget {
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 1.3,
+        childAspectRatio: 1,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level1_0.dart';
+import 'hangul_level1_2.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -8,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevlel11 extends StatelessWidget {
-  const HangulLevlel11({Key? key}) : super(key: key);
+class HangulLevel11 extends StatelessWidget {
+  const HangulLevel11({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -271,7 +272,7 @@ void _updateController() {
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevlel10()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel10()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -297,7 +298,7 @@ void _updateController() {
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevlel11()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel12()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

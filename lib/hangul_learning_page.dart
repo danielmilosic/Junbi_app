@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'hangul_overview_page.dart';
 import 'hangul_learning_page.dart';
 import 'hangul_levels/level1/hangul_level1_0.dart';
+import 'package:junbi/main.dart';
 
 class HangulLearningPage extends StatelessWidget {
   const HangulLearningPage({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class HangulLearningPage extends StatelessWidget {
                   context: context,
                   label: 'Level 1: 가나다',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulLevlel10()),
+                  onTap: () => _navigate(context, const HangulLevel10()),
                 ),
                 const SizedBox(height: 32),
                   _buildBigButton(
@@ -68,7 +69,13 @@ class HangulLearningPage extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: IconButton(
                   icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
+                                  onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (_) => JunbiApp()), // or MainPage()
+                    (route) => false, // remove all previous routes
+                  );
+                },
                 ),
               ),
               ],
