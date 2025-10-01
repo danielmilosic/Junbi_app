@@ -7,6 +7,7 @@ import 'quiz_image_question_page.dart';
 import 'quiz_hyeong_question_page.dart';
 import 'package:path_provider/path_provider.dart'; // needed
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:math';
 
 
 
@@ -48,6 +49,7 @@ class _QuizPageState extends State<QuizPage> {
 // Add counters for belts
 int yellowCount = 0, greenCount = 0, blueCount = 0, redCount = 0, blackCount = 0;
 int yellowHCCount = 0, greenHCCount = 0, blueHCCount = 0, redHCCount = 0, blackHCCount = 0;
+int grandmasterCount = 0;
 
   void _updateBelts() {
     // Reset everything
@@ -105,6 +107,20 @@ int yellowHCCount = 0, greenHCCount = 0, blueHCCount = 0, redHCCount = 0, blackH
     if (yellow && green && blue && red && black &&
         yellowHC && greenHC && blueHC && redHC && blackHC) {
       grandmaster = true;
+    }
+        if (grandmaster) {
+      grandmasterCount = [
+        yellowCount,
+        greenCount,
+        blueCount,
+        redCount,
+        blackCount,
+        yellowHCCount,
+        greenHCCount,
+        blueHCCount,
+        redHCCount,
+        blackHCCount
+      ].reduce(min);
     }
   }
 
@@ -222,15 +238,15 @@ void _startQuiz(int totalRounds) {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             if (yellow)
-                              _beltImage("assets/images/yellow_belt.png", yellowCount),
+                              _beltImage("assets/images/yellow_belt.png", yellowCount, 48),
                             if (green)
-                              _beltImage("assets/images/green_belt.png", greenCount),
+                              _beltImage("assets/images/green_belt.png", greenCount, 48),
                             if (blue)
-                              _beltImage("assets/images/blue_belt.png", blueCount),
+                              _beltImage("assets/images/blue_belt.png", blueCount, 48),
                             if (red)
-                              _beltImage("assets/images/red_belt.png", redCount),
+                              _beltImage("assets/images/red_belt.png", redCount, 48),
                             if (black)
-                              _beltImage("assets/images/black_belt.png", blackCount),
+                              _beltImage("assets/images/black_belt.png", blackCount, 48),
                           ],
                         ),
 
@@ -241,15 +257,15 @@ void _startQuiz(int totalRounds) {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             if (yellowHC)
-                              _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount),
+                              _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount, 48),
                             if (greenHC)
-                              _beltImage("assets/images/green_belt_hardcore.png", greenHCCount),
+                              _beltImage("assets/images/green_belt_hardcore.png", greenHCCount, 48),
                             if (blueHC)
-                              _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount),
+                              _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount, 48),
                             if (redHC)
-                              _beltImage("assets/images/red_belt_hardcore.png", redHCCount),
+                              _beltImage("assets/images/red_belt_hardcore.png", redHCCount, 48),
                             if (blackHC)
-                              _beltImage("assets/images/black_belt_hardcore.png", blackHCCount),
+                              _beltImage("assets/images/black_belt_hardcore.png", blackHCCount, 48),
                           ],
                         ),
 
@@ -260,11 +276,7 @@ void _startQuiz(int totalRounds) {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             if (grandmaster)
-                              Image.asset(
-                                "assets/images/sabeomnim.png",
-                                width: 70,
-                                height: 70,
-                              ),
+                              _beltImage("assets/images/sabeomnim.png", grandmasterCount, 70),
                           ],
                         ),
                       ],
@@ -290,13 +302,13 @@ void _startQuiz(int totalRounds) {
     );
   }
 
-  Widget _beltImage(String assetPath, int count) {
+  Widget _beltImage(String assetPath, int count, double imageSize) {
     return Stack(
       alignment: Alignment.topRight,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4.0), // small gap between belts
-          child: Image.asset(assetPath, width: 48),
+          child: Image.asset(assetPath, width: imageSize),
         ),
         if (count > 1)
           Positioned(
