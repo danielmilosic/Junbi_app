@@ -128,9 +128,9 @@ void _startQuiz(int totalRounds) {
   // Determine random question type
   List<int> questionTypes;
   if (hardCoreMode) {
-    questionTypes = [0, 1, 2, 3, 6, 7, 8]; // exclude 4 and 5(crashes)
+    questionTypes = [0, 1, 2, 6, 7, 8]; // exclude 3, 4 and 5(crashes)
   } else {
-    questionTypes = [0, 2, 3, 6, 7, 8]; // exclude 1 and 4 and 5(crashes)
+    questionTypes = [0, 2, 6, 7, 8]; // exclude 1, 3, 4 and 5(crashes)
   }
   questionTypes.shuffle();
   int randomNumberQuestionType = questionTypes.first;
