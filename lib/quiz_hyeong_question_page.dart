@@ -41,6 +41,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
   String correctKey = "";
   String correctHyeongInfo = "";
   String question = "";
+  int? selectedIndex;
 
     @override
   void initState() {
@@ -144,6 +145,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
     if (answerLockedIn) return;
 
     setState(() {
+      selectedIndex = index;
       answerLockedIn = true;
     });
 
@@ -212,12 +214,19 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
   Widget build(BuildContext context) {
     final choices = List.generate(4, (index) {
       final isCorrect = index == correctIndex;
-      final bgColor = !answerLockedIn
-          ? Colors.grey[200]
-          : isCorrect
-              ? Colors.green
-              : Colors.red[200];
-
+      final isTapped = index == selectedIndex;
+      Color bgColor;
+      if (!answerLockedIn) {
+        bgColor = Colors.grey[300]!;
+      } else {
+        if (isCorrect) {
+          bgColor = Colors.green; // Highlight correct answer
+        } else if (isTapped && !isCorrect) {
+          bgColor = Colors.red[200]!; // Highlight wrong tapped answer in red
+        } else {
+          bgColor = Colors.white; // Non-tapped wrong answers stay black
+        }
+      }
       return GestureDetector(
         onTap: () => onChoiceTap(index),
         child: Container(

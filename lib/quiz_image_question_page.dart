@@ -41,6 +41,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
   Timer? toggleTimer;
   bool toggle = false;
   String question = "";
+  int? selectedIndex;
 
   late List<String> imagePaths;
   late List<String> startImagePaths;
@@ -143,6 +144,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
     if (answerLockedIn) return;
 
     setState(() {
+      selectedIndex = index;
       answerLockedIn = true;
     });
 
@@ -209,13 +211,20 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
   @override
 Widget build(BuildContext context) {
   final choices = List.generate(4, (index) {
-    final isCorrect = index == correctIndex;
-    final bgColor = !answerLockedIn
-        ? Colors.black
-        : isCorrect
-            ? Colors.green
-            : Colors.red[200];
-
+      final isCorrect = index == correctIndex;
+      final isTapped = index == selectedIndex;
+      Color bgColor;
+      if (!answerLockedIn) {
+        bgColor = Colors.black;
+      } else {
+        if (isCorrect) {
+          bgColor = Colors.green; // Highlight correct answer
+        } else if (isTapped && !isCorrect) {
+          bgColor = Colors.red[200]!; // Highlight wrong tapped answer in red
+        } else {
+          bgColor = Colors.black; // Non-tapped wrong answers stay black
+        }
+      }
   final imagePath = toggle ? startImagePaths[index] : imagePaths[index];
 
 

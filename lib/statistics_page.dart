@@ -101,12 +101,16 @@ Widget build(BuildContext context) {
                       textAlign: TextAlign.center,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16),
+                      padding: const EdgeInsets.only(top: 16, bottom:16),
                       child: const SizedBox(height: 20),
                     ),
                     _buildPieChart(),
                     const SizedBox(height: 40),
-                    _buildBarChart(),
+                    Padding(
+                      padding: const EdgeInsets.only(top:16.0, bottom:16),
+                      child: _buildBarChart(),
+                    ),
+
                     Align(
                       alignment: Alignment.bottomRight,
                       child: IconButton(
@@ -218,7 +222,7 @@ Widget build(BuildContext context) {
                 BarChartRodData(
                   toY: barValues[index],
                   color: colors[index],
-                  width: 18,
+                  width: 28,
                   borderRadius: BorderRadius.circular(4),
                 ),
               ],

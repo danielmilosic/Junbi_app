@@ -45,6 +45,7 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
 
   late String imagePath;
   bool hasStartImage = false;
+  int? selectedIndex;
 
 
   Future<bool> assetExists(String path) async {
@@ -158,10 +159,12 @@ class _QuizDetailPageState extends State<QuizDetailPage> {
     if (answerLockedIn) return;
 
     setState(() {
+      selectedIndex = index;
       answerLockedIn = true;
     });
 
     bool isCorrect = index == correctIndex;
+
 Future.delayed(const Duration(seconds: 2), () {
   if (widget.roundCount >= widget.totalRoundCount) {
     Navigator.pushReplacement(
@@ -224,11 +227,19 @@ Future.delayed(const Duration(seconds: 2), () {
   Widget build(BuildContext context) {
     final choices = List.generate(4, (index) {
       final isCorrect = index == correctIndex;
-      final bgColor = !answerLockedIn
-          ? Colors.grey[300]
-          : isCorrect
-              ? Colors.green
-              : Colors.red[200];
+      final isTapped = index == selectedIndex;
+      Color bgColor;
+    if (!answerLockedIn) {
+      bgColor = Colors.grey[300]!;
+    } else {
+      if (isCorrect) {
+        bgColor = Colors.green; // Highlight correct answer
+      } else if (isTapped && !isCorrect) {
+        bgColor = Colors.red[200]!; // Highlight wrong tapped answer in red
+      } else {
+        bgColor = Colors.white; // Non-tapped wrong answers stay black
+      }
+    }
 
       return GestureDetector(
         onTap: () => onChoiceTap(index),
