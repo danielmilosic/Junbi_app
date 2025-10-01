@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level1_1.dart';
-import 'hangul_level1_3.dart';
+import 'hangul_level1_2.dart';
+import 'hangul_level1_4.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -9,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel12 extends StatelessWidget {
-  const HangulLevel12({Key? key}) : super(key: key);
+class HangulLevel13 extends StatelessWidget {
+  const HangulLevel13({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +50,16 @@ class _HangulContentState extends State<_HangulContent> {
 
   final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7];
   final List<int> _uiVowelIndexes = [0, 4, 8, 13, 18, 20];
+  final List<int> _uiFinalIndexes = [1, 4, 7, 8, 16, 17];
 
   List<String> get initialConsonants =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
 
   List<String> get vowels =>
       _uiVowelIndexes.map((i) => _fullVowels[i]).toList();
+
+  List<String> get finalConsonants =>
+      _uiFinalIndexes.map((i) => _fullFinalConsonants[i]).toList();
 
   // buffer for currently composed syllable
   int? _initialIndex;
@@ -161,6 +165,14 @@ void _updateController() {
             child: Text(v, style: const TextStyle(fontSize: 20)),
           )).toList(),
         ),
+        const Text('Endkonsonanten', style: TextStyle(fontWeight: FontWeight.bold)),
+        Wrap(
+          spacing: 4,
+          children: finalConsonants.map((f) => ElevatedButton(
+            onPressed: () => _pressFinal(f),
+            child: Text(f, style: const TextStyle(fontSize: 20)),
+          )).toList(),
+        ),
         const SizedBox(height: 8),
         const SizedBox(height: 8),
         ElevatedButton.icon(
@@ -214,7 +226,7 @@ void _updateController() {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 3 / 5,
+          value: 4 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -224,32 +236,15 @@ void _updateController() {
 
           // Aufbau
           const Text(
-            'Mehr Vokale!',
+            'Endkonsonanten',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Neben den vertikalen Vokalen, gibt es auch Horizontale. Sie funktionieren genau gleich, nur werden sie unter dem ersten Konsonanten geschrieben, statt daneben. \n Beispiele: \n- 고 = ㄱ + ㅗ (go) \n- 구 = ㄱ + ㅜ (gu) ',
+            'Eine Silbe kann mit einem Vokal enden, aber es ist auch möglich noch einen Konsonanten anzuhängen. Ein Konsonant wird am Ende meist etwas anders ausgesprochen, oft härter. \n Beispiele: \n- 곡 = ㄱ + ㅗ + ㄱ (gok) \n- 길 = ㄱ + ㅣ + ㄹ (gil) ',
             style: TextStyle(fontSize: 16),
           ),
 
-          const Divider(height: 28),
-
-          // Konsonanten
-          const Text(
-            'Neue Vokale',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          _JamoGrid(
-            items: [
-              _Jamo('ㅗ', 'o', 'wie in "oben'),
-              _Jamo('ㅜ', 'u', 'wie in "unten"'),
-              _Jamo('ㅡ', 'eu', 'Zunge entspannt im Mund, neutraler Laut, nicht wie in "Eule"!'),
-            ],
-          ),
-
-          const Divider(height: 28),
 
 
           const Divider(height: 28),
@@ -269,10 +264,10 @@ SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
     children: [
-      _buildAudioCard(context, '바로 - gerade', 'audio/baro.mp3'),
-      _buildAudioCard(context, '모드 - Modus', 'audio//hangul/modeu.mp3'),
-      _buildAudioCard(context, '고구마 - Süßkartoffel', 'audio/hangul/goguma.mp3'),
-      _buildAudioCard(context, '두부 - Tofu', 'audio/hangul/dubu.mp3'),
+      _buildAudioCard(context, '둘 - zwei', 'audio/hangul/dul.mp3'),
+      _buildAudioCard(context, '막기 - Block', 'audio/hangul/makgi.mp3'),
+      _buildAudioCard(context, '그만 - Stop', 'audio/geuman.mp3'),
+      _buildAudioCard(context, '만두 - Mandu (Teigtasche)', 'audio/hangul/mandu.mp3'),
     ],
   ),
 ),
@@ -307,7 +302,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel11()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel12()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -333,7 +328,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel13()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel14()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

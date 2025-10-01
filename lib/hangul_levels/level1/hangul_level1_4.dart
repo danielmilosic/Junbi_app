@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level1_1.dart';
 import 'hangul_level1_3.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -9,8 +8,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel12 extends StatelessWidget {
-  const HangulLevel12({Key? key}) : super(key: key);
+class HangulLevel14 extends StatelessWidget {
+  const HangulLevel14({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +47,18 @@ class _HangulContentState extends State<_HangulContent> {
   ];
 
 
-  final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7];
+  final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7, 11];
   final List<int> _uiVowelIndexes = [0, 4, 8, 13, 18, 20];
+  final List<int> _uiFinalIndexes = [1, 4, 7, 8, 16, 17, 21];
 
   List<String> get initialConsonants =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
 
   List<String> get vowels =>
       _uiVowelIndexes.map((i) => _fullVowels[i]).toList();
+
+  List<String> get finalConsonants =>
+      _uiFinalIndexes.map((i) => _fullFinalConsonants[i]).toList();
 
   // buffer for currently composed syllable
   int? _initialIndex;
@@ -161,6 +164,14 @@ void _updateController() {
             child: Text(v, style: const TextStyle(fontSize: 20)),
           )).toList(),
         ),
+        const Text('Endkonsonanten', style: TextStyle(fontWeight: FontWeight.bold)),
+        Wrap(
+          spacing: 4,
+          children: finalConsonants.map((f) => ElevatedButton(
+            onPressed: () => _pressFinal(f),
+            child: Text(f, style: const TextStyle(fontSize: 20)),
+          )).toList(),
+        ),
         const SizedBox(height: 8),
         const SizedBox(height: 8),
         ElevatedButton.icon(
@@ -214,7 +225,7 @@ void _updateController() {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 3 / 5,
+          value: 5 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -224,35 +235,33 @@ void _updateController() {
 
           // Aufbau
           const Text(
-            'Mehr Vokale!',
+            'ㅇ',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Neben den vertikalen Vokalen, gibt es auch Horizontale. Sie funktionieren genau gleich, nur werden sie unter dem ersten Konsonanten geschrieben, statt daneben. \n Beispiele: \n- 고 = ㄱ + ㅗ (go) \n- 구 = ㄱ + ㅜ (gu) ',
+            'Jede Silbe muss mit einem Konsonanten anfangen. Wenn aber eine Silbe doch keinen Konsonanten am Anfang hat, schreibt man stattdessen ein stummes ㅇ als Anfangskonsonanten. Am Ende einer Silbe wird es aber als ng ausgesprochen. \n Beispiele: \n- 안 = ㅇ + ㅏ + ㄴ (an) \n- 공 = ㄱ + ㅗ + ㅇ (gong) \n- 웅 = ㅇ + ㅜ + ㅇ (ung) ',
             style: TextStyle(fontSize: 16),
           ),
+
+
 
           const Divider(height: 28),
 
           // Konsonanten
           const Text(
-            'Neue Vokale',
+            'Neuer Konsonant',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           _JamoGrid(
             items: [
-              _Jamo('ㅗ', 'o', 'wie in "oben'),
-              _Jamo('ㅜ', 'u', 'wie in "unten"'),
-              _Jamo('ㅡ', 'eu', 'Zunge entspannt im Mund, neutraler Laut, nicht wie in "Eule"!'),
+              _Jamo('ㅇ', 'ng', 'wie in "gang", oder stumm am Anfang'),
             ],
           ),
 
           const Divider(height: 28),
 
-
-          const Divider(height: 28),
 
           const SizedBox(height: 8),
           const Text(
@@ -269,10 +278,9 @@ SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
     children: [
-      _buildAudioCard(context, '바로 - gerade', 'audio/baro.mp3'),
-      _buildAudioCard(context, '모드 - Modus', 'audio//hangul/modeu.mp3'),
-      _buildAudioCard(context, '고구마 - Süßkartoffel', 'audio/hangul/goguma.mp3'),
-      _buildAudioCard(context, '두부 - Tofu', 'audio/hangul/dubu.mp3'),
+      _buildAudioCard(context, '운동 - Bewegung, Sport', 'audio/hangul/undong.mp3'),
+      _buildAudioCard(context, '안으로 - Nach innen', 'audio/hangul/aneuro.mp3'),
+      _buildAudioCard(context, '얼굴막기 - Gesichtsblock', 'audio/eolgul_makgi.mp3'),
     ],
   ),
 ),
@@ -307,11 +315,17 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel11()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel13()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
                 ),
+
+                          const Text(
+            'Sehr gut! Level 1 ist geschafft :)',
+            style: TextStyle(fontSize: 16),
+          ),
+
 
                 // Home button
                 IconButton(
@@ -324,19 +338,6 @@ SingleChildScrollView(
                       (route) => false, // remove all previous routes
                     );
                   }, // or Navigator.popUntil
-                ),
-
-                // Forward button
-                IconButton(
-                  icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
-                  onPressed: () {
-                    // Navigate forward
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (_) => HangulLevel13()), // or MainPage()
-                      (route) => false, // remove all previous routes
-                    );
-                  },
                 ),
               ],
             ),
