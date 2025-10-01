@@ -237,7 +237,7 @@ Future.delayed(const Duration(seconds: 2), () {
       } else if (isTapped && !isCorrect) {
         bgColor = Colors.red[200]!; // Highlight wrong tapped answer in red
       } else {
-        bgColor = Colors.white; // Non-tapped wrong answers stay black
+        bgColor = Colors.grey[300]!; // Non-tapped wrong answers stay black
       }
     }
 

@@ -41,7 +41,7 @@ class HyeongPage extends StatelessWidget {
                   final title = parts[0].trim(); // first part before |
                   final hangul = parts[1].trim();
                   final hanja = parts[2].trim();
-                  final description = parts[3].trim();
+                  final description = parts[6].trim();
                   final movements = int.parse(parts[4].trim());
                   final hyeongNumber = index+1;
                   final imagePath = "assets/images/hyeong${hyeongNumber}_diagram.png";

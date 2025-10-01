@@ -10,17 +10,17 @@ class AppStrings {
 
 //HYEONG INFO
 
-  static const hyeong_data = 
-  ["Cheon Ji|천지|天地|Heaven and Earth (天 representing heaven, 地 representing earth).|19|1", 
-  "Dan Gun|단군|檀君|Named after the holy Dan Gun, the legendary founder of Korea in 2333 BC.|21|2", 
-  "Do San|도산|島山|Do San is the pseudonym of patriot An Chang Ho (안창호) (1878-1938). He was a Korean politician, Korean independence activist, and an early leader of the Korean-American immigrant community in the US. He and his wife were the first Koreans to legally immigrate to the US as a married couple.|24|3", 
-  "Won Hyo|원효|元曉|Won Hyo was a buddhist monk responsible for spreading buddhism in Korea.|28|4", 
-  "Yul Gok|율곡|栗谷|Yul Gok is the artist name of the philosopher Yi I (이이).|38|5", 
-  "Jung Geun|중근|重根|An Jung Geun (안중근) was a Korean freedom fighter.|32|6", 
-  "Toi Gye|퇴계|退溪|Toi Gye is the artist name of the philosopher Yi Hwang (이황).|37|7", 
-  "Hwa Rang|화랑|花郞|Hwa Rang was the name of a group of aristocratic youth.|29|8", 
-  "Chung Mu|충무|忠武|Yi Sun Shin (이순신) was a Korean admiral.|30|9",
-  "Gwang Gye|광개|廣開|Gwang Gae To Tae Wang (Hanja: 廣開土大王) was a king who re-conquered large part of Mandjuria.|39|10"];
+static const hyeong_data = 
+  ["Cheon Ji|천지|天地|Himmel und Erde, steht für den Anfang.|19|1|Heaven and Earth (天 representing heaven, 地 representing earth).", 
+  "Dan Gun|단군|檀君|Ein Heiliger, welcher der Legende nach 2333 v.Chr Korea erschaffen hat.|21|2|Named after the holy Dan Gun, the legendary founder of Korea in 2333 BC.", 
+  "Do San|도산|島山|Koreanischer Patriot, Anführer der koreanischen Unabhängigkeitsbewegung.|24|3|Do San is the pseudonym of patriot An Chang Ho (안창호) (1878-1938). He was a Korean politician, Korean independence activist, and an early leader of the Korean-American immigrant community in the US. He and his wife were the first Koreans to legally immigrate to the US as a married couple.", 
+  "Won Hyo|원효|元曉|Won Hyo was a buddhist monk responsible for spreading buddhism in Korea.|28|4|Won Hyo was a buddhist monk responsible for spreading buddhism in Korea.", 
+  "Yul Gok|율곡|栗谷|Yul Gok is the artist name of the philosopher Yi I (이이).|38|5|Yul Gok is the artist name of the philosopher Yi I (이이).", 
+  "Jung Geun|중근|重根|An Jung Geun (안중근) was a Korean freedom fighter.|32|6|An Jung Geun (안중근) was a Korean freedom fighter.", 
+  "Toi Gye|퇴계|退溪|Toi Gye is the artist name of the philosopher Yi Hwang (이황).|37|7|Toi Gye is the artist name of the philosopher Yi Hwang (이황).", 
+  "Hwa Rang|화랑|花郞|Hwa Rang was the name of a group of aristocratic youth.|29|8|Hwa Rang was the name of a group of aristocratic youth.", 
+  "Chung Mu|충무|忠武|Yi Sun Shin (이순신) was a Korean admiral.|30|9|Yi Sun Shin (이순신) was a Korean admiral.",
+  "Gwang Gye|광개|廣開|Ein king who re-conquered large part of Mandjuria.|39|10|Gwang Gae To Tae Wang (Hanja: 廣開土大王) was a king who re-conquered large part of Mandjuria."];
   
 
 //LIST OF TECHNIQUES OCCURRING IN HYEONGS
