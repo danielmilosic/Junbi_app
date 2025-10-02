@@ -28,7 +28,7 @@ class HangulLearningPage extends StatelessWidget {
               children: [
                           const SizedBox(height: 6),
               const Text(
-                'Hier kannst du interaktiv Hangul lernen.',
+                'Hangul ist relativ leicht zu lernen. Aufgeteilt auf 5 Levels kannst du dir die koreanische Schrift interaktiv aneignen. Nach Level 3 kannst du schon das meiste lesen! Level 4 führt noch ein paar besondere Doppellaute ein und Level 5 verfeinert deine Aussprache. Viel Spaß! :)',
                 style: TextStyle(fontSize: 16),
               ),
                 const SizedBox(height: 32),

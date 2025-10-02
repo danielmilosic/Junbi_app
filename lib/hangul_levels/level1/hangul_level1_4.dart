@@ -280,7 +280,7 @@ SingleChildScrollView(
     children: [
       _buildAudioCard(context, '운동 - Bewegung, Sport', 'audio/hangul/undong.mp3'),
       _buildAudioCard(context, '안으로 - Nach innen', 'audio/hangul/aneuro.mp3'),
-      _buildAudioCard(context, '얼굴막기 - Gesichtsblock', 'audio/eolgul_makgi.mp3'),
+      _buildAudioCard(context, '얼굴 막기 - Gesichtsblock', 'audio/eolgul_makgi.mp3'),
     ],
   ),
 ),

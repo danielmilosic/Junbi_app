@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level2_1.dart';
+import 'hangul_level2_3.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -293,8 +294,8 @@ SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
     children: [
-      _buildAudioCard(context, '아래막기', 'audio/arae_makgi.mp3'),
-      _buildAudioCard(context, '후글서기', 'audio/hugeul_seogi.mp3'),
+      _buildAudioCard(context, '아래 막기', 'audio/arae_makgi.mp3'),
+      _buildAudioCard(context, '후글 서기', 'audio/hugeul_seogi.mp3'),
       _buildAudioCard(context, '셋', 'audio/hangul/set.mp3'),
     ],
   ),
@@ -356,7 +357,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel22()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel23()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

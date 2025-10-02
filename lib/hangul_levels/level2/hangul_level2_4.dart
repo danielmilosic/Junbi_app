@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level2_0.dart';
-import 'hangul_level2_2.dart';
+import 'hangul_level2_3.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -9,8 +8,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel21 extends StatelessWidget {
-  const HangulLevel21({Key? key}) : super(key: key);
+class HangulLevel24 extends StatelessWidget {
+  const HangulLevel24({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +47,9 @@ class _HangulContentState extends State<_HangulContent> {
   ];
 
 
-  final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7, 9, 11, 15, 16, 17];
-  final List<int> _uiVowelIndexes = [0, 4, 8, 13, 18, 20];
-  final List<int> _uiFinalIndexes = [1, 4, 7, 8, 16, 17, 19, 21, 24, 25, 26];
+  final List<int> _uiInitialIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+  final List<int> _uiVowelIndexes = [0, 1, 4, 5, 8, 13, 18, 20];
+  final List<int> _uiFinalIndexes = [1, 2, 4, 7, 8, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27];
 
   List<String> get initialConsonants =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
@@ -226,7 +225,7 @@ void _updateController() {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 2 / 5,
+          value: 5 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -236,35 +235,17 @@ void _updateController() {
 
           // Aufbau
           const Text(
-            'Harte Konsonanten',
+            'Doppelkonsonanten!',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Viele Konsonanten kann man modifizieren, in dem man einen weiteren horizontalen Strich hinzufügt. Diese werden dann härter ausgesprochen:\n\n Aus ㄱ (g) wird ㅋ (k) \n\n Aus ㄷ (d) wird ㅌ (d)\n\n  Aus ㅂ (b) wird ㅍ (p)',
+            'Doppelkonsonanten sind schärfere Versionen der Einzelkonsonanten. Sie werden produziert, indem man etwas mehr Druck im Mund aufbaut und dann den Konsonanten schnell ausspricht. Folgende Konsonanten können verdoppelt werdn: \n\n ㄱ (g) --> ㄲ (kk) \nㄷ (d) --> ㄸ (tt)\nㅂ (b) --> ㅃ (pp) \nㅅ (s) --> ㅆ (ss)\nㅈ (j) --> ㅉ (jj)',
             style: TextStyle(fontSize: 16),
           ),
 
 
-
           const Divider(height: 28),
-
-          // Konsonanten
-          const Text(
-            'Neue Konsonanten',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          _JamoGrid(
-            items: [
-              _Jamo('ㅋ', 'k', 'wie in "Kampf"'),
-              _Jamo('ㅌ', 't', 'wie in "tot'),
-              _Jamo('ㅍ', 'p', 'wie in "Po"'),
-            ],
-          ),
-
-          const Divider(height: 28),
-
 
           const SizedBox(height: 8),
           const Text(
@@ -273,7 +254,7 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Du kannst schon folgende Wörter auf Koreanisch schreiben:',
+            'Du kennst schon alle Konsonanten der koreanischen Schrift! Damit kannst folgende Wörter schon schreiben:',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -281,9 +262,9 @@ SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
     children: [
-      _buildAudioCard(context, '코피 - Nasenbluten', 'audio/hangul/kopi.mp3'),
-      _buildAudioCard(context, '트럼프 - Trump', 'audio/hangul/trump.mp3'),
-      _buildAudioCard(context, '앞 올리기 - Gerader Beinschwung', 'audio/ap_olligi.mp3'),
+      _buildAudioCard(context, '쌍 팔목 막기', 'audio/ssang_palmok_makgi.mp3'),
+      _buildAudioCard(context, '팔끕 들기 - Ellenbongenstich', 'audio/palkkeup_deulgi.mp3'),
+      _buildAudioCard(context, '밖으로 반달 차기', 'audio/bakkeuro_bandal_chagi.mp3'),
     ],
   ),
 ),
@@ -306,6 +287,7 @@ SingleChildScrollView(
           const SizedBox(height: 12),
           Center(child: _buildKeyboard()),
 
+
           Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),
             child: Row(
@@ -318,11 +300,17 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel20()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel23()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
                 ),
+
+                          const Text(
+            'Sehr gut! Level 2 ist geschafft :)',
+            style: TextStyle(fontSize: 16),
+          ),
+
 
                 // Home button
                 IconButton(
@@ -335,19 +323,6 @@ SingleChildScrollView(
                       (route) => false, // remove all previous routes
                     );
                   }, // or Navigator.popUntil
-                ),
-
-                // Forward button
-                IconButton(
-                  icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
-                  onPressed: () {
-                    // Navigate forward
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (_) => HangulLevel22()), // or MainPage()
-                      (route) => false, // remove all previous routes
-                    );
-                  },
                 ),
               ],
             ),
