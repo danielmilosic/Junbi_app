@@ -22,7 +22,11 @@ class HangulPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-                        const SizedBox(height: 6),
+              const Text(
+              '한글',
+              style: TextStyle(fontSize: 50),
+            ),
+                        const SizedBox(height: 60),
             const Text(
               'Hangul (한글) ist das koreanische Schriftsystem. Es wurde im 15. Jahrhundert von König Sejong entworfen, um das Schreiben für alle Menschen einfacher zu machen. Hangul ist phonetisch — die Zeichen repräsentieren Laute, die zu Silbenblöcken zusammengesetzt werden.',
               style: TextStyle(fontSize: 16),
@@ -41,6 +45,7 @@ class HangulPage extends StatelessWidget {
                 color: Colors.black,
                 onTap: () => _navigate(context, const HangulOverviewPage()),
               ),
+              const SizedBox(height: 100),
                                                                         Align(
               alignment: Alignment.bottomRight,
               child: IconButton(

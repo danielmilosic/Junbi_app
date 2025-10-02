@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'hangul_overview_page.dart';
 import 'hangul_learning_page.dart';
 import 'hangul_levels/level1/hangul_level1_0.dart';
+import 'hangul_levels/level2/hangul_level2_0.dart';
 import 'package:junbi/main.dart';
 
 class HangulLearningPage extends StatelessWidget {
@@ -42,7 +43,7 @@ class HangulLearningPage extends StatelessWidget {
                   context: context,
                   label: 'Level 2: 쌍팔목막기',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulOverviewPage()),
+                  onTap: () => _navigate(context, const HangulLevel20()),
                 ),
                               const SizedBox(height: 32),
                   _buildBigButton(
