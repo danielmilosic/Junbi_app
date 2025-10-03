@@ -360,7 +360,7 @@ class _JamoGrid extends StatelessWidget {
       shrinkWrap: true,
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         childAspectRatio: 1,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,

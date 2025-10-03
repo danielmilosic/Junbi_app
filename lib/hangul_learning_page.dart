@@ -1,15 +1,64 @@
-// 📄 hangul_page.dart
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'hangul_overview_page.dart';
-import 'hangul_learning_page.dart';
 import 'hangul_levels/level1/hangul_level1_0.dart';
 import 'hangul_levels/level2/hangul_level2_0.dart';
 import 'package:junbi/main.dart';
 
-class HangulLearningPage extends StatelessWidget {
+class HangulLearningPage extends StatefulWidget {
   const HangulLearningPage({Key? key}) : super(key: key);
 
-  void _navigate(BuildContext context, Widget page) {
+  @override
+  State<HangulLearningPage> createState() => _HangulLearningPageState();
+}
+
+class _HangulLearningPageState extends State<HangulLearningPage> {
+  Map<String, bool> visited = {};
+  Map<String, bool> completed = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVisited();
+    _loadCompleted();
+  }
+
+  Future<void> _loadVisited() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      visited = {
+        'level1': prefs.getBool('level1') ?? false,
+        'level2': prefs.getBool('level2') ?? false,
+        'level3': prefs.getBool('level3') ?? false,
+        'level4': prefs.getBool('level4') ?? false,
+        'level5': prefs.getBool('level5') ?? false,
+      };
+    });
+  }
+
+    Future<void> _loadCompleted() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      completed = {
+        'level1completed': prefs.getBool('level1completed') ?? false,
+        'level2completed': prefs.getBool('level2completed') ?? false,
+        'level3completed': prefs.getBool('level3completed') ?? false,
+        'level4completed': prefs.getBool('level4completed') ?? false,
+        'level5completed': prefs.getBool('level5completed') ?? false,
+      };
+    });
+  }
+
+  Future<void> _markVisited(String levelKey) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(levelKey, true);
+    setState(() {
+      visited[levelKey] = true;
+    });
+  }
+
+  void _navigate(BuildContext context, Widget page, String levelKey) {
+    _markVisited(levelKey); // mark as visited
     Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => page),
@@ -26,59 +75,69 @@ class HangulLearningPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                          const SizedBox(height: 6),
-              const Text(
-                'Hangul ist relativ leicht zu lernen. Aufgeteilt auf 5 Levels kannst du dir die koreanische Schrift interaktiv aneignen. Nach Level 3 kannst du schon das meiste lesen! Level 4 führt noch ein paar besondere Doppellaute ein und Level 5 verfeinert deine Aussprache. Viel Spaß! :)',
-                style: TextStyle(fontSize: 16),
-              ),
+                const SizedBox(height: 6),
+                const Text(
+                  'Hangul ist relativ leicht zu lernen. Aufgeteilt auf 5 Levels kannst du dir die koreanische Schrift interaktiv aneignen. Nach Level 3 kannst du schon das meiste lesen! Level 4 führt noch ein paar besondere Doppellaute ein und Level 5 verfeinert deine Aussprache. Viel Spaß! :)',
+                  style: TextStyle(fontSize: 16),
+                ),
                 const SizedBox(height: 32),
                 _buildBigButton(
                   context: context,
                   label: 'Level 1: 가나다',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulLevel10()),
+                  visited: visited['level1'] ?? false,
+                  completed: completed['level1completed'] ?? false,
+                  onTap: () => _navigate(context, const HangulLevel10(), 'level1'),
                 ),
                 const SizedBox(height: 32),
-                  _buildBigButton(
+                _buildBigButton(
                   context: context,
                   label: 'Level 2: 쌍팔목막기',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulLevel20()),
+                  visited: visited['level2'] ?? false,
+                  completed: completed['level2completed'] ?? false,
+                  onTap: () => _navigate(context, const HangulLevel20(), 'level2'),
                 ),
-                              const SizedBox(height: 32),
-                  _buildBigButton(
+                const SizedBox(height: 32),
+                _buildBigButton(
                   context: context,
                   label: 'Level 3: 안녕하세요',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulOverviewPage()),
+                  visited: visited['level3'] ?? false,
+                  completed: completed['level3completed'] ?? false,
+                  onTap: () => _navigate(context, const HangulOverviewPage(), 'level3'),
                 ),
-                              const SizedBox(height: 32),
-                  _buildBigButton(
+                const SizedBox(height: 32),
+                _buildBigButton(
                   context: context,
                   label: 'Level 4: 태권도',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulOverviewPage()),
+                  visited: visited['level4'] ?? false,
+                  completed: completed['level4completed'] ?? false,
+                  onTap: () => _navigate(context, const HangulOverviewPage(), 'level4'),
                 ),
-                              const SizedBox(height: 32),
-                  _buildBigButton(
+                const SizedBox(height: 32),
+                _buildBigButton(
                   context: context,
                   label: 'Level 5: 차렷, 경례',
                   color: Colors.black,
-                  onTap: () => _navigate(context, const HangulOverviewPage()),
+                  visited: visited['level5'] ?? false,
+                  completed: completed['level5completed'] ?? false,
+                  onTap: () => _navigate(context, const HangulOverviewPage(), 'level5'),
                 ),
-                                                                          Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                                  onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (_) => JunbiApp()), // or MainPage()
-                    (route) => false, // remove all previous routes
-                  );
-                },
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (_) => JunbiApp()),
+                        (route) => false,
+                      );
+                    },
+                  ),
                 ),
-              ),
               ],
             ),
           ),
@@ -92,6 +151,8 @@ class HangulLearningPage extends StatelessWidget {
     required String label,
     required Color color,
     required VoidCallback onTap,
+    bool visited = false,
+    bool completed = false,
   }) {
     return SizedBox(
       width: double.infinity,
@@ -105,7 +166,22 @@ class HangulLearningPage extends StatelessWidget {
           textStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         onPressed: onTap,
-        child: Text(label),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(label),
+            if (visited && !completed)
+              const Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Icon(Icons.check_circle, color: Colors.orange, size: 28)
+              ),
+            if (completed)
+              const Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Icon(Icons.check_circle, color: Colors.green, size: 28),
+              )
+          ],
+        ),
       ),
     );
   }

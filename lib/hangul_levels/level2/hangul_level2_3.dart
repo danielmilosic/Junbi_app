@@ -3,6 +3,8 @@ import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level2_2.dart';
 import 'hangul_level2_4.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
@@ -65,6 +67,11 @@ class _HangulContentState extends State<_HangulContent> {
   int? _initialIndex;
   int? _vowelIndex;
   int? _finalIndex;
+
+void _markCompleted() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('level2completed', true);  // mark level 1 as completed
+}
 
 void _pressInitial(String c) {
   // Commit the current syllable if any vowel exists (or even if not)
@@ -340,6 +347,7 @@ SingleChildScrollView(
                 IconButton(
                   icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
                   onPressed: () {
+                    _markCompleted();
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
@@ -371,7 +379,7 @@ class _JamoGrid extends StatelessWidget {
       shrinkWrap: true,
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         childAspectRatio: 1,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,

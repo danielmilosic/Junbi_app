@@ -10,6 +10,7 @@ import 'package:audioplayers/audioplayers.dart';
 
 class HangulLevel14 extends StatelessWidget {
   const HangulLevel14({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +65,7 @@ class _HangulContentState extends State<_HangulContent> {
   int? _initialIndex;
   int? _vowelIndex;
   int? _finalIndex;
+  
 
 void _pressInitial(String c) {
   // Commit the current syllable if any vowel exists (or even if not)
@@ -361,7 +363,7 @@ class _JamoGrid extends StatelessWidget {
       shrinkWrap: true,
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         childAspectRatio: 1,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,

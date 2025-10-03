@@ -3,6 +3,8 @@ import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level1_2.dart';
 import 'hangul_level1_4.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
@@ -143,6 +145,11 @@ void _updateController() {
     }
     _updateController();
   }
+
+  void _markCompleted() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('level1completed', true);  // mark level 1 as completed
+}
 
 
   Widget _buildKeyboard() {
@@ -325,6 +332,7 @@ SingleChildScrollView(
                 IconButton(
                   icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
                   onPressed: () {
+                    _markCompleted();
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
