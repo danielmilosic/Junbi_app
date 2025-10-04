@@ -61,6 +61,7 @@ class _HangulContentState extends State<_HangulContent> {
   int? _initialIndex;
   int? _vowelIndex;
   int? _finalIndex;
+  Color _textColor = Colors.white;
 
 void _pressInitial(String c) {
   // Commit the current syllable if any vowel exists (or even if not)
@@ -123,11 +124,18 @@ void _updateController() {
     preview = _currentInput + combined;
   }
 
-  _controller.text = preview;
-  _controller.selection = TextSelection.fromPosition(
-    TextPosition(offset: _controller.text.length),
-  );
+  setState(() {
+    _textColor = (preview == '바로' || preview == '모드' || preview == '고구마' || preview == '두부')
+        ? Colors.green
+        : Colors.white;
+
+    _controller.text = preview;
+    _controller.selection = TextSelection.fromPosition(
+      TextPosition(offset: _controller.text.length),
+    );
+  });
 }
+
 
   void _backspace() {
     if (_vowelIndex != null || _initialIndex != null) {
@@ -270,7 +278,7 @@ SingleChildScrollView(
   child: Row(
     children: [
       _buildAudioCard(context, '바로 - gerade', 'audio/baro.mp3'),
-      _buildAudioCard(context, '모드 - Modus', 'audio//hangul/modeu.mp3'),
+      _buildAudioCard(context, '모드 - Modus', 'audio/hangul/modeu.mp3'),
       _buildAudioCard(context, '고구마 - Süßkartoffel', 'audio/hangul/goguma.mp3'),
       _buildAudioCard(context, '두부 - Tofu', 'audio/hangul/dubu.mp3'),
     ],
@@ -290,8 +298,9 @@ SingleChildScrollView(
               border: OutlineInputBorder(),
               hintText: '',
             ),
-            style: const TextStyle(fontSize: 28),
+            style: TextStyle(fontSize: 28, color: _textColor),
           ),
+
           const SizedBox(height: 12),
           Center(child: _buildKeyboard()),
 

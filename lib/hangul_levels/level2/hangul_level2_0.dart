@@ -35,149 +35,240 @@ class _HangulContentState extends State<_HangulContent> {
   final TextEditingController _controller = TextEditingController();
   String _currentInput = '';
 
-  // Hangul Jamo lists
+  // Full Hangul Jamo
   final List<String> _fullInitialConsonants = [
     'ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'
   ];
   final List<String> _fullVowels = [
-    'ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'
+    'ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ',
+    'ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'
   ];
   final List<String> _fullFinalConsonants = [
-    '', 'ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'
+    '', 'ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ',
+    'ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'
   ];
 
+  // Subset indexes for simpler keyboard
+  final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7, 9, 11]; // ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ
+  final List<int> _uiVowelIndexes = [0, 4, 8, 13, 18, 20]; // ㅏ ㅓ ㅗ ㅜ ㅠ ㅣ
 
-  final List<int> _uiInitialIndexes = [0, 2, 3, 5, 6, 7, 9, 11];
-  final List<int> _uiVowelIndexes = [0, 4, 8, 13, 18, 20];
-  final List<int> _uiFinalIndexes = [1, 4, 7, 8, 16, 17, 19, 21];
-
-  List<String> get initialConsonants =>
-      _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
-
-  List<String> get vowels =>
-      _uiVowelIndexes.map((i) => _fullVowels[i]).toList();
-
-  List<String> get finalConsonants =>
-      _uiFinalIndexes.map((i) => _fullFinalConsonants[i]).toList();
-
-  // buffer for currently composed syllable
   int? _initialIndex;
   int? _vowelIndex;
   int? _finalIndex;
+  Color _textColor = Colors.white;
+  
 
-void _pressInitial(String c) {
-  // Commit the current syllable if any vowel exists (or even if not)
-  if (_initialIndex != null || _vowelIndex != null) {
+  List<String> get initials =>
+      _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
+  List<String> get vowels =>
+      _uiVowelIndexes.map((i) => _fullVowels[i]).toList();
+
+  void _pressKey(String key) {
+    if (initials.contains(key)) {
+      _pressConsonant(key);
+    } else if (vowels.contains(key)) {
+      _pressVowel(key);
+    }
+  }
+
+  void _pressConsonant(String c) {
+    final index = _fullInitialConsonants.indexOf(c);
+
+
+    // Case 1: Starting new syllable
+    if (_initialIndex == null) {
+      _initialIndex = index;
+      _updateController();
+      return;
+    }
+
+    // Case 2: Initial exists but no vowel yet → replace initial (user typed new consonant)
+    if (_vowelIndex == null) {
+      _initialIndex = index;
+      _updateController();
+      return;
+
+
+    }
+
+    // Case 3: We have initial + vowel, so this consonant might be a final
+    final finalCandidate = _fullFinalConsonants.indexOf(c);
+    if (finalCandidate != -1 && _finalIndex == null) {
+      _finalIndex = finalCandidate;
+      _updateController();
+      return;
+    }
+
+    // Default: commit current syllable, start new one
     _commitSyllable();
+    _initialIndex = index;
+    _updateController();
   }
-  _initialIndex = _fullInitialConsonants.indexOf(c);
-  _vowelIndex = null;
-  _finalIndex = null;
-  _updateController();
-}
 
-void _pressVowel(String v) {
-  if (_initialIndex == null) {
-    // Optional: automatically start a dummy initial (like 'ㅇ') if vowel pressed first
-    _initialIndex = 11; // 'ㅇ' index in _fullInitialConsonants
+  void _pressVowel(String v) {
+    final vIndex = _fullVowels.indexOf(v);
+
+
+    // Case 0: Starting new syllable
+    if (_finalIndex != null) {
+      int? finalToInitial(int finalIndex) {
+        String f = _fullFinalConsonants[finalIndex];
+        int i = _fullInitialConsonants.indexOf(f);
+        return (i != -1) ? i : null;
+      }
+      int? newInitialIndex = finalToInitial(_finalIndex!);
+      _finalIndex = null;
+      _commitSyllable();
+      _initialIndex = newInitialIndex;
+      _vowelIndex = vIndex;
+      _updateController();
+      return;
+    }
+
+    // If no initial yet, auto insert ㅇ
+    if (_initialIndex == null) {
+      _initialIndex = _fullInitialConsonants.indexOf('ㅇ');
+    }
+
+    // If we already had a vowel + final, commit and start new syllable
+    if (_vowelIndex != null) {
+      _commitSyllable();
+    }
+
+    _vowelIndex = vIndex;
+    _finalIndex = null;
+    _updateController();
   }
-  _vowelIndex = _fullVowels.indexOf(v);
-  _finalIndex = null;
-  _updateController();
-}
 
-void _pressFinal(String f) {
-  if (_initialIndex != null && _vowelIndex != null) {
-    _finalIndex = _fullFinalConsonants.indexOf(f);
-    _commitSyllable();
-  }
-}
+  void _commitSyllable() {
+    if (_initialIndex == null) return;
 
-void _commitSyllable() {
-  if (_initialIndex == null) return;
+    final initial = _initialIndex!;
+    final vowel = _vowelIndex ?? 0;
+    final fin = _finalIndex ?? 0;
 
-  int finalIndex = _finalIndex ?? 0;
-  int vowelIndex = _vowelIndex ?? 0;
-
-  final syllable = String.fromCharCode(
-    0xAC00 + (_initialIndex! * 21 + vowelIndex) * 28 + finalIndex,
-  );
-
-  _currentInput += syllable;
-
-  // Reset buffer for next syllable
-  _initialIndex = null;
-  _vowelIndex = null;
-  _finalIndex = null;
-
-  _updateController();
-}
-
-void _updateController() {
-  String preview = _currentInput;
-
-  if (_initialIndex != null) {
-    preview += _fullInitialConsonants[_initialIndex!];
-  }
-  if (_vowelIndex != null) {
-    final combined = String.fromCharCode(
-      0xAC00 + (_initialIndex! * 21 + _vowelIndex!) * 28,
+    final syllable = String.fromCharCode(
+      0xAC00 + (initial * 21 + vowel) * 28 + fin,
     );
-    preview = _currentInput + combined;
+
+    _currentInput += syllable;
+
+    _initialIndex = null;
+    _vowelIndex = null;
+    _finalIndex = null;
+    _updateController();
   }
 
-  _controller.text = preview;
-  _controller.selection = TextSelection.fromPosition(
-    TextPosition(offset: _controller.text.length),
-  );
+  void _updateController() {
+    String preview = _currentInput;
+
+    if (_initialIndex != null) {
+      preview += _fullInitialConsonants[_initialIndex!];
+    }
+    if (_vowelIndex != null) {
+      final combined = String.fromCharCode(
+        0xAC00 + (_initialIndex! * 21 + _vowelIndex!) * 28,
+      );
+      preview = _currentInput + combined;
+    }
+    if (_finalIndex != null) {
+      final combined = String.fromCharCode(
+        0xAC00 + (_initialIndex! * 21 + _vowelIndex!) * 28 + _finalIndex!,
+      );
+      preview = _currentInput + combined;
+    }
+  setState(() {
+    _textColor = (preview == '산' || preview == '심사' || preview == '다섯')
+        ? Colors.green
+        : Colors.white;
+
+
+    _controller.text = preview;
+    _controller.selection = TextSelection.fromPosition(
+      TextPosition(offset: _controller.text.length),
+    );
+  });
 }
 
   void _backspace() {
-    if (_vowelIndex != null || _initialIndex != null) {
-      _initialIndex = null;
-      _vowelIndex = null;
+    if (_finalIndex != null) {
       _finalIndex = null;
+    } else if (_vowelIndex != null) {
+      _vowelIndex = null;
+    } else if (_initialIndex != null) {
+      _initialIndex = null;
     } else if (_currentInput.isNotEmpty) {
       _currentInput = _currentInput.substring(0, _currentInput.length - 1);
     }
     _updateController();
   }
 
+  Widget _buildKey(String label) {
+    return GestureDetector(
+      onTap: () => _pressKey(label),
+      child: Container(
+        width: 48,
+        height: 48,
+        margin: const EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 3,
+              offset: Offset(1, 1),
+            ),
+          ],
+        ),
+        child: Center(
+          child: Text(
+            label,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _buildKeyboard() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        const Text('Anfangskonsonanten', style: TextStyle(fontWeight: FontWeight.bold)),
         Wrap(
-          spacing: 4,
-          children: initialConsonants.map((c) => ElevatedButton(
-            onPressed: () => _pressInitial(c),
-            child: Text(c, style: const TextStyle(fontSize: 20)),
-          )).toList(),
+          alignment: WrapAlignment.center,
+          children: initials.map(_buildKey).toList(),
         ),
-        const SizedBox(height: 8),
-        const Text('Vokale', style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 6),
         Wrap(
-          spacing: 4,
-          children: vowels.map((v) => ElevatedButton(
-            onPressed: () => _pressVowel(v),
-            child: Text(v, style: const TextStyle(fontSize: 20)),
-          )).toList(),
+          alignment: WrapAlignment.center,
+          children: vowels.map(_buildKey).toList(),
         ),
-        const Text('Endkonsonanten', style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 6),
         Wrap(
-          spacing: 4,
-          children: finalConsonants.map((f) => ElevatedButton(
-            onPressed: () => _pressFinal(f),
-            child: Text(f, style: const TextStyle(fontSize: 20)),
-          )).toList(),
-        ),
-        const SizedBox(height: 8),
-        const SizedBox(height: 8),
-        ElevatedButton.icon(
-          onPressed: _backspace,
-          icon: const Icon(Icons.backspace),
-          label: const Text('Löschen'),
+          alignment: WrapAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: _backspace,
+              child: Container(
+                width: 50,
+                height: 38,
+                margin: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  color: Colors.red[100],
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 3,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
+                ),
+                child: const Icon(Icons.backspace, size: 24),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -240,7 +331,7 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Der Buchstabe "ㅅ" wird meisten mit einem "s" transkribiert, kann aber auf drei verschiedene Arten ausgesprochen werden. \n\n1. in Kombination mit einem "i", klingt es wie bei dem Wort "SCHIff": \n 시 = ㅅ + ㅣ (shi)  \n\n2. In Kombination mit jedem anderen Vokal, klingt es wie bei dem Wort "naSS":\n 사 = ㅅ + ㅏ (sa) \n\n3. Am Ende einer Silbe schließt man denn Mund bevor man die Luft durchlässt, weshalb es klingt wie ein "t": \n 곳 = ㄱ + ㅗ + ㅅ (got)',
+            'Der Buchstabe "ㅅ" wird meisten mit einem "s" transkribiert, kann aber auf drei verschiedene Arten ausgesprochen werden. \n\n1. in Kombination mit einem "i", klingt es wie bei dem Wort "SCHIff": \n 시 = ㅅ + ㅣ (shi)  \n\n2. In Kombination mit jedem anderen Vokal, klingt es wie bei dem Wort "naSS":\n 사 = ㅅ + ㅏ (sa) \n\n3. Am Ende einer Silbe schließt man denn Mund bevor man die Luft durchlässt, weshalb es klingt wie ein "t": \n 굿 = ㄱ + ㅜ + ㅅ (gut)',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -300,7 +391,7 @@ SingleChildScrollView(
               border: OutlineInputBorder(),
               hintText: '',
             ),
-            style: const TextStyle(fontSize: 28),
+            style: TextStyle(fontSize: 28, color: _textColor),
           ),
           const SizedBox(height: 12),
           Center(child: _buildKeyboard()),

@@ -61,6 +61,7 @@ class _HangulContentState extends State<_HangulContent> {
   int? _initialIndex;
   int? _vowelIndex;
   int? _finalIndex;
+  Color _textColor = Colors.white;
 
 void _pressInitial(String c) {
   // Commit the current syllable if any vowel exists (or even if not)
@@ -123,10 +124,16 @@ void _updateController() {
     preview = _currentInput + combined;
   }
 
-  _controller.text = preview;
-  _controller.selection = TextSelection.fromPosition(
-    TextPosition(offset: _controller.text.length),
-  );
+  setState(() {
+    _textColor = (preview == '바미러가너디')
+        ? Colors.green
+        : Colors.white;
+
+    _controller.text = preview;
+    _controller.selection = TextSelection.fromPosition(
+      TextPosition(offset: _controller.text.length),
+    );
+  });
 }
 
   void _backspace() {
@@ -255,7 +262,7 @@ void _updateController() {
               border: OutlineInputBorder(),
               hintText: '',
             ),
-            style: const TextStyle(fontSize: 28),
+            style: TextStyle(fontSize: 28, color: _textColor),
           ),
           const SizedBox(height: 12),
           Center(child: _buildKeyboard()),

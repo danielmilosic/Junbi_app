@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level1_3.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:junbi/hangul_results_page.dart';
 
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
@@ -65,6 +66,7 @@ class _HangulContentState extends State<_HangulContent> {
   int? _initialIndex;
   int? _vowelIndex;
   int? _finalIndex;
+  Color _textColor = Colors.white;
   
 
 void _pressInitial(String c) {
@@ -128,10 +130,17 @@ void _updateController() {
     preview = _currentInput + combined;
   }
 
-  _controller.text = preview;
-  _controller.selection = TextSelection.fromPosition(
-    TextPosition(offset: _controller.text.length),
-  );
+  setState(() {
+    _textColor = (preview == '운동' || preview == '안으로' || preview == '얼굴막기' || preview == '얼굴 막기')
+        ? Colors.green
+        : Colors.white;
+
+
+    _controller.text = preview;
+    _controller.selection = TextSelection.fromPosition(
+      TextPosition(offset: _controller.text.length),
+    );
+  });
 }
 
   void _backspace() {
@@ -300,12 +309,12 @@ SingleChildScrollView(
               border: OutlineInputBorder(),
               hintText: '',
             ),
-            style: const TextStyle(fontSize: 28),
+            style: TextStyle(fontSize: 28, color: _textColor),
           ),
           const SizedBox(height: 12),
           Center(child: _buildKeyboard()),
 
-          Padding(
+Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,12 +332,6 @@ SingleChildScrollView(
                   },
                 ),
 
-                          const Text(
-            'Sehr gut! Level 1 ist geschafft :)',
-            style: TextStyle(fontSize: 16),
-          ),
-
-
                 // Home button
                 IconButton(
                   icon: const Icon(Icons.home, size: 28, color: Colors.white),
@@ -340,6 +343,20 @@ SingleChildScrollView(
                       (route) => false, // remove all previous routes
                     );
                   }, // or Navigator.popUntil
+                ),
+
+                // Forward button
+                IconButton(
+                  icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
+                  onPressed: () {
+                    // Navigate forward
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HangulResultsPage(level: 1),
+                            ),
+                          );
+                  },
                 ),
               ],
             ),
