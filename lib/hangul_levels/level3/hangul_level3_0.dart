@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level2_3.dart';
+//import 'hangul_level3_1.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:junbi/hangul_results_page.dart';
 
@@ -9,8 +9,8 @@ import 'package:junbi/hangul_results_page.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel24 extends StatelessWidget {
-  const HangulLevel24({Key? key}) : super(key: key);
+class HangulLevel30 extends StatelessWidget {
+  const HangulLevel30({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -419,57 +419,29 @@ class _HangulContentState extends State<_HangulContent> {
 
           // Aufbau
           const Text(
-            'Doppelkonsonanten!',
+            'Leseübung!',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Doppelkonsonanten sind schärfere Versionen der Einzelkonsonanten. Sie werden produziert, indem man etwas mehr Druck im Mund aufbaut und dann den Konsonanten schnell ausspricht. Folgende Konsonanten können verdoppelt werden: \n\n ㄱ (g) --> ㄲ (kk) \nㄷ (d) --> ㄸ (tt)\nㅂ (b) --> ㅃ (pp) \nㅅ (s) --> ㅆ (ss)\nㅈ (j) --> ㅉ (jj)',
+            'Dir fehlt nicht mehr viel um jeden Koreanischen Text zu lesen. Bevor wir die letzten paar Zeichen lernen, sehen wir uns an was du schon alles lesen kannst:',
             style: TextStyle(fontSize: 16),
           ),
 
 
           const Divider(height: 28),
 
-          const SizedBox(height: 8),
-          const Text(
-            'Übung',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            'Du kennst schon alle Konsonanten der koreanischen Schrift! Damit kannst folgende Wörter schon schreiben:',
-            style: TextStyle(fontSize: 16),
-          ),
-
-SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child: Row(
-    children: [
-      _buildAudioCard(context, '쌍 팔목 막기', 'audio/ssang_palmok_makgi.mp3'),
-      _buildAudioCard(context, '팔끕 들기 - Ellenbongenstich', 'audio/palkkeup_deulgi.mp3'),
-      _buildAudioCard(context, '밖으로 반달 차기', 'audio/bakkeuro_bandal_chagi.mp3'),
-    ],
-  ),
+Wrap(
+  spacing: 8, // horizontal gap between cards
+  runSpacing: 8, // vertical gap between rows when wrapping
+  alignment: WrapAlignment.center,
+  children: [
+    _buildAudioCard(context, '쌍 팔목 막기', 'audio/ssang_palmok_makgi.mp3'),
+    _buildAudioCard(context, '팔끕 들기 - Ellenbongenstich', 'audio/palkkeup_deulgi.mp3'),
+    _buildAudioCard(context, '밖으로 반달 차기', 'audio/bakkeuro_bandal_chagi.mp3'),
+  ],
 ),
 
-          const Text(
-            'Probiere es aus!',
-            style: TextStyle(fontSize: 16),
-          ),
-
-          const SizedBox(height: 8),
-          TextField(
-            controller: _controller,
-            readOnly: true, // disable default keyboard
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: '',
-            ),
-            style: TextStyle(fontSize: 28, color: _textColor),
-          ),
-          const SizedBox(height: 12),
-          Center(child: _buildKeyboard()),
 
 
           Padding(
@@ -484,7 +456,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel23()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel30()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

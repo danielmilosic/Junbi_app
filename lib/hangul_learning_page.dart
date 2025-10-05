@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'hangul_overview_page.dart';
 import 'hangul_levels/level1/hangul_level1_0.dart';
 import 'hangul_levels/level2/hangul_level2_0.dart';
+import 'hangul_levels/level3/hangul_level3_0.dart';
 import 'package:junbi/main.dart';
 
 class HangulLearningPage extends StatefulWidget {
@@ -105,7 +106,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                   color: Colors.black,
                   visited: visited['level3'] ?? false,
                   completed: completed['level3completed'] ?? false,
-                  onTap: () => _navigate(context, const HangulOverviewPage(), 'level3'),
+                  onTap: () => _navigate(context, const HangulLevel30(), 'level3'),
                 ),
                 const SizedBox(height: 32),
                 _buildBigButton(
