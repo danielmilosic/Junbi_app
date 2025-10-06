@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level3_1.dart';
+import 'package:junbi/hangul_results_page.dart';
+import 'hangul_level3_2.dart';
 import 'package:audioplayers/audioplayers.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel30 extends StatelessWidget {
-  const HangulLevel30({Key? key}) : super(key: key);
+class HangulLevel33 extends StatelessWidget {
+  const HangulLevel33({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,11 @@ class _HangulContent extends StatefulWidget {
 
 class _HangulContentState extends State<_HangulContent> {
   final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
+  final TextEditingController _controller3 = TextEditingController();
+  final TextEditingController _controller4 = TextEditingController();
+
   String _currentInput = '';
 
   // Hangul Jamo lists
@@ -54,12 +60,53 @@ class _HangulContentState extends State<_HangulContent> {
   int? _vowelIndex;
   int? _finalIndex;
   Color _textColor = Colors.white;
+  Color _textColor1 = Colors.white;
+  Color _textColor2 = Colors.white;
+  Color _textColor3 = Colors.white;
+  Color _textColor4 = Colors.white;
   
 
   List<String> get initials =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
   List<String> get vowels =>
       _uiVowelIndexes.map((i) => _fullVowels[i]).toList();
+
+void _markCompleted() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('level3completed', true);  // mark level 1 as completed
+}
+
+void _changeTextColor() {
+  setState(() {
+    _textColor = (_controller.text == 'hanguk' || _controller4.text == 'Hanguk')
+        ? Colors.green
+        : Colors.white;
+  });
+    setState(() {
+    _textColor1 = (_controller1.text == 'bibimbap' || _controller4.text == 'Bibimbap')
+        ? Colors.green
+        : Colors.white;
+  });
+
+    setState(() {
+    _textColor2 = (_controller2.text == 'shijak' || _controller4.text == 'Shijak')
+        ? Colors.green
+        : Colors.white;
+  });
+    setState(() {
+    _textColor3 = (_controller3.text == 'hat' || _controller4.text == 'Hat')
+        ? Colors.green
+        : Colors.white;
+  });
+    setState(() {
+    _textColor4 = (_controller4.text == 'gimchi' || _controller4.text == 'Gimchi')
+        ? Colors.green
+        : _textColor4 = (_controller4.text == 'kimchi' || _controller4.text == 'Kimchi')
+        ? Colors.red
+        : Colors.white;
+  });
+}
+
 
   void _pressKey(String key) {
     if (initials.contains(key)) {
@@ -83,17 +130,17 @@ class _HangulContentState extends State<_HangulContent> {
 
     // Map for final double/mixed consonants
   const Map<String, String> doubleFinalMap = {
-    //'ㄱㅅ': 'ㄳ',
-    //'ㄴㅈ': 'ㄵ',
-    //'ㄴㅎ': 'ㄶ',
-    //'ㄹㄱ': 'ㄺ',
-    //'ㄹㅁ': 'ㄻ',
-    //'ㄹㅂ': 'ㄼ',
-    //'ㄹㅅ': 'ㄽ',
-    //'ㄹㅌ': 'ㄾ',
-    //'ㄹㅍ': 'ㄿ',
-    //'ㄹㅎ': 'ㅀ',
-    //'ㅂㅅ': 'ㅄ',
+    'ㄱㅅ': 'ㄳ',
+    'ㄴㅈ': 'ㄵ',
+    'ㄴㅎ': 'ㄶ',
+    'ㄹㄱ': 'ㄺ',
+    'ㄹㅁ': 'ㄻ',
+    'ㄹㅂ': 'ㄼ',
+    'ㄹㅅ': 'ㄽ',
+    'ㄹㅌ': 'ㄾ',
+    'ㄹㅍ': 'ㄿ',
+    'ㄹㅎ': 'ㅀ',
+    'ㅂㅅ': 'ㅄ',
     'ㅅㅅ': 'ㅆ',
     'ㄱㄱ': 'ㄲ',
     'ㄷㄷ': 'ㄸ',
@@ -160,25 +207,48 @@ class _HangulContentState extends State<_HangulContent> {
   void _pressVowel(String v) {
   final vIndex = _fullVowels.indexOf(v);
 
+  // Map of single → double consonants
+  const Map<String, String> doubleVowelMap = {
+    'ㅏ': 'ㅑ',
+    'ㅓ': 'ㅕ',
+    'ㅗ': 'ㅛ',
+    'ㅜ': 'ㅠ',
+    'ㅐ': 'ㅒ',
+    'ㅔ': 'ㅖ',
+  };
+
   // Map to split double/mixed final consonants into [main, tail]
   const Map<String, List<String>> finalSplitMap = {
-    //'ㄳ': ['ㄱ', 'ㅅ'],
-    //'ㄵ': ['ㄴ', 'ㅈ'],
-    //'ㄶ': ['ㄴ', 'ㅎ'],
-    //'ㄺ': ['ㄹ', 'ㄱ'],
-    //'ㄻ': ['ㄹ', 'ㅁ'],
-    //'ㄼ': ['ㄹ', 'ㅂ'],
-    //'ㄽ': ['ㄹ', 'ㅅ'],
-    //'ㄾ': ['ㄹ', 'ㅌ'],
-    //'ㄿ': ['ㄹ', 'ㅍ'],
-    //'ㅀ': ['ㄹ', 'ㅎ'],
-    //'ㅄ': ['ㅂ', 'ㅅ'],
+    'ㄳ': ['ㄱ', 'ㅅ'],
+    'ㄵ': ['ㄴ', 'ㅈ'],
+    'ㄶ': ['ㄴ', 'ㅎ'],
+    'ㄺ': ['ㄹ', 'ㄱ'],
+    'ㄻ': ['ㄹ', 'ㅁ'],
+    'ㄼ': ['ㄹ', 'ㅂ'],
+    'ㄽ': ['ㄹ', 'ㅅ'],
+    'ㄾ': ['ㄹ', 'ㅌ'],
+    'ㄿ': ['ㄹ', 'ㅍ'],
+    'ㅀ': ['ㄹ', 'ㅎ'],
+    'ㅄ': ['ㅂ', 'ㅅ'],
     'ㅆ': ['ㅅ', 'ㅅ'], 
     'ㄲ': ['ㄱ', 'ㄱ'],
     'ㄸ': ['ㄷ', 'ㄷ'],
     'ㅃ': ['ㅂ', 'ㅂ'],
     'ㅉ': ['ㅈ', 'ㅈ'],
   };
+
+
+  // Case 0.5: Double vowel detection before anything else
+  if (_vowelIndex != null && _initialIndex != null && _finalIndex == null) {
+    String currentVowel = _fullVowels[_vowelIndex!];
+    if (currentVowel == v && doubleVowelMap.containsKey(v)) {
+      // Upgrade to double consonant
+      String doubleV = doubleVowelMap[v]!;
+      _vowelIndex = _fullVowels.indexOf(doubleV);
+      _updateController();
+      return;
+    }
+  }
 
   // Case 0: If there is a final consonant, we may need to split it
   if (_finalIndex != null) {
@@ -271,10 +341,9 @@ class _HangulContentState extends State<_HangulContent> {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '쌍팔목막기' || preview == '팔끕들기' || preview == '밖으로반달차기')
+    _textColor = (preview == '여덟' || preview == '없어요' || preview == '않아요')
         ? Colors.green
         : Colors.white;
-
 
     _controller.text = preview;
     _controller.selection = TextSelection.fromPosition(
@@ -366,27 +435,30 @@ class _HangulContentState extends State<_HangulContent> {
       ],
     );
   }
-  Widget _buildAudioCard(BuildContext context, String text, String audioFile) {
-    final AudioPlayer audioPlayer = AudioPlayer();
-    return Card(
-      color: Colors.black,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              text,
-              style: const TextStyle(fontSize: 30, color: Colors.white),
-            ),
+
+Widget _buildAudioCard(
+    BuildContext context, String text, String audioFile, bool audioTrue) {
+  final AudioPlayer audioPlayer = AudioPlayer();
+
+  return Card(
+    color: Colors.black,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: const TextStyle(fontSize: 20, color: Colors.white),
+          ),
+          if (audioTrue)
             IconButton(
               icon: const Icon(Icons.volume_up, size: 20, color: Colors.white),
               onPressed: () async {
                 try {
-                  final audioPath = audioFile;
-                  await audioPlayer.play(AssetSource(audioPath));
+                  await audioPlayer.play(AssetSource(audioFile));
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Audio not available')),
@@ -394,11 +466,12 @@ class _HangulContentState extends State<_HangulContent> {
                 }
               },
             ),
-          ],
-        ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -408,7 +481,7 @@ class _HangulContentState extends State<_HangulContent> {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 4,
+          value: 4 / 4,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -418,63 +491,167 @@ class _HangulContentState extends State<_HangulContent> {
 
           // Aufbau
           const Text(
-            'Leseübung!',
+            'Transkription',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Dir fehlt nicht mehr viel um jeden Koreanischen Text zu lesen. Bevor wir die letzten paar Zeichen lernen, sehen wir uns an was du schon alles lesen kannst. Die Wörter werden immer schwieriger, also nicht verzweifeln! \n\nVersuche die Wörter zu lesen bevor du sie dir anhörtst und versuche zu erraten, was sie bedeuten!',
+            'Jetzt mal umgekehrt! \n\nDir ist sicher schon aufgefallen, dass die Sachen nicht immer so klingen, wie sie auf Deutsch geschrieben werden. Das liegt daran, dass man sich auf fixe Regeln geeinigt hat, wie man die Koreanische Schrift transkribiert. Bei den folgenden Wörtern, klingt das so, als wäre der Anfangsbuchstabe hart, obwohl es eigentlich mit einem Weichen geschrieben wird:',
             style: TextStyle(fontSize: 16),
           ),
 
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+    _buildAudioCard(context, '김치', 'audio/hangul/kimchi.mp3', true),
+    _buildAudioCard(context, '부산', 'audio/hangul/busan.mp3', true),
+    ],
+  ),
+),
 
-          const Divider(height: 28),
-
-          const SizedBox(height: 6),
+          const SizedBox(height: 8),
           const Text(
-            'Bekannte Koreanische Wörter: ',
+            'Obwohl "weiche "Konsonanten am Anfang eher hart ausgesprochen werden im Koreanischen, transkribiert man sie als weich. Am Ende eines Zeichens werden sie auch eher hart ausgesprochen, da transskribiert man sie aber tatsächlich als harte Konsonanten! Das ist bei den folgenden Wörtern der Fall: ',
             style: TextStyle(fontSize: 16),
           ),
 
-
-Wrap(
-  spacing: 8, // horizontal gap between cards
-  runSpacing: 8, // vertical gap between rows when wrapping
-  alignment: WrapAlignment.center,
-  children: [
-    _buildAudioCard(context, '김치', 'audio/hangul/kimchi.mp3'),
-    _buildAudioCard(context, '부산', 'audio/hangul/busan.mp3'),
-    _buildAudioCard(context, '소주', 'audio/hangul/soju.mp3'),
-    _buildAudioCard(context, '서울', 'audio/hangul/seoul.mp3'),
-    _buildAudioCard(context, '비빔밥', 'audio/hangul/bibimbap.mp3'),
-    _buildAudioCard(context, '떡볶이', 'audio/hangul/tteokbokki.mp3'),
-  ],
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+    _buildAudioCard(context, '김치', 'audio/hangul/kimchi.mp3', true),
+    _buildAudioCard(context, '부산', 'audio/hangul/busan.mp3', true),
+    ],
+  ),
 ),
 
           const Divider(height: 28),
 
+          const SizedBox(height: 8),
+          const Text(
+            'Übung',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 6),
           const Text(
-            'Wörter aus dem Taekwondo: ',
+            'Transkribiere folgende Koreanischen Wörter in die Lateinische Schrift!',
             style: TextStyle(fontSize: 16),
           ),
 
+          const SizedBox(height: 8),
 
-Wrap(
-  spacing: 8, // horizontal gap between cards
-  runSpacing: 8, // vertical gap between rows when wrapping
-  alignment: WrapAlignment.center,
-  children: [
-    _buildAudioCard(context, '바로', 'audio/baro.mp3'),
-    _buildAudioCard(context, '기합', 'audio/hangul/gihap.mp3'),
-    _buildAudioCard(context, '시작', 'audio/shijak.mp3'),
-    _buildAudioCard(context, '호신술', 'audio/hoshinsul.mp3'),
-    _buildAudioCard(context, '사범님', 'audio/sabeomnim.mp3'),
-    _buildAudioCard(context, '얼굴 지르기', 'audio/eolgul_jireugi.mp3'),
-  ],
+          GridView(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 2.5,
+              crossAxisSpacing: 6,
+              mainAxisSpacing: 6,
+            ),
+            children: [
+              
+              _buildAudioCard(context, '한국', 'audio/hangul/kimchi.mp3', false),
+
+Center(
+  child: Container(
+    margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+    child: TextField(
+      controller: _controller,
+      onChanged: (value) => _changeTextColor(),
+      decoration: InputDecoration(
+        hintText: '',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      style: TextStyle(fontSize: 28, color: _textColor),
+    ),
+  ),
+),
+
+              _buildAudioCard(context, '비빔밥', 'audio/hangul/kimchi.mp3', false),
+              
+Center(
+  child: Container(
+    margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+    child: TextField(
+      controller: _controller1,
+      onChanged: (value) => _changeTextColor(),
+      decoration: InputDecoration(
+        hintText: '',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      style: TextStyle(fontSize: 28, color: _textColor1),
+    ),
+  ),
 ),
 
 
+              _buildAudioCard(context, '시작', 'audio/hangul/kimchi.mp3', false),
+              
+Center(
+  child: Container(
+    margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+    child: TextField(
+      controller: _controller2,
+      onChanged: (value) => _changeTextColor(),
+      decoration: InputDecoration(
+        hintText: '',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      style: TextStyle(fontSize: 28, color: _textColor2),
+    ),
+  ),
+),
+
+
+              _buildAudioCard(context, '핫', 'audio/hangul/kimchi.mp3', false),
+              
+Center(
+  child: Container(
+    margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+    child: TextField(
+      controller: _controller3,
+      onChanged: (value) => _changeTextColor(),
+      decoration: InputDecoration(
+        hintText: '',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      style: TextStyle(fontSize: 28, color: _textColor3),
+    ),
+  ),
+),
+
+
+              _buildAudioCard(context, '김치', 'audio/hangul/kimchi.mp3', false),
+              
+Center(
+  child: Container(
+    margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+    child: TextField(
+      controller: _controller4,
+      onChanged: (value) => _changeTextColor(),
+      decoration: InputDecoration(
+        hintText: '',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      style: TextStyle(fontSize: 28, color: _textColor4),
+    ),
+  ),
+),
+
+            ],
+          ),
 
           Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),
@@ -488,7 +665,7 @@ Wrap(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel32()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -511,11 +688,12 @@ Wrap(
                 IconButton(
                   icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
                   onPressed: () {
+                    _markCompleted();
                     // Navigate forward
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HangulLevel31(),
+                              builder: (context) => HangulResultsPage(level: 3),
                             ),
                           );
                   },
@@ -523,7 +701,6 @@ Wrap(
               ],
             ),
           )
-
 
 
         ],
@@ -545,7 +722,7 @@ class _JamoGrid extends StatelessWidget {
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1,
+        childAspectRatio: 2,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),

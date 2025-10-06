@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level3_1.dart';
+import 'hangul_level3_0.dart';
+import 'hangul_level3_2.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -8,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel30 extends StatelessWidget {
-  const HangulLevel30({Key? key}) : super(key: key);
+class HangulLevel31 extends StatelessWidget {
+  const HangulLevel31({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -160,6 +161,16 @@ class _HangulContentState extends State<_HangulContent> {
   void _pressVowel(String v) {
   final vIndex = _fullVowels.indexOf(v);
 
+  // Map of single → double consonants
+  const Map<String, String> doubleVowelMap = {
+    'ㅏ': 'ㅑ',
+    'ㅓ': 'ㅕ',
+    'ㅗ': 'ㅛ',
+    'ㅜ': 'ㅠ',
+    'ㅐ': 'ㅒ',
+    'ㅔ': 'ㅖ',
+  };
+
   // Map to split double/mixed final consonants into [main, tail]
   const Map<String, List<String>> finalSplitMap = {
     //'ㄳ': ['ㄱ', 'ㅅ'],
@@ -179,6 +190,19 @@ class _HangulContentState extends State<_HangulContent> {
     'ㅃ': ['ㅂ', 'ㅂ'],
     'ㅉ': ['ㅈ', 'ㅈ'],
   };
+
+
+  // Case 0.5: Double vowel detection before anything else
+  if (_vowelIndex != null && _initialIndex != null && _finalIndex == null) {
+    String currentVowel = _fullVowels[_vowelIndex!];
+    if (currentVowel == v && doubleVowelMap.containsKey(v)) {
+      // Upgrade to double consonant
+      String doubleV = doubleVowelMap[v]!;
+      _vowelIndex = _fullVowels.indexOf(doubleV);
+      _updateController();
+      return;
+    }
+  }
 
   // Case 0: If there is a final consonant, we may need to split it
   if (_finalIndex != null) {
@@ -271,10 +295,9 @@ class _HangulContentState extends State<_HangulContent> {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '쌍팔목막기' || preview == '팔끕들기' || preview == '밖으로반달차기')
+    _textColor = (preview == '옆차기' || preview == '교차서기' || preview == '자유대련')
         ? Colors.green
         : Colors.white;
-
 
     _controller.text = preview;
     _controller.selection = TextSelection.fromPosition(
@@ -366,6 +389,7 @@ class _HangulContentState extends State<_HangulContent> {
       ],
     );
   }
+
   Widget _buildAudioCard(BuildContext context, String text, String audioFile) {
     final AudioPlayer audioPlayer = AudioPlayer();
     return Card(
@@ -379,7 +403,7 @@ class _HangulContentState extends State<_HangulContent> {
           children: [
             Text(
               text,
-              style: const TextStyle(fontSize: 30, color: Colors.white),
+              style: const TextStyle(fontSize: 20, color: Colors.white),
             ),
             IconButton(
               icon: const Icon(Icons.volume_up, size: 20, color: Colors.white),
@@ -408,7 +432,7 @@ class _HangulContentState extends State<_HangulContent> {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 4,
+          value: 2 / 4,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -418,63 +442,78 @@ class _HangulContentState extends State<_HangulContent> {
 
           // Aufbau
           const Text(
-            'Leseübung!',
+            'Jotierte Vokale',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Dir fehlt nicht mehr viel um jeden Koreanischen Text zu lesen. Bevor wir die letzten paar Zeichen lernen, sehen wir uns an was du schon alles lesen kannst. Die Wörter werden immer schwieriger, also nicht verzweifeln! \n\nVersuche die Wörter zu lesen bevor du sie dir anhörtst und versuche zu erraten, was sie bedeuten!',
+            'Einige Vokale können "jotiert" werden. Das bedeutet, dass am Anfang des Vokals ein "j"-Laut hinzugefügt wird. Das sieht dann so aus:',
             style: TextStyle(fontSize: 16),
           ),
+
 
 
           const Divider(height: 28),
 
-          const SizedBox(height: 6),
+          // Konsonanten
           const Text(
-            'Bekannte Koreanische Wörter: ',
-            style: TextStyle(fontSize: 16),
+            'Neue Vokale',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-
-
-Wrap(
-  spacing: 8, // horizontal gap between cards
-  runSpacing: 8, // vertical gap between rows when wrapping
-  alignment: WrapAlignment.center,
-  children: [
-    _buildAudioCard(context, '김치', 'audio/hangul/kimchi.mp3'),
-    _buildAudioCard(context, '부산', 'audio/hangul/busan.mp3'),
-    _buildAudioCard(context, '소주', 'audio/hangul/soju.mp3'),
-    _buildAudioCard(context, '서울', 'audio/hangul/seoul.mp3'),
-    _buildAudioCard(context, '비빔밥', 'audio/hangul/bibimbap.mp3'),
-    _buildAudioCard(context, '떡볶이', 'audio/hangul/tteokbokki.mp3'),
-  ],
-),
+          const SizedBox(height: 6),
+          _JamoGrid(
+            items: [
+              _Jamo('아 -> 야', 'ya', 'wie in "JAgd"'),
+              _Jamo('어 -> 여', 'yeo', '"JÅ"'),
+              _Jamo('오 -> 요', 'yo', 'wie in "JOdeln"'),
+              _Jamo('우 -> 유', 'yu', 'wie in "JUng"'),
+              _Jamo('애 -> 얘', 'yae', 'wie in "JEder"'),
+              _Jamo('에 -> 예', 'ye', 'wie in "JEder"'),
+            ],
+          ),
 
           const Divider(height: 28),
 
+
+          const SizedBox(height: 8),
+          const Text(
+            'Übung',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 6),
           const Text(
-            'Wörter aus dem Taekwondo: ',
+            'Tipp: Klicke zwei mal auf ein Vokal um es zu jotieren!',
             style: TextStyle(fontSize: 16),
           ),
 
-
-Wrap(
-  spacing: 8, // horizontal gap between cards
-  runSpacing: 8, // vertical gap between rows when wrapping
-  alignment: WrapAlignment.center,
-  children: [
-    _buildAudioCard(context, '바로', 'audio/baro.mp3'),
-    _buildAudioCard(context, '기합', 'audio/hangul/gihap.mp3'),
-    _buildAudioCard(context, '시작', 'audio/shijak.mp3'),
-    _buildAudioCard(context, '호신술', 'audio/hoshinsul.mp3'),
-    _buildAudioCard(context, '사범님', 'audio/sabeomnim.mp3'),
-    _buildAudioCard(context, '얼굴 지르기', 'audio/eolgul_jireugi.mp3'),
-  ],
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+      _buildAudioCard(context, '옆 차기', 'audio/yeop_chagi.mp3'),
+      _buildAudioCard(context, '교차 서기', 'audio/gyocha_seogi.mp3'),
+      _buildAudioCard(context, '자유 대련 - Freikampf', 'audio/jayu_daeryeon.mp3'),
+    ],
+  ),
 ),
 
+          const Text(
+            'Probiere es aus!',
+            style: TextStyle(fontSize: 16),
+          ),
 
+          const SizedBox(height: 8),
+          TextField(
+            controller: _controller,
+            readOnly: true, // disable default keyboard
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: '',
+            ),
+            style: TextStyle(fontSize: 28, color: _textColor),
+          ),
+          const SizedBox(height: 12),
+          Center(child: _buildKeyboard()),
 
           Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),
@@ -488,7 +527,7 @@ Wrap(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel30()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -512,18 +551,16 @@ Wrap(
                   icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
                   onPressed: () {
                     // Navigate forward
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HangulLevel31(),
-                            ),
-                          );
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (_) => HangulLevel32()), // or MainPage()
+                      (route) => false, // remove all previous routes
+                    );
                   },
                 ),
               ],
             ),
           )
-
 
 
         ],
@@ -545,7 +582,7 @@ class _JamoGrid extends StatelessWidget {
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1,
+        childAspectRatio: 2,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),
