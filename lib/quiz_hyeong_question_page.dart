@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:junbi/results_page.dart';
 import 'package:junbi/strings.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -156,7 +157,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
       if (widget.roundCount >= widget.totalRoundCount) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
+          CupertinoPageRoute(
             builder: (_) => ResultsPage(
               totalRoundCount: widget.totalRoundCount,
               correctCount: widget.correctCount + (isCorrect ? 1 : 0),
@@ -168,7 +169,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
         if (randomNumberQuestionTypeNext == 5) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
+            CupertinoPageRoute(
               builder: (_) => QuizImageQuestionPage(
                 roundCount: widget.roundCount + 1,
                 totalRoundCount: widget.totalRoundCount,
@@ -182,7 +183,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
         } else if (randomNumberQuestionTypeNext > 5) {
       Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
+          CupertinoPageRoute(
             builder: (_) => QuizHyeongQuestionPage(
               roundCount: widget.roundCount + 1,
               totalRoundCount: widget.totalRoundCount,
@@ -195,7 +196,7 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
         } else {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
+            CupertinoPageRoute(
               builder: (_) => QuizDetailPage(
                 roundCount: widget.roundCount + 1,
                 totalRoundCount: widget.totalRoundCount,

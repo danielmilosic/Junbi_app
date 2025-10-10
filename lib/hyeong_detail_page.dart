@@ -201,17 +201,19 @@ class HyeongDetailPage extends StatelessWidget {
                                   SizedBox(
                                     height: 80,
                                     width: 80,
-                                    child: Image.asset(
-                                      techniqueImagePath,
-                                      fit: BoxFit.cover,
-                                      errorBuilder:
-                                          (context, error, stackTrace) {
-                                        return const Icon(
-                                          Icons.image_not_supported,
-                                          size: 40,
-                                          color: Colors.white,
-                                        );
-                                      },
+                                    child: Hero(tag:techniqueImagePath,
+                                      child: Image.asset(
+                                        techniqueImagePath,
+                                        fit: BoxFit.cover,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return const Icon(
+                                            Icons.image_not_supported,
+                                            size: 40,
+                                            color: Colors.white,
+                                          );
+                                        },
+                                      ),
                                     ),
                                   ),
                                 ],

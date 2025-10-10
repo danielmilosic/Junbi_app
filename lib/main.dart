@@ -23,9 +23,9 @@ class JunbiApp extends StatelessWidget {
       title: 'Junbi App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 28, 28, 28),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 51, 51, 51),
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color.fromARGB(255, 35, 35, 35),
+          primary: const Color.fromARGB(255, 51, 51, 51),
           onPrimary: const Color.fromARGB(255, 0, 0, 0), // text/icon color on AppBar, buttons, etc.
           onSurface: const Color.fromARGB(255, 0, 0, 0), // default text color on background
         ),
@@ -65,98 +65,108 @@ class JunbiHomePage extends StatelessWidget {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(50.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Title
-                Text(
-                  'Taekwondo',
-                  style: const TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Title
+                  Text(
+                    'Taekwondo',
+                    style: const TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-        
-                // Subtitle (Hangul)
-                const Text(
-                  '태권도',
-                  style: TextStyle(
-                    fontSize: 48,
+                      
+                  // Subtitle (Hangul)
+                  const Text(
+                    '태권도',
+                    style: TextStyle(
+                      fontSize: 48,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-        
-                // Intro text
-                const SizedBox(height: 16),
-                const Text(AppStrings.junbi_introduction_german,
-                  style: TextStyle(fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-        
-                const SizedBox(height: 24),
-        
-                // Buttons
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SizedBox(
-                    
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () => navigateTo(HyeongPage()),
-                          child: const Text(
-                            'Hyeong (형)',
-                            style: TextStyle(fontSize: 24),
+                      
+                  // Intro text
+                  const SizedBox(height: 16),
+                  const Text(AppStrings.junbi_introduction_german,
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                      
+                  const SizedBox(height: 24),
+                      
+                  // Buttons
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: SizedBox(
+                      
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => navigateTo(HyeongPage()),
+                            child: const Text(
+                              'Hyeong',
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        ElevatedButton(
-                          onPressed: () => navigateTo(TechniquesPage()),
-                          child: const Text(
-                            'Begriffe',
-                            style: TextStyle(fontSize: 24),
+                          const SizedBox(height: 24),
+                          ElevatedButton(
+                            onPressed: () => navigateTo(TechniquesPage()),
+                            child: const Text(
+                              'Begriffe',
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        ElevatedButton(
-                          onPressed: () => navigateTo(StatisticsPage()),
-                          child: const Text(
-                            'Statistik',
-                            style: TextStyle(fontSize: 24),
+                          const SizedBox(height: 24),
+                          ElevatedButton(
+                            onPressed: () => navigateTo(TechniquesPage()),
+                            child: const Text(
+                              'Kurrikulum',
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        ElevatedButton(
-                          onPressed: () => navigateTo(MotschgerBoxPage()),
-                          child: const Text(
-                            'Motschger Box',
-                            style: TextStyle(fontSize: 24),
+                          const SizedBox(height: 24),
+                          ElevatedButton(
+                            onPressed: () => navigateTo(QuizPage()),
+                            child: const Text(
+                              'Quiz',
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        ElevatedButton(
-                          onPressed: () => navigateTo(QuizPage()),
-                          child: const Text(
-                            'Quiz',
-                            style: TextStyle(fontSize: 24),
+                          const SizedBox(height: 24),
+                          ElevatedButton(
+                            onPressed: () => navigateTo(StatisticsPage()),
+                            child: const Text(
+                              'Statistik',
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        ElevatedButton(
-                          onPressed: () => navigateTo(HangulPage()),
-                          child: const Text(
-                            '한글',
-                            style: TextStyle(fontSize: 24),
+                          const SizedBox(height: 24),
+                          ElevatedButton(
+                            onPressed: () => navigateTo(MotschgerBoxPage()),
+                            child: const Text(
+                              'Motschger Box',
+                              style: TextStyle(fontSize: 24),
+                            ),
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 24),
+                          ElevatedButton(
+                            onPressed: () => navigateTo(HangulPage()),
+                            child: const Text(
+                              '한글',
+                              style: TextStyle(fontSize: 24),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

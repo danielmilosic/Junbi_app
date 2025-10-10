@@ -16,46 +16,57 @@ class HangulPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+      body: Stack(
+        children: [
+                    // 🌸 Subtle Hangul background
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.05,
+              child: _buildHangulBackground(),
+            ),),
+            
+          
+          Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                '한글',
+                style: TextStyle(fontSize: 50),
+              ),
+                          const SizedBox(height: 60),
               const Text(
-              '한글',
-              style: TextStyle(fontSize: 50),
-            ),
-                        const SizedBox(height: 60),
-            const Text(
-              'Hangul (한글) ist das koreanische Schriftsystem. Es wurde im 15. Jahrhundert von König Sejong entworfen, um das Schreiben für alle Menschen einfacher zu machen. Hangul ist phonetisch — die Zeichen repräsentieren Laute, die zu Silbenblöcken zusammengesetzt werden.',
-              style: TextStyle(fontSize: 16),
-            ),
-              const SizedBox(height: 32),
-              _buildBigButton(
-                context: context,
-                label: 'Interactives Lernen ->',
-                color: Colors.black,
-                onTap: () => _navigate(context, const HangulLearningPage()),
+                'Hangul (한글) ist das koreanische Schriftsystem. Es wurde im 15. Jahrhundert von König Sejong entworfen, um das Schreiben für alle Menschen einfacher zu machen. Hangul ist phonetisch — die Zeichen repräsentieren Laute, die zu Silbenblöcken zusammengesetzt werden.',
+                style: TextStyle(fontSize: 16),
               ),
-              const SizedBox(height: 32),
+                const SizedBox(height: 32),
                 _buildBigButton(
-                context: context,
-                label: 'Überblick',
-                color: Colors.black,
-                onTap: () => _navigate(context, const HangulOverviewPage()),
+                  context: context,
+                  label: 'Interactives Lernen ->',
+                  color: Colors.black,
+                  onTap: () => _navigate(context, const HangulLearningPage()),
+                ),
+                const SizedBox(height: 32),
+                  _buildBigButton(
+                  context: context,
+                  label: 'Überblick',
+                  color: Colors.black,
+                  onTap: () => _navigate(context, const HangulOverviewPage()),
+                ),
+                const SizedBox(height: 100),
+                                                                          Align(
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
-              const SizedBox(height: 100),
-                                                                        Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                onPressed: () => Navigator.pop(context),
-              ),
+              ],
             ),
-            ],
           ),
-        ),
+        ),]
       ),
     );
   }
@@ -80,6 +91,31 @@ class HangulPage extends StatelessWidget {
         onPressed: onTap,
         child: Text(label),
       ),
+    );
+  }
+
+  /// Builds a subtle background with random Hangul characters.
+  Widget _buildHangulBackground() {
+    final hangulChars = ['ㄱ','ㄴ','ㄷ','ㄹ','ㅁ','ㅂ','ㅅ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ','ㅏ','ㅓ','ㅗ','ㅜ','ㅡ','ㅣ'];
+    final random = hangulChars..shuffle();
+    return GridView.builder(
+      padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 8,
+      ),
+      itemCount: 200,
+      itemBuilder: (context, index) {
+        return Center(
+          child: Text(
+            random[index % random.length],
+            style: const TextStyle(
+              fontSize: 50,
+              color: Colors.white,
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:junbi/results_page.dart';
 import 'package:junbi/strings.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -155,7 +156,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
   if (widget.roundCount >= widget.totalRoundCount) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (_) => ResultsPage(
             totalRoundCount: widget.totalRoundCount,
             correctCount: widget.correctCount + (isCorrect ? 1 : 0),
@@ -167,7 +168,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
     if (randomNumberQuestionTypeNext == 5) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (_) => QuizImageQuestionPage(
             roundCount: widget.roundCount + 1,
             totalRoundCount: widget.totalRoundCount,
@@ -180,7 +181,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
     } else if (randomNumberQuestionTypeNext > 5) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (_) => QuizHyeongQuestionPage(
             roundCount: widget.roundCount + 1,
             totalRoundCount: widget.totalRoundCount,
@@ -193,7 +194,7 @@ class _QuizImageQuestionPageState extends State<QuizImageQuestionPage> {
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (_) => QuizDetailPage(
             roundCount: widget.roundCount + 1,
             totalRoundCount: widget.totalRoundCount,
@@ -260,34 +261,35 @@ Widget build(BuildContext context) {
 
             // Remaining content centered in available space
             Expanded(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 24),
-                      Text(
-                        question,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 24),
+                    Text(
+                      question,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 24),
-                      Text(
-                        correctAnswer,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 24),
+                    Text(
+                      correctAnswer,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 40),
+              
+                    // 🔑 The 2x2 grid
+                    SizedBox(height: 400, width:400,
 
-                      // 🔑 The 2x2 grid
-                      Expanded(
+                      child: Expanded(
                         child: GridView.count(
                           crossAxisCount: 2,
                           crossAxisSpacing: 12,
@@ -296,17 +298,17 @@ Widget build(BuildContext context) {
                           children: choices,
                         ),
                       ),
-
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: IconButton(
-                          icon: const Icon(Icons.arrow_back,
-                              size: 28, color: Colors.white),
-                          onPressed: () => Navigator.pop(context),
-                        ),
+                    ),
+              
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(
+                        icon: const Icon(Icons.arrow_back,
+                            size: 28, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

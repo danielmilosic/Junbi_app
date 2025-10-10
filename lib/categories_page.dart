@@ -76,11 +76,13 @@ class CategoriesPage extends StatelessWidget {
                           Flexible(
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
-                              child: Image.asset(
-                                imagePath,
-                                fit: BoxFit.contain,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Icon(Icons.image_not_supported, size: 40),
+                              child: Hero(tag:imagePath,
+                                child: Image.asset(
+                                  imagePath,
+                                  fit: BoxFit.contain,
+                                  errorBuilder: (context, error, stackTrace) =>
+                                      const Icon(Icons.image_not_supported, size: 40),
+                                ),
                               ),
                             ),
                           ),

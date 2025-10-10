@@ -155,14 +155,16 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                     height: 200,
                     child: _currentImagePath == null
                         ? const SizedBox() // placeholder while loading
-                        : Image.asset(
-                            _currentImagePath!,
-                            fit: BoxFit.contain,
-                            errorBuilder: (context, error, stackTrace) {
-                              return const Icon(Icons.image_not_supported,
-                                  size: 100);
-                            },
-                          ),
+                        : Hero(tag:_currentImagePath!,
+                          child: Image.asset(
+                              _currentImagePath!,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const Icon(Icons.image_not_supported,
+                                    size: 100);
+                              },
+                            ),
+                        ),
                   ),
                 ),
 

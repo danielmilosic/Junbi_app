@@ -57,7 +57,7 @@ class _ResultsPageState extends State<ResultsPage> {
     }
 
     // Only award belt if all answers are correct
-    if (widget.correctCount == widget.totalRoundCount) {
+    if (widget.correctCount > widget.totalRoundCount*0.79) {
       switch (widget.totalRoundCount) {
         case 10:
           beltName = 'yellow_belt';
@@ -127,9 +127,12 @@ class _ResultsPageState extends State<ResultsPage> {
                   style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20),
-                Image.asset(
-                  beltImagePath,
-                  height: 150,
+                Hero(
+                  tag: beltImagePath,
+                  child: Image.asset(
+                    beltImagePath,
+                    height: 150,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Text(

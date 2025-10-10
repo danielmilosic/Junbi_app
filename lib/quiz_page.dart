@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:junbi/main.dart';
 import 'package:path_provider/path_provider.dart';
 import 'quiz_detail_page.dart';
@@ -39,7 +40,6 @@ class _QuizPageState extends State<QuizPage> {
       final storedResults = prefs.getStringList('results') ?? [];
       setState(() {
         results = storedResults;
-        print(results);
         _updateBelts();
       });
     } catch (e) {
@@ -139,7 +139,7 @@ void _startQuiz(int totalRounds) {
       if (randomNumberQuestionType == 5) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
+          CupertinoPageRoute(
             builder: (_) => QuizImageQuestionPage(
               totalRoundCount: totalRounds,
               hardCoreMode: hardCoreMode,
@@ -151,7 +151,7 @@ void _startQuiz(int totalRounds) {
     // Image-based quiz page
     Navigator.push(
       context,
-      MaterialPageRoute(
+      CupertinoPageRoute(
         builder: (_) => QuizHyeongQuestionPage(
           totalRoundCount: totalRounds,
           hardCoreMode: hardCoreMode,
@@ -163,7 +163,7 @@ void _startQuiz(int totalRounds) {
     // Regular text-based quiz page
     Navigator.push(
       context,
-      MaterialPageRoute(
+      CupertinoPageRoute(
         builder: (_) => QuizDetailPage(
           totalRoundCount: totalRounds,
           hardCoreMode: hardCoreMode,
@@ -212,19 +212,18 @@ void _startQuiz(int totalRounds) {
               textAlign: TextAlign.center,
             ),
 
+            const SizedBox(height:40),
             // Belt Buttons
-            Expanded(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _beltButton("8. Geup", "8급", Colors.yellow, Colors.black, 10),
-                    _beltButton("6. Geup", "6급", Colors.green, Colors.black, 15),
-                    _beltButton("4. Geup", "4급", Colors.blue, Colors.white, 20),
-                    _beltButton("2. Geup", "2급", Colors.red, Colors.white, 25),
-                    _beltButton("1. Dan", "1단", Colors.black, Colors.white, 30),
-                  ],
-                ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _beltButton("8. Geup", "8급", Colors.yellow, Colors.black, 10),
+                  _beltButton("6. Geup", "6급", Colors.green, Colors.black, 15),
+                  _beltButton("4. Geup", "4급", Colors.blue, Colors.white, 20),
+                  _beltButton("2. Geup", "2급", Colors.red, Colors.white, 25),
+                  _beltButton("1. Dan", "1단", Colors.black, Colors.white, 30),
+                ],
               ),
             ),
 
@@ -290,7 +289,7 @@ void _startQuiz(int totalRounds) {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (_) => JunbiApp()), // or MainPage()
+                    CupertinoPageRoute(builder: (_) => JunbiApp()), // or MainPage()
                     (route) => false, // remove all previous routes
                   );
                 },
@@ -308,7 +307,7 @@ void _startQuiz(int totalRounds) {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4.0), // small gap between belts
-          child: Image.asset(assetPath, width: imageSize),
+          child: Hero(tag:assetPath, child: Image.asset(assetPath, width: imageSize)),
         ),
         if (count > 1)
           Positioned(
@@ -316,7 +315,7 @@ void _startQuiz(int totalRounds) {
             right: 0,
             child: Container(
               padding: const EdgeInsets.all(2),
-              color: Colors.black,
+              color: const Color.fromARGB(255, 51, 51, 51),
               child: Text(
                 'x$count',
                 style: const TextStyle(color: Colors.white, fontSize: 10),
