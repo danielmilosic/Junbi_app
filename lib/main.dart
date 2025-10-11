@@ -147,14 +147,6 @@ class JunbiHomePage extends StatelessWidget {
                           ),
                           const SizedBox(height: 24),
                           ElevatedButton(
-                            onPressed: () => navigateTo(MotschgerBoxPage()),
-                            child: const Text(
-                              'Motschger Box',
-                              style: TextStyle(fontSize: 24),
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          ElevatedButton(
                             onPressed: () => navigateTo(HangulPage()),
                             child: const Text(
                               '한글',

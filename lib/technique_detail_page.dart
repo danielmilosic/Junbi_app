@@ -16,35 +16,51 @@ class TechniqueDetailPage extends StatefulWidget {
 class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   late Timer _timer;
   bool _showStartImage = false;
+  bool _hasStartImage = false;
 
   late AudioPlayer _audioPlayer;
   bool _isPlaying = false;
 
-  // New field for resolved image path
-  String? _currentImagePath;
+  late String _fallbackImage;
+  late String _startImage;
 
   @override
   void initState() {
     super.initState();
 
-    // Timer for switching images every second
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        _showStartImage = !_showStartImage;
-        _updateImagePath(); // update image path when toggling
-      });
-    });
+    _fallbackImage = 'assets/images/${widget.techniqueKey}.png';
+    _startImage = 'assets/images/${widget.techniqueKey}_start.png';
 
-    // Audio player setup
     _audioPlayer = AudioPlayer();
     _audioPlayer.onPlayerComplete.listen((event) {
-      setState(() {
-        _isPlaying = false;
-      });
+      if (mounted) setState(() => _isPlaying = false);
     });
 
-    // Initial image path
-    _updateImagePath();
+    _precacheImages(); // ✅ Precache once before toggling
+
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (mounted) {
+        setState(() {
+          _showStartImage = !_showStartImage;
+        });
+      }
+    });
+  }
+
+  Future<void> _precacheImages() async {
+    try {
+      await rootBundle.load(_startImage);
+      _hasStartImage = true;
+      // ✅ Precache both images in memory before first frame
+      await Future.wait([
+        precacheImage(AssetImage(_fallbackImage), context),
+        precacheImage(AssetImage(_startImage), context),
+      ]);
+    } catch (_) {
+      _hasStartImage = false;
+      await precacheImage(AssetImage(_fallbackImage), context);
+    }
+    if (mounted) setState(() {}); // initial draw
   }
 
   @override
@@ -59,151 +75,121 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
       try {
         final audioPath = 'audio/${widget.techniqueKey}.mp3';
         await _audioPlayer.play(AssetSource(audioPath));
-        setState(() {
-          _isPlaying = true;
-        });
+        if (mounted) setState(() => _isPlaying = true);
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Audio not available: $e')),
-        );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Audio not available: $e')),
+          );
+        }
       }
     } else {
       await _audioPlayer.stop();
-      setState(() {
-        _isPlaying = false;
-      });
+      if (mounted) setState(() => _isPlaying = false);
     }
-  }
-
-  // New method: tries start image first, fallback if missing
-  Future<void> _updateImagePath() async {
-    final startImage = 'assets/images/${widget.techniqueKey}_start.png';
-    final fallbackImage = 'assets/images/${widget.techniqueKey}.png';
-
-    if (_showStartImage) {
-      try {
-        await rootBundle.load(startImage);
-        _currentImagePath = startImage;
-      } catch (_) {
-        _currentImagePath = fallbackImage;
-      }
-    } else {
-      _currentImagePath = fallbackImage;
-    }
-
-    if (mounted) setState(() {}); // trigger rebuild
   }
 
   @override
   Widget build(BuildContext context) {
     final info = AppStrings.techniqueInformation[widget.techniqueKey];
-
     final latinName = info?[0] ?? widget.techniqueKey;
     final hangulName = info?[1] ?? "";
     final germanName = info?[2] ?? "";
     final explanation = info?[4] ?? "No explanation available.";
 
+    final imagePath = (_showStartImage && _hasStartImage)
+        ? _startImage
+        : _fallbackImage;
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+          padding: const EdgeInsets.all(50.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 12),
 
-            const SizedBox(height: 12),
-                // Latin name
+              Text(
+                latinName,
+                style: const TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+
+              const SizedBox(height: 8),
+
+              if (hangulName.isNotEmpty)
                 Text(
-                  latinName,
-                  style: const TextStyle(
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  hangulName,
+                  style: const TextStyle(fontSize: 24),
                   textAlign: TextAlign.center,
                 ),
 
-                const SizedBox(height: 8),
+              const SizedBox(height: 12),
 
-                // Hangul name
-                if (hangulName.isNotEmpty)
-                  Text(
-                    hangulName,
-                    style: const TextStyle(fontSize: 24),
-                    textAlign: TextAlign.center,
-                  ),
-
-                const SizedBox(height: 12),
-
-                // German name
-                SizedBox(
-                  width: 315,
-                  child: Text(
-                    germanName,
-                    style: const TextStyle(fontSize: 16),
-                    textAlign: TextAlign.center,
-                  ),
+              SizedBox(
+                width: 315,
+                child: Text(
+                  germanName,
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
                 ),
+              ),
 
-                const SizedBox(height: 16),
+              const SizedBox(height: 50),
 
-                // Technique image (switching)
-                Padding(
-                  padding: const EdgeInsets.only(top:50.0),
-                  child: SizedBox(
-                    width: 200,
-                    height: 200,
-                    child: _currentImagePath == null
-                        ? const SizedBox() // placeholder while loading
-                        : Hero(tag:_currentImagePath!,
-                          child: Image.asset(
-                              _currentImagePath!,
-                              fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) {
-                                return const Icon(Icons.image_not_supported,
-                                    size: 100);
-                              },
-                            ),
-                        ),
-                  ),
-                ),
-
-                const SizedBox(height: 12),
-
-                // Explanation
-                Padding(
-                  padding: const EdgeInsets.only(top:50.0),
-                  child: SizedBox(
-                    width: 315,
-                    child: Text(
-                      explanation,
-                      style: const TextStyle(fontSize: 16),
-                      textAlign: TextAlign.center,
+              // Technique image
+              SizedBox(
+                width: 200,
+                height: 200,
+                child: Hero(
+                  tag: _fallbackImage,
+                  child: AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 0), // optional fade
+                    child: Image.asset(
+                      imagePath,
+                      key: ValueKey(imagePath),
+                      fit: BoxFit.contain,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const Icon(Icons.image_not_supported, size: 100),
                     ),
                   ),
                 ),
-
-                // Audio play/pause button
-                Padding(
-                  padding: const EdgeInsets.only(top: 50.0),
-                  child: ElevatedButton.icon(
-                    onPressed: _toggleAudio,
-                    icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
-                    label: Text(_isPlaying ? 'Anhören' : 'Anhören'),
-                  ),
-                ),
-                const SizedBox(height: 50),
-
-                                            // Custom back button
-            Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                onPressed: () => Navigator.pop(context),
               ),
-            ),
-              ],
-            ),
+
+              const SizedBox(height: 50),
+
+              SizedBox(
+                width: 315,
+                child: Text(
+                  explanation,
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+
+              const SizedBox(height: 50),
+
+              ElevatedButton.icon(
+                onPressed: _toggleAudio,
+                icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                label: const Text('Anhören'),
+              ),
+
+              const SizedBox(height: 50),
+
+              Align(
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back,
+                      size: 28, color: Colors.white),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
+            ],
           ),
         ),
       ),
