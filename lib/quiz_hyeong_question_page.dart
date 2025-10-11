@@ -50,9 +50,9 @@ class _QuizHyeongQuestionPageState extends State<QuizHyeongQuestionPage> {
 
     // 1️⃣ Randomize question type for next round
     if (widget.hardCoreMode) {
-      randomNumberQuestionTypeList = [0, 1, 2, 5, 6, 7, 8]..shuffle();
+      randomNumberQuestionTypeList = [0, 1, 2, 5]..shuffle();
     } else {
-      randomNumberQuestionTypeList = [0, 2, 5, 6, 7, 8]..shuffle();
+      randomNumberQuestionTypeList = [0, 2, 5]..shuffle();
     }
     randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;
 

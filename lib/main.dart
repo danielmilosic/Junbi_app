@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:junbi/categories_page.dart';
 //other pages here
 import 'hyeong_page.dart';
 import 'techniques_page.dart';
@@ -6,6 +7,7 @@ import 'statistics_page.dart';
 import 'motschger_box_page.dart';
 import 'quiz_page.dart';
 import 'hangul_page.dart';
+import 'curriculum_page.dart';
 import 'strings.dart';
 import 'package:path_provider/path_provider.dart'; // needed
 
@@ -123,7 +125,7 @@ class JunbiHomePage extends StatelessWidget {
                           ),
                           const SizedBox(height: 24),
                           ElevatedButton(
-                            onPressed: () => navigateTo(TechniquesPage()),
+                            onPressed: () => navigateTo(CurriculumPage()),
                             child: const Text(
                               'Kurrikulum',
                               style: TextStyle(fontSize: 24),

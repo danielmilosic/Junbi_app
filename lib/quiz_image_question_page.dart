@@ -67,9 +67,9 @@ void initState() {
 
 Future<void> _initializeQuiz() async {
   if (widget.hardCoreMode) {
-    randomNumberQuestionTypeList = [0, 1, 2, 5, 6, 7, 8]..shuffle();
+    randomNumberQuestionTypeList = [0, 1, 2, 5]..shuffle();
   } else {
-    randomNumberQuestionTypeList = [0, 2, 5, 6, 7, 8]..shuffle();
+    randomNumberQuestionTypeList = [0, 2, 5]..shuffle();
   }
 
   randomNumberQuestionTypeNext = randomNumberQuestionTypeList.first;

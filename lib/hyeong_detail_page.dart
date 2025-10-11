@@ -120,10 +120,12 @@ class HyeongDetailPage extends StatelessWidget {
 
                     // Diagram image
                     Center(
-                      child: Image.asset(
-                        imagePath,
-                        height: 160,
-                        fit: BoxFit.cover,
+                      child: Hero(tag:imagePath,
+                        child: Image.asset(
+                          imagePath,
+                          height: 160,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
 

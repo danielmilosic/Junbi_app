@@ -226,7 +226,7 @@ void _startQuiz(int totalRounds) {
                 ],
               ),
             ),
-
+const SizedBox(height: 20),
            // Belts / Grandmaster Images
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
