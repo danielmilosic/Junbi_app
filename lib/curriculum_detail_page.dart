@@ -53,7 +53,7 @@ class CurriculumDetailPage extends StatelessWidget {
       'green' => hyeongItems.take(2).toList(),
       'blue' => hyeongItems.take(4).toList(),
       'red' => hyeongItems.take(6).toList(),
-      'black' => hyeongItems.toList(),
+      'black' => hyeongItems.take(8).toList(),
       _ => hyeongItems,
     };
 
