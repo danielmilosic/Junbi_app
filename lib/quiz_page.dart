@@ -180,122 +180,124 @@ void _startQuiz(int totalRounds) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
-        child: Column(
-          children: [
-            // Hardcore Button
-            Align(
-              alignment: Alignment.topRight,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: () {
-                  setState(() {
-                    hardCoreMode = !hardCoreMode;
-                  });
-                },
-                child: Text(
-                  hardCoreMode ? "Hardcore Mode: ON" : "Hardcore",
-                  style: const TextStyle(fontSize: 12, color: Colors.white),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Hardcore Button
+              Align(
+                alignment: Alignment.topRight,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  onPressed: () {
+                    setState(() {
+                      hardCoreMode = !hardCoreMode;
+                    });
+                  },
+                  child: Text(
+                    hardCoreMode ? "Hardcore Mode: ON" : "Hardcore",
+                    style: const TextStyle(fontSize: 12, color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-
-
-            // Title
-            const Text("Quiz",
-                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
-
-            const SizedBox(height: 12),
-
-            const Text(
-              "Wähle den Schwierigkeitsgrad passend zu deinem Gürtel",
-              style: TextStyle(fontSize: 18),
-              textAlign: TextAlign.center,
-            ),
-
-            const SizedBox(height:40),
-            // Belt Buttons
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _beltButton("8. Geup", "8급", Colors.yellow, Colors.black, 10),
-                  _beltButton("6. Geup", "6급", Colors.green, Colors.black, 15),
-                  _beltButton("4. Geup", "4급", Colors.blue, Colors.white, 20),
-                  _beltButton("2. Geup", "2급", Colors.red, Colors.white, 25),
-                  _beltButton("1. Dan", "1단", Colors.black, Colors.white, 30),
-                ],
+          
+          
+              // Title
+              const Text("Quiz",
+                  style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
+          
+              const SizedBox(height: 12),
+          
+              const Text(
+                "Wähle den Schwierigkeitsgrad passend zu deinem Gürtel",
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
               ),
-            ),
-const SizedBox(height: 20),
-           // Belts / Grandmaster Images
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // ────────────── Row 1: Regular Belts ──────────────
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            if (yellow)
-                              _beltImage("assets/images/yellow_belt.png", yellowCount, 48),
-                            if (green)
-                              _beltImage("assets/images/green_belt.png", greenCount, 48),
-                            if (blue)
-                              _beltImage("assets/images/blue_belt.png", blueCount, 48),
-                            if (red)
-                              _beltImage("assets/images/red_belt.png", redCount, 48),
-                            if (black)
-                              _beltImage("assets/images/black_belt.png", blackCount, 48),
-                          ],
-                        ),
-
-                        const SizedBox(height: 8), // spacing between rows
-
-                        // ────────────── Row 2: Hardcore Belts ──────────────
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            if (yellowHC)
-                              _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount, 48),
-                            if (greenHC)
-                              _beltImage("assets/images/green_belt_hardcore.png", greenHCCount, 48),
-                            if (blueHC)
-                              _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount, 48),
-                            if (redHC)
-                              _beltImage("assets/images/red_belt_hardcore.png", redHCCount, 48),
-                            if (blackHC)
-                              _beltImage("assets/images/black_belt_hardcore.png", blackHCCount, 48),
-                          ],
-                        ),
-
-                        const SizedBox(height: 12), // spacing before grandmaster image
-
-                        // ────────────── Row 3: Grandmaster ──────────────
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            if (grandmaster)
-                              _beltImage("assets/images/sabeomnim.png", grandmasterCount, 70),
-                          ],
-                        ),
-                      ],
-                    ),
-
-                                                          // Custom back button
-            Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    CupertinoPageRoute(builder: (_) => JunbiApp()), // or MainPage()
-                    (route) => false, // remove all previous routes
-                  );
-                },
+          
+              const SizedBox(height:25),
+              // Belt Buttons
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _beltButton("8. Geup", "8급", Colors.yellow, Colors.black, 10),
+                    _beltButton("6. Geup", "6급", Colors.green, Colors.black, 15),
+                    _beltButton("4. Geup", "4급", Colors.blue, Colors.white, 20),
+                    _beltButton("2. Geup", "2급", Colors.red, Colors.white, 25),
+                    _beltButton("1. Dan", "1단", Colors.black, Colors.white, 30),
+                  ],
+                ),
               ),
-            ),
-          ],
+          const SizedBox(height: 15),
+             // Belts / Grandmaster Images
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          // ────────────── Row 1: Regular Belts ──────────────
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (yellow)
+                                _beltImage("assets/images/yellow_belt.png", yellowCount, 48),
+                              if (green)
+                                _beltImage("assets/images/green_belt.png", greenCount, 48),
+                              if (blue)
+                                _beltImage("assets/images/blue_belt.png", blueCount, 48),
+                              if (red)
+                                _beltImage("assets/images/red_belt.png", redCount, 48),
+                              if (black)
+                                _beltImage("assets/images/black_belt.png", blackCount, 48),
+                            ],
+                          ),
+          
+                          const SizedBox(height: 8), // spacing between rows
+          
+                          // ────────────── Row 2: Hardcore Belts ──────────────
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (yellowHC)
+                                _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount, 48),
+                              if (greenHC)
+                                _beltImage("assets/images/green_belt_hardcore.png", greenHCCount, 48),
+                              if (blueHC)
+                                _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount, 48),
+                              if (redHC)
+                                _beltImage("assets/images/red_belt_hardcore.png", redHCCount, 48),
+                              if (blackHC)
+                                _beltImage("assets/images/black_belt_hardcore.png", blackHCCount, 48),
+                            ],
+                          ),
+          
+                          const SizedBox(height: 12), // spacing before grandmaster image
+          
+                          // ────────────── Row 3: Grandmaster ──────────────
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (grandmaster)
+                                _beltImage("assets/images/sabeomnim.png", grandmasterCount, 70),
+                            ],
+                          ),
+                        ],
+                      ),
+          
+                                                            // Custom back button
+              Align(
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      CupertinoPageRoute(builder: (_) => JunbiApp()), // or MainPage()
+                      (route) => false, // remove all previous routes
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
