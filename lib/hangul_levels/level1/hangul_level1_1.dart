@@ -204,7 +204,7 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Wir lernen gleich ein paar weitere Konsonanten um unser Wissen zu erweitern.',
+            'Wir lernen gleich ein paar weitere Konsonanten um unser Wissen zu erweitern. Nicht verzweifeln, aller Anfang ist schwer!',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -236,12 +236,12 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Schreibe das Wort: 바미러가너디 und versuche es auszusprechen bevor du es dir anhörst!',
+            'Schreibe das erfundene Wort: 바미러가너디 und versuche es auszusprechen bevor du es dir anhörst!',
             style: TextStyle(fontSize: 16),
           ),
 
                               IconButton(
-                      icon: const Icon(Icons.volume_up, size: 20, color: Colors.white,),
+                      icon: const Icon(Icons.volume_up, size: 40, color: Colors.white,),
                       onPressed: () async {
                         try {
                           final audioPath = 'audio/hangul/level11.mp3';

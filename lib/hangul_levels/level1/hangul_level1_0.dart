@@ -233,8 +233,8 @@ void _updateController() {
             child: _JamoGrid(
               items: [
                 _Jamo('ㅏ', 'a', 'wie in "Arm"'),
-                _Jamo('ㅓ', 'eo', 'genau zwischen a und o'),
-                _Jamo('ㅣ', 'I', 'wie in "Island"'),
+                _Jamo('ㅓ', 'eo', 'genau zwischen a und o, etwa "å", wie in "Åland"'),
+                _Jamo('ㅣ', 'I', 'wie in "Irland"'),
               ],
             ),
           ),
@@ -247,7 +247,7 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Schreibe das Wort: 가나다',
+            'Versuche mit der unten stehenden Tastatur folgende Silben zu schreiben: 가나다 \n\nSie haben keine Bedeutung, das ist nur eine Übung.\n',
             style: TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 8),
@@ -289,7 +289,8 @@ void _updateController() {
 
                 // Forward button
                 IconButton(
-                  icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
+                  
+                  icon: Icon(Icons.arrow_forward, size: 48, color: _textColor),
                   onPressed: () {
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
@@ -321,7 +322,7 @@ class _JamoGrid extends StatelessWidget {
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 1.3,
+        childAspectRatio: 1,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),
