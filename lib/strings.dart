@@ -11,8 +11,8 @@ class AppStrings {
 //HYEONG INFO
 
 static const hyeong_data = 
-  ["Cheon Ji|천지|天地|Himmel und Erde, steht für den Anfang.|19|1|Heaven and Earth (天 representing heaven, 地 representing earth).", 
-  "Dan Gun|단군|檀君|Ein Heiliger, welcher der Legende nach 2333 v.Chr Korea erschaffen hat.|21|2|Named after the holy Dan Gun, the legendary founder of Korea in 2333 BC.", 
+  ["Cheon Ji|천지|天地|Himmel und Erde, steht für den Anfang.|19|1|Bedeutet Himmel und Erde (天 und 地). Dieser Hyeong steht für den Anfang.", 
+  "Dan Gun|단군|檀君|Ein Heiliger, welcher der Legende nach 2333 v.Chr Korea erschaffen hat.|21|2|Benannt nach dem heiligen Dan Gun, der 2333 v.Chr. Korea gergründet haben soll.", 
   "Do San|도산|島山|Koreanischer Patriot, Anführer der koreanischen Unabhängigkeitsbewegung.|24|3|Do San is the pseudonym of patriot An Chang Ho (안창호) (1878-1938). He was a Korean politician, Korean independence activist, and an early leader of the Korean-American immigrant community in the US. He and his wife were the first Koreans to legally immigrate to the US as a married couple.", 
   "Won Hyo|원효|元曉|Buddhistischer Mönch, der Buddhismus in Korea verbreitete.|28|4|Won Hyo was a buddhist monk responsible for spreading buddhism in Korea.", 
   "Yul Gok|율곡|栗谷|Der Philosoph Yi I hat sich intensiv mit dem 'Ki', der Energie, beschäftigt.|38|5|Yul Gok is the artist name of the philosopher Yi I (이이).", 

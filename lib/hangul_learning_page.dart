@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'hangul_overview_page.dart';
 import 'hangul_levels/level1/hangul_level1_0.dart';
 import 'hangul_levels/level2/hangul_level2_0.dart';
 import 'hangul_levels/level3/hangul_level3_0.dart';
+import 'hangul_levels/level4/hangul_level4_0.dart';
+import 'hangul_levels/level5/hangul_level5_0.dart';
 import 'package:junbi/main.dart';
 
 class HangulLearningPage extends StatefulWidget {
@@ -115,7 +116,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                   color: Colors.black,
                   visited: visited['level4'] ?? false,
                   completed: completed['level4completed'] ?? false,
-                  onTap: () => _navigate(context, const HangulOverviewPage(), 'level4'),
+                  onTap: () => _navigate(context, const HangulLevel40(), 'level4'),
                 ),
                 const SizedBox(height: 32),
                 _buildBigButton(
@@ -124,7 +125,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                   color: Colors.black,
                   visited: visited['level5'] ?? false,
                   completed: completed['level5completed'] ?? false,
-                  onTap: () => _navigate(context, const HangulOverviewPage(), 'level5'),
+                  onTap: () => _navigate(context, const HangulLevel50(), 'level5'),
                 ),
                 Align(
                   alignment: Alignment.bottomRight,
