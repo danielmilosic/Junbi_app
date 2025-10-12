@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level4_1.dart';
+import 'hangul_level4_2.dart';
+import 'hangul_level4_4.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -8,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel40 extends StatelessWidget {
-  const HangulLevel40({Key? key}) : super(key: key);
+class HangulLevel43 extends StatelessWidget {
+  const HangulLevel43({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -314,10 +315,9 @@ void _pressVowel(String v) {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '태권도' || preview == '화랑' || preview == '원효' || preview == '광계' || preview == '리권대리기' || preview == '정관수들기')
+    _textColor = (preview == '퇴계' || preview == '웨' || preview == '괜찮아요')
         ? Colors.green
         : Colors.white;
-
 
     _controller.text = preview;
     _controller.selection = TextSelection.fromPosition(
@@ -452,7 +452,7 @@ void _pressVowel(String v) {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 4 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -462,12 +462,12 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Zwielaute',
+            'Verwechslungsgefahr!',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Jetzt lernst du endlich, wie man Taekwondo auf Koreanisch schreibt! \n\nManche Vokale können zu Zwielauten kombiniert werden. Deren Aussprache ist aber nicht immer leicht. Deswegen geht es in diesem gesamten Level nur um Zwielaute!\n\nWichtige Regel: Es kommt in allen Zwielauten ein "W" vor, wird aber eher wie ein kurzes "U" ausgesprochen. Also nicht wie im Deutschen Wort "Wind", sondern eher wie im französischen "Oui". \n\nWir fangen mit zwei einfachen Lauten an: \n\n"ㅗ" + "ㅏ" = "ㅘ" \n\n"ㅜ" + "ㅓ" = "ㅝ"  ',
+            'Da die Zwielaute alle sehr ähnlich ausschauen, sind sie am Anfang etwas schwer auseinanderzuhalten. Deshalb machen wir eine kleine Übung: ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -480,63 +480,22 @@ void _pressVowel(String v) {
 
                     // Konsonanten
           const Text(
-            'Neue Vokale',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            'Versuche die Zwielaute auszusprechen bevor du sie dir anhörst:',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 20),
           _JamoGrid(
             items: [
-              _Jamo('ㅘ', 'wa', 'wie in "qUAl"', 'audio/hangul/wa.mp3'),
-              _Jamo('ㅝ', 'weo', 'wie im Englischen "WAr"', 'audio/hangul/weo.mp3'),
+              _Jamo('ㅟ', '', '', 'audio/hangul/wi.mp3'),
+              _Jamo('ㅞ', '', '', 'audio/hangul/we.mp3'),
+              _Jamo('ㅢ', '', '', 'audio/hangul/ui.mp3'),
+              _Jamo('ㅘ', '', '', 'audio/hangul/wa.mp3'),
+              _Jamo('ㅙ', '', '', 'audio/hangul/we.mp3'),
+              _Jamo('ㅝ', '', '', 'audio/hangul/weo.mp3'),
+              _Jamo('ㅚ', '', '', 'audio/hangul/we.mp3'),
             ],
           ),
 
-
-          const Divider(height: 28),
-
-          const SizedBox(height: 8),
-
-          const Text(
-            'Beispiele',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            'Versuche die Beispiele nachzuschreiben. Achte darauf, die beiden Laute nicht zu verwechseln!',
-            style: TextStyle(fontSize: 16),
-          ),
-
-SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child: Row(
-    children: [
-      _buildAudioCard(context, '태권도', 'audio/hangul/taekwondo.mp3'),
-      _buildAudioCard(context, '화랑', 'audio/hwa_rang.mp3'),
-      _buildAudioCard(context, '원효', 'audio/won_hyo.mp3'),
-      _buildAudioCard(context, '광계', 'audio/gwang_gye.mp3'),
-      _buildAudioCard(context, '리권 대리기', 'audio/rigwon_daerigi.mp3'),
-      _buildAudioCard(context, '정 관수 들기', 'audio/jeong_gwansu_deulgi.mp3'),
-    ],
-  ),
-),
-
-          const Text(
-            'Probiere es aus!',
-            style: TextStyle(fontSize: 16),
-          ),
-
-          const SizedBox(height: 8),
-          TextField(
-            controller: _controller,
-            readOnly: true, // disable default keyboard
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: '',
-            ),
-            style: TextStyle(fontSize: 28, color: _textColor),
-          ),
-          const SizedBox(height: 12),
-          Center(child: _buildKeyboard()),
 
           Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),
@@ -550,7 +509,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel42()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -576,7 +535,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel41()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel44()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

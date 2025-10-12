@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level4_1.dart';
+import 'hangul_level4_0.dart';
+import 'hangul_level4_2.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -8,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel40 extends StatelessWidget {
-  const HangulLevel40({Key? key}) : super(key: key);
+class HangulLevel41 extends StatelessWidget {
+  const HangulLevel41({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -314,10 +315,9 @@ void _pressVowel(String v) {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '태권도' || preview == '화랑' || preview == '원효' || preview == '광계' || preview == '리권대리기' || preview == '정관수들기')
+    _textColor = (preview == '뒷차기' || preview == '뛰며옆차기' || preview == '뒤지본지르기' || preview == '윗팔끕들기' || preview == '의사')
         ? Colors.green
         : Colors.white;
-
 
     _controller.text = preview;
     _controller.selection = TextSelection.fromPosition(
@@ -452,7 +452,7 @@ void _pressVowel(String v) {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 2 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -462,12 +462,12 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Zwielaute',
+            'Mehr Zwielaute',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Jetzt lernst du endlich, wie man Taekwondo auf Koreanisch schreibt! \n\nManche Vokale können zu Zwielauten kombiniert werden. Deren Aussprache ist aber nicht immer leicht. Deswegen geht es in diesem gesamten Level nur um Zwielaute!\n\nWichtige Regel: Es kommt in allen Zwielauten ein "W" vor, wird aber eher wie ein kurzes "U" ausgesprochen. Also nicht wie im Deutschen Wort "Wind", sondern eher wie im französischen "Oui". \n\nWir fangen mit zwei einfachen Lauten an: \n\n"ㅗ" + "ㅏ" = "ㅘ" \n\n"ㅜ" + "ㅓ" = "ㅝ"  ',
+            'Wir lernen gleich zwei weitere Zwielaute, die recht ähnlich sind. Der erste klingt wie das Französische Wort für "ja", also "oui. Der zweite ist recht schwer zu beschreiben und auszusprechen, kommt aber im Taekwondo nicht vor. \n\n"ㅜ" + "ㅣ" = "ㅟ" \n\n"ㅡ" + "ㅣ" = "ㅢ"  ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -486,8 +486,8 @@ void _pressVowel(String v) {
           const SizedBox(height: 6),
           _JamoGrid(
             items: [
-              _Jamo('ㅘ', 'wa', 'wie in "qUAl"', 'audio/hangul/wa.mp3'),
-              _Jamo('ㅝ', 'weo', 'wie im Englischen "WAr"', 'audio/hangul/weo.mp3'),
+              _Jamo('ㅟ', 'wi', 'wie im französische "OUI"', 'audio/hangul/wi.mp3'),
+              _Jamo('ㅢ', 'ui', 'wie das russische "ы"', 'audio/hangul/ui.mp3'),
             ],
           ),
 
@@ -510,12 +510,11 @@ SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
     children: [
-      _buildAudioCard(context, '태권도', 'audio/hangul/taekwondo.mp3'),
-      _buildAudioCard(context, '화랑', 'audio/hwa_rang.mp3'),
-      _buildAudioCard(context, '원효', 'audio/won_hyo.mp3'),
-      _buildAudioCard(context, '광계', 'audio/gwang_gye.mp3'),
-      _buildAudioCard(context, '리권 대리기', 'audio/rigwon_daerigi.mp3'),
-      _buildAudioCard(context, '정 관수 들기', 'audio/jeong_gwansu_deulgi.mp3'),
+      _buildAudioCard(context, '뒷 차기', 'audio/dwit_chagi.mp3'),
+      _buildAudioCard(context, '뛰며 옆 차기', 'audio/ttwimyeo_yeop_chagi.mp3'),
+      _buildAudioCard(context, '뒤지본 지르기', 'audio/dwijibon_jireugi.mp3'),
+      _buildAudioCard(context, '윗팔끕 들기', 'audio/wit_palkkeup_deulgi.mp3'),
+      _buildAudioCard(context, '의사 - Arzt/Ärztin', 'audio/hangul/uisa.mp3'),
     ],
   ),
 ),
@@ -550,7 +549,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel40()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -576,7 +575,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel41()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel42()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

@@ -85,7 +85,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                 const SizedBox(height: 32),
                 _buildBigButton(
                   context: context,
-                  label: 'Level 1: 가나다',
+                  label: 'Level 1: Die ersten Zwölf Laute',
                   color: Colors.black,
                   visited: visited['level1'] ?? false,
                   completed: completed['level1completed'] ?? false,
@@ -94,7 +94,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                 const SizedBox(height: 32),
                 _buildBigButton(
                   context: context,
-                  label: 'Level 2: 쌍팔목막기',
+                  label: 'Level 2: Konsonanten',
                   color: Colors.black,
                   visited: visited['level2'] ?? false,
                   completed: completed['level2completed'] ?? false,
@@ -103,7 +103,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                 const SizedBox(height: 32),
                 _buildBigButton(
                   context: context,
-                  label: 'Level 3: 안녕하세요',
+                  label: 'Level 3: Vokale',
                   color: Colors.black,
                   visited: visited['level3'] ?? false,
                   completed: completed['level3completed'] ?? false,
@@ -121,7 +121,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                 const SizedBox(height: 32),
                 _buildBigButton(
                   context: context,
-                  label: 'Level 5: 차렷, 경례',
+                  label: 'Level 5: Ausspracheregeln',
                   color: Colors.black,
                   visited: visited['level5'] ?? false,
                   completed: completed['level5completed'] ?? false,

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level4_1.dart';
+import 'package:junbi/hangul_results_page.dart';
+import 'hangul_level4_3.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel40 extends StatelessWidget {
-  const HangulLevel40({Key? key}) : super(key: key);
+class HangulLevel44 extends StatelessWidget {
+  const HangulLevel44({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +57,11 @@ class _HangulContentState extends State<_HangulContent> {
   int? _finalIndex;
   Color _textColor = Colors.white;
   
+
+void _markCompleted() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('level4completed', true);  // mark level 1 as completed
+}
 
   List<String> get initials =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
@@ -314,10 +321,9 @@ void _pressVowel(String v) {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '태권도' || preview == '화랑' || preview == '원효' || preview == '광계' || preview == '리권대리기' || preview == '정관수들기')
+    _textColor = (preview == '퇴계' || preview == '웨' || preview == '괜찮아요')
         ? Colors.green
         : Colors.white;
-
 
     _controller.text = preview;
     _controller.selection = TextSelection.fromPosition(
@@ -446,13 +452,14 @@ void _pressVowel(String v) {
 
   @override
   Widget build(BuildContext context) {
+    final AudioPlayer audioPlayer = AudioPlayer();
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 5 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -462,12 +469,12 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Zwielaute',
+            'Herzlichen Glückwunsch!',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Jetzt lernst du endlich, wie man Taekwondo auf Koreanisch schreibt! \n\nManche Vokale können zu Zwielauten kombiniert werden. Deren Aussprache ist aber nicht immer leicht. Deswegen geht es in diesem gesamten Level nur um Zwielaute!\n\nWichtige Regel: Es kommt in allen Zwielauten ein "W" vor, wird aber eher wie ein kurzes "U" ausgesprochen. Also nicht wie im Deutschen Wort "Wind", sondern eher wie im französischen "Oui". \n\nWir fangen mit zwei einfachen Lauten an: \n\n"ㅗ" + "ㅏ" = "ㅘ" \n\n"ㅜ" + "ㅓ" = "ㅝ"  ',
+            'Du kannst *jeden* koreanischen Text lesen! ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -476,67 +483,33 @@ void _pressVowel(String v) {
           const Divider(height: 28),
 
           const SizedBox(height: 8),
-
 
                     // Konsonanten
           const Text(
-            'Neue Vokale',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            'Probier es gleich aus:',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 6),
-          _JamoGrid(
-            items: [
-              _Jamo('ㅘ', 'wa', 'wie in "qUAl"', 'audio/hangul/wa.mp3'),
-              _Jamo('ㅝ', 'weo', 'wie im Englischen "WAr"', 'audio/hangul/weo.mp3'),
-            ],
-          ),
+          const SizedBox(height: 20),
 
-
-          const Divider(height: 28),
-
-          const SizedBox(height: 8),
 
           const Text(
-            'Beispiele',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            'Versuche die Beispiele nachzuschreiben. Achte darauf, die beiden Laute nicht zu verwechseln!',
-            style: TextStyle(fontSize: 16),
+            '국기원은 태권도 중앙 도장으로서 세계 태권도 본부 기능을 수행하는 단체이다. \n\n대한민국 문화체육관광부가 주무관청인 특수법인으로, 오늘날 세계 태권도 연맹의 모체이다.\n\n또한 국기원에서는 품단증과 각종 자격증을 발행하고, 태권도 인구 저변확대를 위하여 요구되는 연구, 교육 그리고 행사를 주관하는 국제기관이다. \n\n또한 연중 행사로는 세계태권도한마당이 있고, 무도나 스포츠태권도의 중흥 발전에도 기여하는 역할을 한다. ',
+            style: TextStyle(fontSize: 20),
           ),
 
-SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child: Row(
-    children: [
-      _buildAudioCard(context, '태권도', 'audio/hangul/taekwondo.mp3'),
-      _buildAudioCard(context, '화랑', 'audio/hwa_rang.mp3'),
-      _buildAudioCard(context, '원효', 'audio/won_hyo.mp3'),
-      _buildAudioCard(context, '광계', 'audio/gwang_gye.mp3'),
-      _buildAudioCard(context, '리권 대리기', 'audio/rigwon_daerigi.mp3'),
-      _buildAudioCard(context, '정 관수 들기', 'audio/jeong_gwansu_deulgi.mp3'),
-    ],
-  ),
-),
-
-          const Text(
-            'Probiere es aus!',
-            style: TextStyle(fontSize: 16),
-          ),
-
-          const SizedBox(height: 8),
-          TextField(
-            controller: _controller,
-            readOnly: true, // disable default keyboard
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: '',
+            IconButton(
+              icon: const Icon(Icons.volume_up, size: 30, color: Colors.white),
+              onPressed: () async {
+                try {
+                  final audioPath = 'audio/hangul/sample_text.mp3';
+                  await audioPlayer.play(AssetSource(audioPath));
+                } catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Audio not available')),
+                  );
+                }
+              },
             ),
-            style: TextStyle(fontSize: 28, color: _textColor),
-          ),
-          const SizedBox(height: 12),
-          Center(child: _buildKeyboard()),
 
           Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),
@@ -550,7 +523,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel43()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -573,12 +546,14 @@ SingleChildScrollView(
                 IconButton(
                   icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
                   onPressed: () {
+                    _markCompleted();
                     // Navigate forward
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (_) => HangulLevel41()), // or MainPage()
-                      (route) => false, // remove all previous routes
-                    );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HangulResultsPage(level: 4),
+                            ),
+                          );
                   },
                 ),
               ],

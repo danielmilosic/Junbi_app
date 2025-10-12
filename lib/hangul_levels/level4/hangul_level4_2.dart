@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level4_1.dart';
+import 'hangul_level4_3.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -8,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel40 extends StatelessWidget {
-  const HangulLevel40({Key? key}) : super(key: key);
+class HangulLevel42 extends StatelessWidget {
+  const HangulLevel42({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -314,10 +315,9 @@ void _pressVowel(String v) {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '태권도' || preview == '화랑' || preview == '원효' || preview == '광계' || preview == '리권대리기' || preview == '정관수들기')
+    _textColor = (preview == '퇴계' || preview == '웨' || preview == '괜찮아요')
         ? Colors.green
         : Colors.white;
-
 
     _controller.text = preview;
     _controller.selection = TextSelection.fromPosition(
@@ -452,7 +452,7 @@ void _pressVowel(String v) {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 3 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -462,12 +462,12 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Zwielaute',
+            'Ein Laut, drei Schreibweisen',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Jetzt lernst du endlich, wie man Taekwondo auf Koreanisch schreibt! \n\nManche Vokale können zu Zwielauten kombiniert werden. Deren Aussprache ist aber nicht immer leicht. Deswegen geht es in diesem gesamten Level nur um Zwielaute!\n\nWichtige Regel: Es kommt in allen Zwielauten ein "W" vor, wird aber eher wie ein kurzes "U" ausgesprochen. Also nicht wie im Deutschen Wort "Wind", sondern eher wie im französischen "Oui". \n\nWir fangen mit zwei einfachen Lauten an: \n\n"ㅗ" + "ㅏ" = "ㅘ" \n\n"ㅜ" + "ㅓ" = "ㅝ"  ',
+            'Wir lernen drei weiter Zwielaute, aber keine Angst! Sie werden alle drei genau gleich ausgesprochen. \n\nEs gab früher eine Unterscheidung zwischen diesen Lauten, die ist aber im modernen Koreanisch komplett verloren gegangen. Besonders zu beachten, ist das die Kombination aus ㅗ (o) und ㅣ (i), nicht als (oi) ausgesprochen wird, aber sehr wohl so transkribiert! Deshalb spricht man den Hyeong Toi Gye (퇴계) aus als wäre es "Twe Gye".  \n\n"ㅜ" + "ㅔ" = "ㅞ" \n\n"ㅗ" + "ㅐ" = "ㅙ" \n\n"ㅗ" + "ㅣ" = "ㅚ" ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -486,8 +486,9 @@ void _pressVowel(String v) {
           const SizedBox(height: 6),
           _JamoGrid(
             items: [
-              _Jamo('ㅘ', 'wa', 'wie in "qUAl"', 'audio/hangul/wa.mp3'),
-              _Jamo('ㅝ', 'weo', 'wie im Englischen "WAr"', 'audio/hangul/weo.mp3'),
+              _Jamo('ㅞ', 'we', 'wie im englischen "when"', 'audio/hangul/we.mp3'),
+              _Jamo('ㅙ', 'wae', 'wie im englischen "when"', 'audio/hangul/we.mp3'),
+              _Jamo('ㅚ', 'oi', 'wie im englischen "when"', 'audio/hangul/we.mp3'),
             ],
           ),
 
@@ -510,12 +511,9 @@ SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
     children: [
-      _buildAudioCard(context, '태권도', 'audio/hangul/taekwondo.mp3'),
-      _buildAudioCard(context, '화랑', 'audio/hwa_rang.mp3'),
-      _buildAudioCard(context, '원효', 'audio/won_hyo.mp3'),
-      _buildAudioCard(context, '광계', 'audio/gwang_gye.mp3'),
-      _buildAudioCard(context, '리권 대리기', 'audio/rigwon_daerigi.mp3'),
-      _buildAudioCard(context, '정 관수 들기', 'audio/jeong_gwansu_deulgi.mp3'),
+      _buildAudioCard(context, '퇴계', 'audio/toi_gye.mp3'),
+      _buildAudioCard(context, '웨 - wieso?', 'audio/hangul/we.mp3'),
+      _buildAudioCard(context, '괜찮아요', 'audio/hangul/gwaenchanayo.mp3'),
     ],
   ),
 ),
@@ -550,7 +548,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel41()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -576,7 +574,7 @@ SingleChildScrollView(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel41()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel43()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

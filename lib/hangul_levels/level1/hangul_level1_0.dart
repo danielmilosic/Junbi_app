@@ -217,7 +217,7 @@ void _updateController() {
             items: [
               _Jamo('ㄱ', 'g', 'wie in "Gang"'),
               _Jamo('ㄴ', 'n', 'wie in "nein"'),
-              _Jamo('ㄷ', 'd', 'wie in "Durchfall"'),
+              _Jamo('ㄷ', 'd', 'wie in "Dudelsack"'),
             ],
           ),
 
@@ -321,7 +321,7 @@ class _JamoGrid extends StatelessWidget {
       shrinkWrap: true,
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         childAspectRatio: 1,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
