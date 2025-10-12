@@ -165,7 +165,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          textStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         onPressed: onTap,
         child: Row(
