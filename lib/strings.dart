@@ -13,14 +13,14 @@ class AppStrings {
 static const hyeong_data = 
   ["Cheon Ji|천지|天地|Himmel und Erde, steht für den Anfang.|19|1|Bedeutet Himmel und Erde (天 und 地). Dieser Hyeong steht für den Anfang.", 
   "Dan Gun|단군|檀君|Ein Heiliger, welcher der Legende nach 2333 v.Chr Korea erschaffen hat.|21|2|Benannt nach dem heiligen Dan Gun, der 2333 v.Chr. Korea gergründet haben soll.", 
-  "Do San|도산|島山|Koreanischer Patriot, Anführer der koreanischen Unabhängigkeitsbewegung.|24|3|Do San is the pseudonym of patriot An Chang Ho (안창호) (1878-1938). He was a Korean politician, Korean independence activist, and an early leader of the Korean-American immigrant community in the US. He and his wife were the first Koreans to legally immigrate to the US as a married couple.", 
-  "Won Hyo|원효|元曉|Buddhistischer Mönch, der Buddhismus in Korea verbreitete.|28|4|Won Hyo was a buddhist monk responsible for spreading buddhism in Korea.", 
-  "Yul Gok|율곡|栗谷|Der Philosoph Yi I hat sich intensiv mit dem 'Ki', der Energie, beschäftigt.|38|5|Yul Gok is the artist name of the philosopher Yi I (이이).", 
-  "Jung Geun|중근|重根|Freiheitskämpfer, bekannt für den Mord eines Japanischen Premirministers.|32|6|An Jung Geun (안중근) was a Korean freedom fighter.", 
-  "Toi Gye|퇴계|退溪|Der Philosoph Yi Hwang hat sich intensiv mit dem 'Li', der Ordnung, beschäftigt.|37|7|Toi Gye is the artist name of the philosopher Yi Hwang (이황).", 
-  "Hwa Rang|화랑|花郞|Eine Gruppe jugendlicher Arsitokraten, die Literatur und Kampfkunst lernten.|29|8|Hwa Rang was the name of a group of aristocratic youth.", 
-  "Chung Mu|충무|忠武|Yi Sun Shin war ein Admiral, bekannt für seine Schildkrötenschiffe.|30|9|Yi Sun Shin (이순신) was a Korean admiral.",
-  "Gwang Gye|광개|廣開|Ein König, der große Teile der Mandschurei zurückeroberte.|39|10|Gwang Gae To Tae Wang (Hanja: 廣開土大王) was a king who re-conquered large part of Mandjuria."];
+  "Do San|도산|島山|Koreanischer Patriot, Anführer der koreanischen Unabhängigkeitsbewegung.|24|3|Do San ist der Pseudonym des Patrioten An Chang Ho (안창호) (1878-1938). Er war ein Koreanischer Politiker, Unabhängigkeitsaktivist, und Leiter der 'Korean-American immigrant community' in den USA. Er und seine Frau waren da erste Koreanischer Ehepaar, das legal in die USA einreiste.", 
+  "Won Hyo|원효|元曉|Buddhistischer Mönch, der Buddhismus in Korea verbreitete.|28|4|Won Hyo war ein ein buddhistischer Mönch in Korea. Er hat sich für die Verbreitung des Buddhismus in Korea eingesetz", 
+  "Yul Gok|율곡|栗谷|Der Philosoph Yi I hat sich intensiv mit dem 'Ki', der Energie, beschäftigt.|38|5|Yul Gok war der Künstlername des Philosophen Yi I (이이). Gemeinsam mit Toi Gye (Yi Hwang) war er einer der beiden großen Philosophen seiner Zeit. Er legte besonderen Wert auf die Lebensenergie, dem 'KI' ", 
+  "Jung Geun|중근|重根|Freiheitskämpfer, bekannt für den Mord eines Japanischen Premirministers.|32|6|An Jung Geun (안중근) war ein Koreanischer Freiheitskämpfer. Er ist berühmt für die Ermordung des Japanischen Ministerpräsidenten, der damals über Korea regierte.", 
+  "Toi Gye|퇴계|退溪|Der Philosoph Yi Hwang hat sich intensiv mit dem 'Li', der Ordnung, beschäftigt.|37|7|Toi Gye ist der Künstlername des Philosophen Yi Hwang (이황). Im Gegensatz zu Yul Gok (Yi I), legte er mehr Wert auf die Ordnung (Ri), statt der Energie (Ki).", 
+  "Hwa Rang|화랑|花郞|Eine Gruppe jugendlicher Arsitokraten, die Literatur und Kampfkunst lernten.|29|8|Hwa Rang war eine Gruppe aristokratischer Jugendlicher, die eine Gute Bildung genossen. Sie lernten unter anderem Recht, Philosophie, Literatur und Kampfkunst.", 
+  "Chung Mu|충무|忠武|Yi Sun Shin war ein Admiral, bekannt für seine Schildkrötenschiffe.|30|9|Yi Sun Shin (이순신) war ein Koreanischer Admiral. Er wird als einer der größten Helden in Korea gefeiert. Er soll mit nur 13 Schiffen gegen 333 japanische Schiffe in einer Schlacht gewonnen haben.",
+  "Gwang Gye|광개|廣開|Ein König, der große Teile der Mandschurei zurückeroberte.|39|10|Gwang Gae To Tae Wang (Hanja: 廣開土大王) war ein König von Goguryeo der große Teile der Mandschurei zurückeroberte."];
   
 
 //LIST OF TECHNIQUES OCCURRING IN HYEONGS

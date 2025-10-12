@@ -147,7 +147,7 @@ class CurriculumDetailPage extends StatelessWidget {
                         final info = AppStrings.techniqueInformation[hyeongKey];
                         final hangulName = info?[1] ?? '';
                         final hyeongImagePath = 'assets/images/hyeong${index+1}_diagram.png';
-                        final Cardcolor = oldHyeongs.contains(hyeongKey) ? const Color.fromARGB(255, 31, 31, 31) : Colors.black;
+                        final Cardcolor = oldHyeongs.contains(hyeongKey) ? const Color.fromARGB(255, 45, 45, 45) : Colors.black;
 
                         return InkWell(
                           onTap: () {
@@ -237,7 +237,7 @@ class CurriculumDetailPage extends StatelessWidget {
                         final displayName = info?[0] ?? techniqueKey;
                         final hangulName = info?[1] ?? '';
                         final techniqueImagePath = 'assets/images/$techniqueKey.png';
-                        final Cardcolor = oldTechniques.contains(beltRankDependentTechniques[index]) ? const Color.fromARGB(255, 31, 31, 31) : Colors.black;
+                        final Cardcolor = oldTechniques.contains(beltRankDependentTechniques[index]) ? const Color.fromARGB(255, 45, 45, 45) : Colors.black;
                         
 
                         return InkWell(
