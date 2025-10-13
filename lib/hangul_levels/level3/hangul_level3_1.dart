@@ -323,8 +323,8 @@ class _HangulContentState extends State<_HangulContent> {
     return GestureDetector(
       onTap: () => _pressKey(label),
       child: Container(
-        width: 48,
-        height: 48,
+        width: 40,
+        height: 40,
         margin: const EdgeInsets.all(3),
         decoration: BoxDecoration(
           color: Colors.black,
@@ -461,7 +461,11 @@ class _HangulContentState extends State<_HangulContent> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                              ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('아 -> 야', 'ya', 'wie in "JAgd"'),
               _Jamo('어 -> 여', 'yeo', '"JÅ"'),
@@ -470,7 +474,7 @@ class _HangulContentState extends State<_HangulContent> {
               _Jamo('애 -> 얘', 'yae', 'wie in "JEder"'),
               _Jamo('에 -> 예', 'ye', 'wie in "JEder"'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 

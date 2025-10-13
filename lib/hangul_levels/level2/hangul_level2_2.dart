@@ -343,11 +343,15 @@ class _HangulContentState extends State<_HangulContent> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                              ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㅎ', 'h', 'wie in "Hut"'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 
@@ -357,13 +361,17 @@ class _HangulContentState extends State<_HangulContent> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                              ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㅐ', 'ae', 'wie in "schnell"'),
               _Jamo('ㅔ', 'e', 'wie in "schnell'),
 
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 

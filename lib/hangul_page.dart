@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'hangul_overview_page.dart';
 import 'hangul_learning_page.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:junbi/main.dart';
 
 class HangulPage extends StatelessWidget {
   const HangulPage({Key? key}) : super(key: key);
@@ -56,11 +58,17 @@ class HangulPage extends StatelessWidget {
                   onTap: () => _navigate(context, const HangulOverviewPage()),
                 ),
                 const SizedBox(height: 100),
-                                                                          Align(
+              Align(
                 alignment: Alignment.bottomRight,
                 child: IconButton(
                   icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      CupertinoPageRoute(builder: (_) => JunbiApp()), // or MainPage()
+                      (route) => false, // remove all previous routes
+                    );
+                  },
                 ),
               ),
               ],

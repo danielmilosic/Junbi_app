@@ -541,7 +541,11 @@ SingleChildScrollView(
 
           const SizedBox(height: 8),
 
-          GridView(
+          ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:GridView(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -651,7 +655,7 @@ Center(
 ),
 
             ],
-          ),
+          ),),
 
           Padding(
             padding: const EdgeInsets.only(bottom:8.0, top: 30),

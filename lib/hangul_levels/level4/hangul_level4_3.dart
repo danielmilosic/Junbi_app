@@ -484,7 +484,11 @@ void _pressVowel(String v) {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 20),
-          _JamoGrid(
+          ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㅟ', '', '', 'audio/hangul/wi.mp3'),
               _Jamo('ㅞ', '', '', 'audio/hangul/we.mp3'),
@@ -494,7 +498,7 @@ void _pressVowel(String v) {
               _Jamo('ㅝ', '', '', 'audio/hangul/weo.mp3'),
               _Jamo('ㅚ', '', '', 'audio/hangul/we.mp3'),
             ],
-          ),
+          ),),
 
 
           Padding(

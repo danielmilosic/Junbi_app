@@ -213,13 +213,17 @@ void _updateController() {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                    ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㄱ', 'g', 'wie in "Gang"'),
               _Jamo('ㄴ', 'n', 'wie in "nein"'),
               _Jamo('ㄷ', 'd', 'wie in "Dudelsack"'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 
@@ -229,7 +233,11 @@ void _updateController() {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          Center(
+                    ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:Center(
             child: _JamoGrid(
               items: [
                 _Jamo('ㅏ', 'a', 'wie in "Arm"'),
@@ -237,7 +245,7 @@ void _updateController() {
                 _Jamo('ㅣ', 'I', 'wie in "Irland"'),
               ],
             ),
-          ),
+          ),),
 
            const Divider(height: 28),
           const SizedBox(height: 8),

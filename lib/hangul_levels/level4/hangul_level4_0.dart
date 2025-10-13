@@ -343,8 +343,8 @@ void _pressVowel(String v) {
     return GestureDetector(
       onTap: () => _pressKey(label),
       child: Container(
-        width: 48,
-        height: 48,
+        width: 40,
+        height: 40,
         margin: const EdgeInsets.all(3),
         decoration: BoxDecoration(
           color: Colors.black,
@@ -484,12 +484,16 @@ void _pressVowel(String v) {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+          ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㅘ', 'wa', 'wie in "qUAl"', 'audio/hangul/wa.mp3'),
               _Jamo('ㅝ', 'weo', 'wie im Englischen "WAr"', 'audio/hangul/weo.mp3'),
             ],
-          ),
+          ),),
 
 
           const Divider(height: 28),

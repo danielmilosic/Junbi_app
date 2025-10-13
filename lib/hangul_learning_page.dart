@@ -6,6 +6,7 @@ import 'hangul_levels/level3/hangul_level3_0.dart';
 import 'hangul_levels/level4/hangul_level4_0.dart';
 import 'hangul_levels/level5/hangul_level5_0.dart';
 import 'package:junbi/main.dart';
+import 'hangul_page.dart';
 
 class HangulLearningPage extends StatefulWidget {
   const HangulLearningPage({Key? key}) : super(key: key);
@@ -134,7 +135,7 @@ class _HangulLearningPageState extends State<HangulLearningPage> {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (_) => JunbiApp()),
+                        MaterialPageRoute(builder: (_) => HangulPage()),
                         (route) => false,
                       );
                     },

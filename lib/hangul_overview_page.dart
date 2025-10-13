@@ -340,8 +340,8 @@ void _pressVowel(String v) {
     return GestureDetector(
       onTap: () => _pressKey(label),
       child: Container(
-        width: 48,
-        height: 48,
+        width: 40,
+        height: 40,
         margin: const EdgeInsets.all(3),
         decoration: BoxDecoration(
           color: Colors.black,
@@ -478,19 +478,28 @@ void _pressVowel(String v) {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                    ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㄱ', 'g', 'wie in "Gang"'),
+              _Jamo('ㅋ', 'k', 'wie in "Kampf"'),
               _Jamo('ㄴ', 'n', 'wie in "nein"'),
               _Jamo('ㄷ', 'd', 'wie in "Dudelsack"'),
+              _Jamo('ㅌ', 't', 'wie in "tot'),
               _Jamo('ㄹ', 'r', 'zwischen gerolltem r und l'),
               _Jamo('ㅁ', 'm', 'wie in "Maus"'),
               _Jamo('ㅂ', 'b', 'wie in "Baum"'),
+              _Jamo('ㅍ', 'p', 'wie in "Po"'),
               _Jamo('ㅅ', 'Sa', 'stimmlos, wie in "hauS", nicht etwa stimmhaft wie in "Sand"'),
+              _Jamo('ㅈ', 'j', 'wie in "Dschungel"'),
+              _Jamo('ㅊ', 'ch', 'wie in "Tschernobyl"'),
               _Jamo('ㅇ', 'ng', 'wie in "gang", oder stumm am Anfang'),
               _Jamo('ㅎ', 'h', 'wie in "Hut"'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 
@@ -500,7 +509,11 @@ void _pressVowel(String v) {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+          ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
                 _Jamo('ㅏ', 'a', 'wie in "Arm"'),
                 _Jamo('ㅓ', 'eo', 'genau zwischen a und o, etwa "å", wie in "Åland"'),
@@ -511,7 +524,7 @@ void _pressVowel(String v) {
               _Jamo('ㅐ', 'ae', 'wie in "schnell"'),
               _Jamo('ㅔ', 'e', 'wie in "schnell'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 
@@ -562,7 +575,7 @@ void _pressVowel(String v) {
             style: TextStyle(fontSize: 28, color: _textColor),
           ),
           const SizedBox(height: 12),
-          _buildKeyboard(),
+          Center(child: _buildKeyboard()),
 
           const Divider(height: 28),
 
@@ -619,8 +632,8 @@ class _JamoGrid extends StatelessWidget {
       shrinkWrap: true,
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        childAspectRatio: 1.3,
+        crossAxisCount: 2,
+        childAspectRatio: 1.2,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),

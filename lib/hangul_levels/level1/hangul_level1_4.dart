@@ -346,11 +346,15 @@ class _HangulContentState extends State<_HangulContent> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                              ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㅇ', 'ng', 'wie in "gang", oder stumm am Anfang'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 

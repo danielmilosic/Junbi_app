@@ -323,8 +323,8 @@ class _HangulContentState extends State<_HangulContent> {
     return GestureDetector(
       onTap: () => _pressKey(label),
       child: Container(
-        width: 48,
-        height: 48,
+        width: 40,
+        height: 40,
         margin: const EdgeInsets.all(3),
         decoration: BoxDecoration(
           color: Colors.black,

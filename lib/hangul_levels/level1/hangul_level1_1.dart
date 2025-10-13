@@ -216,13 +216,17 @@ void _updateController() {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                              ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㄹ', 'r', 'zwischen gerolltem r und l'),
               _Jamo('ㅁ', 'm', 'wie in "Maus"'),
               _Jamo('ㅂ', 'b', 'wie in "Baum"'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 

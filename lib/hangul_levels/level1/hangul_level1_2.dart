@@ -249,13 +249,17 @@ void _updateController() {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
-          _JamoGrid(
+                              ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 600, // maximum width for the grid
+                        ),
+                        child:_JamoGrid(
             items: [
               _Jamo('ㅗ', 'o', 'wie in "oben'),
               _Jamo('ㅜ', 'u', 'wie in "unten"'),
               _Jamo('ㅡ', 'eu', 'Zunge entspannt im Mund, neutraler Laut, nicht wie in "Eule"!'),
             ],
-          ),
+          ),),
 
           const Divider(height: 28),
 
