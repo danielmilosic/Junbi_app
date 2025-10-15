@@ -127,7 +127,7 @@ class JunbiHomePage extends StatelessWidget {
                           ElevatedButton(
                             onPressed: () => navigateTo(CurriculumPage()),
                             child: const Text(
-                              'Kurrikulum',
+                              'Curriculum',
                               style: TextStyle(fontSize: 24),
                             ),
                           ),
