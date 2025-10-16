@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
 import 'hangul_level5_1.dart';
+import 'hangul_level5_3.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 /// HangulPage
@@ -8,8 +9,8 @@ import 'package:audioplayers/audioplayers.dart';
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel50 extends StatelessWidget {
-  const HangulLevel50({Key? key}) : super(key: key);
+class HangulLevel52 extends StatelessWidget {
+  const HangulLevel52({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -451,7 +452,7 @@ void _pressVowel(String v) {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 3 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -461,14 +462,53 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Aussprache',
+            'Nasale Assimilation 2: ㄹ',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Dieses Level widmet sich der Aussprache. Du hast vielleicht bemerkt, dass die Aussprache nicht immer dem entspricht, wie man sich das vorstellt. Das liegt daran, dass es natürlich eine ganz andere Sprache ist, die mit europäischen Sprachen garnicht verwandt ist und dementsprechend anderen Regeln folgt. \n\nErste Regel: \n\nWenn ein Konsonant von zwei Vokalen umgeben ist, wird er eher weich ausgesprochen. Wenn er direkt nach einem (ㄹ), (ㄴ), (ㅇ) oder (ㅁ) kommt, wird er auch weich ausgesprochen. Sonst, am Anfang oder Ende einer Silbe, etwas härter. Beispiele \n\n Hier werden beide Konsonaten (ㄱ) hart ausgesprochen: \n 국 \n\n Hier auch: \n 막기 \n\n Hier hingegen wird das (ㄱ) weich ausgesprochen: \n 요가 \n\n Hier wird das (ㄱ) weich ausgesprochen, das (ㄷ) aber hart: \n 들기',
+            'Eines der schwierigsten Koreanischen Wörter im Taekwondo ist das Wort für Verbeugung: 경례 (gyeong rye -> gyeongnye). Das liegt, unter anderem, and der Schwierigkeit der Ausspracheregel, welcher wir uns jetzt widmen:',
             style: TextStyle(fontSize: 16),
           ),
+const SizedBox(height: 12),
+
+          
+          const Row(mainAxisAlignment: MainAxisAlignment.center,children: 
+          [
+            Text('Schreibweise:',style: TextStyle(fontSize: 16)),
+
+            const SizedBox(width:60),
+
+            Text('경례',style: TextStyle(fontSize: 30))
+            ],
+            ),
+            
+          const Row(mainAxisAlignment: MainAxisAlignment.center,children: 
+          [
+            Text('Aussprache',style: TextStyle(fontSize: 16)),
+
+            const SizedBox(width:60),
+
+            Text('경녜',style: TextStyle(fontSize: 30))
+            ],
+            ),
+
+          const SizedBox(height: 12),
+          const Text(
+            'Hier ist es auch "leichter" das "ㄹ" nasal auszusprechen, also als "ㄴ". Es passiert immer beim Anfangskonsonanten "ㄹ" wenn der vorherige Endkonsonant einer der folgenden ist:',
+            style: TextStyle(fontSize: 16),
+          ),
+const SizedBox(height: 12),
+
+Center(child: Column(
+  children: [
+
+            Text('ㅇ',style: TextStyle(fontSize: 30)),
+
+            Text('ㅁ',style: TextStyle(fontSize: 30)),
+  ]
+),),
+
 
 
           const Divider(height: 28),
@@ -491,13 +531,9 @@ Center(
     scrollDirection: Axis.horizontal,
     child: Column(
       children: [
-        _buildAudioCard(context, '단군', 'audio/dan_gun.mp3'),
-        _buildAudioCard(context, '이보대련', 'audio/ibo_daeryeon.mp3'),
-        _buildAudioCard(context, '수도막기', 'audio/sudo_makgi.mp3'),
-        _buildAudioCard(context, '구부려서기', 'audio/guburyeo_seogi.mp3'),
-        _buildAudioCard(context, '얼굴 지르기', 'audio/eolgul_jireugi.mp3'),
-        _buildAudioCard(context, '리권 대리기', 'audio/rigwon_daerigi.mp3'),
-        _buildAudioCard(context, '정 관수 들기', 'audio/jeong_gwansu_deulgi.mp3'),
+        _buildAudioCard(context, '경례', 'audio/gyeongnye.mp3'),
+        _buildAudioCard(context, '종로 - Ein Viertel in Seoul', 'audio/hangul/jongno.mp3'),
+        _buildAudioCard(context, '심리 - Psychologie', 'audio/hangul/shimni.mp3'),
       ],
     ),
   ),
@@ -515,7 +551,7 @@ Center(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel51()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -541,7 +577,7 @@ Center(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLevel51()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel53()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },

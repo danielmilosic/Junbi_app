@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:junbi/hangul_learning_page.dart';
-import 'hangul_level5_1.dart';
+import 'hangul_level5_3.dart';
+import 'package:junbi/hangul_results_page.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// HangulPage
 /// Eine übersichtliche, interaktive Seite, die auf Deutsch erklärt,
 /// wie das koreanische Schriftsystem (Hangul) aufgebaut ist.
 
 
-class HangulLevel50 extends StatelessWidget {
-  const HangulLevel50({Key? key}) : super(key: key);
+class HangulLevel54 extends StatelessWidget {
+  const HangulLevel54({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +57,10 @@ class _HangulContentState extends State<_HangulContent> {
   int? _finalIndex;
   Color _textColor = Colors.white;
   
+  void _markCompleted() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('level5completed', true);  // mark level 1 as completed
+}
 
   List<String> get initials =>
       _uiInitialIndexes.map((i) => _fullInitialConsonants[i]).toList();
@@ -451,7 +457,7 @@ void _pressVowel(String v) {
         children: [
                   // Progress bar at the absolute top
         LinearProgressIndicator(
-          value: 1 / 5,
+          value: 5 / 5,
           backgroundColor: Colors.grey[300],
           color: Colors.green,
           minHeight: 4,
@@ -461,12 +467,12 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Aussprache',
+            'Grundlegende Koreanische Phrasen',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Dieses Level widmet sich der Aussprache. Du hast vielleicht bemerkt, dass die Aussprache nicht immer dem entspricht, wie man sich das vorstellt. Das liegt daran, dass es natürlich eine ganz andere Sprache ist, die mit europäischen Sprachen garnicht verwandt ist und dementsprechend anderen Regeln folgt. \n\nErste Regel: \n\nWenn ein Konsonant von zwei Vokalen umgeben ist, wird er eher weich ausgesprochen. Wenn er direkt nach einem (ㄹ), (ㄴ), (ㅇ) oder (ㅁ) kommt, wird er auch weich ausgesprochen. Sonst, am Anfang oder Ende einer Silbe, etwas härter. Beispiele \n\n Hier werden beide Konsonaten (ㄱ) hart ausgesprochen: \n 국 \n\n Hier auch: \n 막기 \n\n Hier hingegen wird das (ㄱ) weich ausgesprochen: \n 요가 \n\n Hier wird das (ㄱ) weich ausgesprochen, das (ㄷ) aber hart: \n 들기',
+            'Super gemacht! Du hast die Koreanische Schrift gemeistert :) \n\nWenn du schon dabei bist, kannst du gleich ein paar Phrasen für eine eventuelle Koreareise lernen.',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -475,29 +481,18 @@ void _pressVowel(String v) {
 
           const SizedBox(height: 8),
 
-          const Text(
-            'Beispiele',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            'Versuche die Beispiele auszusprechen, bevor du sie anhörst.',
-            style: TextStyle(fontSize: 16),
-          ),
-          const SizedBox(height: 8),
 
 Center(
   child: SingleChildScrollView(
     scrollDirection: Axis.horizontal,
     child: Column(
       children: [
-        _buildAudioCard(context, '단군', 'audio/dan_gun.mp3'),
-        _buildAudioCard(context, '이보대련', 'audio/ibo_daeryeon.mp3'),
-        _buildAudioCard(context, '수도막기', 'audio/sudo_makgi.mp3'),
-        _buildAudioCard(context, '구부려서기', 'audio/guburyeo_seogi.mp3'),
-        _buildAudioCard(context, '얼굴 지르기', 'audio/eolgul_jireugi.mp3'),
-        _buildAudioCard(context, '리권 대리기', 'audio/rigwon_daerigi.mp3'),
-        _buildAudioCard(context, '정 관수 들기', 'audio/jeong_gwansu_deulgi.mp3'),
+        _buildAudioCard(context, '안녕하세요\n - Hallo', 'audio/hangul/gukmin.mp3'),
+        _buildAudioCard(context, '감사합니다\n - Dankeschön', 'audio/hangul/gamsahamnida.mp3'),
+        _buildAudioCard(context, '안녕히계세요\n - Aufwiedersehen\n (wenn man selbst geht)', 'audio/hangul/gamsahamnida.mp3'),
+        _buildAudioCard(context, '안녕히가세요\n - Aufwiedersehen\n (wenn man selbst bleibt)', 'audio/hangul/gamsahamnida.mp3'),
+        _buildAudioCard(context, '비빔밥 주세요\n - Bitte ein Bibimbap', 'audio/hangul/gamsahamnida.mp3'),
+        _buildAudioCard(context, '소주 한 장 주세요\n - Bitte ein Glas Soju', 'audio/hangul/gamsahamnida.mp3'),
       ],
     ),
   ),
@@ -515,7 +510,7 @@ Center(
                     // Navigate forward
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HangulLearningPage()), // or MainPage()
+                      MaterialPageRoute(builder: (_) => HangulLevel53()), // or MainPage()
                       (route) => false, // remove all previous routes
                     );
                   },
@@ -538,12 +533,14 @@ Center(
                 IconButton(
                   icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
                   onPressed: () {
+                    _markCompleted();
                     // Navigate forward
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (_) => HangulLevel51()), // or MainPage()
-                      (route) => false, // remove all previous routes
-                    );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HangulResultsPage(level: 4),
+                            ),
+                          );
                   },
                 ),
               ],
