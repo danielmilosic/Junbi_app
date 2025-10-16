@@ -3,9 +3,9 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "165c98c1af583b9a2785906fa16bd290",
-"assets/AssetManifest.bin.json": "28b2083534d91d2c26970beda3884697",
-"assets/AssetManifest.json": "4aaf8ff60bef2b371505b633499fb6e5",
+const RESOURCES = {"assets/AssetManifest.bin": "08298d858f2819a7cf73010349b8c5a3",
+"assets/AssetManifest.bin.json": "411ceb563fcf8d7643189b360c1a74e2",
+"assets/AssetManifest.json": "30100bcbafe3174b99cd25c192e89dd4",
 "assets/assets/audio/ap_chagi.mp3": "1ec914144804404913b1fafe5d10a537",
 "assets/assets/audio/ap_olligi.mp3": "1a2ccc1966e8cef878f8f7df90897bc3",
 "assets/assets/audio/arae_gyocha_makgi.mp3": "e02ed93b6f073bd2f3ca0fa26b1c64d6",
@@ -161,6 +161,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "165c98c1af583b9a2785906fa16bd290
 "assets/assets/images/blue_belt_hardcore.png": "1daed2cb3155e2ffd163145f80be868d",
 "assets/assets/images/charyeot.png": "ef2a2e2a770a8461665b1225604db20c",
 "assets/assets/images/charyeot_start.png": "a0f09a20fa0ae3c2635eed7630d188a6",
+"assets/assets/images/dobok.png": "99235cfd68276a67c118ae5248618df9",
 "assets/assets/images/dollimyeo_makgi.png": "a8d632e412592d4a7e8b119bf83d69eb",
 "assets/assets/images/dollimyeo_makgi_start.png": "1fe91c27a82b90eb6b4b494822af802a",
 "assets/assets/images/dollyeo_chagi.png": "69e2736de50d7435ced47e0d1ae000b0",
@@ -343,14 +344,14 @@ const RESOURCES = {"assets/AssetManifest.bin": "165c98c1af583b9a2785906fa16bd290
 "canvaskit/skwasm_heavy.wasm": "8034ad26ba2485dab2fd49bdd786837b",
 "favicon.png": "4ac72ab784d25b55583b80f35386f068",
 "flutter.js": "888483df48293866f9f41d3d9274a779",
-"flutter_bootstrap.js": "c90f500025be84dee3cebd42ea85f734",
+"flutter_bootstrap.js": "5dcd0ac9e7b51afd14e8389f46a548bd",
 "icons/icon-192.png": "c62ffbec98d0c591aed2ee4704de3a49",
 "icons/icon-512.png": "a9cb97fe96009c2c62740df105d9947a",
 "icons/icon-maskable-192.png": "c62ffbec98d0c591aed2ee4704de3a49",
 "icons/icon-maskable-512.png": "a9cb97fe96009c2c62740df105d9947a",
 "index.html": "e36c0ac704350946db600c8a7634a3fa",
 "/": "e36c0ac704350946db600c8a7634a3fa",
-"main.dart.js": "75f5f0ad6baf7efaf6415f9dfce755d1",
+"main.dart.js": "4116a5e73dc4cf2a8173ca62c2b2adcf",
 "manifest.json": "558ac5a72ff86005d76f815b817709fd",
 "version.json": "89a1f8fc1fb923baaa8d4a30701db245"};
 // The application shell files that are downloaded before a service worker can
