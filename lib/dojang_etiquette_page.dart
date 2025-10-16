@@ -96,15 +96,15 @@ class _EtiquetteContentState extends State<_EtiquetteContent> {
 
           const Divider(height: 60),
 
-          _buildRule(context, 'Immer Respektvoller Umgang miteinander', 'assets/images/gyeongnye.png'),
+          _buildRule(context, 'Immer Respektvoller Umgang miteinander.', 'assets/images/gyeongnye.png'),
 
           const Divider(height: 60),
 
-          _buildRule(context, 'Immer genügend Abstand halten', 'assets/images/il_bo_daeryeon.png'),
+          _buildRule(context, 'Immer genügend Abstand halten.', 'assets/images/il_bo_daeryeon.png'),
 
           const Divider(height: 60),
 
-          _buildRule(context, 'Hände und Füße waschen vor dem Training', 'assets/images/hand.png'),
+          _buildRule(context, 'Hände und Füße waschen vor dem Training.', 'assets/images/hand.png'),
 
           const Divider(height: 60),
 
@@ -140,7 +140,15 @@ class _EtiquetteContentState extends State<_EtiquetteContent> {
 
           const Divider(height: 60),
 
-          _buildRule(context, 'Bei Übungen zu zweit, immer nach Konsens fragen', 'assets/images/konsens.png'),
+          _buildRule(context, 'Bei Übungen zu zweit, immer nach Konsens fragen.', 'assets/images/konsens.png'),
+
+          const Divider(height: 60),
+
+          _buildRule(context, 'Nicht krank zum Training kommen.', 'assets/images/krank.png'),
+
+          const Divider(height: 60),
+
+          _buildRule(context, 'Wenn man den Dobok richtet, dreht man sich weg.', 'assets/images/dobok.png'),
 
 
 
