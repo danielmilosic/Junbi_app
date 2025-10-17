@@ -6,11 +6,9 @@ import 'package:path_provider/path_provider.dart';
 import 'quiz_detail_page.dart';
 import 'quiz_image_question_page.dart';
 import 'quiz_hyeong_question_page.dart';
-import 'package:path_provider/path_provider.dart'; // needed
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math';
-
-
+import 'package:flutter/scheduler.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -19,19 +17,75 @@ class QuizPage extends StatefulWidget {
   State<QuizPage> createState() => _QuizPageState();
 }
 
-class _QuizPageState extends State<QuizPage> {
+class _QuizPageState extends State<QuizPage> with SingleTickerProviderStateMixin {
   bool hardCoreMode = false;
   List<String> results = [];
+
+  // Animation variables
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  late Animation<double> _fadeAnimation;
+  late Animation<Offset> _moveDownAnimation;
+  String? _animatedBelt; // which belt to animate
+  bool _showAnimatedBelt = false;
 
   // belt image states
   bool yellow = false, green = false, blue = false, red = false, black = false;
   bool yellowHC = false, greenHC = false, blueHC = false, redHC = false, blackHC = false;
   bool grandmaster = false;
 
+  // Add counters for belts
+  int yellowCount = 0, greenCount = 0, blueCount = 0, redCount = 0, blackCount = 0;
+  int yellowHCCount = 0, greenHCCount = 0, blueHCCount = 0, redHCCount = 0, blackHCCount = 0;
+  int grandmasterCount = 0;
+
   @override
   void initState() {
     super.initState();
     _loadResults();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    );
+
+    _scaleAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOutCubic,
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOut,
+    );
+
+    _moveDownAnimation = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(0, 1.5), // moves downward
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+
+    // check navigation arguments after first frame
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+      if (args != null && args.containsKey('belt')) {
+        setState(() {
+          _animatedBelt = args['belt']; // e.g. "yellow_belt"
+          _showAnimatedBelt = true;
+        });
+        _controller.forward().then((_) {
+          setState(() {
+            _showAnimatedBelt = false; // hide after animation
+          });
+          _controller.reset();
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   Future<void> _loadResults() async {
@@ -46,10 +100,6 @@ class _QuizPageState extends State<QuizPage> {
       debugPrint("Error reading results from prefs: $e");
     }
   }
-// Add counters for belts
-int yellowCount = 0, greenCount = 0, blueCount = 0, redCount = 0, blackCount = 0;
-int yellowHCCount = 0, greenHCCount = 0, blueHCCount = 0, redHCCount = 0, blackHCCount = 0;
-int grandmasterCount = 0;
 
   void _updateBelts() {
     // Reset everything
@@ -101,14 +151,14 @@ int grandmasterCount = 0;
         blackHC = true;
         blackHCCount++;
       }
-}
+    }
 
     // check grandmaster condition
     if (yellow && green && blue && red && black &&
         yellowHC && greenHC && blueHC && redHC && blackHC) {
       grandmaster = true;
     }
-        if (grandmaster) {
+    if (grandmaster) {
       grandmasterCount = [
         yellowCount,
         greenCount,
@@ -124,181 +174,170 @@ int grandmasterCount = 0;
     }
   }
 
-void _startQuiz(int totalRounds) {
-  // Determine random question type
-  List<int> questionTypes;
-  if (hardCoreMode) {
-    questionTypes = [0, 1, 2, 6, 7, 8]; // exclude 3, 4 and 5(crashes)
-  } else {
-    questionTypes = [0, 2, 6, 7, 8]; // exclude 1, 3, 4 and 5(crashes)
-  }
-  questionTypes.shuffle();
-  int randomNumberQuestionType = questionTypes.first;
+  void _startQuiz(int totalRounds) {
+    // Determine random question type
+    List<int> questionTypes;
+    if (hardCoreMode) {
+      questionTypes = [0, 1, 2, 6, 7, 8];
+    } else {
+      questionTypes = [0, 2, 6, 7, 8];
+    }
+    questionTypes.shuffle();
+    int randomNumberQuestionType = questionTypes.first;
 
-  // Navigate to the appropriate quiz page
-      if (randomNumberQuestionType == 5) {
-        Navigator.pushReplacement(
-          context,
-          CupertinoPageRoute(
-            builder: (_) => QuizImageQuestionPage(
-              totalRoundCount: totalRounds,
-              hardCoreMode: hardCoreMode,
-              randomNumberQuestionType: randomNumberQuestionType,
-            ),
+    if (randomNumberQuestionType == 5) {
+      Navigator.pushReplacement(
+        context,
+        CupertinoPageRoute(
+          builder: (_) => QuizImageQuestionPage(
+            totalRoundCount: totalRounds,
+            hardCoreMode: hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionType,
           ),
-    );
-  } if (randomNumberQuestionType > 5) {
-    // Image-based quiz page
-    Navigator.push(
-      context,
-      CupertinoPageRoute(
-        builder: (_) => QuizHyeongQuestionPage(
-          totalRoundCount: totalRounds,
-          hardCoreMode: hardCoreMode,
-          randomNumberQuestionType: randomNumberQuestionType,
         ),
-      ),
-    );
-  } else {
-    // Regular text-based quiz page
-    Navigator.push(
-      context,
-      CupertinoPageRoute(
-        builder: (_) => QuizDetailPage(
-          totalRoundCount: totalRounds,
-          hardCoreMode: hardCoreMode,
-          randomNumberQuestionType: randomNumberQuestionType,
+      );
+    } else if (randomNumberQuestionType > 5) {
+      Navigator.push(
+        context,
+        CupertinoPageRoute(
+          builder: (_) => QuizHyeongQuestionPage(
+            totalRoundCount: totalRounds,
+            hardCoreMode: hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionType,
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      Navigator.push(
+        context,
+        CupertinoPageRoute(
+          builder: (_) => QuizDetailPage(
+            totalRoundCount: totalRounds,
+            hardCoreMode: hardCoreMode,
+            randomNumberQuestionType: randomNumberQuestionType,
+          ),
+        ),
+      );
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top:50.0, left:20, right:20, bottom:20),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // Hardcore Button
-              Align(
-                alignment: Alignment.topRight,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: () {
-                    setState(() {
-                      hardCoreMode = !hardCoreMode;
-                    });
-                  },
-                  child: Text(
-                    hardCoreMode ? "Hardcore Mode: ON" : "Hardcore",
-                    style: const TextStyle(fontSize: 12, color: Colors.white),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 50.0, left: 20, right: 20, bottom: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                      onPressed: () {
+                        setState(() {
+                          hardCoreMode = !hardCoreMode;
+                        });
+                      },
+                      child: Text(
+                        hardCoreMode ? "Hardcore Mode: ON" : "Hardcore",
+                        style: const TextStyle(fontSize: 12, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  const Text("Quiz",
+                      style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 12),
+                  const Text(
+                    "Wähle den Schwierigkeitsgrad passend zu deinem Gürtel",
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 25),
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _beltButton("8. Geup", "8급", Colors.yellow, Colors.black, 10),
+                        _beltButton("6. Geup", "6급", Colors.green, Colors.black, 15),
+                        _beltButton("4. Geup", "4급", Colors.blue, Colors.white, 20),
+                        _beltButton("2. Geup", "2급", Colors.red, Colors.white, 25),
+                        _beltButton("1. Dan", "1단", Colors.black, Colors.white, 30),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  // Belts
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (yellow) _beltImage("assets/images/yellow_belt.png", yellowCount, 48),
+                          if (green) _beltImage("assets/images/green_belt.png", greenCount, 48),
+                          if (blue) _beltImage("assets/images/blue_belt.png", blueCount, 48),
+                          if (red) _beltImage("assets/images/red_belt.png", redCount, 48),
+                          if (black) _beltImage("assets/images/black_belt.png", blackCount, 48),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (yellowHC) _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount, 48),
+                          if (greenHC) _beltImage("assets/images/green_belt_hardcore.png", greenHCCount, 48),
+                          if (blueHC) _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount, 48),
+                          if (redHC) _beltImage("assets/images/red_belt_hardcore.png", redHCCount, 48),
+                          if (blackHC) _beltImage("assets/images/black_belt_hardcore.png", blackHCCount, 48),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (grandmaster)
+                            _beltImage("assets/images/sabeomnim.png", grandmasterCount, 70),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          CupertinoPageRoute(builder: (_) => JunbiApp()),
+                          (route) => false,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // --- Animated Belt Overlay ---
+          if (_showAnimatedBelt && _animatedBelt != null)
+            SlideTransition(
+              position: _moveDownAnimation,
+              child: FadeTransition(
+                opacity: ReverseAnimation(_fadeAnimation),
+                child: ScaleTransition(
+                  scale: Tween<double>(begin: 4.0, end: 0.0).animate(_scaleAnimation),
+                  child: Image.asset(
+                    "assets/images/${_animatedBelt!}.png",
+                    width: 250,
                   ),
                 ),
               ),
-          
-          
-              // Title
-              const Text("Quiz",
-                  style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
-          
-              const SizedBox(height: 12),
-          
-              const Text(
-                "Wähle den Schwierigkeitsgrad passend zu deinem Gürtel",
-                style: TextStyle(fontSize: 18),
-                textAlign: TextAlign.center,
-              ),
-          
-              const SizedBox(height:25),
-              // Belt Buttons
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _beltButton("8. Geup", "8급", Colors.yellow, Colors.black, 10),
-                    _beltButton("6. Geup", "6급", Colors.green, Colors.black, 15),
-                    _beltButton("4. Geup", "4급", Colors.blue, Colors.white, 20),
-                    _beltButton("2. Geup", "2급", Colors.red, Colors.white, 25),
-                    _beltButton("1. Dan", "1단", Colors.black, Colors.white, 30),
-                  ],
-                ),
-              ),
-          const SizedBox(height: 15),
-             // Belts / Grandmaster Images
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // ────────────── Row 1: Regular Belts ──────────────
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              if (yellow)
-                                _beltImage("assets/images/yellow_belt.png", yellowCount, 48),
-                              if (green)
-                                _beltImage("assets/images/green_belt.png", greenCount, 48),
-                              if (blue)
-                                _beltImage("assets/images/blue_belt.png", blueCount, 48),
-                              if (red)
-                                _beltImage("assets/images/red_belt.png", redCount, 48),
-                              if (black)
-                                _beltImage("assets/images/black_belt.png", blackCount, 48),
-                            ],
-                          ),
-          
-                          const SizedBox(height: 8), // spacing between rows
-          
-                          // ────────────── Row 2: Hardcore Belts ──────────────
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              if (yellowHC)
-                                _beltImage("assets/images/yellow_belt_hardcore.png", yellowHCCount, 48),
-                              if (greenHC)
-                                _beltImage("assets/images/green_belt_hardcore.png", greenHCCount, 48),
-                              if (blueHC)
-                                _beltImage("assets/images/blue_belt_hardcore.png", blueHCCount, 48),
-                              if (redHC)
-                                _beltImage("assets/images/red_belt_hardcore.png", redHCCount, 48),
-                              if (blackHC)
-                                _beltImage("assets/images/black_belt_hardcore.png", blackHCCount, 48),
-                            ],
-                          ),
-          
-                          const SizedBox(height: 12), // spacing before grandmaster image
-          
-                          // ────────────── Row 3: Grandmaster ──────────────
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              if (grandmaster)
-                                _beltImage("assets/images/sabeomnim.png", grandmasterCount, 70),
-                            ],
-                          ),
-                        ],
-                      ),
-          
-                                                            // Custom back button
-              Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      CupertinoPageRoute(builder: (_) => JunbiApp()), // or MainPage()
-                      (route) => false, // remove all previous routes
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
+            ),
+        ],
       ),
     );
   }
@@ -308,8 +347,8 @@ void _startQuiz(int totalRounds) {
       alignment: Alignment.topRight,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4.0), // small gap between belts
-          child: Hero(tag:assetPath, child: Image.asset(assetPath, width: imageSize)),
+          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+          child: Hero(tag: assetPath, child: Image.asset(assetPath, width: imageSize)),
         ),
         if (count > 1)
           Positioned(
@@ -328,8 +367,8 @@ void _startQuiz(int totalRounds) {
     );
   }
 
-  Widget _beltButton(String label, String hardcoreLabel,
-      Color color, Color textColor, int rounds) {
+  Widget _beltButton(
+      String label, String hardcoreLabel, Color color, Color textColor, int rounds) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: ElevatedButton(
@@ -346,4 +385,3 @@ void _startQuiz(int totalRounds) {
     );
   }
 }
-

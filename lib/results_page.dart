@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart'; // For saving results locally
 import 'quiz_page.dart'; // Your quiz page widget
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/cupertino.dart';
 
 class ResultsPage extends StatefulWidget {
   final int correctCount;
@@ -107,9 +108,16 @@ class _ResultsPageState extends State<ResultsPage> {
 
   void _returnToQuiz() {
     Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const QuizPage()),
-    );
+  context,
+  PageRouteBuilder(
+    transitionDuration: const Duration(milliseconds: 800),
+    pageBuilder: (_, __, ___) => const QuizPage(),
+    settings: RouteSettings(arguments: {'belt': beltName}),
+  ),
+);
+
+
+
   }
 
   @override
