@@ -323,7 +323,7 @@ class _QuizPageState extends State<QuizPage> with SingleTickerProviderStateMixin
           ),
 
           // --- Animated Belt Overlay ---
-          if (_showAnimatedBelt && _animatedBelt != null)
+          if (_showAnimatedBelt && _animatedBelt != null && _animatedBelt !='none')
             SlideTransition(
               position: _moveDownAnimation,
               child: FadeTransition(

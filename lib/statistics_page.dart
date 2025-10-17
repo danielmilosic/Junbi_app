@@ -205,7 +205,7 @@ Widget build(BuildContext context) {
               ),
             ),
             leftTitles: AxisTitles(
-              sideTitles: SideTitles(showTitles: false),
+              sideTitles: SideTitles(reservedSize:35,showTitles: true),
             ),
             topTitles: AxisTitles(
               sideTitles: SideTitles(showTitles: false),
