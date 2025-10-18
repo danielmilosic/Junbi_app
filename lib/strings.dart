@@ -30,10 +30,10 @@ static const HyeongTechniqueLists = {
   "techniqueNames_2" : ["sudo_daebi_makgi", "eolgul_jireugi", "arae_makgi", "ssang_palmok_makgi", "eolgul_makgi", "sudo_yeop_daerigi", "hugeul_seogi", "jeonggeul_seogi"],
   "techniqueNames_3" : ["palmok_makgi", "momtong_jireugi", "sudo_daebi_makgi", "jeong_gwansu_deulgi", "rigwon_daerigi", "hechyeo_makgi", "ap_chagi", "eolgul_makgi", "sudo_yeop_daerigi", "hugeul_seogi", "jeonggeul_seogi", "kima_seogi"],
   "techniqueNames_4" : ["ssang_palmok_makgi", "sudo_aneuro_daerigi", "momtong_jireugi", "yeop_chagi", "sudo_daebi_makgi", "jeong_gwansu_deulgi", "dollimyeo_makgi", "ap_chagi", "palmok_daebi_makgi", "hugeul_seogi", "jeonggeul_seogi", "gojeong_seogi"],
-  "techniqueNames_5" : ["momtong_jireugi", "momtong_makgi", "ap_chagi", "sudo_makgi", "yeop_chagi", "palkkeup_deulgi", "ssang_sudo_makgi", "jeong_gwansu_deulgi", "palmok_makgi", "rigwon_daerigi", "du_palmok_makgi", "hugeul_seogi", "jeonggeul_seogi", "kima_seogi", "guburyeo_seogi", "gyocha_seogi"],
-  "techniqueNames_6" : ["yeok_sudo_momtong_makgi", "ap_chagi", "jang_gwon_ollyeo_makgi", "sudo_daebi_makgi", "wit_palkkeup_deulgi", "ssang_gwon_eolgul_jireugi", "ssang_gwon_dwijibon_jireugi", "gyocha_makgi", "rigwon_daerigi", "du_palmok_makgi", "momtong_jireugi", "yeop_chagi", "ssang_jang_gwon_nulleo_makgi", "palmok_daebi_makgi", "dollyeo_jireugi", "mongdungi_makgi", "dwit_bal_seogi", "hugeul_seogi", "jeonggeul_seogi", "moa_seogi"],
+  "techniqueNames_5" : ["momtong_jireugi", "momtong_makgi", "ap_chagi", "sudo_makgi", "yeop_chagi", "palgup_deulgi", "ssang_sudo_makgi", "jeong_gwansu_deulgi", "palmok_makgi", "rigwon_daerigi", "du_palmok_makgi", "hugeul_seogi", "jeonggeul_seogi", "kima_seogi", "guburyeo_seogi", "gyocha_seogi"],
+  "techniqueNames_6" : ["yeok_sudo_momtong_makgi", "ap_chagi", "jang_gwon_ollyeo_makgi", "sudo_daebi_makgi", "wit_palgup_deulgi", "ssang_gwon_eolgul_jireugi", "ssang_gwon_dwijibon_jireugi", "gyocha_makgi", "rigwon_daerigi", "du_palmok_makgi", "momtong_jireugi", "yeop_chagi", "ssang_jang_gwon_nulleo_makgi", "palmok_daebi_makgi", "dollyeo_jireugi", "mongdungi_makgi", "dwit_bal_seogi", "hugeul_seogi", "jeonggeul_seogi", "moa_seogi"],
   "techniqueNames_7" : ["momtong_makgi", "arae_pyeong_gwansu_deulgi", "arae_makgi", "palmok_makgi", "arae_gyocha_makgi", "ssang_gwon_eolgul_jireugi", "ap_chagi", "momtong_jireugi", "bandal_chagi", "san_makgi", "du_palmok_arae_makgi", "mureup_ap_chagi", "sudo_daebi_makgi", "pyeong_gwansu_deulgi", "momtong_makgi", "du_palmok_makgi", "sudo_daebi_arae_makgi", "dollimyeo_makgi", "hugeul_seogi", "jeonggeul_seogi", "moa_seogi", "gyocha_seogi"],
-  "techniqueNames_8" : ["jang_gwon_aneuro_makgi", "momtong_jireugi", "ssang_palmok_makgi", "dwijibon_jireugi", "sudo_naeryeo_daerigi", "arae_makgi", "yeop_chagi", "sudo_yeop_daerigi", "sudo_daebi_makgi", "jeong_gwansu_deulgi", "dollyeo_chagi", "arae_gyocha_makgi", "dwit_palkkeup_deulgi", "momtong_makgi", "hugeul_seogi", "jeonggeul_seogi", "moa_seogi"],
+  "techniqueNames_8" : ["jang_gwon_aneuro_makgi", "momtong_jireugi", "ssang_palmok_makgi", "dwijibon_jireugi", "sudo_naeryeo_daerigi", "arae_makgi", "yeop_chagi", "sudo_yeop_daerigi", "sudo_daebi_makgi", "jeong_gwansu_deulgi", "dollyeo_chagi", "arae_gyocha_makgi", "dwit_palgup_deulgi", "momtong_makgi", "hugeul_seogi", "jeonggeul_seogi", "moa_seogi"],
   "techniqueNames_9" : ["ssang_sudo_makgi", "sudo_aneuro_daerigi", "sudo_eolgul_makgi", "sudo_daebi_makgi", "pyeong_gwansu_deulgi", "dwit_chagi", "ttwimyeo_yeop_chagi", "arae_makgi", "mureup_ap_chagi", "yeok_sudo_daerigi", "dollyeo_chagi", "palmok_daebi_makgi", "mongdungi_makgi", "arae_pyeong_gwansu_deulgi", "rigwon_dwit_daerigi", "jeong_gwansu_deulgi", "du_palmok_makgi", "rigwon_daerigi", "yeop_chagi", "gyocha_ollyeo_makgi", "ssang_jang_gwon_ollyeo_makgi", "eolgul_makgi", "hugeul_seogi", "jeonggeul_seogi", "kima_seogi"],
   "techniqueNames_10" : ["dwijibon_jireugi", "sudo_makgi", "sudo_daebi_arae_makgi", "sudo_daebi_makgi", "jang_gwon_ollyeo_makgi", "sudo_aneuro_daerigi", "palmok_daebi_makgi", "yeop_chagi", "naeryeo_daerigi", "ssang_jang_gwon_nulleo_makgi", "rigwon_daerigi", "du_palmok_makgi", "arae_makgi", "pyeong_gwansu_deulgi", "ssang_gwon_eolgul_jireugi", "ssang_gwon_dwijibon_jireugi", "ap_chagi", "eolgul_jireugi", "jeonggeul_seogi", "hugeul_seogi", "dwit_bal_seogi", "moa_seogi", "kima_seogi"]
   };
@@ -96,14 +96,14 @@ static const techniqueInformation= {
 //BLUE
 
 "sudo_makgi": ["Sudo Makgi", "수도막기", "Handkantenblock", "Blöcke", "Block nach außen mit der Handkante", "Im 5. Hyeong: Geolchyeo Makgi [걸쳐막기]"],
-"palkkeup_deulgi": ["Palkkeup Deulgi", "팔끕들기", "Ellenbogenstoß", "Stöße", "Horizontaler Stoß mit dem Ellenbogen"],
+"palgup_deulgi": ["Palgup Deulgi", "팔굽들기", "Ellenbogenstoß", "Stöße", "Horizontaler Stoß mit dem Ellenbogen"],
 "ssang_sudo_makgi": ["Ssang Sudo Makgi", "쌍수도막기", "Doppelter Handkantenblock", "Blöcke", "Block nach außen und oben mit der Handkante"],
 "du_palmok_makgi": ["Du Palmok Makgi", "두팔목막기", "Doppelter Unterarmblock", "Blöcke", "Block mit der Innenkante des Unterarms mit Unterstützung des anderen Arms"],
 "guburyeo_seogi": ["Guburyeo Seogi", "구부려서기", "Kranichstellung", "Fußstellungen", "Fußstellung auf einem Bein, mit dem anderen Bein abgewinkelt"],
 "gyocha_seogi": ["Gyocha Seogi", "교차서기", "Kreuzstellung", "Fußstellungen", "Fußstellung mit überkreuzten Beinen"],
 "yeok_sudo_momtong_makgi": ["Yeok Sudo Momtong Makgi", "역수도몸통막기", "Innenhandkantenblock", "Blöcke", "Block mit der Innenkante der Hand auf mittlerer Höher", "Yeok Sudo Jungdan Makgi [역수도중단막기]"],
 "jang_gwon_ollyeo_makgi": ["Jang Gwon Ollyeo Makgi", "장권올려막기", "Handballenblock", "Blöcke", "Block nach oben mit dem Handballen"],
-"wit_palkkeup_deulgi": ["Wit Palkkeup Deulgi", "윗팔끕들기", "Ellenbogen stoß nach oben", "Stöße", "Ellenbogen stoß nach oben"],
+"wit_palgup_deulgi": ["Wit Palgup Deulgi", "윗팔굽들기", "Ellenbogen stoß nach oben", "Stöße", "Ellenbogen stoß nach oben"],
 "ssang_gwon_eolgul_jireugi": ["Ssang Gwon Eolgul Jireugi", "쌍권얼굴지르기", "Doppelter Fauststoß", "Stöße", "Doppelter Fauststoß auf Kopfhöhe", "Ssang Gwon Sangdan Jireugi"],
 "ssang_gwon_dwijibon_jireugi": ["Ssang Gwon Dwijibon Jireugi", "쌍권뒤지본지르기", "Doppelter Umgedrehter Fauststoß", "Stöße", "Doppelter Fauststoß auf Rumpfhöhe mit umgedrehten Fäusten"],
 "gyocha_makgi": ["Gyocha Makgi", "교차막기", "Kreuzblock", "Blöcke", "Block mit den überkreuzten Außenkanten der Unterarme auf Kopfhöhe"],
@@ -128,7 +128,7 @@ static const techniqueInformation= {
 "dwijibon_jireugi": ["Dwijibon Jireugi", "뒤지본지르기", "Umgekehrter Fauststoß", "Stöße", "Stoß mit umgedrehter Faust auf Rumpfhöhe"],
 "sudo_naeryeo_daerigi": ["Sudo Naeryeo Daerigi", "수도내려대리기", "Handkantenschlag nach unten", "Schläge", "Handkantenschlag nach unten"],
 "dollyeo_chagi": ["Dollyeo Chagi", "돌려차기", "Drehkick", "Kicks", "Kick mit dem Fußballen von der Seite"],
-"dwit_palkkeup_deulgi": ["Dwit Palkkeup Deulgi", "뒷팔끕들기", "Ellenbogenstich nach hinten", "Stiche", "Ellenbogenstich nach hinten"],
+"dwit_palgup_deulgi": ["Dwit Palgup Deulgi", "뒷팔굽들기", "Ellenbogenstich nach hinten", "Stiche", "Ellenbogenstich nach hinten"],
 
 
 //BLACK

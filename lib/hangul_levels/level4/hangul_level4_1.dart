@@ -315,7 +315,7 @@ void _pressVowel(String v) {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '뒷차기' || preview == '뛰며옆차기' || preview == '뒤지본지르기' || preview == '윗팔끕들기' || preview == '의사')
+    _textColor = (preview == '뒷차기' || preview == '뛰며옆차기' || preview == '뒤지본지르기' || preview == '윗팔굽들기' || preview == '의사')
         ? Colors.green
         : Colors.white;
 
@@ -517,7 +517,7 @@ SingleChildScrollView(
       _buildAudioCard(context, '뒷 차기', 'audio/dwit_chagi.mp3'),
       _buildAudioCard(context, '뛰며 옆 차기', 'audio/ttwimyeo_yeop_chagi.mp3'),
       _buildAudioCard(context, '뒤지본 지르기', 'audio/dwijibon_jireugi.mp3'),
-      _buildAudioCard(context, '윗팔끕 들기', 'audio/wit_palkkeup_deulgi.mp3'),
+      _buildAudioCard(context, '윗팔굽 들기', 'audio/wit_palgup_deulgi.mp3'),
       _buildAudioCard(context, '의사 - Arzt/Ärztin', 'audio/hangul/uisa.mp3'),
     ],
   ),

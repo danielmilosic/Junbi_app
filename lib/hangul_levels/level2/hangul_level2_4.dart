@@ -272,7 +272,7 @@ class _HangulContentState extends State<_HangulContent> {
       preview = _currentInput + combined;
     }
   setState(() {
-    _textColor = (preview == '쌍팔목막기' || preview == '팔끕들기' || preview == '밖으로반달차기')
+    _textColor = (preview == '쌍팔목막기' || preview == '팔꿈치' || preview == '밖으로반달차기')
         ? Colors.green
         : Colors.white;
 
@@ -447,7 +447,7 @@ SingleChildScrollView(
   child: Row(
     children: [
       _buildAudioCard(context, '쌍 팔목 막기', 'audio/ssang_palmok_makgi.mp3'),
-      _buildAudioCard(context, '팔끕 들기 - Ellenbongenstich', 'audio/palkkeup_deulgi.mp3'),
+      _buildAudioCard(context, '팔꿈치 - Ellenbongen', 'audio/hangul/palkkumchi.mp3'),
       _buildAudioCard(context, '밖으로 반달 차기', 'audio/bakkeuro_bandal_chagi.mp3'),
     ],
   ),
