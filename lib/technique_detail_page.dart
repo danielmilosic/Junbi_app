@@ -96,6 +96,8 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     final hangulName = info?[1] ?? "";
     final germanName = info?[2] ?? "";
     final explanation = info?[4] ?? "No explanation available.";
+    final synonym = (info != null && info.length > 5) ? info[5] : "";
+
 
     final imagePath = (_showStartImage && _hasStartImage)
         ? _startImage
@@ -171,7 +173,19 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
                 ),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 10),
+
+              if (synonym.isNotEmpty) ...[
+                SizedBox(
+                  width: 315,
+                  child: Text(
+                    'Synonyme: $synonym',
+                    style: const TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 50),
+              ],
 
               ElevatedButton.icon(
                 onPressed: _toggleAudio,

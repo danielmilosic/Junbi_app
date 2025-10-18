@@ -46,16 +46,16 @@ static const techniqueInformation= {
 //HYEONG TECHNIQUES
 
 //YELLOW
-"arae_makgi": ["Arae Makgi", "아래막기", "Block Unten", "Blöcke", "Block auf niedriger Höhe mit der Außenkante des Unterarms"],
-"momtong_jireugi": ["Momtong Jireugi", "몸통지르기", "Fauststoß Mitte", "Stöße", "Fauststoß auf mittlerer Höhe"],
-"momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms"],
-"hugeul_seogi": ["Hugeul Seogi", "후글서기", "Rückwärtsfußstellung", "Fußstellungen", "Seitlich orientierte Fußstellung mit größerer Belastung auf dem hinteren Bein"],
-"eolgul_jireugi": ["Eolgul Jireugi", "얼굴지르기", "Fauststoß Oben", "Stöße", "Fauststoß auf oberer Höhe"],
-"eolgul_makgi": ["Eolgul Makgi", "얼굴막기", "Block Oben", "Blöcke", "Block auf oberer Höhe mit der Außenkante des Unterarms"],
+"arae_makgi": ["Arae Makgi", "아래막기", "Block Unten", "Blöcke", "Block auf niedriger Höhe mit der Außenkante des Unterarms", "Hadan Makgi [하단막기]"],
+"momtong_jireugi": ["Momtong Jireugi", "몸통지르기", "Fauststoß Mitte", "Stöße", "Fauststoß auf mittlerer Höhe", "Jungdan Jireugi [중단지르기]"],
+"momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms", "Jungdan Makgi [중단막기]"],
+"hugeul_seogi": ["Hugeul Seogi", "후글서기", "Rückwärtsfußstellung", "Fußstellungen", "Seitlich orientierte Fußstellung mit größerer Belastung auf dem hinteren Bein", "Dwit Gubi [뒷구비]"],
+"eolgul_jireugi": ["Eolgul Jireugi", "얼굴지르기", "Fauststoß Oben", "Stöße", "Fauststoß auf oberer Höhe", "Sangdan Jireugi [하단막기]"],
+"eolgul_makgi": ["Eolgul Makgi", "얼굴막기", "Block Oben", "Blöcke", "Block auf oberer Höhe mit der Außenkante des Unterarms", "Sangdan Makgi [상단막기], Chukyeo Makgi [추켜막기]"],
 "ssang_palmok_makgi": ["Ssang Palmok Makgi", "쌍팔목막기", "Doppelblock", "Blöcke", "Block oben und vorne mit den Außenkanten des Unterarms"],
 "sudo_daebi_makgi": ["Sudo Daebi Makgi", "수도대비막기", "Handkantenblock mit Unterstützung", "Blöcke", "Block auf mittlerer Höhe mit der Außenkante der Hand und Unterstützung"],
 "sudo_yeop_daerigi": ["Sudo Yeop Daerigi", "수도옆대리기", "Handkantenschlag", "Schläge", "Schlag auf oberer Höhe mit der Außenkante des Hand"],
-"jeonggeul_seogi": ["Jeonggeul Seogi", "정글서기", "Vorwärtsfußstellung", "Fußstellungen", "Nach vorne orientierte Fußstellung mit größerer Belastung auf dem vorderen Bein"],
+"jeonggeul_seogi": ["Jeonggeul Seogi", "정글서기", "Vorwärtsfußstellung", "Fußstellungen", "Nach vorne orientierte Fußstellung mit größerer Belastung auf dem vorderen Bein", "Ap Gubi [앞구비]"],
 
 //IM TRAINING
 "baro": ["Baro", "바로", "Gerade", "Im Training", "Kommando am Ende einer Übung"],
@@ -76,7 +76,7 @@ static const techniqueInformation= {
 "rigwon_daerigi": ["Rigwon Daerigi", "리권대리기", "Faustrückenschlag", "Schläge", "Seitlicher Schlag mit dem Faustrücken"],
 "hechyeo_makgi": ["Hechyeo Makgi", "헤쳐막기", "Durchdrängeblock", "Blöcke", "Doppelter Block nach außen mit den Außenkanten der Unterarme um sich Platz zu schaffen"],
 "ap_chagi": ["Ap Chagi", "앞차기", "Vorwärtskick", "Kicks", "Kick nach vorne mit dem Fußballen"],
-"kima_seogi": ["Kima Seogi", "기마서기", "Reiterstellung", "Fußstellungen", "Symmetrische Fußstellung, Fußsptizen schauen nach vorne, Beine sind gebeugt"],
+"kima_seogi": ["Kima Seogi", "기마서기", "Reiterstellung", "Fußstellungen", "Symmetrische Fußstellung, Fußsptizen schauen nach vorne, Beine sind gebeugt", "Juchum Seogi [주춤서기]"],
 "sudo_aneuro_daerigi": ["Sudo Aneuro Daerigi", "수도안으로대리기", "Handkantenschlag", "Schläge", "Schlag von außen nach innen mit der Handkante"],
 "yeop_chagi": ["Yeop Chagi", "옆차기", "Seitwärtskick", "Kicks", "Seitlicher Kick mit der Ferse"],
 "dollimyeo_makgi": ["Dollimyeo Makgi", "돌리며막기", "Drehblock", "Blöcke", "Block mit der Innenkante des Unterarms von außen nach innen und Drehung"],
@@ -95,16 +95,16 @@ static const techniqueInformation= {
 
 //BLUE
 
-"sudo_makgi": ["Sudo Makgi", "수도막기", "Handkantenblock", "Blöcke", "Block nach außen mit der Handkante"],
+"sudo_makgi": ["Sudo Makgi", "수도막기", "Handkantenblock", "Blöcke", "Block nach außen mit der Handkante", "Im 5. Hyeong: Geolchyeo Makgi [걸쳐막기]"],
 "palkkeup_deulgi": ["Palkkeup Deulgi", "팔끕들기", "Ellenbogenstoß", "Stöße", "Horizontaler Stoß mit dem Ellenbogen"],
 "ssang_sudo_makgi": ["Ssang Sudo Makgi", "쌍수도막기", "Doppelter Handkantenblock", "Blöcke", "Block nach außen und oben mit der Handkante"],
 "du_palmok_makgi": ["Du Palmok Makgi", "두팔목막기", "Doppelter Unterarmblock", "Blöcke", "Block mit der Innenkante des Unterarms mit Unterstützung des anderen Arms"],
 "guburyeo_seogi": ["Guburyeo Seogi", "구부려서기", "Kranichstellung", "Fußstellungen", "Fußstellung auf einem Bein, mit dem anderen Bein abgewinkelt"],
 "gyocha_seogi": ["Gyocha Seogi", "교차서기", "Kreuzstellung", "Fußstellungen", "Fußstellung mit überkreuzten Beinen"],
-"yeok_sudo_momtong_makgi": ["Yeok Sudo Momtong Makgi", "역수도몸통막기", "Innenhandkantenblock", "Blöcke", "Block mit der Innenkante der Hand auf mittlerer Höher"],
+"yeok_sudo_momtong_makgi": ["Yeok Sudo Momtong Makgi", "역수도몸통막기", "Innenhandkantenblock", "Blöcke", "Block mit der Innenkante der Hand auf mittlerer Höher", "Yeok Sudo Jungdan Makgi [역수도중단막기]"],
 "jang_gwon_ollyeo_makgi": ["Jang Gwon Ollyeo Makgi", "장권올려막기", "Handballenblock", "Blöcke", "Block nach oben mit dem Handballen"],
 "wit_palkkeup_deulgi": ["Wit Palkkeup Deulgi", "윗팔끕들기", "Ellenbogen stoß nach oben", "Stöße", "Ellenbogen stoß nach oben"],
-"ssang_gwon_eolgul_jireugi": ["Ssang Gwon Eolgul Jireugi", "쌍권얼굴지르기", "Doppelter Fauststoß", "Stöße", "Doppelter Fauststoß auf Kopfhöhe"],
+"ssang_gwon_eolgul_jireugi": ["Ssang Gwon Eolgul Jireugi", "쌍권얼굴지르기", "Doppelter Fauststoß", "Stöße", "Doppelter Fauststoß auf Kopfhöhe", "Ssang Gwon Sangdan Jireugi"],
 "ssang_gwon_dwijibon_jireugi": ["Ssang Gwon Dwijibon Jireugi", "쌍권뒤지본지르기", "Doppelter Umgedrehter Fauststoß", "Stöße", "Doppelter Fauststoß auf Rumpfhöhe mit umgedrehten Fäusten"],
 "gyocha_makgi": ["Gyocha Makgi", "교차막기", "Kreuzblock", "Blöcke", "Block mit den überkreuzten Außenkanten der Unterarme auf Kopfhöhe"],
 "ssang_jang_gwon_nulleo_makgi": ["Ssang Jang Gwon Nulleo Makgi", "쌍장권눌러막기", "Doppelter Handballenblock", "Blöcke", "Block mit den Handballen nach oben und unten, wörtlich 'Schiebeblock'"],
@@ -115,15 +115,15 @@ static const techniqueInformation= {
 
 //RED
 
-"arae_pyeong_gwansu_deulgi": ["Arae Pyeong Gwansu Deulgi", "아래평관수들기", "Fingerstich Unten", "Stiche", "Horizontaler Fingerstich zum Unterleib"],
-"arae_gyocha_makgi": ["Arae Gyocha Makgi", "아래교차막기", "Kreuzblock Unten", "Blöcke", "Block mit den überkreuzten Außenkanten der Unterarme auf unterer Höhe"],
+"arae_pyeong_gwansu_deulgi": ["Arae Pyeong Gwansu Deulgi", "아래평관수들기", "Fingerstich Unten", "Stiche", "Horizontaler Fingerstich zum Unterleib", "Hadan Pyeong Gwansu Deulgi [하단평관수들기]"],
+"arae_gyocha_makgi": ["Arae Gyocha Makgi", "아래교차막기", "Kreuzblock Unten", "Blöcke", "Block mit den überkreuzten Außenkanten der Unterarme auf unterer Höhe", "Hadan Gyocha Makgi [하단교차기]"],
 "bandal_chagi": ["Bandal Chagi", "반달차기", "Halbmondkick", "Kicks", "Kick mit gestrecktem Bein von außen nach innen in einer großen Kreisbewegung"],
 "san_makgi": ["San Makgi", "산막기", "Doppelblock Oben", "Blöcke", "Block mit beiden Armen auf Kopfhöhe vorne und hinten. Das Chinesische Schriftzeichenfür Berg (Koreanisch: San) sieht aus wie dieser Block (山)"],
-"du_palmok_arae_makgi": ["Du Palmok Arae Makgi", "두팔목아래막기", "Doppelblock Unten", "Blöcke", "Block mit der Innenkante der Unterarms mit Unterstützung auf unterer Höhe"],
+"du_palmok_arae_makgi": ["Du Palmok Arae Makgi", "두팔목아래막기", "Doppelblock Unten", "Blöcke", "Block mit der Innenkante der Unterarms mit Unterstützung auf unterer Höhe", "Du Palmok Hadan Makgi [두팔목하단기]"],
 "mureup_ap_chagi": ["Mureup Ap Chagi", "무릎앞차기", "Kniestoß", "Kicks", "Stoß mit dem Knie nach vorne"],
 "pyeong_gwansu_deulgi": ["Pyeong Gwansu Deulgi", "평관수들기", "Horizontaler Fingerstich", "Stiche", "Horizontaler Fingerstich auf Kopfhöhe"],
 "rigwon_dwit_daerigi": ["Rigwon Dwit Daerigi", "리권뒷대리기", "Faustrückenschlag nach hinten", "Schläge", "Schlag mit der Hinterfaust hinter dem Körper von oben nach unten"],
-"sudo_daebi_arae_makgi": ["Sudo Daebi Arae Makgi", "수도대비아래막기", "Handkantenblock mit Unterstützung unten", "Blöcke", "Block auf unterer Höhe mit der Außenkante der Hand und Unterstützung"],
+"sudo_daebi_arae_makgi": ["Sudo Daebi Arae Makgi", "수도대비아래막기", "Handkantenblock mit Unterstützung unten", "Blöcke", "Block auf unterer Höhe mit der Außenkante der Hand und Unterstützung", "Sudo Daebi Hadan Makgi [수도대비하단막기]"],
 "jang_gwon_aneuro_makgi": ["Jang Gwon Aneuro Makgi", "장권안으로막기", "Handballenblock nach innen", "Blöcke", "Handballenblock nach innen auf Rumpfhöhe"],
 "dwijibon_jireugi": ["Dwijibon Jireugi", "뒤지본지르기", "Umgekehrter Fauststoß", "Stöße", "Stoß mit umgedrehter Faust auf Rumpfhöhe"],
 "sudo_naeryeo_daerigi": ["Sudo Naeryeo Daerigi", "수도내려대리기", "Handkantenschlag nach unten", "Schläge", "Handkantenschlag nach unten"],
@@ -133,7 +133,7 @@ static const techniqueInformation= {
 
 //BLACK
 
-"sudo_eolgul_makgi": ["Sudo Eolgul Makgi", "수도얼굴막기", "Handkantenblock Oben", "Blöcke", "Block mit der Außenhandkante nach oben"],
+"sudo_eolgul_makgi": ["Sudo Eolgul Makgi", "수도얼굴막기", "Handkantenblock Oben", "Blöcke", "Block mit der Außenhandkante nach oben", "Sudo Sangdan Makgi [수도산단막기]"],
 "dwit_chagi": ["Dwit Chagi", "뒷차기", "Kick nach hinten", "Kicks", "Seitlicher Kick nach hinten"],
 "ttwimyeo_yeop_chagi": ["Ttwimyeo Yeop Chagi", "뛰며옆차기", "Gesprunger Seitlicher Kick", "Kicks", "Seitlicher Kick mit der Ferse, gesprungen"],
 "yeok_sudo_daerigi": ["Yeok Sudo Daerigi", "역수도대리기", "Innenhandkantenschlag", "Schläge", "Schlag mit der Innenhandkante von außen bei gestrecktem Arm"],
