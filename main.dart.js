@@ -7750,7 +7750,7 @@ this.b=b},
 akK:function akK(a,b){this.a=a
 this.b=b},
 akM:function akM(a){this.a=a},
-aC2(a,b,c,d,e,f,g,a0,a1,a2,a3,a4,a5,a6,a7){var s,r,q,p,o,n=null,m=c==null?B.KH:c,l=a2==null?16:a2,k=a==null?B.Bq:a,j=d==null,i=j?A.aC5(n,n,n,n,n,n,n,n):d,h=a5==null?B.Qj:a5
+aC2(a,b,c,d,e,f,g,a0,a1,a2,a3,a4,a5,a6,a7){var s,r,q,p,o,n=null,m=c==null?B.KI:c,l=a2==null?16:a2,k=a==null?B.Bq:a,j=d==null,i=j?A.aC5(n,n,n,n,n,n,n,n):d,h=a5==null?B.Qj:a5
 j=j?A.aC5(n,n,n,n,n,n,n,n):d
 s=a0==null?B.GB:a0
 r=a3==null?0/0:a3
@@ -7758,7 +7758,7 @@ q=a4==null?0/0:a4
 p=e==null?0:e
 o=b==null?B.T:b
 return new A.jx(m,l,k,i,g,a1,a7,h,0,1,0,q,r,p,B.C9,o,s,a6,f,j)},
-aC4(a,b,c,d,e){var s=a==null?B.KI:a,r=b==null?2:b,q=d==null?B.pi:d
+aC4(a,b,c,d,e){var s=a==null?B.KJ:a,r=b==null?2:b,q=d==null?B.pi:d
 return new A.dI(e,c===!0,s,r,q)},
 aP3(a,b,c){var s=a.a
 s=B.c.aA(s+(b.a-s)*c)
@@ -7772,7 +7772,7 @@ p=$.f8()
 o=p.aq3(c,r?8:k)
 p=p.aq4(d,r?8:k)
 r=a==null?A.aFK(n,n,n,n,n):a
-return new A.eD(m,i,j,s,g,q,o,b,p,r,h==null?B.KJ:h)},
+return new A.eD(m,i,j,s,g,q,o,b,p,r,h==null?B.KK:h)},
 aP4(a,b,c){var s,r,q,p,o,n=A.mt(a.e,b.e,c),m=A.v(a.d,b.d,c),l=A.T(a.f,b.f,c),k=A.hU(a.r,b.r,c),j=A.jo(a.w,b.w,c,A.aBb(),t.S),i=A.aH(a.x,b.x,c),h=A.T(a.a,b.a,c),g=A.T(a.b,b.b,c)
 g.toString
 s=A.aQQ(a.c,b.c,c)
@@ -8426,7 +8426,7 @@ _.c=_.a=null},
 av6:function av6(a){this.a=a},
 av5:function av5(){},
 av4:function av4(a){this.a=a},
-aI0(a,b,c,d,e,f,g,h){var s=e==null?B.KK:e,r=b==null?B.T:b,q=f==null?2:f,p=g==null?0:g,o=d==null,n=o?A.aI1():d,m=a==null?A.a4W(null,!1):a
+aI0(a,b,c,d,e,f,g,h){var s=e==null?B.KL:e,r=b==null?B.T:b,q=f==null?2:f,p=g==null?0:g,o=d==null,n=o?A.aI1():d,m=a==null?A.a4W(null,!1):a
 o=o?A.aI1():d
 return new A.k3(s,c,r,q,p,n,h===!0,m,o)},
 aDh(a,b,c,d,e,f,g,h,i,j,k){var s=k==null?10:k,r=d==null?B.vr:d,q=f==null?40:f,p=c==null?B.n0:c,o=i==null?0.5:i,n=a==null?0.5:a
@@ -19739,7 +19739,7 @@ r.toString
 A.eO(r)
 q=a.i(0,"swipeEdge")
 q.toString
-return new A.Nf(s,r,B.JM[A.ey(q)])},
+return new A.Nf(s,r,B.JN[A.ey(q)])},
 Cm:function Cm(a,b){this.a=a
 this.b=b},
 Nf:function Nf(a,b,c){this.a=a
@@ -21762,7 +21762,7 @@ if(a.as!==q)return q?-1:1
 return 0},
 aQD(a,b){var s=A.A(b).h("u<1,dL>")
 s=A.Q(new A.u(b,new A.a44(),s),s.h("Y.E"))
-return A.aQ6(!0,s,a,B.Kt,!0,B.FK,null)},
+return A.aQ6(!0,s,a,B.Ku,!0,B.FK,null)},
 aQB(a){a.bq()
 a.b3(A.aLn())},
 yN(a){var s=a.a,r=s instanceof A.oW?s:null
@@ -22348,7 +22348,7 @@ _.as=!0
 _.at=!1
 _.$ti=d},
 aCW(a,b){var s
-if(a.j(0,b))return new A.Jz(B.KL)
+if(a.j(0,b))return new A.Jz(B.KM)
 s=A.b([],t.fJ)
 A.c5()
 a.lI(new A.a7m(b,A.aJ(t.v),s))
@@ -29554,7 +29554,7 @@ gv(a){var s=this,r=s.b,q=r!=null?A.bO(r):null
 return A.U(s.a,q,s.c,s.d,s.e,s.x,s.f,s.r,s.w,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)}}
 A.a1u.prototype={
 JR(a,b,c,d){var s,r,q,p
-if(a<0||b<0)return B.Ky
+if(a<0||b<0)return B.Kz
 s=this.a
 s===$&&A.a()
 s=s.a
@@ -29812,7 +29812,7 @@ break
 default:s=null}return s}}
 A.a54.prototype={
 gpP(){var s=this.b,r=s==null?null:s.canvasKitVariant
-return A.aQM(B.K2,r==null?"auto":r)},
+return A.aQM(B.K3,r==null?"auto":r)},
 gTz(){var s=this.b
 s=s==null?null:s.canvasKitForceCpuOnly
 return s==null?!1:s},
@@ -33556,7 +33556,7 @@ if(m.f!==B.oO){m.f=B.oO
 m.Pk()}}return m.d.a.Zr(a)},
 Pk(){var s,r
 for(s=this.w,r=0;r<s.length;++r)s[r].$1(this.f)},
-Zo(a){if(B.b.p(B.Kl,a))return this.f===B.hX
+Zo(a){if(B.b.p(B.Km,a))return this.f===B.hX
 return!1}}
 A.a4D.prototype={
 $0(){return new A.jF(Date.now(),0,!1)},
@@ -44782,7 +44782,7 @@ q=i.b.x
 q===$&&A.a()
 p=B.c.hx(8*q)
 for(q=i.e,o=8*q,n=i.f,q=q<1,m=i.c,l=0;l<o;++l){k=B.l.bj(l-p,8)
-s.r=m.fP(q?147:B.L3[k]).gq()
+s.r=m.fP(q?147:B.L4[k]).gq()
 j=s.cv()
 r.drawRRect(A.kx(n),j)
 j.delete()
@@ -48693,7 +48693,7 @@ n=o.e
 o=o.cx
 r=q.gacM()
 q.a.toString
-return new A.Db(p,p,p,new A.aur(),p,p,p,p,p,n,B.No,p,p,p,B.Ku,q.gacU(),o,p,B.W1,s,p,r,p,p,B.pe,!1,!1,p,p,p,new A.p7(q,t.bT))},
+return new A.Db(p,p,p,new A.aur(),p,p,p,p,p,n,B.No,p,p,p,B.Kv,q.gacU(),o,p,B.W1,s,p,r,p,p,B.pe,!1,!1,p,p,p,new A.p7(q,t.bT))},
 E(a){var s,r=null,q=A.ty(!1,!1,this.a4h(a),r,r,r,r,!0,r,r,r,new A.aus(),r,r)
 this.a.toString
 s=this.d
@@ -48796,7 +48796,7 @@ A.vJ.prototype={
 I(){return"_CornerId."+this.b}}
 A.lM.prototype={}
 A.ub.prototype={
-l_(){var s,r,q,p=this,o=A.aXV(B.K7,new A.aaY(p,p.b.gaR().S(0,p.a.gaR()))),n=p.a
+l_(){var s,r,q,p=this,o=A.aXV(B.K8,new A.aaY(p,p.b.gaR().S(0,p.a.gaR()))),n=p.a
 n.toString
 s=o.a
 r=p.p8(n,s)
@@ -52438,7 +52438,7 @@ return s.b}}
 A.jj.prototype={
 I(){return"_ListTileSlot."+this.b}}
 A.Uf.prototype={
-gKM(){return B.K_},
+gKM(){return B.K0},
 TD(a){var s,r=this
 switch(a.a){case 0:s=r.d
 break
@@ -52746,7 +52746,7 @@ r.e=s.a.a
 r.f=s.d},
 $S:0}
 A.Mv.prototype={
-E(a){return A.aIe(new A.oA(B.ES,null,null),B.a0,new A.u9(1,B.KZ,new A.bB(B.Bz,B.p)),this.c.U(0,new A.h(0,40.95)),1.25,B.T9)}}
+E(a){return A.aIe(new A.oA(B.ES,null,null),B.a0,new A.u9(1,B.L_,new A.bB(B.Bz,B.p)),this.c.U(0,new A.h(0,40.95)),1.25,B.T9)}}
 A.pR.prototype={
 I(){return"MaterialType."+this.b}}
 A.pP.prototype={
@@ -53116,7 +53116,7 @@ gi2(){return A.aLJ()},
 Tr(a,b,c,d,e,f){return A.aGj(a,b,c,d,e,f)}}
 A.N_.prototype={
 a3J(a){var s=t.Tr
-s=A.Q(new A.u(B.K5,new A.ac8(a),s),s.h("Y.E"))
+s=A.Q(new A.u(B.K6,new A.ac8(a),s),s.h("Y.E"))
 return s},
 j(a,b){if(b==null)return!1
 if(this===b)return!0
@@ -58223,10 +58223,10 @@ dG(a){var s,r,q=this.b,p=q.a.c,o=a.S(0,q.gic())
 p=p.a
 p===$&&A.a()
 s=p.a.getGlyphPositionAtCoordinate(o.a,o.b)
-r=B.JR[J.ae(s.affinity.value)]
+r=B.JS[J.ae(s.affinity.value)]
 return new A.a8(J.ae(s.pos),r)},
 u9(){var s,r,q=this.b,p=q.gic()
-if(!isFinite(p.a)||!isFinite(p.b))return B.Ks
+if(!isFinite(p.a)||!isFinite(p.b))return B.Kt
 s=q.f
 if(s==null){s=q.a.c.u9()
 q.f=s}if(p.j(0,B.k))r=s
@@ -67350,7 +67350,7 @@ break
 case 1:return A.G(q,r)}})
 return A.H($async$Eb,r)},
 a6S(a,b){var s,r,q,p
-if(a===b)return B.KA
+if(a===b)return B.KB
 s=A.b([],t.QP)
 if(a==null)s.push(b)
 else{r=B.b.a7(B.fp,a)
@@ -69248,7 +69248,7 @@ A.lk.prototype={}
 A.Nl.prototype={
 ls(a,b){var s,r,q,p,o,n=$.a7.ae$.d.c
 if(n==null||n.e==null)return!1
-for(s=t.F,r=0;r<2;++r){q=B.Kn[r]
+for(s=t.F,r=0;r<2;++r){q=B.Ko[r]
 p=n.e
 p.toString
 o=A.aBV(p,q,s)
@@ -69358,7 +69358,7 @@ this.hr()}}
 A.nE.prototype={
 k(a){return"Entry#"+A.bu(this)+"("+this.d.k(0)+")"}}
 A.xj.prototype={
-a3(){return new A.Dh(A.aJ(t.mf),B.KG,null,null)},
+a3(){return new A.Dh(A.aJ(t.mf),B.KH,null,null)},
 asq(a,b){return this.w.$2(a,b)},
 app(a,b){return this.x.$2(a,b)}}
 A.Dh.prototype={
@@ -71699,7 +71699,7 @@ h.G3()
 r=h.ga7E()
 q=q.iO
 h.e!==$&&A.bp()
-h.e=new A.Ow(s,new A.c4(B.N9,l,t.kr),new A.pM(),p,B.cK,0,j,h.ga9P(),h.ga9R(),r,B.cK,0,i,h.ga9J(),h.ga9L(),r,k,B.Kr,f,g.CW,g.cx,g.cy,o,g,n,m,g.x,q,new A.K4(),new A.K4())
+h.e=new A.Ow(s,new A.c4(B.N9,l,t.kr),new A.pM(),p,B.cK,0,j,h.ga9P(),h.ga9R(),r,B.cK,0,i,h.ga9J(),h.ga9L(),r,k,B.Ks,f,g.CW,g.cx,g.cy,o,g,n,m,g.x,q,new A.K4(),new A.K4())
 return h},
 wP(a,b){var s,r,q,p=this,o=p.a.c,n=o.a.a.length
 if(n<a.b||n<a.a)return
@@ -75046,7 +75046,7 @@ j(a,b){var s=this
 if(b==null)return!1
 if(J.V(b)!==A.q(s))return!1
 return b instanceof A.hu&&b.a===s.a&&b.b==s.b&&b.d===s.d&&A.cB(null,null)},
-gv(a){return A.U(this.a,this.b,null,this.d,A.bO(B.KF),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
+gv(a){return A.U(this.a,this.b,null,this.d,A.bO(B.KG),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
 k(a){return"IconData(U+"+B.d.qB(B.l.lD(this.a,16).toUpperCase(),5,"0")+")"}}
 A.px.prototype={
 cS(a){return!this.w.j(0,a.w)},
@@ -75994,7 +75994,7 @@ h=r&&e
 c=r?e:c.CW
 if(c==null)c=B.es
 r=r&&e
-g=new A.A8(b,s,q,p,m,o,n,a,h===!0,a0,a1,i,d,l,k,j,c,new A.tk(e),B.Kx,r===!0)
+g=new A.A8(b,s,q,p,m,o,n,a,h===!0,a0,a1,i,d,l,k,j,c,new A.tk(e),B.Ky,r===!0)
 if(!g.j(0,f.e))f.a0(new A.auJ(f,g))},
 zn(){if(this.d==null)this.pF()},
 Hf(){this.pF()},
@@ -76298,7 +76298,7 @@ k.a.toString
 q=t.tl
 p=r.a
 o=0
-for(;!1;++o){n=B.Kv[o]
+for(;!1;++o){n=B.Kw[o]
 m=k.c
 m.toString
 l=new A.hO(n.H0(m),null,!0,B.mB,B.cx,new A.o_(new ($.a_m())(B.cx),q),B.cx)
@@ -76657,7 +76657,7 @@ E(a){var s,r,q=this,p=null,o=q.ga9l(),n=A.mq(a),m=q.bF$,l=q.d
 l===$&&A.a()
 s=q.a.ay
 if(l.gN()==null){r=q.gLW()
-r=J.mE(r.slice(0),A.A(r).c)}else r=B.Kw
+r=J.mE(r.slice(0),A.A(r).c)}else r=B.Kx
 return new A.pv(p,new A.dW(new A.abO(q,a),A.u4(B.c5,new A.IH(!1,A.aCD(A.ty(!0,p,A.PS(m,new A.uk(r,s,l)),p,p,p,q.y,!1,p,p,p,p,p,!0),n),p),p,o,q.gadj(),p,p,o),p,t.w3),p)}}
 A.abN.prototype={
 $1(a){var s=this.a.c
@@ -81661,7 +81661,7 @@ r.ym()
 return s.aQ()},
 l(){var s,r,q,p,o=this
 for(s=o.b,r=s.length,q=o.gEd(),p=0;p<s.length;s.length===r||(0,A.M)(s),++p)s[p].K(q)
-o.b=B.Kz
+o.b=B.KA
 o.y=!1
 o.d5()},
 dV(a,b){return a.mt(b)},
@@ -93848,7 +93848,7 @@ B.ao=new A.ajq()
 B.dm=new A.PW()
 B.nn=new A.ajs()
 B.eK=new A.Q_(0,0,0,0)
-B.Kx=s([],A.ar("y<b0n>"))
+B.Ky=s([],A.ar("y<b0n>"))
 B.a30=new A.ajy()
 B.eX=new A.Ql()
 B.dn=new A.Qm()
@@ -94287,9 +94287,9 @@ B.hP=new A.kU(!1,!1,!1,!1)
 B.hQ=new A.kU(!1,!1,!1,!0)
 B.kK=new A.kU(!0,!1,!1,!1)
 B.kL=new A.kU(!0,!1,!1,!0)
-B.KB=s([],A.ar("y<h0>"))
-B.KC=s([],A.ar("y<hd>"))
-B.GB=new A.yQ(B.KB,B.KC,!0)
+B.KC=s([],A.ar("y<h0>"))
+B.KD=s([],A.ar("y<hd>"))
+B.GB=new A.yQ(B.KC,B.KD,!0)
 B.GC=new A.a4O(0,"center")
 B.GD=new A.yS(null)
 B.du=new A.oT(0,"none")
@@ -94477,14 +94477,14 @@ B.p8=new A.pK(3,"center")
 B.HW=new A.pK(4,"bottom")
 B.p9=s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none","webSearch","twitter"],t.s)
 B.Is=s([4,9,14,19],t.t)
-B.Le=s([137,80,78,71,13,10,26,10],t.Z)
+B.Lf=s([137,80,78,71,13,10,26,10],t.Z)
 B.Hc=new A.mw(0,"png")
 B.Hk=new A.jR(B.Hc,!1,0,"png")
-B.Ha=new A.l_(B.Le,B.Hk,0,"png")
-B.Li=s([71,73,70,56,55,97],t.Z)
-B.H9=new A.l_(B.Li,B.i0,1,"gif87a")
-B.K3=s([71,73,70,56,57,97],t.Z)
-B.H8=new A.l_(B.K3,B.i0,2,"gif89a")
+B.Ha=new A.l_(B.Lf,B.Hk,0,"png")
+B.Lj=s([71,73,70,56,55,97],t.Z)
+B.H9=new A.l_(B.Lj,B.i0,1,"gif87a")
+B.K4=s([71,73,70,56,57,97],t.Z)
+B.H8=new A.l_(B.K4,B.i0,2,"gif89a")
 B.I0=s([255,216,255],t.Z)
 B.Hd=new A.mw(2,"jpeg")
 B.Ho=new A.jR(B.Hd,!1,3,"jpeg")
@@ -94521,16 +94521,16 @@ B.m_=new A.lC(5,"end")
 B.IU=s([B.fY,B.lZ,B.a1,B.iW,B.bp,B.m_],A.ar("y<lC>"))
 B.Jm=s([2,1.13276676],t.n)
 B.I2=s([2.18349805,1.20311921],t.n)
-B.KT=s([2.33888662,1.28698796],t.n)
-B.KY=s([2.48660575,1.36351941],t.n)
+B.KU=s([2.33888662,1.28698796],t.n)
+B.KZ=s([2.48660575,1.36351941],t.n)
 B.J1=s([2.62226596,1.44717976],t.n)
 B.Jb=s([2.7514899,1.53385819],t.n)
-B.K1=s([3.36298265,1.98288283],t.n)
+B.K2=s([3.36298265,1.98288283],t.n)
 B.Jy=s([4.08649929,2.23811846],t.n)
-B.JP=s([4.85481134,2.47563463],t.n)
+B.JQ=s([4.85481134,2.47563463],t.n)
 B.J3=s([5.62945551,2.72948597],t.n)
 B.Jo=s([6.43023796,2.98020421],t.n)
-B.pc=s([B.Jm,B.I2,B.KT,B.KY,B.J1,B.Jb,B.K1,B.Jy,B.JP,B.J3,B.Jo],t.zg)
+B.pc=s([B.Jm,B.I2,B.KU,B.KZ,B.J1,B.Jb,B.K2,B.Jy,B.JQ,B.J3,B.Jo],t.zg)
 B.J0=s([B.jx,B.jy],A.ar("y<xs>"))
 B.aY=new A.eL(0,"icon")
 B.bb=new A.eL(1,"input")
@@ -94561,9 +94561,9 @@ B.BN=new A.dS(0.2,B.By,B.nB,B.k,11)
 B.JL=s([B.BN],t.sq)
 B.TO=new A.Cm(0,"left")
 B.TP=new A.Cm(1,"right")
-B.JM=s([B.TO,B.TP],A.ar("y<Cm>"))
+B.JN=s([B.TO,B.TP],A.ar("y<Cm>"))
 B.aI=new A.Cy(0,"upstream")
-B.JR=s([B.aI,B.m],A.ar("y<Cy>"))
+B.JS=s([B.aI,B.m],A.ar("y<Cy>"))
 B.bq=new A.CC(0,"rtl")
 B.at=new A.CC(1,"ltr")
 B.kW=s([B.bq,B.at],A.ar("y<CC>"))
@@ -94571,13 +94571,13 @@ B.cT=new A.jj(0,"leading")
 B.c3=new A.jj(1,"title")
 B.cU=new A.jj(2,"subtitle")
 B.dV=new A.jj(3,"trailing")
-B.K_=s([B.cT,B.c3,B.cU,B.dV],A.ar("y<jj>"))
+B.K0=s([B.cT,B.c3,B.cU,B.dV],A.ar("y<jj>"))
 B.D6=new A.ot(0,"auto")
 B.D7=new A.ot(1,"full")
 B.D8=new A.ot(2,"chromium")
-B.K2=s([B.D6,B.D7,B.D8,B.e2],A.ar("y<ot>"))
+B.K3=s([B.D6,B.D7,B.D8,B.e2],A.ar("y<ot>"))
 B.cb=new A.fG(1,"fuchsia")
-B.K5=s([B.aP,B.cb,B.Z,B.bY,B.bg,B.bZ],A.ar("y<fG>"))
+B.K6=s([B.aP,B.cb,B.Z,B.bY,B.bg,B.bZ],A.ar("y<fG>"))
 B.B1=new A.vJ(0,"topLeft")
 B.B4=new A.vJ(3,"bottomRight")
 B.a1f=new A.lM(B.B1,B.B4)
@@ -94586,7 +94586,7 @@ B.B2=new A.vJ(1,"topRight")
 B.B3=new A.vJ(2,"bottomLeft")
 B.a1g=new A.lM(B.B2,B.B3)
 B.a1h=new A.lM(B.B3,B.B2)
-B.K7=s([B.a1f,B.a1i,B.a1g,B.a1h],A.ar("y<lM>"))
+B.K8=s([B.a1f,B.a1i,B.a1g,B.a1h],A.ar("y<lM>"))
 B.DS=new A.p(0.25882352941176473,0,0,0,B.e)
 B.Oq=new A.h(1,1)
 B.BL=new A.dS(0,B.dZ,B.DS,B.Oq,3)
@@ -94606,35 +94606,35 @@ B.Qp=new A.al(0.66416338,0.0734653)
 B.Qm=new A.al(0.68675338,0.06974996)
 B.QC=new A.al(0.70678034,0.06529512)
 B.ph=s([B.QG,B.QF,B.Qs,B.Qv,B.QE,B.Ql,B.Qq,B.Qt,B.Qo,B.QB,B.QJ,B.Qp,B.Qm,B.QC],A.ar("y<+(C,C)>"))
-B.Kl=s(["click","scroll"],t.s)
+B.Km=s(["click","scroll"],t.s)
 B.BV=new A.rA()
 B.fL=new A.Op(1,"page")
 B.iB=new A.eq(B.aL,B.fL)
-B.Kn=s([B.BV,B.iB],A.ar("y<aU>"))
-B.KA=s([],t.QP)
+B.Ko=s([B.BV,B.iB],A.ar("y<aU>"))
+B.KB=s([],t.QP)
 B.a39=s([],t.dt)
-B.KH=s([],t.hn)
-B.KI=s([],t.UA)
-B.KJ=s([],A.ar("y<hT>"))
+B.KI=s([],t.hn)
+B.KJ=s([],t.UA)
+B.KK=s([],A.ar("y<hT>"))
 B.pk=s([],A.ar("y<b06>"))
-B.Kt=s([],t.D)
-B.KL=s([],t.fJ)
-B.Ks=s([],t.ER)
+B.Ku=s([],t.D)
+B.KM=s([],t.fJ)
+B.Kt=s([],t.ER)
 B.a3a=s([],t.ss)
-B.Ku=s([],t.tc)
+B.Kv=s([],t.tc)
 B.i5=s([],t.jl)
-B.Kw=s([],t.wi)
-B.Kv=s([],A.ar("y<aHV<@>>"))
-B.KK=s([],t.Mr)
+B.Kx=s([],t.wi)
+B.Kw=s([],A.ar("y<aHV<@>>"))
+B.KL=s([],t.Mr)
 B.kX=s([],t.AO)
-B.Kz=s([],t.D1)
+B.KA=s([],t.D1)
 B.kY=s([],t.QF)
-B.Ky=s([],t.Lx)
-B.Kr=s([],t.fm)
-B.KG=s([],t.p)
+B.Kz=s([],t.Lx)
+B.Ks=s([],t.fm)
+B.KH=s([],t.p)
 B.pi=s([],t.t)
 B.pj=s([],t.ee)
-B.KF=s([],t.XS)
+B.KG=s([],t.XS)
 B.kZ=s(["Cheon Ji|\ucc9c\uc9c0|\u5929\u5730|Himmel und Erde, steht f\xfcr den Anfang.|19|1|Bedeutet Himmel und Erde (\u5929 und \u5730). Dieser Hyeong steht f\xfcr den Anfang.","Dan Gun|\ub2e8\uad70|\u6a80\u541b|Ein Heiliger, welcher der Legende nach 2333 v.Chr Korea erschaffen hat.|21|2|Benannt nach dem heiligen Dan Gun, der 2333 v.Chr. Korea gergr\xfcndet haben soll.","Do San|\ub3c4\uc0b0|\u5cf6\u5c71|Koreanischer Patriot, Anf\xfchrer der koreanischen Unabh\xe4ngigkeitsbewegung.|24|3|Do San ist der Pseudonym des Patrioten An Chang Ho (\uc548\ucc3d\ud638) (1878-1938). Er war ein Koreanischer Politiker, Unabh\xe4ngigkeitsaktivist, und Leiter der 'Korean-American immigrant community' in den USA. Er und seine Frau waren da erste Koreanischer Ehepaar, das legal in die USA einreiste.","Won Hyo|\uc6d0\ud6a8|\u5143\u66c9|Buddhistischer M\xf6nch, der Buddhismus in Korea verbreitete.|28|4|Won Hyo war ein ein buddhistischer M\xf6nch in Korea. Er hat sich f\xfcr die Verbreitung des Buddhismus in Korea eingesetz","Yul Gok|\uc728\uace1|\u6817\u8c37|Der Philosoph Yi I hat sich intensiv mit dem 'Ki', der Energie, besch\xe4ftigt.|38|5|Yul Gok war der K\xfcnstlername des Philosophen Yi I (\uc774\uc774). Gemeinsam mit Toi Gye (Yi Hwang) war er einer der beiden gro\xdfen Philosophen seiner Zeit. Er legte besonderen Wert auf die Lebensenergie, dem 'KI' ","Jung Geun|\uc911\uadfc|\u91cd\u6839|Freiheitsk\xe4mpfer, bekannt f\xfcr den Mord eines Japanischen Premierministers.|32|6|An Jung Geun (\uc548\uc911\uadfc) war ein Koreanischer Freiheitsk\xe4mpfer. Er ist ber\xfchmt f\xfcr die Ermordung des Japanischen Ministerpr\xe4sidenten, der damals \xfcber Korea regierte.","Toi Gye|\ud1f4\uacc4|\u9000\u6eaa|Der Philosoph Yi Hwang hat sich intensiv mit dem 'Li', der Ordnung, besch\xe4ftigt.|37|7|Toi Gye ist der K\xfcnstlername des Philosophen Yi Hwang (\uc774\ud669). Im Gegensatz zu Yul Gok (Yi I), legte er mehr Wert auf die Ordnung (Ri), statt der Energie (Ki).","Hwa Rang|\ud654\ub791|\u82b1\u90de|Eine Gruppe jugendlicher Arsitokraten, die Literatur und Kampfkunst lernten.|29|8|Hwa Rang war eine Gruppe aristokratischer Jugendlicher, die eine Gute Bildung genossen. Sie lernten unter anderem Recht, Philosophie, Literatur und Kampfkunst.","Chung Mu|\ucda9\ubb34|\u5fe0\u6b66|Yi Sun Shin war ein Admiral, bekannt f\xfcr seine Schildkr\xf6tenschiffe.|30|9|Yi Sun Shin (\uc774\uc21c\uc2e0) war ein Koreanischer Admiral. Er wird als einer der gr\xf6\xdften Helden in Korea gefeiert. Er soll mit nur 13 Schiffen gegen 333 japanische Schiffe in einer Schlacht gewonnen haben.","Gwang Gye|\uad11\uac1c|\u5ee3\u958b|Ein K\xf6nig, der gro\xdfe Teile der Mandschurei zur\xfcckeroberte.|39|10|Gwang Gae To Tae Wang (Hanja: \u5ee3\u958b\u571f\u5927\u738b) war ein K\xf6nig von Goguryeo der gro\xdfe Teile der Mandschurei zur\xfcckeroberte."],t.s)
 B.kO=new A.i0(0)
 B.GJ=new A.i0(1)
@@ -94647,9 +94647,9 @@ B.oM=new A.i0(8)
 B.pl=s([B.kO,B.GJ,B.GK,B.w,B.ap,B.hV,B.aG,B.GL,B.oM],A.ar("y<i0>"))
 B.Ok=new A.h(0,2)
 B.BM=new A.dS(0.75,B.dZ,B.nB,B.Ok,1.5)
-B.KZ=s([B.BM],t.sq)
+B.L_=s([B.BM],t.sq)
 B.i6=s(["Wie hei\xdft diese Technik?","Wie schreibt man diesen Begriff auf Koreanisch?","Wie hei\xdft dieser Begriff auf Deutsch","Zu welcher Kategorie geh\xf6rt dieses Bild?","Beschreibe diesen Begriff!","Welches Bild geh\xf6rt zu diesem Begriff?","Wie viele Bewegungen hat ","Wie hei\xdft der ","Was bedeutet der "],t.s)
-B.L3=s([47,47,47,47,72,97,122,147],t.t)
+B.L4=s([47,47,47,47,72,97,122,147],t.t)
 B.fp=s([B.dd,B.cX,B.ha,B.hb,B.jw],t.QP)
 B.en=new A.hy(0,"controlModifier")
 B.eo=new A.hy(1,"shiftModifier")
@@ -94696,17 +94696,17 @@ B.f=new A.Mw(1,"max")
 B.O4={in:0,iw:1,ji:2,jw:3,mo:4,aam:5,adp:6,aue:7,ayx:8,bgm:9,bjd:10,ccq:11,cjr:12,cka:13,cmk:14,coy:15,cqu:16,drh:17,drw:18,gav:19,gfx:20,ggn:21,gti:22,guv:23,hrr:24,ibi:25,ilw:26,jeg:27,kgc:28,kgh:29,koj:30,krm:31,ktr:32,kvs:33,kwq:34,kxe:35,kzj:36,kzt:37,lii:38,lmm:39,meg:40,mst:41,mwj:42,myt:43,nad:44,ncp:45,nnx:46,nts:47,oun:48,pcr:49,pmc:50,pmu:51,ppa:52,ppr:53,pry:54,puz:55,sca:56,skk:57,tdu:58,thc:59,thx:60,tie:61,tkk:62,tlw:63,tmp:64,tne:65,tnf:66,tsf:67,uok:68,xba:69,xia:70,xkh:71,xsj:72,ybd:73,yma:74,ymt:75,yos:76,yuu:77}
 B.ck=new A.bz(B.O4,["id","he","yi","jv","ro","aas","dz","ktz","nun","bcg","drl","rki","mom","cmr","xch","pij","quh","khk","prs","dev","vaj","gvr","nyc","duz","jal","opa","gal","oyb","tdf","kml","kwv","bmf","dtp","gdj","yam","tvd","dtp","dtp","raq","rmx","cir","mry","vaj","mry","xny","kdz","ngv","pij","vaj","adx","huw","phr","bfy","lcq","prt","pub","hle","oyb","dtp","tpo","oyb","ras","twm","weo","tyj","kak","prs","taj","ema","cax","acn","waw","suj","rki","lrr","mtm","zom","yug"],t.li)
 B.Oa={techniqueNames_1:0,techniqueNames_2:1,techniqueNames_3:2,techniqueNames_4:3,techniqueNames_5:4,techniqueNames_6:5,techniqueNames_7:6,techniqueNames_8:7,techniqueNames_9:8,techniqueNames_10:9}
-B.L_=s(["arae_makgi","momtong_jireugi","momtong_makgi","hugeul_seogi","jeonggeul_seogi"],t.s)
+B.L0=s(["arae_makgi","momtong_jireugi","momtong_makgi","hugeul_seogi","jeonggeul_seogi"],t.s)
 B.IW=s(["sudo_daebi_makgi","eolgul_jireugi","arae_makgi","ssang_palmok_makgi","eolgul_makgi","sudo_yeop_daerigi","hugeul_seogi","jeonggeul_seogi"],t.s)
-B.KW=s(["palmok_makgi","momtong_jireugi","sudo_daebi_makgi","jeong_gwansu_deulgi","rigwon_daerigi","hechyeo_makgi","ap_chagi","eolgul_makgi","sudo_yeop_daerigi","hugeul_seogi","jeonggeul_seogi","kima_seogi"],t.s)
+B.KX=s(["palmok_makgi","momtong_jireugi","sudo_daebi_makgi","jeong_gwansu_deulgi","rigwon_daerigi","hechyeo_makgi","ap_chagi","eolgul_makgi","sudo_yeop_daerigi","hugeul_seogi","jeonggeul_seogi","kima_seogi"],t.s)
 B.JI=s(["ssang_palmok_makgi","sudo_aneuro_daerigi","momtong_jireugi","yeop_chagi","sudo_daebi_makgi","jeong_gwansu_deulgi","dollimyeo_makgi","ap_chagi","palmok_daebi_makgi","hugeul_seogi","jeonggeul_seogi","gojeong_seogi"],t.s)
-B.Lu=s(["momtong_jireugi","momtong_makgi","ap_chagi","sudo_makgi","yeop_chagi","palgup_deulgi","ssang_sudo_makgi","jeong_gwansu_deulgi","palmok_makgi","rigwon_daerigi","du_palmok_makgi","hugeul_seogi","jeonggeul_seogi","kima_seogi","guburyeo_seogi","gyocha_seogi"],t.s)
-B.Lp=s(["yeok_sudo_momtong_makgi","ap_chagi","jang_gwon_ollyeo_makgi","sudo_daebi_makgi","wit_palgup_deulgi","ssang_gwon_eolgul_jireugi","ssang_gwon_dwijibon_jireugi","gyocha_makgi","rigwon_daerigi","du_palmok_makgi","momtong_jireugi","yeop_chagi","ssang_jang_gwon_nulleo_makgi","palmok_daebi_makgi","dollyeo_jireugi","mongdungi_makgi","dwit_bal_seogi","hugeul_seogi","jeonggeul_seogi","moa_seogi"],t.s)
-B.Kh=s(["momtong_makgi","arae_pyeong_gwansu_deulgi","arae_makgi","palmok_makgi","arae_gyocha_makgi","ssang_gwon_eolgul_jireugi","ap_chagi","momtong_jireugi","bandal_chagi","san_makgi","du_palmok_arae_makgi","mureup_ap_chagi","sudo_daebi_makgi","pyeong_gwansu_deulgi","momtong_makgi","du_palmok_makgi","sudo_daebi_arae_makgi","dollimyeo_makgi","hugeul_seogi","jeonggeul_seogi","moa_seogi","gyocha_seogi"],t.s)
+B.Lv=s(["momtong_jireugi","momtong_makgi","ap_chagi","sudo_makgi","yeop_chagi","palgup_deulgi","ssang_sudo_makgi","jeong_gwansu_deulgi","palmok_makgi","rigwon_daerigi","du_palmok_makgi","hugeul_seogi","jeonggeul_seogi","kima_seogi","guburyeo_seogi","gyocha_seogi"],t.s)
+B.Lq=s(["yeok_sudo_momtong_makgi","ap_chagi","jang_gwon_ollyeo_makgi","sudo_daebi_makgi","wit_palgup_deulgi","ssang_gwon_eolgul_jireugi","ssang_gwon_dwijibon_jireugi","gyocha_makgi","rigwon_daerigi","du_palmok_makgi","momtong_jireugi","yeop_chagi","ssang_jang_gwon_nulleo_makgi","palmok_daebi_makgi","dollyeo_jireugi","mongdungi_makgi","dwit_bal_seogi","hugeul_seogi","jeonggeul_seogi","moa_seogi"],t.s)
+B.Ki=s(["momtong_makgi","arae_pyeong_gwansu_deulgi","arae_makgi","palmok_makgi","arae_gyocha_makgi","ssang_gwon_eolgul_jireugi","ap_chagi","momtong_jireugi","bandal_chagi","san_makgi","du_palmok_arae_makgi","mureup_ap_chagi","sudo_daebi_makgi","pyeong_gwansu_deulgi","momtong_makgi","du_palmok_makgi","sudo_daebi_arae_makgi","dollimyeo_makgi","hugeul_seogi","jeonggeul_seogi","moa_seogi","gyocha_seogi"],t.s)
 B.Jf=s(["jang_gwon_aneuro_makgi","momtong_jireugi","ssang_palmok_makgi","dwijibon_jireugi","sudo_naeryeo_daerigi","arae_makgi","yeop_chagi","sudo_yeop_daerigi","sudo_daebi_makgi","jeong_gwansu_deulgi","dollyeo_chagi","arae_gyocha_makgi","dwit_palgup_deulgi","momtong_makgi","hugeul_seogi","jeonggeul_seogi","moa_seogi"],t.s)
-B.Ld=s(["ssang_sudo_makgi","sudo_aneuro_daerigi","sudo_eolgul_makgi","sudo_daebi_makgi","pyeong_gwansu_deulgi","dwit_chagi","ttwimyeo_yeop_chagi","arae_makgi","mureup_ap_chagi","yeok_sudo_daerigi","dollyeo_chagi","palmok_daebi_makgi","mongdungi_makgi","arae_pyeong_gwansu_deulgi","rigwon_dwit_daerigi","jeong_gwansu_deulgi","du_palmok_makgi","rigwon_daerigi","yeop_chagi","gyocha_ollyeo_makgi","ssang_jang_gwon_ollyeo_makgi","eolgul_makgi","hugeul_seogi","jeonggeul_seogi","kima_seogi"],t.s)
+B.Le=s(["ssang_sudo_makgi","sudo_aneuro_daerigi","sudo_eolgul_makgi","sudo_daebi_makgi","pyeong_gwansu_deulgi","dwit_chagi","ttwimyeo_yeop_chagi","arae_makgi","mureup_ap_chagi","yeok_sudo_daerigi","dollyeo_chagi","palmok_daebi_makgi","mongdungi_makgi","arae_pyeong_gwansu_deulgi","rigwon_dwit_daerigi","jeong_gwansu_deulgi","du_palmok_makgi","rigwon_daerigi","yeop_chagi","gyocha_ollyeo_makgi","ssang_jang_gwon_ollyeo_makgi","eolgul_makgi","hugeul_seogi","jeonggeul_seogi","kima_seogi"],t.s)
 B.J2=s(["dwijibon_jireugi","sudo_makgi","sudo_daebi_arae_makgi","sudo_daebi_makgi","jang_gwon_ollyeo_makgi","sudo_aneuro_daerigi","palmok_daebi_makgi","yeop_chagi","naeryeo_daerigi","ssang_jang_gwon_nulleo_makgi","rigwon_daerigi","du_palmok_makgi","arae_makgi","pyeong_gwansu_deulgi","ssang_gwon_eolgul_jireugi","ssang_gwon_dwijibon_jireugi","ap_chagi","eolgul_jireugi","jeonggeul_seogi","hugeul_seogi","dwit_bal_seogi","moa_seogi","kima_seogi"],t.s)
-B.vg=new A.bz(B.Oa,[B.L_,B.IW,B.KW,B.JI,B.Lu,B.Lp,B.Kh,B.Jf,B.Ld,B.J2],t.VJ)
+B.vg=new A.bz(B.Oa,[B.L0,B.IW,B.KX,B.JI,B.Lv,B.Lq,B.Ki,B.Jf,B.Le,B.J2],t.VJ)
 B.ci=new A.f(4294968065)
 B.lJ=new A.ac(B.ci,!1,!1,!0,!1,B.r)
 B.c6=new A.f(4294968066)
@@ -95192,111 +95192,111 @@ B.vi=new A.cS([B.SS,B.u,B.Sp,B.u,B.So,B.u,B.Sd,B.u,B.SJ,B.u,B.SA,B.u,B.SX,B.u,B.
 B.Od={"\u3157\u314f":0,"\u3157\u3150":1,"\u3157\u3163":2,"\u315c\u3153":3,"\u315c\u3163":4,"\u315c\u3154":5,"\u3161\u3163":6}
 B.d3=new A.bz(B.Od,["\u3158","\u3159","\u315a","\u315d","\u315f","\u315e","\u3162"],t.li)
 B.O5={arae_makgi:0,momtong_jireugi:1,momtong_makgi:2,hugeul_seogi:3,eolgul_jireugi:4,eolgul_makgi:5,ssang_palmok_makgi:6,sudo_daebi_makgi:7,sudo_yeop_daerigi:8,jeonggeul_seogi:9,baro:10,junbi:11,charyeot:12,gyeongnye:13,shijak:14,geuman:15,gyosanim:16,sabeomnim:17,il_bo_daeryeon:18,palmok_makgi:19,jeong_gwansu_deulgi:20,rigwon_daerigi:21,hechyeo_makgi:22,ap_chagi:23,kima_seogi:24,sudo_aneuro_daerigi:25,yeop_chagi:26,dollimyeo_makgi:27,palmok_daebi_makgi:28,gojeong_seogi:29,bakkeuro_bandal_chagi:30,bandae_dollyeo_chagi:31,bitturo_chagi:32,naeryeo_chagi:33,ap_olligi:34,dollyeo_olligi:35,yeop_olligi:36,sudo_makgi:37,palgup_deulgi:38,ssang_sudo_makgi:39,du_palmok_makgi:40,guburyeo_seogi:41,gyocha_seogi:42,yeok_sudo_momtong_makgi:43,jang_gwon_ollyeo_makgi:44,wit_palgup_deulgi:45,ssang_gwon_eolgul_jireugi:46,ssang_gwon_dwijibon_jireugi:47,gyocha_makgi:48,ssang_jang_gwon_nulleo_makgi:49,dollyeo_jireugi:50,mongdungi_makgi:51,dwit_bal_seogi:52,moa_seogi:53,arae_pyeong_gwansu_deulgi:54,arae_gyocha_makgi:55,bandal_chagi:56,san_makgi:57,du_palmok_arae_makgi:58,mureup_ap_chagi:59,pyeong_gwansu_deulgi:60,rigwon_dwit_daerigi:61,sudo_daebi_arae_makgi:62,jang_gwon_aneuro_makgi:63,dwijibon_jireugi:64,sudo_naeryeo_daerigi:65,dollyeo_chagi:66,dwit_palgup_deulgi:67,sudo_eolgul_makgi:68,dwit_chagi:69,ttwimyeo_yeop_chagi:70,yeok_sudo_daerigi:71,gyocha_ollyeo_makgi:72,ssang_jang_gwon_ollyeo_makgi:73,naeryeo_daerigi:74,i_bo_daeryeon:75,sam_bo_daeryeon:76,jayu_daeryeon:77,hoshinsul:78,gyeokpa:79,gallyeo:80,gyesok:81,zahlen_1_bis_10:82,zahlen_11_bis_20:83}
-B.JS=s(["Arae Makgi","\uc544\ub798\ub9c9\uae30","Block Unten","Bl\xf6cke","Block auf niedriger H\xf6he mit der Au\xdfenkante des Unterarms","Hadan Makgi [\ud558\ub2e8\ub9c9\uae30]"],t.s)
+B.JT=s(["Arae Makgi","\uc544\ub798\ub9c9\uae30","Block Unten","Bl\xf6cke","Block auf niedriger H\xf6he mit der Au\xdfenkante des Unterarms","Hadan Makgi [\ud558\ub2e8\ub9c9\uae30]"],t.s)
 B.LA=s(["Momtong Jireugi","\ubab8\ud1b5\uc9c0\ub974\uae30","Fauststo\xdf Mitte","St\xf6\xdfe","Fauststo\xdf auf mittlerer H\xf6he","Jungdan Jireugi [\uc911\ub2e8\uc9c0\ub974\uae30]"],t.s)
-B.L9=s(["Momtong Makgi","\ubab8\ud1b5\ub9c9\uae30","Block Mitte","Bl\xf6cke","Block auf mittlerer H\xf6he mit der Innenkante des Unterarms","Jungdan Makgi [\uc911\ub2e8\ub9c9\uae30]"],t.s)
-B.Lo=s(["Hugeul Seogi","\ud6c4\uae00\uc11c\uae30","R\xfcckw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","Seitlich orientierte Fu\xdfstellung mit gr\xf6\xdferer Belastung auf dem hinteren Bein","Dwit Gubi [\ub4b7\uad6c\ube44]"],t.s)
-B.JY=s(["Eolgul Jireugi","\uc5bc\uad74\uc9c0\ub974\uae30","Fauststo\xdf Oben","St\xf6\xdfe","Fauststo\xdf auf oberer H\xf6he","Sangdan Jireugi [\ud558\ub2e8\ub9c9\uae30]"],t.s)
+B.JM=s(["Momtong Makgi","\ubab8\ud1b5\ub9c9\uae30","Block Mitte","Bl\xf6cke","Block auf mittlerer H\xf6he mit der Innenkante des Unterarms","Jungdan Makgi [\uc911\ub2e8\ub9c9\uae30]\nAn Palmok Makgi[\uc548\ud314\ubaa9\ub9c9\uae30]"],t.s)
+B.Lp=s(["Hugeul Seogi","\ud6c4\uae00\uc11c\uae30","R\xfcckw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","Seitlich orientierte Fu\xdfstellung mit gr\xf6\xdferer Belastung auf dem hinteren Bein","Dwit Gubi [\ub4b7\uad6c\ube44]"],t.s)
+B.JZ=s(["Eolgul Jireugi","\uc5bc\uad74\uc9c0\ub974\uae30","Fauststo\xdf Oben","St\xf6\xdfe","Fauststo\xdf auf oberer H\xf6he","Sangdan Jireugi [\ud558\ub2e8\ub9c9\uae30]"],t.s)
 B.J9=s(["Eolgul Makgi","\uc5bc\uad74\ub9c9\uae30","Block Oben","Bl\xf6cke","Block auf oberer H\xf6he mit der Au\xdfenkante des Unterarms","Sangdan Makgi [\uc0c1\ub2e8\ub9c9\uae30], Chukyeo Makgi [\ucd94\ucf1c\ub9c9\uae30]"],t.s)
-B.La=s(["Ssang Palmok Makgi","\uc30d\ud314\ubaa9\ub9c9\uae30","Doppelblock","Bl\xf6cke","Block oben und vorne mit den Au\xdfenkanten des Unterarms"],t.s)
-B.Kb=s(["Sudo Daebi Makgi","\uc218\ub3c4\ub300\ube44\ub9c9\uae30","Handkantenblock mit Unterst\xfctzung","Bl\xf6cke","Block auf mittlerer H\xf6he mit der Au\xdfenkante der Hand und Unterst\xfctzung"],t.s)
-B.L8=s(["Sudo Yeop Daerigi","\uc218\ub3c4\uc606\ub300\ub9ac\uae30","Handkantenschlag","Schl\xe4ge","Schlag auf oberer H\xf6he mit der Au\xdfenkante des Hand"],t.s)
-B.Ls=s(["Jeonggeul Seogi","\uc815\uae00\uc11c\uae30","Vorw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","Nach vorne orientierte Fu\xdfstellung mit gr\xf6\xdferer Belastung auf dem vorderen Bein","Ap Gubi [\uc55e\uad6c\ube44]"],t.s)
-B.Lv=s(["Baro","\ubc14\ub85c","Gerade","Im Training","Kommando am Ende einer \xdcbung"],t.s)
+B.Lb=s(["Ssang Palmok Makgi","\uc30d\ud314\ubaa9\ub9c9\uae30","Doppelblock","Bl\xf6cke","Block oben und vorne mit den Au\xdfenkanten des Unterarms"],t.s)
+B.Kc=s(["Sudo Daebi Makgi","\uc218\ub3c4\ub300\ube44\ub9c9\uae30","Handkantenblock mit Unterst\xfctzung","Bl\xf6cke","Block auf mittlerer H\xf6he mit der Au\xdfenkante der Hand und Unterst\xfctzung"],t.s)
+B.La=s(["Sudo Yeop Daerigi","\uc218\ub3c4\uc606\ub300\ub9ac\uae30","Handkantenschlag","Schl\xe4ge","Schlag auf oberer H\xf6he mit der Au\xdfenkante des Hand"],t.s)
+B.Lt=s(["Jeonggeul Seogi","\uc815\uae00\uc11c\uae30","Vorw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","Nach vorne orientierte Fu\xdfstellung mit gr\xf6\xdferer Belastung auf dem vorderen Bein","Ap Gubi [\uc55e\uad6c\ube44]"],t.s)
+B.Lw=s(["Baro","\ubc14\ub85c","Gerade","Im Training","Kommando am Ende einer \xdcbung"],t.s)
 B.Jg=s(["Junbi","\uc900\ube44","Vorbereitung","Im Training","Kommando f\xfcrs Vorebereiten vor einer \xdcbung"],t.s)
-B.KP=s(["Charyeot","\ucc28\ub837","Achtung","Im Training","Kommando f\xfcr die Aufmerksamkeit"],t.s)
-B.JO=s(["Gyeongnye","\uacbd\ub840","Verbeugung","Im Training","Kommando f\xfcr die Verbeugung"],t.s)
-B.Ko=s(["Shijak","\uc2dc\uc791","Start","Im Training","Kommando f\xfcr den Start einer \xdcbung"],t.s)
+B.KQ=s(["Charyeot","\ucc28\ub837","Achtung","Im Training","Kommando f\xfcr die Aufmerksamkeit"],t.s)
+B.JP=s(["Gyeongnye","\uacbd\ub840","Verbeugung","Im Training","Kommando f\xfcr die Verbeugung"],t.s)
+B.Kp=s(["Shijak","\uc2dc\uc791","Start","Im Training","Kommando f\xfcr den Start einer \xdcbung"],t.s)
 B.IX=s(["Geuman","\uadf8\ub9cc","Stop","Im Training","Kommando f\xfcr den Stop einer \xdcbung"],t.s)
-B.Ly=s(["Gyosanim","\uad50\uc0ac\ub2d8","Anf\xe4ngermeister*in","Im Training","Tr\xe4ger*in eines ersten bis vierten Dans"],t.s)
-B.Lg=s(["Sabeomnim","\uc0ac\ubc94\ub2d8","Gro\xdfmeister*in","Im Training","Tr\xe4ger*in eines f\xfcnften Dans oder h\xf6her"],t.s)
+B.L5=s(["Gyosanim","\uad50\uc0ac\ub2d8","Meister*in","Im Training","Tr\xe4ger*in eines ersten bis vierten Dans"],t.s)
+B.Lh=s(["Sabeomnim","\uc0ac\ubc94\ub2d8","Gro\xdfmeister*in","Im Training","Tr\xe4ger*in eines f\xfcnften Dans oder h\xf6her"],t.s)
 B.Jh=s(["Il Bo Daeryeon","\uc77c\ubcf4\ub300\ub828","Einschrittkampf","Disziplinen","Abgesprochener Kampf mit einer Angriffssequenz"],t.s)
 B.I_=s(["Palmok Makgi","\ud314\ubaa9\ub9c9\uae30","Unterarmblock","Bl\xf6cke","Block mit der Au\xdfenkante des Unterarms"],t.s)
 B.IK=s(["Jeong Gwansu Deulgi","\uc815\uad00\uc218\ub4e4\uae30","Fingerstich","Stiche","Vertikaler Fingerstich mit Unterst\xfctzung"],t.s)
 B.J8=s(["Rigwon Daerigi","\ub9ac\uad8c\ub300\ub9ac\uae30","Faustr\xfcckenschlag","Schl\xe4ge","Seitlicher Schlag mit dem Faustr\xfccken"],t.s)
 B.Jw=s(["Hechyeo Makgi","\ud5e4\uccd0\ub9c9\uae30","Durchdr\xe4ngeblock","Bl\xf6cke","Doppelter Block nach au\xdfen mit den Au\xdfenkanten der Unterarme um sich Platz zu schaffen"],t.s)
-B.Kk=s(["Ap Chagi","\uc55e\ucc28\uae30","Vorw\xe4rtskick","Kicks","Kick nach vorne mit dem Fu\xdfballen"],t.s)
+B.Kl=s(["Ap Chagi","\uc55e\ucc28\uae30","Vorw\xe4rtskick","Kicks","Kick nach vorne mit dem Fu\xdfballen"],t.s)
 B.LC=s(["Kima Seogi","\uae30\ub9c8\uc11c\uae30","Reiterstellung","Fu\xdfstellungen","Symmetrische Fu\xdfstellung, Fu\xdfsptizen schauen nach vorne, Beine sind gebeugt","Juchum Seogi [\uc8fc\ucda4\uc11c\uae30]"],t.s)
 B.IL=s(["Sudo Aneuro Daerigi","\uc218\ub3c4\uc548\uc73c\ub85c\ub300\ub9ac\uae30","Handkantenschlag","Schl\xe4ge","Schlag von au\xdfen nach innen mit der Handkante"],t.s)
 B.LB=s(["Yeop Chagi","\uc606\ucc28\uae30","Seitw\xe4rtskick","Kicks","Seitlicher Kick mit der Ferse"],t.s)
-B.KQ=s(["Dollimyeo Makgi","\ub3cc\ub9ac\uba70\ub9c9\uae30","Drehblock","Bl\xf6cke","Block mit der Innenkante des Unterarms von au\xdfen nach innen und Drehung"],t.s)
+B.KR=s(["Dollimyeo Makgi","\ub3cc\ub9ac\uba70\ub9c9\uae30","Drehblock","Bl\xf6cke","Block mit der Innenkante des Unterarms von au\xdfen nach innen und Drehung"],t.s)
 B.JH=s(["Palmok Daebi Makgi","\ud314\ubaa9\ub300\ube44\ub9c9\uae30","Freikampfstellung","Bl\xf6cke","Block mit der Au\xdfenkante des Arms mit Unterst\xfctzung"],t.s)
-B.Ki=s(["Gojeong Seogi","\uace0\uc815\uc11c\uae30","Lange R\xfcckw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","'Fixierte Stellung', wie R\xfcckw\xe4rtsfu\xdfstellung, nur l\xe4nger"],t.s)
+B.Kj=s(["Gojeong Seogi","\uace0\uc815\uc11c\uae30","Lange R\xfcckw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","'Fixierte Stellung', wie R\xfcckw\xe4rtsfu\xdfstellung, nur l\xe4nger"],t.s)
 B.Iq=s(["Bakkeuro Bandal Chagi","\ubc16\uc73c\ub85c\ubc18\ub2ec\ucc28\uae30","Halbmondkick nach Au\xdfen","Kicks","Halbmondkick nach Au\xdfen mit der Au\xdfenkante des Fu\xdfes"],t.s)
 B.Jr=s(["Bandae Dollyeo Chagi","\ubc18\ub300\ub3cc\ub824\ucc28\uae30","Umgekehrter Drehkick","Kicks","Drehkick mit der Ferse"],t.s)
 B.Je=s(["Bitturo Chagi","\ube44\ub69c\ub85c\ucc28\uae30","Schiefkick","Kicks","Schiefer Kick mit dem Fu\xdfballen"],t.s)
-B.K8=s(["Naeryeo Chagi","\ub0b4\ub824\ucc28\uae30","Axtkick","Kicks","Kick von oben mit der Ferse"],t.s)
+B.K9=s(["Naeryeo Chagi","\ub0b4\ub824\ucc28\uae30","Axtkick","Kicks","Kick von oben mit der Ferse"],t.s)
 B.Jv=s(["Ap Olligi","\uc55e\uc62c\ub9ac\uae30","Gerader Beinschwung","Kicks","Wie Ap Chagi, mit gestrecktem Bein"],t.s)
-B.Lt=s(["Dollyeo Olligi","\ub3cc\ub824\uc62c\ub9ac\uae30","Gedrehter Beinschwung","Kicks","Wie Dollyeo Chagi, mit gestrecktem Bein"],t.s)
+B.Lu=s(["Dollyeo Olligi","\ub3cc\ub824\uc62c\ub9ac\uae30","Gedrehter Beinschwung","Kicks","Wie Dollyeo Chagi, mit gestrecktem Bein"],t.s)
 B.J4=s(["Yeop Olligi","\uc606\uc62c\ub9ac\uae30","Seitlicher Beinschwung","Kicks","Wie Yeop Chagi, mit gestrecktem Bein"],t.s)
-B.K0=s(["Sudo Makgi","\uc218\ub3c4\ub9c9\uae30","Handkantenblock","Bl\xf6cke","Block nach au\xdfen mit der Handkante","Im 5. Hyeong: Geolchyeo Makgi [\uac78\uccd0\ub9c9\uae30]"],t.s)
+B.K1=s(["Sudo Makgi","\uc218\ub3c4\ub9c9\uae30","Handkantenblock","Bl\xf6cke","Block nach au\xdfen mit der Handkante","Im 5. Hyeong: Geolchyeo Makgi [\uac78\uccd0\ub9c9\uae30]"],t.s)
 B.I5=s(["Palgup Deulgi","\ud314\uad7d\ub4e4\uae30","Ellenbogensto\xdf","St\xf6\xdfe","Horizontaler Sto\xdf mit dem Ellenbogen"],t.s)
 B.J7=s(["Ssang Sudo Makgi","\uc30d\uc218\ub3c4\ub9c9\uae30","Doppelter Handkantenblock","Bl\xf6cke","Block nach au\xdfen und oben mit der Handkante"],t.s)
 B.JG=s(["Du Palmok Makgi","\ub450\ud314\ubaa9\ub9c9\uae30","Doppelter Unterarmblock","Bl\xf6cke","Block mit der Innenkante des Unterarms mit Unterst\xfctzung des anderen Arms"],t.s)
-B.KN=s(["Guburyeo Seogi","\uad6c\ubd80\ub824\uc11c\uae30","Kranichstellung","Fu\xdfstellungen","Fu\xdfstellung auf einem Bein, mit dem anderen Bein abgewinkelt"],t.s)
-B.Ka=s(["Gyocha Seogi","\uad50\ucc28\uc11c\uae30","Kreuzstellung","Fu\xdfstellungen","Fu\xdfstellung mit \xfcberkreuzten Beinen"],t.s)
+B.KO=s(["Guburyeo Seogi","\uad6c\ubd80\ub824\uc11c\uae30","Kranichstellung","Fu\xdfstellungen","Fu\xdfstellung auf einem Bein, mit dem anderen Bein abgewinkelt"],t.s)
+B.Kb=s(["Gyocha Seogi","\uad50\ucc28\uc11c\uae30","Kreuzstellung","Fu\xdfstellungen","Fu\xdfstellung mit \xfcberkreuzten Beinen"],t.s)
 B.Jq=s(["Yeok Sudo Momtong Makgi","\uc5ed\uc218\ub3c4\ubab8\ud1b5\ub9c9\uae30","Innenhandkantenblock","Bl\xf6cke","Block mit der Innenkante der Hand auf mittlerer H\xf6her","Yeok Sudo Jungdan Makgi [\uc5ed\uc218\ub3c4\uc911\ub2e8\ub9c9\uae30]"],t.s)
 B.Ju=s(["Jang Gwon Ollyeo Makgi","\uc7a5\uad8c\uc62c\ub824\ub9c9\uae30","Handballenblock","Bl\xf6cke","Block nach oben mit dem Handballen"],t.s)
 B.IV=s(["Wit Palgup Deulgi","\uc717\ud314\uad7d\ub4e4\uae30","Ellenbogen sto\xdf nach oben","St\xf6\xdfe","Ellenbogen sto\xdf nach oben"],t.s)
-B.Lc=s(["Ssang Gwon Eolgul Jireugi","\uc30d\uad8c\uc5bc\uad74\uc9c0\ub974\uae30","Doppelter Fauststo\xdf","St\xf6\xdfe","Doppelter Fauststo\xdf auf Kopfh\xf6he","Ssang Gwon Sangdan Jireugi"],t.s)
-B.JT=s(["Ssang Gwon Dwijibon Jireugi","\uc30d\uad8c\ub4a4\uc9c0\ubcf8\uc9c0\ub974\uae30","Doppelter Umgedrehter Fauststo\xdf","St\xf6\xdfe","Doppelter Fauststo\xdf auf Rumpfh\xf6he mit umgedrehten F\xe4usten"],t.s)
-B.JN=s(["Gyocha Makgi","\uad50\ucc28\ub9c9\uae30","Kreuzblock","Bl\xf6cke","Block mit den \xfcberkreuzten Au\xdfenkanten der Unterarme auf Kopfh\xf6he"],t.s)
-B.Km=s(["Ssang Jang Gwon Nulleo Makgi","\uc30d\uc7a5\uad8c\ub20c\ub7ec\ub9c9\uae30","Doppelter Handballenblock","Bl\xf6cke","Block mit den Handballen nach oben und unten, w\xf6rtlich 'Schiebeblock'"],t.s)
+B.Ld=s(["Ssang Gwon Eolgul Jireugi","\uc30d\uad8c\uc5bc\uad74\uc9c0\ub974\uae30","Doppelter Fauststo\xdf","St\xf6\xdfe","Doppelter Fauststo\xdf auf Kopfh\xf6he","Ssang Gwon Sangdan Jireugi"],t.s)
+B.JU=s(["Ssang Gwon Dwijibon Jireugi","\uc30d\uad8c\ub4a4\uc9c0\ubcf8\uc9c0\ub974\uae30","Doppelter Umgedrehter Fauststo\xdf","St\xf6\xdfe","Doppelter Fauststo\xdf auf Rumpfh\xf6he mit umgedrehten F\xe4usten"],t.s)
+B.JO=s(["Gyocha Makgi","\uad50\ucc28\ub9c9\uae30","Kreuzblock","Bl\xf6cke","Block mit den \xfcberkreuzten Au\xdfenkanten der Unterarme auf Kopfh\xf6he"],t.s)
+B.Kn=s(["Ssang Jang Gwon Nulleo Makgi","\uc30d\uc7a5\uad8c\ub20c\ub7ec\ub9c9\uae30","Doppelter Handballenblock","Bl\xf6cke","Block mit den Handballen nach oben und unten, w\xf6rtlich 'Schiebeblock'"],t.s)
 B.Lz=s(["Dollyeo Jireugi","\ub3cc\ub824\uc9c0\ub974\uae30","Drehsto\xdf","St\xf6\xdfe","Fauststo\xdf von au\xdfen auf Kopfh\xf6he"],t.s)
-B.KM=s(["Mongdungi Makgi","\ubabd\ub465\uc774\ub9c9\uae30","Stockblock","Bl\xf6cke","Block mit beiden offenen H\xe4nden gegen einen vertikalen Stock"],t.s)
+B.KN=s(["Mongdungi Makgi","\ubabd\ub465\uc774\ub9c9\uae30","Stockblock","Bl\xf6cke","Block mit beiden offenen H\xe4nden gegen einen vertikalen Stock"],t.s)
 B.I3=s(["Dwit Bal Seogi","\ub4b7\ubc1c\uc11c\uae30","Kurze R\xfcckw\xe4rtsfu\xdfstellung","Fu\xdfstellungen","Kurze R\xfcckw\xe4rtsfu\xdfstellung, der vordere Fu\xdf ber\xfchrt den Boden nur mit dem Fu\xdfballen"],t.s)
 B.Jd=s(["Moa Seogi","\ubaa8\uc544\uc11c\uae30","Geschlossene fu\xdfstellung","Fu\xdfstellungen","Stehende Fu\xdfstellung, die F\xfc\xdfe sind geschlossen"],t.s)
 B.Jp=s(["Arae Pyeong Gwansu Deulgi","\uc544\ub798\ud3c9\uad00\uc218\ub4e4\uae30","Fingerstich Unten","Stiche","Horizontaler Fingerstich zum Unterleib","Hadan Pyeong Gwansu Deulgi [\ud558\ub2e8\ud3c9\uad00\uc218\ub4e4\uae30]"],t.s)
 B.LE=s(["Arae Gyocha Makgi","\uc544\ub798\uad50\ucc28\ub9c9\uae30","Kreuzblock Unten","Bl\xf6cke","Block mit den \xfcberkreuzten Au\xdfenkanten der Unterarme auf unterer H\xf6he","Hadan Gyocha Makgi [\ud558\ub2e8\uad50\ucc28\uae30]"],t.s)
 B.JJ=s(["Bandal Chagi","\ubc18\ub2ec\ucc28\uae30","Halbmondkick","Kicks","Kick mit gestrecktem Bein von au\xdfen nach innen in einer gro\xdfen Kreisbewegung"],t.s)
-B.Lb=s(["San Makgi","\uc0b0\ub9c9\uae30","Doppelblock Oben","Bl\xf6cke","Block mit beiden Armen auf Kopfh\xf6he vorne und hinten. Das Chinesische Schriftzeichenf\xfcr Berg (Koreanisch: San) sieht aus wie dieser Block (\u5c71)"],t.s)
+B.Lc=s(["San Makgi","\uc0b0\ub9c9\uae30","Doppelblock Oben","Bl\xf6cke","Block mit beiden Armen auf Kopfh\xf6he vorne und hinten. Das Chinesische Schriftzeichenf\xfcr Berg (Koreanisch: San) sieht aus wie dieser Block (\u5c71)"],t.s)
 B.LH=s(["Du Palmok Arae Makgi","\ub450\ud314\ubaa9\uc544\ub798\ub9c9\uae30","Doppelblock Unten","Bl\xf6cke","Block mit der Innenkante der Unterarms mit Unterst\xfctzung auf unterer H\xf6he","Du Palmok Hadan Makgi [\ub450\ud314\ubaa9\ud558\ub2e8\uae30]"],t.s)
 B.Jl=s(["Mureup Ap Chagi","\ubb34\ub98e\uc55e\ucc28\uae30","Kniesto\xdf","Kicks","Sto\xdf mit dem Knie nach vorne"],t.s)
 B.Jc=s(["Pyeong Gwansu Deulgi","\ud3c9\uad00\uc218\ub4e4\uae30","Horizontaler Fingerstich","Stiche","Horizontaler Fingerstich auf Kopfh\xf6he"],t.s)
-B.Lk=s(["Rigwon Dwit Daerigi","\ub9ac\uad8c\ub4b7\ub300\ub9ac\uae30","Faustr\xfcckenschlag nach hinten","Schl\xe4ge","Schlag mit der Hinterfaust hinter dem K\xf6rper von oben nach unten"],t.s)
-B.K9=s(["Sudo Daebi Arae Makgi","\uc218\ub3c4\ub300\ube44\uc544\ub798\ub9c9\uae30","Handkantenblock mit Unterst\xfctzung unten","Bl\xf6cke","Block auf unterer H\xf6he mit der Au\xdfenkante der Hand und Unterst\xfctzung","Sudo Daebi Hadan Makgi [\uc218\ub3c4\ub300\ube44\ud558\ub2e8\ub9c9\uae30]"],t.s)
-B.L7=s(["Jang Gwon Aneuro Makgi","\uc7a5\uad8c\uc548\uc73c\ub85c\ub9c9\uae30","Handballenblock nach innen","Bl\xf6cke","Handballenblock nach innen auf Rumpfh\xf6he"],t.s)
-B.Lf=s(["Dwijibon Jireugi","\ub4a4\uc9c0\ubcf8\uc9c0\ub974\uae30","Umgekehrter Fauststo\xdf","St\xf6\xdfe","Sto\xdf mit umgedrehter Faust auf Rumpfh\xf6he"],t.s)
-B.Ln=s(["Sudo Naeryeo Daerigi","\uc218\ub3c4\ub0b4\ub824\ub300\ub9ac\uae30","Handkantenschlag nach unten","Schl\xe4ge","Handkantenschlag nach unten"],t.s)
-B.L6=s(["Dollyeo Chagi","\ub3cc\ub824\ucc28\uae30","Drehkick","Kicks","Kick mit dem Fu\xdfballen von der Seite"],t.s)
-B.Lr=s(["Dwit Palgup Deulgi","\ub4b7\ud314\uad7d\ub4e4\uae30","Ellenbogenstich nach hinten","Stiche","Ellenbogenstich nach hinten"],t.s)
-B.KO=s(["Sudo Eolgul Makgi","\uc218\ub3c4\uc5bc\uad74\ub9c9\uae30","Handkantenblock Oben","Bl\xf6cke","Block mit der Au\xdfenhandkante nach oben","Sudo Sangdan Makgi [\uc218\ub3c4\uc0b0\ub2e8\ub9c9\uae30]"],t.s)
+B.Ll=s(["Rigwon Dwit Daerigi","\ub9ac\uad8c\ub4b7\ub300\ub9ac\uae30","Faustr\xfcckenschlag nach hinten","Schl\xe4ge","Schlag mit der Hinterfaust hinter dem K\xf6rper von oben nach unten"],t.s)
+B.Ka=s(["Sudo Daebi Arae Makgi","\uc218\ub3c4\ub300\ube44\uc544\ub798\ub9c9\uae30","Handkantenblock mit Unterst\xfctzung unten","Bl\xf6cke","Block auf unterer H\xf6he mit der Au\xdfenkante der Hand und Unterst\xfctzung","Sudo Daebi Hadan Makgi [\uc218\ub3c4\ub300\ube44\ud558\ub2e8\ub9c9\uae30]"],t.s)
+B.L9=s(["Jang Gwon Aneuro Makgi","\uc7a5\uad8c\uc548\uc73c\ub85c\ub9c9\uae30","Handballenblock nach innen","Bl\xf6cke","Handballenblock nach innen auf Rumpfh\xf6he"],t.s)
+B.Lg=s(["Dwijibon Jireugi","\ub4a4\uc9c0\ubcf8\uc9c0\ub974\uae30","Umgekehrter Fauststo\xdf","St\xf6\xdfe","Sto\xdf mit umgedrehter Faust auf Rumpfh\xf6he"],t.s)
+B.Lo=s(["Sudo Naeryeo Daerigi","\uc218\ub3c4\ub0b4\ub824\ub300\ub9ac\uae30","Handkantenschlag nach unten","Schl\xe4ge","Handkantenschlag nach unten"],t.s)
+B.L8=s(["Dollyeo Chagi","\ub3cc\ub824\ucc28\uae30","Drehkick","Kicks","Kick mit dem Fu\xdfballen von der Seite"],t.s)
+B.Ls=s(["Dwit Palgup Deulgi","\ub4b7\ud314\uad7d\ub4e4\uae30","Ellenbogenstich nach hinten","Stiche","Ellenbogenstich nach hinten"],t.s)
+B.KP=s(["Sudo Eolgul Makgi","\uc218\ub3c4\uc5bc\uad74\ub9c9\uae30","Handkantenblock Oben","Bl\xf6cke","Block mit der Au\xdfenhandkante nach oben","Sudo Sangdan Makgi [\uc218\ub3c4\uc0b0\ub2e8\ub9c9\uae30]"],t.s)
 B.IJ=s(["Dwit Chagi","\ub4b7\ucc28\uae30","Kick nach hinten","Kicks","Seitlicher Kick nach hinten"],t.s)
-B.Kp=s(["Ttwimyeo Yeop Chagi","\ub6f0\uba70\uc606\ucc28\uae30","Gesprunger Seitlicher Kick","Kicks","Seitlicher Kick mit der Ferse, gesprungen"],t.s)
+B.Kq=s(["Ttwimyeo Yeop Chagi","\ub6f0\uba70\uc606\ucc28\uae30","Gesprunger Seitlicher Kick","Kicks","Seitlicher Kick mit der Ferse, gesprungen"],t.s)
 B.I4=s(["Yeok Sudo Daerigi","\uc5ed\uc218\ub3c4\ub300\ub9ac\uae30","Innenhandkantenschlag","Schl\xe4ge","Schlag mit der Innenhandkante von au\xdfen bei gestrecktem Arm"],t.s)
 B.IS=s(["Gyocha Ollyeo Makgi","\uad50\ucc28\uc62c\ub824\ub9c9\uae30","\xdcberkreuzter Hebeblock","Bl\xf6cke","Block mit \xfcberkreuzten H\xe4nden von unten zur Mitte mit offenen H\xe4nden"],t.s)
 B.Jz=s(["Ssang Jang Gwon Ollyeo Makgi","\uc30d\uc7a5\uad8c\uc62c\ub824\ub9c9\uae30","Handballenhebeblock","Bl\xf6cke","Block mit beiden Handballen von unten zur Mitte"],t.s)
-B.K4=s(["Naeryeo Daerigi","\ub0b4\ub824\ub300\ub9ac\uae30","Faustr\xfcckenschlag nach unten","Schl\xe4ge","Faustr\xfcckenschlag nach unten"],t.s)
+B.K5=s(["Naeryeo Daerigi","\ub0b4\ub824\ub300\ub9ac\uae30","Faustr\xfcckenschlag nach unten","Schl\xe4ge","Faustr\xfcckenschlag nach unten"],t.s)
 B.IF=s(["I Bo Daeryeon","\uc774\ubcf4\ub300\ub828","Zweischrittkampf","Disziplinen","Abgesprochener Kampf mit zwei Angriffssequenzen"],t.s)
-B.KX=s(["Sam Bo Daeryeon","\uc0bc\ubcf4\ub300\ub828","Dreischrittkampf","Disziplinen","Abgesprochener Kampf mit drei Angriffssequenzen"],t.s)
+B.KY=s(["Sam Bo Daeryeon","\uc0bc\ubcf4\ub300\ub828","Dreischrittkampf","Disziplinen","Abgesprochener Kampf mit drei Angriffssequenzen"],t.s)
 B.Js=s(["Jayu Daeryeon","\uc790\uc720\ub300\ub828","Freikampf","Disziplinen","Freier Kampf ohne Kontakt"],t.s)
 B.IZ=s(["Hoshinsul","\ud638\uc2e0\uc220","Selbstverteidigung","Disziplinen","Verteidigung mit Hebeln und W\xfcrfen gegen einen Angriff"],t.s)
 B.Ir=s(["Gyeokpa","\uaca9\ud30c","Bruchtest","Disziplinen","Brechen von Brettern, Ziegeln oder Steinen mit einer Taekwondo-Technik"],t.s)
 B.LF=s(["Gallyeo","\uac08\ub824","Unterbrechung","Im Training","Kommando f\xfcr die Unterbrechung einer \xdcbung"],t.s)
-B.K6=s(["Gyesok","\uacc4\uc18d","Weiter","Im Training","Kommando f\xfcr die Fortsetzung einer \xdcbung"],t.s)
+B.K7=s(["Gyesok","\uacc4\uc18d","Weiter","Im Training","Kommando f\xfcr die Fortsetzung einer \xdcbung"],t.s)
 B.Jn=s(["Zahlen 1 bis 10","","","Zahlen","Hana \ud558\ub098 \n Dul \ub458 \n Set \uc14b \n Net \ub137 \n Daseot \ub2e4\uc12f \n Yeoseot \uc5ec\uc12f \n Ilgop \uc77c\uacf1 \n Yeodeol \uc5ec\ub35f \n Ahop  \uc544\ud649 \n Yeol \uc5f4"],t.s)
 B.HY=s(["Zahlen 11 bis 20","","","Zahlen","Yeolhana \uc5f4\ud558\ub098 \n Yeoldul \uc5f4\ub458 \n Yeolset \uc5f4\uc14b \n Yeolnet \uc5f4\ub137 \n Yeoldaseot \uc5f4\ub2e4\uc12f \n Yeolyeoseot \uc5f4\uc5ec\uc12f \n Yeolilgop \uc5f4\uc77c\uacf1 \n Yeolyeodeol \uc5f4\uc5ec\ub35f \n Yeolahop  \uc5f4\uc544\ud649 \n Seumul \uc2a4\ubb3c"],t.s)
-B.cl=new A.bz(B.O5,[B.JS,B.LA,B.L9,B.Lo,B.JY,B.J9,B.La,B.Kb,B.L8,B.Ls,B.Lv,B.Jg,B.KP,B.JO,B.Ko,B.IX,B.Ly,B.Lg,B.Jh,B.I_,B.IK,B.J8,B.Jw,B.Kk,B.LC,B.IL,B.LB,B.KQ,B.JH,B.Ki,B.Iq,B.Jr,B.Je,B.K8,B.Jv,B.Lt,B.J4,B.K0,B.I5,B.J7,B.JG,B.KN,B.Ka,B.Jq,B.Ju,B.IV,B.Lc,B.JT,B.JN,B.Km,B.Lz,B.KM,B.I3,B.Jd,B.Jp,B.LE,B.JJ,B.Lb,B.LH,B.Jl,B.Jc,B.Lk,B.K9,B.L7,B.Lf,B.Ln,B.L6,B.Lr,B.KO,B.IJ,B.Kp,B.I4,B.IS,B.Jz,B.K4,B.IF,B.KX,B.Js,B.IZ,B.Ir,B.LF,B.K6,B.Jn,B.HY],t.VJ)
+B.cl=new A.bz(B.O5,[B.JT,B.LA,B.JM,B.Lp,B.JZ,B.J9,B.Lb,B.Kc,B.La,B.Lt,B.Lw,B.Jg,B.KQ,B.JP,B.Kp,B.IX,B.L5,B.Lh,B.Jh,B.I_,B.IK,B.J8,B.Jw,B.Kl,B.LC,B.IL,B.LB,B.KR,B.JH,B.Kj,B.Iq,B.Jr,B.Je,B.K9,B.Jv,B.Lu,B.J4,B.K1,B.I5,B.J7,B.JG,B.KO,B.Kb,B.Jq,B.Ju,B.IV,B.Ld,B.JU,B.JO,B.Kn,B.Lz,B.KN,B.I3,B.Jd,B.Jp,B.LE,B.JJ,B.Lc,B.LH,B.Jl,B.Jc,B.Ll,B.Ka,B.L9,B.Lg,B.Lo,B.L8,B.Ls,B.KP,B.IJ,B.Kq,B.I4,B.IS,B.Jz,B.K5,B.IF,B.KY,B.Js,B.IZ,B.Ir,B.LF,B.K7,B.Jn,B.HY],t.VJ)
 B.O6={"\u314f":0,"\u3153":1,"\u3157":2,"\u315c":3,"\u3150":4,"\u3154":5}
 B.bV=new A.bz(B.O6,["\u3151","\u3155","\u315b","\u3160","\u3152","\u3156"],t.li)
 B.Oe={"\u3133":0,"\u3135":1,"\u3136":2,"\u313a":3,"\u313b":4,"\u313c":5,"\u313d":6,"\u313e":7,"\u313f":8,"\u3140":9,"\u3144":10,"\u3146":11,"\u3132":12,"\u3138":13,"\u3143":14,"\u3149":15}
-B.L5=s(["\u3131","\u3145"],t.s)
-B.Kc=s(["\u3134","\u3148"],t.s)
-B.Kd=s(["\u3134","\u314e"],t.s)
-B.JQ=s(["\u3139","\u3131"],t.s)
+B.L7=s(["\u3131","\u3145"],t.s)
+B.Kd=s(["\u3134","\u3148"],t.s)
+B.Ke=s(["\u3134","\u314e"],t.s)
+B.JR=s(["\u3139","\u3131"],t.s)
 B.Jk=s(["\u3139","\u3141"],t.s)
 B.J6=s(["\u3139","\u3142"],t.s)
-B.Kg=s(["\u3139","\u3145"],t.s)
-B.KU=s(["\u3139","\u314c"],t.s)
+B.Kh=s(["\u3139","\u3145"],t.s)
+B.KV=s(["\u3139","\u314c"],t.s)
 B.Jj=s(["\u3139","\u314d"],t.s)
 B.J5=s(["\u3139","\u314e"],t.s)
-B.Lh=s(["\u3142","\u3145"],t.s)
+B.Li=s(["\u3142","\u3145"],t.s)
 B.pn=s(["\u3145","\u3145"],t.s)
 B.pm=s(["\u3131","\u3131"],t.s)
 B.pb=s(["\u3137","\u3137"],t.s)
 B.pf=s(["\u3142","\u3142"],t.s)
 B.pd=s(["\u3148","\u3148"],t.s)
-B.cm=new A.bz(B.Oe,[B.L5,B.Kc,B.Kd,B.JQ,B.Jk,B.J6,B.Kg,B.KU,B.Jj,B.J5,B.Lh,B.pn,B.pm,B.pb,B.pf,B.pd],t.VJ)
+B.cm=new A.bz(B.Oe,[B.L7,B.Kd,B.Ke,B.JR,B.Jk,B.J6,B.Kh,B.KV,B.Jj,B.J5,B.Li,B.pn,B.pm,B.pb,B.pf,B.pd],t.VJ)
 B.O8={"\u3131":0,"\u3137":1,"\u3142":2,"\u3145":3,"\u3148":4}
 B.bA=new A.bz(B.O8,["\u3132","\u3138","\u3143","\u3146","\u3149"],t.li)
 B.Oi={type:0}
@@ -95327,57 +95327,57 @@ B.Iy=s([54,null,null,8589935158],t.Z)
 B.Iz=s([55,null,null,8589935159],t.Z)
 B.IA=s([56,null,null,8589935160],t.Z)
 B.IC=s([57,null,null,8589935161],t.Z)
-B.JU=s([8589934852,8589934852,8589934853,null],t.Z)
+B.JV=s([8589934852,8589934852,8589934853,null],t.Z)
 B.I8=s([4294967555,null,4294967555,null],t.Z)
 B.I9=s([4294968065,null,null,8589935154],t.Z)
 B.Ia=s([4294968066,null,null,8589935156],t.Z)
 B.Ib=s([4294968067,null,null,8589935158],t.Z)
 B.Ic=s([4294968068,null,null,8589935160],t.Z)
 B.Ih=s([4294968321,null,null,8589935157],t.Z)
-B.JV=s([8589934848,8589934848,8589934849,null],t.Z)
+B.JW=s([8589934848,8589934848,8589934849,null],t.Z)
 B.I7=s([4294967423,null,null,8589935150],t.Z)
 B.Id=s([4294968069,null,null,8589935153],t.Z)
 B.I6=s([4294967309,null,null,8589935117],t.Z)
 B.Ie=s([4294968070,null,null,8589935159],t.Z)
 B.Ii=s([4294968327,null,null,8589935152],t.Z)
-B.JW=s([8589934854,8589934854,8589934855,null],t.Z)
+B.JX=s([8589934854,8589934854,8589934855,null],t.Z)
 B.If=s([4294968071,null,null,8589935155],t.Z)
 B.Ig=s([4294968072,null,null,8589935161],t.Z)
-B.JX=s([8589934850,8589934850,8589934851,null],t.Z)
-B.vn=new A.cS(["*",B.Ij,"+",B.Ik,"-",B.Il,".",B.Im,"/",B.In,"0",B.Io,"1",B.Ip,"2",B.It,"3",B.Iv,"4",B.Iw,"5",B.Ix,"6",B.Iy,"7",B.Iz,"8",B.IA,"9",B.IC,"Alt",B.JU,"AltGraph",B.I8,"ArrowDown",B.I9,"ArrowLeft",B.Ia,"ArrowRight",B.Ib,"ArrowUp",B.Ic,"Clear",B.Ih,"Control",B.JV,"Delete",B.I7,"End",B.Id,"Enter",B.I6,"Home",B.Ie,"Insert",B.Ii,"Meta",B.JW,"PageDown",B.If,"PageUp",B.Ig,"Shift",B.JX],A.ar("cS<m,X<l?>>"))
+B.JY=s([8589934850,8589934850,8589934851,null],t.Z)
+B.vn=new A.cS(["*",B.Ij,"+",B.Ik,"-",B.Il,".",B.Im,"/",B.In,"0",B.Io,"1",B.Ip,"2",B.It,"3",B.Iv,"4",B.Iw,"5",B.Ix,"6",B.Iy,"7",B.Iz,"8",B.IA,"9",B.IC,"Alt",B.JV,"AltGraph",B.I8,"ArrowDown",B.I9,"ArrowLeft",B.Ia,"ArrowRight",B.Ib,"ArrowUp",B.Ic,"Clear",B.Ih,"Control",B.JW,"Delete",B.I7,"End",B.Id,"Enter",B.I6,"Home",B.Ie,"Insert",B.Ii,"Meta",B.JX,"PageDown",B.If,"PageUp",B.Ig,"Shift",B.JY],A.ar("cS<m,X<l?>>"))
 B.IB=s([B.pv,null,null,B.vb],t.L)
-B.KR=s([B.uY,null,null,B.vc],t.L)
+B.KS=s([B.uY,null,null,B.vc],t.L)
 B.Ji=s([B.uZ,null,null,B.vd],t.L)
-B.JZ=s([B.v_,null,null,B.dA],t.L)
+B.K_=s([B.v_,null,null,B.dA],t.L)
 B.HX=s([B.v0,null,null,B.ve],t.L)
-B.Ll=s([B.v1,null,null,B.la],t.L)
-B.L4=s([B.v2,null,null,B.fy],t.L)
+B.Lm=s([B.v1,null,null,B.la],t.L)
+B.L6=s([B.v2,null,null,B.fy],t.L)
 B.II=s([B.v3,null,null,B.dB],t.L)
-B.Lx=s([B.v4,null,null,B.fz],t.L)
-B.L2=s([B.v5,null,null,B.dC],t.L)
+B.Ly=s([B.v4,null,null,B.fz],t.L)
+B.L3=s([B.v5,null,null,B.dC],t.L)
 B.IG=s([B.v6,null,null,B.lb],t.L)
 B.I1=s([B.v7,null,null,B.dD],t.L)
 B.IY=s([B.v8,null,null,B.fA],t.L)
-B.KS=s([B.v9,null,null,B.dE],t.L)
-B.KV=s([B.va,null,null,B.fB],t.L)
+B.KT=s([B.v9,null,null,B.dE],t.L)
+B.KW=s([B.va,null,null,B.fB],t.L)
 B.IM=s([B.fw,B.fw,B.id,null],t.L)
-B.Lm=s([B.i9,null,B.i9,null],t.L)
+B.Ln=s([B.i9,null,B.i9,null],t.L)
 B.JA=s([B.ci,null,null,B.dB],t.L)
 B.JB=s([B.c6,null,null,B.dC],t.L)
 B.JC=s([B.c7,null,null,B.dD],t.L)
-B.Lq=s([B.cj,null,null,B.dE],t.L)
-B.L0=s([B.l3,null,null,B.lb],t.L)
+B.Lr=s([B.cj,null,null,B.dE],t.L)
+B.L1=s([B.l3,null,null,B.lb],t.L)
 B.IN=s([B.fv,B.fv,B.ic,null],t.L)
-B.Kf=s([B.b8,null,null,B.dA],t.L)
+B.Kg=s([B.b8,null,null,B.dA],t.L)
 B.JD=s([B.dx,null,null,B.fy],t.L)
 B.IE=s([B.i8,null,null,B.l9],t.L)
 B.JE=s([B.dy,null,null,B.fA],t.L)
-B.L1=s([B.l4,null,null,B.la],t.L)
+B.L2=s([B.l4,null,null,B.la],t.L)
 B.IO=s([B.fx,B.fx,B.ie,null],t.L)
 B.JF=s([B.ft,null,null,B.fz],t.L)
-B.Kq=s([B.fu,null,null,B.fB],t.L)
+B.Kr=s([B.fu,null,null,B.fB],t.L)
 B.IP=s([B.d2,B.d2,B.dz,null],t.L)
-B.Np=new A.cS(["*",B.IB,"+",B.KR,"-",B.Ji,".",B.JZ,"/",B.HX,"0",B.Ll,"1",B.L4,"2",B.II,"3",B.Lx,"4",B.L2,"5",B.IG,"6",B.I1,"7",B.IY,"8",B.KS,"9",B.KV,"Alt",B.IM,"AltGraph",B.Lm,"ArrowDown",B.JA,"ArrowLeft",B.JB,"ArrowRight",B.JC,"ArrowUp",B.Lq,"Clear",B.L0,"Control",B.IN,"Delete",B.Kf,"End",B.JD,"Enter",B.IE,"Home",B.JE,"Insert",B.L1,"Meta",B.IO,"PageDown",B.JF,"PageUp",B.Kq,"Shift",B.IP],A.ar("cS<m,X<f?>>"))
+B.Np=new A.cS(["*",B.IB,"+",B.KS,"-",B.Ji,".",B.K_,"/",B.HX,"0",B.Lm,"1",B.L6,"2",B.II,"3",B.Ly,"4",B.L3,"5",B.IG,"6",B.I1,"7",B.IY,"8",B.KT,"9",B.KW,"Alt",B.IM,"AltGraph",B.Ln,"ArrowDown",B.JA,"ArrowLeft",B.JB,"ArrowRight",B.JC,"ArrowUp",B.Lr,"Clear",B.L1,"Control",B.IN,"Delete",B.Kg,"End",B.JD,"Enter",B.IE,"Home",B.JE,"Insert",B.L2,"Meta",B.IO,"PageDown",B.JF,"PageUp",B.Kr,"Shift",B.IP],A.ar("cS<m,X<f?>>"))
 B.O7={KeyA:0,KeyB:1,KeyC:2,KeyD:3,KeyE:4,KeyF:5,KeyG:6,KeyH:7,KeyI:8,KeyJ:9,KeyK:10,KeyL:11,KeyM:12,KeyN:13,KeyO:14,KeyP:15,KeyQ:16,KeyR:17,KeyS:18,KeyT:19,KeyU:20,KeyV:21,KeyW:22,KeyX:23,KeyY:24,KeyZ:25,Digit1:26,Digit2:27,Digit3:28,Digit4:29,Digit5:30,Digit6:31,Digit7:32,Digit8:33,Digit9:34,Digit0:35,Minus:36,Equal:37,BracketLeft:38,BracketRight:39,Backslash:40,Semicolon:41,Quote:42,Backquote:43,Comma:44,Period:45,Slash:46}
 B.vo=new A.bz(B.O7,["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","\\",";","'","`",",",".","/"],t.li)
 B.O2={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Escape:49,Esc:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
@@ -95848,9 +95848,9 @@ B.eA=new A.as(2,2)
 B.Qg=new A.as(-1/0,-1/0)
 B.Qh=new A.as(1.5,1.5)
 B.Qi=new A.as(1/0,1/0)
-B.KD=s([],A.ar("y<i2>"))
-B.KE=s([],A.ar("y<ir>"))
-B.Qj=new A.AQ(B.KD,B.KE)
+B.KE=s([],A.ar("y<i2>"))
+B.KF=s([],A.ar("y<ir>"))
+B.Qj=new A.AQ(B.KE,B.KF)
 B.zg=new A.al(0,0)
 B.Qk=new A.al(0,!0)
 B.cK=new A.CJ(2,"collapsed")
@@ -95901,21 +95901,21 @@ B.mf=new A.a2("Schreibweise:",null,B.y,null,null,null,null,null,null)
 B.eD=new A.cv(60,null,null,null)
 B.eH=new A.k(!0,null,null,null,null,null,30,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.YW=new A.a2("\uad6d\ubb3c",null,B.eH,null,null,null,null,null,null)
-B.Lj=s([B.mf,B.eD,B.YW],t.p)
-B.QU=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Lj,null)
+B.Lk=s([B.mf,B.eD,B.YW],t.p)
+B.QU=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Lk,null)
 B.Zb=new A.a2("\uacbd\ub840",null,B.eH,null,null,null,null,null,null)
 B.Jx=s([B.mf,B.eD,B.Zb],t.p)
 B.QV=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Jx,null)
 B.m8=new A.a2("Aussprache",null,B.y,null,null,null,null,null,null)
 B.ZI=new A.a2("\uc2e4\ub77c",null,B.eH,null,null,null,null,null,null)
-B.Ke=s([B.m8,B.eD,B.ZI],t.p)
-B.QW=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Ke,null)
+B.Kf=s([B.m8,B.eD,B.ZI],t.p)
+B.QW=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Kf,null)
 B.YQ=new A.a2("\uad81\ubbc8",null,B.eH,null,null,null,null,null,null)
 B.Ja=s([B.m8,B.eD,B.YQ],t.p)
 B.QX=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Ja,null)
 B.Z2=new A.a2("\uc2e0\ub77c",null,B.eH,null,null,null,null,null,null)
-B.Lw=s([B.mf,B.eD,B.Z2],t.p)
-B.QY=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Lw,null)
+B.Lx=s([B.mf,B.eD,B.Z2],t.p)
+B.QY=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.Lx,null)
 B.Ze=new A.a2("\uacbd\ub15c",null,B.eH,null,null,null,null,null,null)
 B.J_=s([B.m8,B.eD,B.Ze],t.p)
 B.QZ=new A.ka(B.L,B.U,B.f,B.x,null,B.c0,null,0,B.J_,null)
@@ -96111,9 +96111,9 @@ B.Sa=new A.eE([B.RW,B.RV],A.ar("eE<lt>"))
 B.zN=new A.eE([B.aC,B.be,B.cp,B.bf,B.bL],t.Lu)
 B.EA=new A.p(0.23529411764705882,0,0,0,B.e)
 B.BO=new A.dS(0.5,B.dZ,B.EA,B.vz,10)
-B.Kj=s([B.BO],t.sq)
+B.Kk=s([B.BO],t.sq)
 B.QT=new A.k9(B.mZ,B.p)
-B.Sb=new A.im(null,null,null,B.Kj,B.QT)
+B.Sb=new A.im(null,null,null,B.Kk,B.QT)
 B.zO=new A.ac(B.l1,!1,!1,!1,!0,B.r)
 B.Sc=new A.ac(B.pq,!0,!1,!1,!1,B.r)
 B.by=new A.zX(1,"locked")
