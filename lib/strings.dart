@@ -48,7 +48,7 @@ static const techniqueInformation= {
 //YELLOW
 "arae_makgi": ["Arae Makgi", "아래막기", "Block Unten", "Blöcke", "Block auf niedriger Höhe mit der Außenkante des Unterarms", "Hadan Makgi [하단막기]"],
 "momtong_jireugi": ["Momtong Jireugi", "몸통지르기", "Fauststoß Mitte", "Stöße", "Fauststoß auf mittlerer Höhe", "Jungdan Jireugi [중단지르기]"],
-"momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms", "Jungdan Makgi [중단막기]"],
+"momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms", "Jungdan Makgi [중단막기]\nAn Palmok Makgi[안팔목막기]"],
 "hugeul_seogi": ["Hugeul Seogi", "후글서기", "Rückwärtsfußstellung", "Fußstellungen", "Seitlich orientierte Fußstellung mit größerer Belastung auf dem hinteren Bein", "Dwit Gubi [뒷구비]"],
 "eolgul_jireugi": ["Eolgul Jireugi", "얼굴지르기", "Fauststoß Oben", "Stöße", "Fauststoß auf oberer Höhe", "Sangdan Jireugi [하단막기]"],
 "eolgul_makgi": ["Eolgul Makgi", "얼굴막기", "Block Oben", "Blöcke", "Block auf oberer Höhe mit der Außenkante des Unterarms", "Sangdan Makgi [상단막기], Chukyeo Makgi [추켜막기]"],
@@ -64,7 +64,7 @@ static const techniqueInformation= {
 "gyeongnye": ["Gyeongnye", "경례", "Verbeugung", "Im Training", "Kommando für die Verbeugung"],
 "shijak": ["Shijak", "시작", "Start", "Im Training", "Kommando für den Start einer Übung"],
 "geuman": ["Geuman", "그만", "Stop", "Im Training", "Kommando für den Stop einer Übung"],
-"gyosanim": ["Gyosanim", "교사님", "Anfängermeister*in", "Im Training", "Träger*in eines ersten bis vierten Dans"],
+"gyosanim": ["Gyosanim", "교사님", "Meister*in", "Im Training", "Träger*in eines ersten bis vierten Dans"],
 "sabeomnim": ["Sabeomnim", "사범님", "Großmeister*in", "Im Training", "Träger*in eines fünften Dans oder höher"],
 "il_bo_daeryeon": ["Il Bo Daeryeon", "일보대련", "Einschrittkampf", "Disziplinen", "Abgesprochener Kampf mit einer Angriffssequenz"],
 
