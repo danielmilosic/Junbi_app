@@ -59,6 +59,8 @@ class CurriculumDetailPage extends StatelessWidget {
 
     final beltImagePath = 'assets/images/${beltRank}_belt.png';
 
+    final listOfKeys = [...beltRankDependentTechniques, ...oldTechniques];
+
     return {
       'techniques': beltRankDependentTechniques,
       'hyeongs': beltRankDependentHyeongs,
@@ -246,7 +248,7 @@ class CurriculumDetailPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (_) =>
-                                    TechniqueDetailPage(techniqueKey: techniqueKey),
+                                    TechniqueDetailPage(techniqueKey: techniqueKey, listOfKeys: [],),
                               ),
                             );
                           },

@@ -9,7 +9,7 @@ class CurriculumPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final belts = ['white','yellow', 'green', 'blue', 'red', 'black'];
-    final beltRanks = ['Dojang Etiquette', '8. Geup', '6. Geup', '4. Geup', '2. Geup', '1. Dan'];
+    final beltRanks = ['Dojang Etikette', '8. Geup', '6. Geup', '4. Geup', '2. Geup', '1. Dan'];
 
     return Scaffold(
       body: Padding(

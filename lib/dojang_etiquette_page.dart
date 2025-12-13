@@ -85,7 +85,7 @@ class _EtiquetteContentState extends State<_EtiquetteContent> {
 
           // Aufbau
           const Text(
-            'Dojang Etiquette',
+            'Dojang Etikette',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
@@ -124,7 +124,7 @@ class _EtiquetteContentState extends State<_EtiquetteContent> {
 
           const Divider(height: 60),
 
-          _buildRule(context, 'Die Höhergraduierte Person beginn immer mit der Übung.', 'assets/images/il_bo_daeryeon_start.png'),
+          _buildRule(context, 'Die höhergraduierte Person beginn immer mit der Übung.', 'assets/images/il_bo_daeryeon_start.png'),
 
           const Divider(height: 60),
 

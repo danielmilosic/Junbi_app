@@ -66,7 +66,7 @@ class CategoriesPage extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (_) =>
-                                TechniqueDetailPage(techniqueKey: imageName),
+                                TechniqueDetailPage(techniqueKey: imageName, listOfKeys: listOfKeys),
                           ),
                         );
                       },

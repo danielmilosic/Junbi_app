@@ -162,7 +162,7 @@ class HyeongDetailPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    TechniqueDetailPage(techniqueKey: techniqueKey),
+                                    TechniqueDetailPage(techniqueKey: techniqueKey, listOfKeys: techniques,),
                               ),
                             );
                           },

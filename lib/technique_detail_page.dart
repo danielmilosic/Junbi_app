@@ -6,8 +6,13 @@ import 'package:flutter/services.dart';
 
 class TechniqueDetailPage extends StatefulWidget {
   final String techniqueKey;
+  final List<String> listOfKeys;
 
-  const TechniqueDetailPage({super.key, required this.techniqueKey});
+  const TechniqueDetailPage({
+    super.key,
+    required this.techniqueKey,
+    required this.listOfKeys,
+  });
 
   @override
   State<TechniqueDetailPage> createState() => _TechniqueDetailPageState();
@@ -24,9 +29,15 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   late String _fallbackImage;
   late String _startImage;
 
+  late int _currentIndex;
+  bool _isNavigating = false;
+
   @override
   void initState() {
     super.initState();
+
+    _currentIndex = widget.listOfKeys.indexOf(widget.techniqueKey);
+    //assert(_currentIndex != -1, 'techniqueKey not found in listOfKeys');
 
     _fallbackImage = 'assets/images/${widget.techniqueKey}.png';
     _startImage = 'assets/images/${widget.techniqueKey}_start.png';
@@ -36,13 +47,11 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
       if (mounted) setState(() => _isPlaying = false);
     });
 
-    _precacheImages(); // ✅ Precache once before toggling
+    _precacheImages();
 
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (mounted) {
-        setState(() {
-          _showStartImage = !_showStartImage;
-        });
+        setState(() => _showStartImage = !_showStartImage);
       }
     });
   }
@@ -51,7 +60,6 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     try {
       await rootBundle.load(_startImage);
       _hasStartImage = true;
-      // ✅ Precache both images in memory before first frame
       await Future.wait([
         precacheImage(AssetImage(_fallbackImage), context),
         precacheImage(AssetImage(_startImage), context),
@@ -60,7 +68,7 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
       _hasStartImage = false;
       await precacheImage(AssetImage(_fallbackImage), context);
     }
-    if (mounted) setState(() {}); // initial draw
+    if (mounted) setState(() {});
   }
 
   @override
@@ -73,8 +81,9 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   void _toggleAudio() async {
     if (!_isPlaying) {
       try {
-        final audioPath = 'audio/${widget.techniqueKey}.mp3';
-        await _audioPlayer.play(AssetSource(audioPath));
+        await _audioPlayer.play(
+          AssetSource('audio/${widget.techniqueKey}.mp3'),
+        );
         if (mounted) setState(() => _isPlaying = true);
       } catch (e) {
         if (mounted) {
@@ -89,6 +98,35 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     }
   }
 
+  void _goToNext() {
+    if (_currentIndex < widget.listOfKeys.length - 1) {
+      _navigateToIndex(_currentIndex + 1);
+    }
+  }
+
+  void _goToPrevious() {
+    if (_currentIndex > 0) {
+      _navigateToIndex(_currentIndex - 1);
+    }
+  }
+
+  void _navigateToIndex(int index) {
+    if (_isNavigating) return;
+    _isNavigating = true;
+
+    HapticFeedback.lightImpact();
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) => TechniqueDetailPage(
+          techniqueKey: widget.listOfKeys[index],
+          listOfKeys: widget.listOfKeys,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final info = AppStrings.techniqueInformation[widget.techniqueKey];
@@ -98,112 +136,126 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     final explanation = info?[4] ?? "No explanation available.";
     final synonym = (info != null && info.length > 5) ? info[5] : "";
 
-
     final imagePath = (_showStartImage && _hasStartImage)
         ? _startImage
         : _fallbackImage;
 
     return Scaffold(
       body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(50.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 12),
+        child: NotificationListener<ScrollNotification>(
+          onNotification: (notification) {
+            if (notification is ScrollEndNotification) {
+              final m = notification.metrics;
 
-              Text(
-                latinName,
-                style: const TextStyle(
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              if (m.pixels >= m.maxScrollExtent - 40) {
+                _goToNext();
+              }
 
-              const SizedBox(height: 8),
+              if (m.pixels <= m.minScrollExtent + 40) {
+                _goToPrevious();
+              }
+            }
+            return false;
+          },
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(50.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 12),
 
-              if (hangulName.isNotEmpty)
                 Text(
-                  hangulName,
-                  style: const TextStyle(fontSize: 24),
-                  textAlign: TextAlign.center,
-                ),
-
-              const SizedBox(height: 12),
-
-              SizedBox(
-                width: 315,
-                child: Text(
-                  germanName,
-                  style: const TextStyle(fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-
-              const SizedBox(height: 50),
-
-              // Technique image
-              SizedBox(
-                width: 200,
-                height: 200,
-                child: Hero(
-                  tag: _fallbackImage,
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 0), // optional fade
-                    child: Image.asset(
-                      imagePath,
-                      key: ValueKey(imagePath),
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.image_not_supported, size: 100),
-                    ),
+                  latinName,
+                  style: const TextStyle(
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
                   ),
-                ),
-              ),
-
-              const SizedBox(height: 50),
-
-              SizedBox(
-                width: 315,
-                child: Text(
-                  explanation,
-                  style: const TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
-              ),
 
-              const SizedBox(height: 10),
+                const SizedBox(height: 8),
 
-              if (synonym.isNotEmpty) ...[
+                if (hangulName.isNotEmpty)
+                  Text(
+                    hangulName,
+                    style: const TextStyle(fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
+
+                const SizedBox(height: 12),
+
                 SizedBox(
                   width: 315,
                   child: Text(
-                    'Synonyme: $synonym',
+                    germanName,
                     style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.center,
                   ),
                 ),
+
                 const SizedBox(height: 50),
-              ],
 
-              ElevatedButton.icon(
-                onPressed: _toggleAudio,
-                icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
-                label: const Text('Anhören'),
-              ),
-
-              const SizedBox(height: 50),
-
-              Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back,
-                      size: 28, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
+                SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Hero(
+                    tag: _fallbackImage,
+                    child: AnimatedSwitcher(
+                      duration: Duration.zero,
+                      child: Image.asset(
+                        imagePath,
+                        key: ValueKey(imagePath),
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, __, ___) =>
+                            const Icon(Icons.image_not_supported, size: 100),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ],
+
+                const SizedBox(height: 50),
+
+                SizedBox(
+                  width: 315,
+                  child: Text(
+                    explanation,
+                    style: const TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                if (synonym.isNotEmpty) ...[
+                  SizedBox(
+                    width: 315,
+                    child: Text(
+                      'Synonyme: $synonym',
+                      style: const TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                ],
+
+                ElevatedButton.icon(
+                  onPressed: _toggleAudio,
+                  icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                  label: const Text('Anhören'),
+                ),
+
+                const SizedBox(height: 50),
+
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back,
+                        size: 28, color: Colors.white),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
