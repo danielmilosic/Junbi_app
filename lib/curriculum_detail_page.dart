@@ -59,8 +59,6 @@ class CurriculumDetailPage extends StatelessWidget {
 
     final beltImagePath = 'assets/images/${beltRank}_belt.png';
 
-    final listOfKeys = [...beltRankDependentTechniques, ...oldTechniques];
-
     return {
       'techniques': beltRankDependentTechniques,
       'hyeongs': beltRankDependentHyeongs,
@@ -239,6 +237,10 @@ class CurriculumDetailPage extends StatelessWidget {
                         final displayName = info?[0] ?? techniqueKey;
                         final hangulName = info?[1] ?? '';
                         final techniqueImagePath = 'assets/images/$techniqueKey.png';
+                        final listOfKeys = [
+                          ...beltRankDependentTechniques.map((e) => e.key),
+                          ...oldTechniques.map((e) => e.key),
+                        ];
                         final Cardcolor = oldTechniques.contains(beltRankDependentTechniques[index]) ? const Color.fromARGB(255, 45, 45, 45) : Colors.black;
                         
 
@@ -248,7 +250,7 @@ class CurriculumDetailPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (_) =>
-                                    TechniqueDetailPage(techniqueKey: techniqueKey, listOfKeys: [],),
+                                    TechniqueDetailPage(techniqueKey: techniqueKey, listOfKeys: listOfKeys,),
                               ),
                             );
                           },

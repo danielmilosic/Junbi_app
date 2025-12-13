@@ -32,11 +32,20 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
   late int _currentIndex;
   bool _isNavigating = false;
 
+  late Color forwardArrowColor = Colors.white;
+  late Color backArrowColor = Colors.white;
+
   @override
   void initState() {
     super.initState();
 
     _currentIndex = widget.listOfKeys.indexOf(widget.techniqueKey);
+    if (_currentIndex > 0) {
+      backArrowColor = Colors.transparent;
+    }
+    if (_currentIndex == widget.listOfKeys.length - 1) {
+      forwardArrowColor = Colors.transparent;
+    }
     //assert(_currentIndex != -1, 'techniqueKey not found in listOfKeys');
 
     _fallbackImage = 'assets/images/${widget.techniqueKey}.png';
@@ -110,22 +119,18 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
     }
   }
 
-  void _navigateToIndex(int index) {
-    if (_isNavigating) return;
-    _isNavigating = true;
-
-    HapticFeedback.lightImpact();
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (_) => TechniqueDetailPage(
-          techniqueKey: widget.listOfKeys[index],
-          listOfKeys: widget.listOfKeys,
-        ),
+void _navigateToIndex(int index) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (_) => TechniqueDetailPage(
+        techniqueKey: widget.listOfKeys[index],
+        listOfKeys: widget.listOfKeys,
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -142,120 +147,129 @@ class _TechniqueDetailPageState extends State<TechniqueDetailPage> {
 
     return Scaffold(
       body: Center(
-        child: NotificationListener<ScrollNotification>(
-          onNotification: (notification) {
-            if (notification is ScrollEndNotification) {
-              final m = notification.metrics;
-
-              if (m.pixels >= m.maxScrollExtent - 40) {
-                _goToNext();
-              }
-
-              if (m.pixels <= m.minScrollExtent + 40) {
-                _goToPrevious();
-              }
-            }
-            return false;
-          },
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(50.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 12),
-
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(50.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 12),
+        
+              Text(
+                latinName,
+                style: const TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+        
+              const SizedBox(height: 8),
+        
+              if (hangulName.isNotEmpty)
                 Text(
-                  latinName,
-                  style: const TextStyle(
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  hangulName,
+                  style: const TextStyle(fontSize: 24),
                   textAlign: TextAlign.center,
                 ),
-
-                const SizedBox(height: 8),
-
-                if (hangulName.isNotEmpty)
-                  Text(
-                    hangulName,
-                    style: const TextStyle(fontSize: 24),
-                    textAlign: TextAlign.center,
+        
+              const SizedBox(height: 12),
+        
+              SizedBox(
+                width: 315,
+                child: Text(
+                  germanName,
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+        
+              const SizedBox(height: 50),
+        
+              SizedBox(
+                width: 200,
+                height: 200,
+                child: Hero(
+                  tag: _fallbackImage,
+                  child: AnimatedSwitcher(
+                    duration: Duration.zero,
+                    child: Image.asset(
+                      imagePath,
+                      key: ValueKey(imagePath),
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, __, ___) =>
+                          const Icon(Icons.image_not_supported, size: 100),
+                    ),
                   ),
-
-                const SizedBox(height: 12),
-
+                ),
+              ),
+        
+              const SizedBox(height: 50),
+        
+              SizedBox(
+                width: 315,
+                child: Text(
+                  explanation,
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+        
+              const SizedBox(height: 10),
+        
+              if (synonym.isNotEmpty) ...[
                 SizedBox(
                   width: 315,
                   child: Text(
-                    germanName,
+                    'Synonyme: $synonym',
                     style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.center,
                   ),
                 ),
-
                 const SizedBox(height: 50),
-
-                SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: Hero(
-                    tag: _fallbackImage,
-                    child: AnimatedSwitcher(
-                      duration: Duration.zero,
-                      child: Image.asset(
-                        imagePath,
-                        key: ValueKey(imagePath),
-                        fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) =>
-                            const Icon(Icons.image_not_supported, size: 100),
-                      ),
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 50),
-
-                SizedBox(
-                  width: 315,
-                  child: Text(
-                    explanation,
-                    style: const TextStyle(fontSize: 16),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-
-                if (synonym.isNotEmpty) ...[
-                  SizedBox(
-                    width: 315,
-                    child: Text(
-                      'Synonyme: $synonym',
-                      style: const TextStyle(fontSize: 16),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(height: 50),
-                ],
-
-                ElevatedButton.icon(
-                  onPressed: _toggleAudio,
-                  icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
-                  label: const Text('Anhören'),
-                ),
-
-                const SizedBox(height: 50),
-
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: IconButton(
-                    icon: const Icon(Icons.arrow_back,
-                        size: 28, color: Colors.white),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ),
               ],
+        
+              ElevatedButton.icon(
+                onPressed: _toggleAudio,
+                icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                label: const Text('Anhören'),
+              ),
+        
+              const SizedBox(height: 50),
+        
+        Padding(
+          padding: const EdgeInsets.only(bottom:8.0, top: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Back button
+              
+              IconButton(
+                icon: const Icon(Icons.arrow_back, size: 28, color: Colors.white),
+                onPressed: () {
+                  // Navigate back
+                  _goToPrevious();
+                },
+              ),
+        
+              // Home button
+              IconButton(
+              icon: const Icon(Icons.home, size: 28, color: Colors.white),
+              onPressed: () => Navigator.pop(context),
             ),
+        
+              // Forward button
+              IconButton(
+                icon: const Icon(Icons.arrow_forward, size: 28, color: Colors.white),
+                onPressed: () {
+                  // Navigate forward
+                  _goToNext();
+                },
+              ),
+            ],
+          ),
+        )
+        
+            ],
           ),
         ),
       ),
