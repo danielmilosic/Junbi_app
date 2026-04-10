@@ -467,7 +467,7 @@ void _pressVowel(String v) {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Wir lernen gleich zwei weitere Zwielaute, die recht ähnlich sind. Der erste klingt wie das Französische Wort für "ja", also "oui. Der zweite ist recht schwer zu beschreiben und auszusprechen, kommt aber im Taekwondo nicht vor. \n\n"ㅜ" + "ㅣ" = "ㅟ" \n\n"ㅡ" + "ㅣ" = "ㅢ"  ',
+            'Wir lernen gleich zwei weitere Zwielaute, die recht ähnlich sind. Der erste klingt wie das französische Wort für "ja", also "oui. Der zweite ist recht schwer zu beschreiben und auszusprechen, kommt aber im Taekwondo nicht vor. \n\n"ㅜ" + "ㅣ" = "ㅟ" \n\n"ㅡ" + "ㅣ" = "ㅢ"  ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -490,7 +490,7 @@ void _pressVowel(String v) {
                         ),
                         child:_JamoGrid(
             items: [
-              _Jamo('ㅟ', 'wi', 'wie im französische "OUI"', 'audio/hangul/wi.mp3'),
+              _Jamo('ㅟ', 'wi', 'wie das französische "OUI"', 'audio/hangul/wi.mp3'),
               _Jamo('ㅢ', 'ui', 'wie das russische "ы"', 'audio/hangul/ui.mp3'),
             ],
           ),),

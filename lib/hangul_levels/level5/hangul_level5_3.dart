@@ -467,7 +467,7 @@ void _pressVowel(String v) {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Wenn zwei "ㄹ" aufeinander kommen, werden beide wie ein "L" ausgesprochen. Das gilt aber auch wenn ein "ㄹ" und ein "ㄴ" aufeinander kommen!',
+            'Wenn zwei "ㄹ" aufeinander kommen, werden beide wie ein "L" ausgesprochen. Das gilt aber auch, wenn ein "ㄹ" und ein "ㄴ" aufeinander kommen!',
             style: TextStyle(fontSize: 16),
           ),
 const SizedBox(height: 12),

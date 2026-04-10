@@ -4,7 +4,7 @@ class AppStrings {
 //GENERAL  
   
   static const app_name = "Junbi";
-  static const hyeong_explanation = "Hyeongs sind Abläufe vorgefertigter Angriffs -und Verteidigunstechniken, die graduell komplizierter werden.";
+  static const hyeong_explanation = "Hyeongs sind Abläufe vorgefertigter Angriffs -und Verteidigungstechniken, die graduell komplizierter werden.";
   static const junbi_introduction_german = "Willkommen bei Junbi, die App für\n traditionelles Taekwondo.";
 
 
@@ -13,8 +13,8 @@ class AppStrings {
 static const hyeong_data = 
   ["Cheon Ji|천지|天地|Himmel und Erde, steht für den Anfang.|19|1|Bedeutet Himmel und Erde (天 und 地). Dieser Hyeong steht für den Anfang.", 
   "Dan Gun|단군|檀君|Ein Heiliger, welcher der Legende nach 2333 v.Chr Korea erschaffen hat.|21|2|Benannt nach dem heiligen Dan Gun, der 2333 v.Chr. Korea gergründet haben soll.", 
-  "Do San|도산|島山|Koreanischer Patriot, Anführer der koreanischen Unabhängigkeitsbewegung.|24|3|Do San ist der Pseudonym des Patrioten An Chang Ho (안창호) (1878-1938). Er war ein Koreanischer Politiker, Unabhängigkeitsaktivist, und Leiter der 'Korean-American immigrant community' in den USA. Er und seine Frau waren da erste Koreanischer Ehepaar, das legal in die USA einreiste.", 
-  "Won Hyo|원효|元曉|Buddhistischer Mönch, der Buddhismus in Korea verbreitete.|28|4|Won Hyo war ein ein buddhistischer Mönch in Korea. Er hat sich für die Verbreitung des Buddhismus in Korea eingesetz", 
+  "Do San|도산|島山|Koreanischer Patriot, Anführer der koreanischen Unabhängigkeitsbewegung.|24|3|Do San ist das Pseudonym des Patrioten An Chang Ho (안창호) (1878-1938). Er war ein koreanischer Politiker, Unabhängigkeitsaktivist und Leiter der 'Korean-American immigrant community' in den USA. Er und seine Frau waren das erste koreanische Ehepaar, das legal in die USA einreiste.", 
+  "Won Hyo|원효|元曉|Buddhistischer Mönch, der Buddhismus in Korea verbreitete.|28|4|Won Hyo war ein ein buddhistischer Mönch in Korea. Er hat sich für die Verbreitung des Buddhismus in Korea eingesetzt.", 
   "Yul Gok|율곡|栗谷|Der Philosoph Yi I hat sich intensiv mit dem 'Ki', der Energie, beschäftigt.|38|5|Yul Gok war der Künstlername des Philosophen Yi I (이이). Gemeinsam mit Toi Gye (Yi Hwang) war er einer der beiden großen Philosophen seiner Zeit. Er legte besonderen Wert auf die Lebensenergie, dem 'KI' ", 
   "Jung Geun|중근|重根|Freiheitskämpfer, bekannt für den Mord eines Japanischen Premierministers.|32|6|An Jung Geun (안중근) war ein Koreanischer Freiheitskämpfer. Er ist berühmt für die Ermordung des Japanischen Ministerpräsidenten, der damals über Korea regierte.", 
   "Toi Gye|퇴계|退溪|Der Philosoph Yi Hwang hat sich intensiv mit dem 'Li', der Ordnung, beschäftigt.|37|7|Toi Gye ist der Künstlername des Philosophen Yi Hwang (이황). Im Gegensatz zu Yul Gok (Yi I), legte er mehr Wert auf die Ordnung (Ri), statt der Energie (Ki).", 
@@ -48,7 +48,7 @@ static const techniqueInformation= {
 //YELLOW
 "arae_makgi": ["Arae Makgi", "아래막기", "Block Unten", "Blöcke", "Block auf niedriger Höhe mit der Außenkante des Unterarms", "Hadan Makgi [하단막기]"],
 "momtong_jireugi": ["Momtong Jireugi", "몸통지르기", "Fauststoß Mitte", "Stöße", "Fauststoß auf mittlerer Höhe", "Jungdan Jireugi [중단지르기]"],
-"momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms", "Jungdan Makgi [중단막기]\nAn Palmok Makgi[안팔목막기]"],
+"momtong_makgi": ["Momtong Makgi", "몸통막기", "Block Mitte", "Blöcke", "Block auf mittlerer Höhe mit der Innenkante des Unterarms", "Jungdan Makgi [중단막기]\nAn Palmok Makgi [안팔목막기]"],
 "hugeul_seogi": ["Hugeul Seogi", "후글서기", "Rückwärtsfußstellung", "Fußstellungen", "Seitlich orientierte Fußstellung mit größerer Belastung auf dem hinteren Bein", "Dwit Gubi [뒷구비]"],
 "eolgul_jireugi": ["Eolgul Jireugi", "얼굴지르기", "Fauststoß Oben", "Stöße", "Fauststoß auf oberer Höhe", "Sangdan Jireugi [하단막기]"],
 "eolgul_makgi": ["Eolgul Makgi", "얼굴막기", "Block Oben", "Blöcke", "Block auf oberer Höhe mit der Außenkante des Unterarms", "Sangdan Makgi [상단막기], Chukyeo Makgi [추켜막기]"],

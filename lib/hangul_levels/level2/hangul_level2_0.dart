@@ -331,7 +331,7 @@ class _HangulContentState extends State<_HangulContent> {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Der Buchstabe "ㅅ" wird meisten mit einem "s" transkribiert, kann aber auf drei verschiedene Arten ausgesprochen werden. \n\n1. in Kombination mit einem "i", klingt es wie bei dem Wort "SCHIff": \n 시 = ㅅ + ㅣ (shi)  \n\n2. In Kombination mit jedem anderen Vokal, klingt es wie bei dem Wort "naSS":\n 사 = ㅅ + ㅏ (sa) \n\n3. Am Ende einer Silbe schließt man denn Mund bevor man die Luft durchlässt, weshalb es klingt wie ein "t": \n 굿 = ㄱ + ㅜ + ㅅ (gut)',
+            'Der Buchstabe "ㅅ" wird meistens mit einem "s" transkribiert, kann aber auf drei verschiedene Arten ausgesprochen werden. \n\n1. in Kombination mit einem "i" klingt es wie bei dem Wort "SCHIff": \n 시 = ㅅ + ㅣ (shi)  \n\n2. In Kombination mit jedem anderen Vokal klingt es wie bei dem Wort "naSS":\n 사 = ㅅ + ㅏ (sa) \n\n3. Am Ende einer Silbe schließt man den Mund, bevor man die Luft durchlässt, weshalb es wie ein "t" klingt: \n 굿 = ㄱ + ㅜ + ㅅ (gut)',
             style: TextStyle(fontSize: 16),
           ),
 

@@ -237,7 +237,7 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Neben den vertikalen Vokalen, gibt es auch Horizontale. Sie funktionieren genau gleich, nur werden sie unter dem ersten Konsonanten geschrieben, statt daneben. \n Beispiele: \n- 고 = ㄱ + ㅗ (go) \n- 구 = ㄱ + ㅜ (gu) ',
+            'Neben den vertikalen Vokalen gibt es auch horizontale. Sie funktionieren genau gleich, nur werden sie unter dem ersten Konsonanten geschrieben, statt daneben. \n Beispiele: \n- 고 = ㄱ + ㅗ (go) \n- 구 = ㄱ + ㅜ (gu) ',
             style: TextStyle(fontSize: 16),
           ),
 

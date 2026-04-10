@@ -480,7 +480,7 @@ void _pressVowel(String v) {
 
                     // Konsonanten
           const Text(
-            'Versuche die Zwielaute auszusprechen bevor du sie dir anhörst:',
+            'Versuche die Zwielaute auszusprechen, bevor du sie dir anhörst:',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 20),

@@ -46,7 +46,7 @@ class HangulPage extends StatelessWidget {
                 const SizedBox(height: 32),
                 _buildBigButton(
                   context: context,
-                  label: 'Interactives Lernen ->',
+                  label: 'Interaktives Lernen ->',
                   color: Colors.black,
                   onTap: () => _navigate(context, const HangulLearningPage()),
                 ),

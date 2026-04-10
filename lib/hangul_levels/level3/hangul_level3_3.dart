@@ -496,7 +496,7 @@ Widget _buildAudioCard(
           ),
           const SizedBox(height: 6),
           const Text(
-            'Jetzt mal umgekehrt! \n\nDir ist sicher schon aufgefallen, dass die Sachen nicht immer so klingen, wie sie auf Deutsch geschrieben werden. Das liegt daran, dass man sich auf fixe Regeln geeinigt hat, wie man die Koreanische Schrift transkribiert. Bei den folgenden Wörtern, klingt das so, als wäre der Anfangsbuchstabe hart, obwohl es eigentlich mit einem Weichen geschrieben wird:',
+            'Jetzt mal umgekehrt! \n\nDir ist sicher schon aufgefallen, dass die Sachen nicht immer so klingen, wie sie auf Deutsch geschrieben werden. Das liegt daran, dass man sich auf fixe Regeln geeinigt hat, wie man die koreanische Schrift transkribiert. Bei den folgenden Wörtern klingt das so, als wäre der Anfangsbuchstabe hart, obwohl es eigentlich mit einem weichen geschrieben wird:',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -512,7 +512,7 @@ SingleChildScrollView(
 
           const SizedBox(height: 8),
           const Text(
-            'Obwohl "weiche "Konsonanten am Anfang eher hart ausgesprochen werden im Koreanischen, transkribiert man sie als weich. Am Ende eines Zeichens werden sie auch eher hart ausgesprochen, da transskribiert man sie aber tatsächlich als harte Konsonanten! Das ist bei den folgenden Wörtern der Fall: ',
+            'Obwohl im Koreanischen "weiche" Konsonanten am Anfang eher hart ausgesprochen werden, transkribiert man sie als weich. Am Ende eines Zeichens werden sie auch eher hart ausgesprochen, da transkribiert man sie aber tatsächlich als harte Konsonanten! Das ist bei den folgenden Wörtern der Fall: ',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -535,7 +535,7 @@ SingleChildScrollView(
           ),
           const SizedBox(height: 6),
           const Text(
-            'Transkribiere folgende Koreanischen Wörter in die Lateinische Schrift!',
+            'Transkribiere folgende koreanischen Wörter in die lateinische Schrift!',
             style: TextStyle(fontSize: 16),
           ),
 

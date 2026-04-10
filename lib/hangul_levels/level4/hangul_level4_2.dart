@@ -467,7 +467,7 @@ void _pressVowel(String v) {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Wir lernen drei weiter Zwielaute, aber keine Angst! Sie werden alle drei genau gleich ausgesprochen. \n\nEs gab früher eine Unterscheidung zwischen diesen Lauten, die ist aber im modernen Koreanisch komplett verloren gegangen. Besonders zu beachten, ist das die Kombination aus ㅗ (o) und ㅣ (i), nicht als (oi) ausgesprochen wird, aber sehr wohl so transkribiert! Deshalb spricht man den Hyeong Toi Gye (퇴계) aus als wäre es "Twe Gye".  \n\n"ㅜ" + "ㅔ" = "ㅞ" \n\n"ㅗ" + "ㅐ" = "ㅙ" \n\n"ㅗ" + "ㅣ" = "ㅚ" ',
+            'Wir lernen drei weitere Zwielaute, aber keine Angst! Sie werden alle drei genau gleich ausgesprochen. \n\nEs gab früher eine Unterscheidung zwischen diesen Lauten, die ist aber im modernen Koreanisch komplett verloren gegangen. Besonders zu beachten ist, dass die Kombination aus ㅗ (o) und ㅣ (i) nicht als (oi) ausgesprochen wird, aber sehr wohl so transkribiert! Deshalb spricht man den Hyeong Toi Gye (퇴계) aus, als wäre es "Twe Gye".  \n\n"ㅜ" + "ㅔ" = "ㅞ" \n\n"ㅗ" + "ㅐ" = "ㅙ" \n\n"ㅗ" + "ㅣ" = "ㅚ" ',
             style: TextStyle(fontSize: 16),
           ),
 

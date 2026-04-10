@@ -331,7 +331,7 @@ class _HangulContentState extends State<_HangulContent> {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Viele Konsonanten kann man modifizieren, in dem man einen weiteren horizontalen Strich hinzufügt. Diese werden dann härter ausgesprochen:\n\n Aus ㄱ (g) wird ㅋ (k) \n\n Aus ㄷ (d) wird ㅌ (t)\n\n  Aus ㅂ (b) wird ㅍ (p)',
+            'Viele Konsonanten kann man modifizieren, indem man einen weiteren horizontalen Strich hinzufügt. Diese werden dann härter ausgesprochen:\n\n Aus ㄱ (g) wird ㅋ (k) \n\n Aus ㄷ (d) wird ㅌ (t)\n\n  Aus ㅂ (b) wird ㅍ (p)',
             style: TextStyle(fontSize: 16),
           ),
 

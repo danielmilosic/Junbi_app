@@ -466,7 +466,7 @@ void _pressVowel(String v) {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Dieses Level widmet sich der Aussprache. Du hast vielleicht bemerkt, dass die Aussprache nicht immer dem entspricht, wie man sich das vorstellt. Das liegt daran, dass es natürlich eine ganz andere Sprache ist, die mit europäischen Sprachen garnicht verwandt ist und dementsprechend anderen Regeln folgt. \n\nErste Regel: \n\nWenn ein Konsonant von zwei Vokalen umgeben ist, wird er eher weich ausgesprochen. Wenn er direkt nach einem (ㄹ), (ㄴ), (ㅇ) oder (ㅁ) kommt, wird er auch weich ausgesprochen. Sonst, am Anfang oder Ende einer Silbe, etwas härter. Beispiele \n\n Hier werden beide Konsonaten (ㄱ) hart ausgesprochen: \n 국 \n\n Hier auch: \n 막기 \n\n Hier hingegen wird das (ㄱ) weich ausgesprochen: \n 요가 \n\n Hier wird das (ㄱ) weich ausgesprochen, das (ㄷ) aber hart: \n 들기',
+            'Dieses Level widmet sich der Aussprache. Du hast vielleicht bemerkt, dass die Aussprache nicht immer dem entspricht, wie man sich das vorstellt. Das liegt daran, dass es natürlich eine ganz andere Sprache ist, die mit europäischen Sprachen gar nicht verwandt ist und dementsprechend anderen Regeln folgt. \n\nErste Regel: \n\nWenn ein Konsonant von zwei Vokalen umgeben ist, wird er eher weich ausgesprochen. Wenn er direkt nach einem (ㄹ), (ㄴ), (ㅇ) oder (ㅁ) kommt, wird er auch weich ausgesprochen. Sonst, am Anfang oder Ende einer Silbe, etwas härter. Beispiele \n\n Hier werden beide Konsonaten (ㄱ) hart ausgesprochen: \n 국 \n\n Hier auch: \n 막기 \n\n Hier hingegen wird das (ㄱ) weich ausgesprochen: \n 요가 \n\n Hier wird das (ㄱ) weich ausgesprochen, das (ㄷ) aber hart: \n 들기',
             style: TextStyle(fontSize: 16),
           ),
 

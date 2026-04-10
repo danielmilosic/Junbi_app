@@ -486,7 +486,7 @@ class _HangulContentState extends State<_HangulContent> {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Tipp: Klicke zwei mal auf ein Vokal um es zu jotieren!',
+            'Tipp: Klicke zwei mal auf einen Vokal, um ihn zu jotieren!',
             style: TextStyle(fontSize: 16),
           ),
 

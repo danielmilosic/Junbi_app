@@ -423,7 +423,7 @@ class _HangulContentState extends State<_HangulContent> {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Dir fehlt nicht mehr viel um jeden Koreanischen Text zu lesen. Bevor wir die letzten paar Zeichen lernen, sehen wir uns an was du schon alles lesen kannst. Die Wörter werden immer schwieriger, also nicht verzweifeln! \n\nVersuche die Wörter zu lesen bevor du sie dir anhörtst und versuche zu erraten, was sie bedeuten!',
+            'Dir fehlt nicht mehr viel, um jeden koreanischen Text zu lesen. Bevor wir die letzten paar Zeichen lernen, sehen wir uns an, was du schon alles lesen kannst. Die Wörter werden immer schwieriger, also nicht verzweifeln! \n\nVersuche die Wörter zu lesen, bevor du sie dir anhörst und versuche zu erraten, was sie bedeuten!',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -432,7 +432,7 @@ class _HangulContentState extends State<_HangulContent> {
 
           const SizedBox(height: 6),
           const Text(
-            'Bekannte Koreanische Wörter: ',
+            'Bekannte koreanische Wörter: ',
             style: TextStyle(fontSize: 16),
           ),
 

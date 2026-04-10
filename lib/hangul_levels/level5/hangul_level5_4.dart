@@ -467,12 +467,12 @@ void _pressVowel(String v) {
 
           // Aufbau
           const Text(
-            'Grundlegende Koreanische Phrasen',
+            'Grundlegende koreanische Phrasen',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           const Text(
-            'Super gemacht! Du hast die Koreanische Schrift gemeistert :) \n\nWenn du schon dabei bist, kannst du gleich ein paar Phrasen für eine eventuelle Koreareise lernen.',
+            'Super gemacht! Du hast die koreanische Schrift gemeistert :) \n\nWenn du schon dabei bist, kannst du gleich ein paar Phrasen für eine eventuelle Koreareise lernen.',
             style: TextStyle(fontSize: 16),
           ),
 
@@ -489,8 +489,8 @@ Center(
       children: [
         _buildAudioCard(context, '안녕하세요\n - Hallo', 'audio/hangul/gukmin.mp3'),
         _buildAudioCard(context, '감사합니다\n - Dankeschön', 'audio/hangul/gamsahamnida.mp3'),
-        _buildAudioCard(context, '안녕히계세요\n - Aufwiedersehen\n (wenn man selbst geht)', 'audio/hangul/gamsahamnida.mp3'),
-        _buildAudioCard(context, '안녕히가세요\n - Aufwiedersehen\n (wenn man selbst bleibt)', 'audio/hangul/gamsahamnida.mp3'),
+        _buildAudioCard(context, '안녕히계세요\n - Auf Wiedersehen\n (wenn man selbst geht)', 'audio/hangul/gamsahamnida.mp3'),
+        _buildAudioCard(context, '안녕히가세요\n - Auf Wiedersehen\n (wenn man selbst bleibt)', 'audio/hangul/gamsahamnida.mp3'),
         _buildAudioCard(context, '비빔밥 주세요\n - Bitte ein Bibimbap', 'audio/hangul/gamsahamnida.mp3'),
         _buildAudioCard(context, '소주 한 장 주세요\n - Bitte ein Glas Soju', 'audio/hangul/gamsahamnida.mp3'),
       ],

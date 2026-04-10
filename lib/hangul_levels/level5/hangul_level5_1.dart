@@ -495,7 +495,7 @@ const SizedBox(height: 12),
 
           const SizedBox(height: 12),
           const Text(
-            'Das passiert, weil es "leichter" ist den Endkonsonanten nasal auszusprechen, wenn der nächste Anfangskonsonant auch nasal ist. Es gibt drei Endkonsonanten bei denen das passiert: ',
+            'Das passiert, weil es "leichter" ist den Endkonsonanten nasal auszusprechen, wenn der nächste Anfangskonsonant auch nasal ist. Es gibt drei Endkonsonanten, bei denen das passiert: ',
             style: TextStyle(fontSize: 16),
           ),
 const SizedBox(height: 12),
@@ -512,7 +512,7 @@ Center(child: Column(
 
           const SizedBox(height: 12),
           const Text(
-            'Es passiert immer wenn der nächste Anfangskonsonant einer der folgenden ist:',
+            'Es passiert immer, wenn der nächste Anfangskonsonant einer der folgenden ist:',
             style: TextStyle(fontSize: 16),
           ),
 const SizedBox(height: 12),

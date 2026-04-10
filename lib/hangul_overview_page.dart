@@ -586,7 +586,7 @@ void _pressVowel(String v) {
           ),
           const SizedBox(height: 6),
           const Text(
-            '• Lerne zuerst die 14 grundlegenden Konsonanten und 8 Vokale. \n• Übe die Blockbildung: konsonant + vokal (+ optional konsonant). \n• Höre koreanische Aussprache und sprich mit — viele Laute haben keine exakte deutsche Entsprechung. \n• Schreibe langsam: Man merkt sich die Zeichen leichter, wenn man sie selbst aufschreibt.',
+            '• Lerne zuerst die 14 grundlegenden Konsonanten und 8 Vokale. \n• Übe die Blockbildung: Konsonant + Vokal (+ optional Konsonant). \n• Höre koreanische Aussprache und sprich mit — viele Laute haben keine exakte deutsche Entsprechung. \n• Schreibe langsam: Man merkt sich die Zeichen leichter, wenn man sie selbst aufschreibt.',
             style: TextStyle(fontSize: 16),
           ),
 

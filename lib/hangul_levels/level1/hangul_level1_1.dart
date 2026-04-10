@@ -204,7 +204,7 @@ void _updateController() {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Wir lernen gleich ein paar weitere Konsonanten um unser Wissen zu erweitern. Nicht verzweifeln, aller Anfang ist schwer!',
+            'Wir lernen gleich ein paar weitere Konsonanten, um unser Wissen zu erweitern. Nicht verzweifeln, aller Anfang ist schwer!',
             style: TextStyle(fontSize: 16),
           ),
 

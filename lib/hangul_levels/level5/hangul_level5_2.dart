@@ -467,7 +467,7 @@ void _pressVowel(String v) {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Eines der schwierigsten Koreanischen Wörter im Taekwondo ist das Wort für Verbeugung: 경례 (gyeong rye -> gyeongnye). Das liegt, unter anderem, and der Schwierigkeit der Ausspracheregel, welcher wir uns jetzt widmen:',
+            'Eines der schwierigsten koreanischen Wörter im Taekwondo ist das Wort für Verbeugung: 경례 (gyeong rye -> gyeongnye). Das liegt unter anderem, an der Schwierigkeit der Ausspracheregel, welcher wir uns jetzt widmen:',
             style: TextStyle(fontSize: 16),
           ),
 const SizedBox(height: 12),
@@ -489,13 +489,13 @@ const SizedBox(height: 12),
 
             const SizedBox(width:60),
 
-            Text('경녜',style: TextStyle(fontSize: 30))
+            Text('경네',style: TextStyle(fontSize: 30))
             ],
             ),
 
           const SizedBox(height: 12),
           const Text(
-            'Hier ist es auch "leichter" das "ㄹ" nasal auszusprechen, also als "ㄴ". Es passiert immer beim Anfangskonsonanten "ㄹ" wenn der vorherige Endkonsonant einer der folgenden ist:',
+            'Hier ist es auch "leichter" das "ㄹ" nasal auszusprechen, also als "ㄴ". Es passiert immer beim Anfangskonsonanten "ㄹ", wenn der vorherige Endkonsonant einer der folgenden ist:',
             style: TextStyle(fontSize: 16),
           ),
 const SizedBox(height: 12),

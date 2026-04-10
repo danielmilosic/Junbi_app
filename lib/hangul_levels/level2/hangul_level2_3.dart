@@ -337,7 +337,7 @@ class _HangulContentState extends State<_HangulContent> {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Es fehlen uns nur noch zwei Einzelkonsonanten! \n\nㅈ (j) wird ausgesprochen wie in "DSCHungel". \n\nㅊ (ch) ist die härtere Version von den Beiden, wird ausgesprochen wie in "TSCHernobyl".',
+            'Es fehlen uns nur noch zwei Einzelkonsonanten! \n\nㅈ (j) wird ausgesprochen wie in "DSCHungel". \n\nㅊ (ch) ist die härtere Version von den beiden, wird ausgesprochen wie in "TSCHernobyl".',
             style: TextStyle(fontSize: 16),
           ),
 
